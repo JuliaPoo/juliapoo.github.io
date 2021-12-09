@@ -1,0 +1,19 @@
+<nav class="nav">
+    <a href="/" class="nohover">
+        <img class="nav-icon" src="/assets/img/placeholder.svg">
+    </a>
+    {% for item in site.data.nav %}
+    <span aria-hidden="true">
+        {<a 
+            href={{ item.link }} 
+            {% if page.url==item.link %}
+                class="nav-current"
+            {% else %}
+                class="nav-inactive"
+            {% endif %}
+        >
+            {{ item.name }}
+        </a>}
+    </span>
+    {% endfor %}
+</nav>

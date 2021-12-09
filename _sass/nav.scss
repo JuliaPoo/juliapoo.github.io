@@ -1,0 +1,17 @@
+.nav {
+    overflow: "hidden";
+    border: 2px solid #01fdc7;
+    padding: 10px;
+}
+
+.nav-current {
+    color: #01fdc7 !important;
+}
+
+.nav-inactive {
+    font-style: italic;
+}
+
+.nav-icon {
+    height: 5em;
+}
