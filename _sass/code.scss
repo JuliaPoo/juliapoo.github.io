@@ -1,0 +1,24 @@
+// Generic code styling
+code * {
+    font-size: large;
+}
+
+.highlight {
+    margin: 0em;
+}
+
+.highlighter-rouge {
+    overflow-x: auto;
+    background: rgba(1, 42, 70, 0.5);
+}
+
+// Line numbers styling
+.rouge-gutter .lineno {
+    color: rgb(1, 110, 143);
+    margin-right: 0.3em;
+}
+
+.rouge-code pre, .rouge-gutter pre {
+    // Remove spacing at top and bottom of code block
+    margin: 0em;
+}

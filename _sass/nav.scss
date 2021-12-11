@@ -5,14 +5,18 @@
     font-size: larger;
 }
 
-.nav-current {
-    color: #01fdc7 !important;
+.nav-items {
+    display: inline-block;
+    height: 2em;
 }
 
-.nav-inactive {
+.nav-current {
+    color: #01fdc7 !important;
     font-style: italic;
 }
+
 .nav-icon {
+    display: inline-block;
     height: 5em;
-    vertical-align: bottom
+    vertical-align: bottom;
 }

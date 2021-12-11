@@ -1,5 +1,11 @@
 ---
 ---
+
+// Generic css
 @import "fonts";
 @import "main";
-@import "nav"
+@import "nav";
+
+// Css concerning inline-code and code blocks
+@import "dracula.scss";
+@import "code.scss";
