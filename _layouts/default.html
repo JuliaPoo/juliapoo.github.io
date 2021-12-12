@@ -7,12 +7,21 @@
   <link rel="icon" href="/assets/img/placeholder.svg">
   <link rel="stylesheet" href="/assets/css/styles.css">
   <script src="/assets/js/nav.js"></script>
+  <script src="/assets/js/feather.js"></script>
 </head>
 
 <body>
   {% include nav.html %}
-  <div class="site-content">
-    {{ content }}
+  <div class="site-container">
+    <div class="site-bar site-left">
+      <img id="site-left-feather" src="/assets/img/feather.svg">
+    </div>
+    <div class="site-content-container">
+      <div class="site-content">
+        {{ content }}
+      </div>
+    </div>
+    <div class="site-bar site-right"></div>
   </div>
 </body>
 

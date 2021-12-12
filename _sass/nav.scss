@@ -41,7 +41,7 @@
     background-repeat: no-repeat;
 }
 
-// Move site content downwards
-.site-content {
-    padding-top: calc(30px + 6em);
+// Move site content downwards to accomodate the nav bar
+.site-container {
+    margin-top: calc(44px + 6em);
 }
