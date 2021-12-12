@@ -6,11 +6,14 @@
   <title>{{ page.title }}</title>
   <link rel="icon" href="/assets/img/placeholder.svg">
   <link rel="stylesheet" href="/assets/css/styles.css">
+  <script src="/assets/js/nav.js"></script>
 </head>
 
 <body>
   {% include nav.html %}
-  {{ content }}
+  <div class="site-content">
+    {{ content }}
+  </div>
 </body>
 
 </html>

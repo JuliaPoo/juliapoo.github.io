@@ -1,8 +1,18 @@
+.nav-container {
+    background-color: rgba(0, 20, 49, 0.9);
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
 .nav {
     overflow: "hidden";
     border: 2px solid #01fdc7;
     padding-top: 10px;
     font-size: larger;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: calc(100% - 20px);
 }
 
 .nav-items {
@@ -29,4 +39,9 @@
     background-image: url(/assets/img/alula-neon-smiling.svg);
     background-size: contain;
     background-repeat: no-repeat;
+}
+
+// Move site content downwards
+.site-content {
+    padding-top: calc(30px + 6em);
 }
