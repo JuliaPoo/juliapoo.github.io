@@ -37,6 +37,8 @@ A list:
 2. Two
 3. Gun
 
+<img src="/assets/img/alula-neon.svg" alt="drawing" style="width:200px;"/>
+
 ## Another code block:
 
 
