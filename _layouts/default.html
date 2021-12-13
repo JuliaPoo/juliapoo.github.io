@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ page.title }}</title>
   <link rel="icon" href="/assets/img/placeholder.svg">
   <link rel="stylesheet" href="/assets/css/styles.css">
@@ -13,16 +14,19 @@
 <body>
   {% include nav.html %}
   <div class="site-container">
-    <div class="site-bar site-left">
-      <img id="site-left-feather" src="/assets/img/feather.svg">
+    <div class="site-bar">
+      <!--TODO: Seperate `feather` into a different file-->
+      <img id="site-feather" src="/assets/img/feather.svg">
+      {% include menu.html %}
     </div>
     <div class="site-content-container">
       <div class="site-content">
         {{ content }}
       </div>
     </div>
-    <div class="site-bar site-right"></div>
   </div>
+  {% include footer.html %}
+
 </body>
 
 </html>

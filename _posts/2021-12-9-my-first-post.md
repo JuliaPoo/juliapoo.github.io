@@ -3,6 +3,18 @@ layout: post
 author: JuliaPoo
 
 display-title: Hello! This is my first post!
+
+nav:
+  - name: A code block
+    level: 1
+    permalink: #a-code-block
+  - name: Some Stuff
+    level: 2
+    permalink: #some-stuff
+  - name: Another code block
+    level: 2
+    permalink: #another-code-block
+  
 ---
 
 This is my first post! Am learning jekyll right now and so far it's been going great!
@@ -39,7 +51,7 @@ A list:
 
 <img src="/assets/img/alula-neon.svg" alt="drawing" style="width:200px;"/>
 
-## Another code block:
+## Another code block
 
 
 ```python

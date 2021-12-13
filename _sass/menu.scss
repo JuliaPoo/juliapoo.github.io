@@ -1,0 +1,13 @@
+.site-menu, .site-menu * {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.site-menu {
+    overflow: auto;
+    margin: 1.5em;
+    position: relative;
+    top: 0;
+    // Menu has to be at least 15 characters long to display
+    max-width: calc(max(0px, (100% - 15em)*999));
+}
