@@ -2,7 +2,28 @@
 layout: default
 ---
 
-<h1>{{ page.display-title }}</h1>
-<p>{{ page.date | date_to_string }} - {{ page.author }}</p>
+<div class="post-container">
+    <h1 class="post-title">{{ page.display-title }}</h1>
+    <div class="post-meta">
+
+        <span class="post-meta-left">
+        📅 {{ page.date | date_to_string }} - {{ page.author }} ^-^
+        </span>
+        
+        <span class="post-meta-right">
+            Tags: 
+            {% for tag in page.tags %}
+            #{{ tag }} 
+            {% endfor %}
+        </span>
+    </div>
+</div>
+
+<div class="post-navigation">
+    <details open="">
+    <summary>What's here:</summary>
+    {{ page.nav | markdownify }}
+    </details>
+</div>
 
 {{ content }}

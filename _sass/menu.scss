@@ -1,13 +1,22 @@
-.site-menu, .site-menu * {
+.menu, .menu * {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
-.site-menu {
-    overflow: auto;
-    margin: 1.5em;
+.menu ul {
+    padding-left: 1.5em;
+}
+
+.menu {
+    overflow: hidden;
+    padding: 1.5em;
+    padding-right: 0;
+    margin-right: 2px;
     position: relative;
     top: 0;
     // Menu has to be at least 15 characters long to display
-    max-width: calc(max(0px, (100% - 15em)*999));
+    max-width: calc(max(0px, (100% - 5em)*999));
+}
+
+.site-menu {
 }

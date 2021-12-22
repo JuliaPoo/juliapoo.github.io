@@ -42,7 +42,7 @@ function featherfall() {
                     feather.style.transform = getTransform();
                     if (v > 0 || dY < v) {
                         dY -= v;
-                        v -= 0.4;
+                        v -= 0.6;
                         return;
                     }
 
@@ -54,8 +54,10 @@ function featherfall() {
                 }, 15);
             } 
             else {
-                clearInterval(move_feather);
-                move_feather = NaN;
+                if (feather.getBoundingClientRect().bottom + 10 >= window.innerHeight) {
+                    clearInterval(move_feather);
+                    move_feather = NaN;
+                }
             }
         }
 

@@ -1,0 +1,32 @@
+.post-container {
+    padding-top: 0;
+}
+
+.post-title {
+    margin: 0;
+    padding-bottom: 0.6em;
+    border-bottom: 2px solid rgb(185, 255, 251);
+    line-height: 1.4em;
+    font-style: bold;
+    font-size: 3.5em;
+    text-transform: capitalize;
+}
+
+.post-meta {
+    margin: 0;
+    border-bottom: 2px solid rgb(185, 255, 251);
+    padding: 0.7em;
+    color:rgb(22, 236, 226);
+    font-size: smaller;
+    margin-bottom: 3em;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.post-navigation {
+    outline: 2px solid rgb(89, 70, 156);
+    background-color:rgba(0, 10, 31, 0.733);
+    padding: 1em;
+}

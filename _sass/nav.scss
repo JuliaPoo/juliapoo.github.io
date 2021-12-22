@@ -1,18 +1,21 @@
 .nav-container {
-    background-color: rgba(0, 20, 49, 0.9);
+    background-color: rgba(0, 20, 49, 0.5);
     position: fixed;
     top: 0;
     width: 100%;
+    backdrop-filter: blur(10px);
+    z-index: 100;
 }
 
 .nav {
     overflow: "hidden";
-    border: 2px solid #01fdc7;
+    outline: 2px solid rgb(1, 253, 199);
     padding-top: 10px;
     font-size: larger;
     margin-top: 10px;
     margin-bottom: 10px;
-    width: calc(100% - 20px);
+    box-sizing: border-box;
+    width: calc(100% - 16px);
 }
 
 .nav-items {
@@ -23,11 +26,18 @@
 .nav-current {
     color: #01fdc7 !important;
     font-style: italic;
+    text-shadow: 
+        0 0 0.20em rgba(1, 253, 199, 1.0), 
+        0 0 0.25em rgba(1, 253, 199, 0.7), 
+        0 0 0.30em rgba(1, 253, 199, 0.5), 
+        0 0 0.40em rgba(1, 253, 199, 0.3), 
+        0 0 0.60em rgba(1, 253, 199, 0.2), 
+        0 0 1.00em rgba(1, 253, 199, 0.1) !important;
 }
 
 .nav-icon {
     display: inline-block;
-    height: 5em;
+    height: 5.5em;
     width: 5em;
     vertical-align: bottom;
     background-image: url(/assets/img/alula-neon.svg);
@@ -43,5 +53,5 @@
 
 // Move site content downwards to accomodate the nav bar
 .site-container {
-    margin-top: calc(44px + 6em);
+    margin-top: calc(42px + 6em);
 }

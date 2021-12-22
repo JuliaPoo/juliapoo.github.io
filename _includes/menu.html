@@ -1,8 +1,47 @@
-<div class="site-menu">
+
+
+<div class="menu">
+
+    {% if include.page_nav %}
+        <summary>Page Contents</summary>
+        <section class="menu-section page-menu">
+            {{ include.page_nav | markdownify }}
+        </section>
+    {% endif %}
+
+    <details open="">
+    <summary>More on this site</summary>
+    <section class="menu-section site-menu">
+        <ul>
+            <li><h3>Blog</h3></li>
+            <ul>
+                {% for post in site.posts %}
+                    <li>
+                    <a href="{{ post.url }}">{{ post.display-title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </ul>
+        <!--
+        <ul>
+            <li><a href="about_us.html">about us</a></li>
+            <li><a href="mission.html">mission</a></li>
+            <li><a href="philosophy.html">philosophy</a></li>
+            <li><a href="pino.html">pino</a></li>
+            <li><a href="videos.html">videos</a></li>
+            <li><a href="support.html">support</a></li>
+            <li><a href="store.html">store</a></li>
+            <li><a href="press.html">press</a></li>
+        </ul>
+        -->
+    </section>
+    </details>
+
     <!--Placeholder: Will add{
         1. Blog > Categories > Archive
         2. Projects > Categories > Archive
     },-->
+    <!--
     <details open="">
         <summary>Menu</summary>
         <section class="site-nav">
@@ -100,4 +139,5 @@
             </section>
         </section>
     </details>
+    -->
 </div>
