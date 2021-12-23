@@ -1,5 +1,6 @@
 .blog-listing {
     border-left: 2px solid white;
+    margin-top: 1em;
     margin-left: 1em;
     padding: 1em;
 }
@@ -10,6 +11,7 @@
 
 .blog-category-desc {
     margin-top: 0;
+    color: rgb(148, 248, 240);
 }
 
 .blog-display {
@@ -19,4 +21,16 @@
 
 .blog-excerpt {
     margin-top: 0.5em;
+}
+
+.blog-post-meta {
+    margin: 0;
+    padding: 0.7em;
+    color:rgb(22, 236, 226);
+    font-size: smaller;
+    margin-bottom: 3em;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

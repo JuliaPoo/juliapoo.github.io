@@ -1,0 +1,44 @@
+/*
+ * Styling for post content
+ */
+
+.generic-content h1:not(.generic-no-style) {
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+
+    text-shadow: 
+        0 0 0.10em rgba(1, 253, 199, 1.0), 
+        0 0 0.08em rgba(1, 253, 199, 0.7), 
+        0 0 0.15em rgba(1, 253, 199, 0.5), 
+        0 0 0.20em rgba(1, 253, 199, 0.3), 
+        0 0 0.30em rgba(1, 253, 199, 0.2), 
+        0 0 0.50em rgba(1, 253, 199, 0.1); 
+}
+
+.generic-content h2:not(.generic-no-style), 
+.generic-content h3:not(.generic-no-style) {
+
+    margin-top: 2em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+
+    text-shadow: 
+        0 0 0.10em rgba(1, 253, 199, 1.0), 
+        0 0 0.08em rgba(1, 253, 199, 0.7), 
+        0 0 0.15em rgba(1, 253, 199, 0.5), 
+        0 0 0.20em rgba(1, 253, 199, 0.3), 
+        0 0 0.30em rgba(1, 253, 199, 0.2), 
+        0 0 0.50em rgba(1, 253, 199, 0.1);  
+}
+
+.generic-content h1 {
+    border-bottom: 2px solid rgb(4, 129, 212);
+}
+
+.generic-content h2 {
+    border-bottom: 2px solid rgb(1, 48, 80);
+}
+
+.generic-content h3 {
+    border-bottom: 2px solid rgb(1, 48, 80);
+}
