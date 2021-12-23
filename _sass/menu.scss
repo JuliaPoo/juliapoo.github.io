@@ -8,7 +8,8 @@
 }
 
 .menu {
-    overflow: hidden;
+    // Let the glow leak through
+    //overflow: hidden;
     padding: 1.5em;
     padding-right: 0;
     margin-right: 2px;
@@ -16,7 +17,4 @@
     top: 0;
     // Menu has to be at least 15 characters long to display
     max-width: calc(max(0px, (100% - 5em)*999));
-}
-
-.site-menu {
 }

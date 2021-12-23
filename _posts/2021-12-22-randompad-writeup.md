@@ -19,9 +19,9 @@ nav: |
             * [Cloning the PRNG](#cloning-the-prng)
             * [Predicting the padding of the flag](#predicting-the-padding-of-the-flag)
             * [Recovering the flag](#recovering-the-flag)
----
 
-Solution to Randompad challenge in RARCTF 2021.
+excerpt: Solution to Randompad challenge in RARCTF 2021.
+---
 
 # The Challenge
 
@@ -78,7 +78,6 @@ Via the same logic as before, we can make `pt` long enough such that it is the m
 To make cloning the PRNG easy, `padding` length should also be aligned to 4 bytes, since MT19937 outputs 32 bits per call. I chose the `padding` length to be 12 bytes, equivalent to 3 outputs of the MT19937. Since in order to clone an MT19937 we need at least 624 of its output, we need to query the server `624//3` times.
 
 ```python
-
 from nclib import Netcat
 
 def ru(nc, b):

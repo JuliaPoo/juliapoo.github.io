@@ -11,9 +11,9 @@ nav: |
     * [A code block](#a-code-block)
         * [Some Stuff](#some-stuff)
         * [Another code block](#another-code-block)
----
 
-This is my first post! Am learning jekyll right now and so far it's been going great!
+excerpt: This is my first post! Am learning jekyll right now and so far it's been going great!
+---
 
 ## A code block:
 

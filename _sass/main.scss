@@ -29,7 +29,7 @@ body {
 .site-content-container {
     display: block;
     width: 80em;
-    flex-grow: 4;
+    flex-grow: 2;
     max-width: 100%;
     background-color: rgba(0, 20, 49, 0.5);
     outline: 2px solid rgb(255, 170, 0);
@@ -47,6 +47,7 @@ body {
 
 .site-bar {
     flex-basis: 20%;
+    flex-shrink: 4;
     overflow-x: visible;
     min-width: 0px;
     outline: 2px solid rgb(255, 170, 0);
