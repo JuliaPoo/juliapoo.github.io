@@ -1,7 +1,7 @@
 ---
 layout: post
 author: JuliaPoo
-category: Misc
+category: CTF
 
 display-title: Randompad Writeup
 tags:
