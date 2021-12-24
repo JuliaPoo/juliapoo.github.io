@@ -2,6 +2,10 @@
  * Styling for post content
  */
 
+.generic-content {
+    overflow-x: scroll;
+}
+
 .generic-content h1:not(.generic-no-style) {
     margin-bottom: 1em;
     padding-bottom: 0.5em;
@@ -54,6 +58,10 @@
 
 .generic-content img {
     max-width: 100%;
+}
+
+.generic-content .MathJax_Display {
+    overflow-x: scroll;
 }
 
 .glow-text {

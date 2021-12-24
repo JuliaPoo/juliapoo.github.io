@@ -32,7 +32,7 @@ const params = {
 
 const W = document.getElementById("hewwo...").clientWidth;
 const R = 0.2;
-const H = W * R;
+const H = Math.max(W * R, 200);
     
 const renderer = new THREE.WebGLRenderer({alpha: true});
 renderer.setClearColor( 0xffffff, 0);
@@ -172,7 +172,7 @@ animate();
     
 function onWindowResize() {
     let W = document.getElementById("hewwo...").clientWidth;
-	let H = W * R;
+	let H = Math.max(W * R, 200);
     camera.aspect = W/H;
     camera.updateProjectionMatrix();
     renderer.setSize( W, H );

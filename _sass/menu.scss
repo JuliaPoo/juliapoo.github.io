@@ -9,7 +9,7 @@
 
 .menu {
     // Let the glow leak through
-    overflow: hidden;
+    overflow-x: scroll;
     padding: 1.5em;
     padding-right: 0;
     margin-right: 2px;
