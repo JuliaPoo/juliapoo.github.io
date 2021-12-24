@@ -3,13 +3,13 @@ layout: post
 author: JuliaPoo
 category: CTF
 
-display-title: Randompad Writeup
+display-title: "RARCTF 2021: Randompad Writeup (Crypto 700)"
 tags:
-    - CTF
-    - RARCTF
-    - Crypto
-    - MT19937
-    - Coppersmith
+    - ctf
+    - rarctf2021
+    - crypto
+    - mt19937
+    - coppersmith
 
 nav: |
     * [The Challenge](#the-challenge)
@@ -20,7 +20,7 @@ nav: |
             * [Predicting the padding of the flag](#predicting-the-padding-of-the-flag)
             * [Recovering the flag](#recovering-the-flag)
 
-excerpt: Solution to Randompad challenge in RARCTF 2021.
+excerpt: Solution to Randompad (Crypto 700) challenge in RARCTF 2021.
 ---
 
 # The Challenge
@@ -33,7 +33,7 @@ The server can also encrypt the flag and return its encryption (Option 2).
 
 We are allowed to send messages that aren't too long. The padding generated has to be at least 9 bytes long.
 
-The source can be found in the [./chal](./chal) folder.
+The challenge source can be found [here](/assets/posts/2021-08-13-randompad-writeup/randompad.py).
 
 ## The Vuln: The padding
 
@@ -213,6 +213,6 @@ print("Flag:", flag.decode())
 # > Flag: rarctf{but-th3y_t0ld_m3_th1s_p4dd1ng_w45-s3cur3!!}
 ```
 
-The full solve script can be found in [sol/sol.sage](sol/sol.sage).
+The full solve script can be found in [sol.sage](/assets/posts/2021-08-13-randompad-writeup/sol.sage).
 
 

@@ -1,6 +1,6 @@
 ---
 layout: generic
-title: Home
+title: Alulae
 ---
 
 # Welcome to <span style="color:rgb(1, 253, 199)">_Alulae_</span>.

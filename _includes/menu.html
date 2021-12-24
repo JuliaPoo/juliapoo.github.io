@@ -3,37 +3,23 @@
 <div class="menu">
 
     {% if include.page_nav %}
-        <summary>Page Contents</summary>
+        <h3 class="glow-text">Page Contents</h3>
         <section class="menu-section page-menu">
             {{ include.page_nav | markdownify }}
         </section>
     {% endif %}
 
+    <h3 class="glow-text">More on this site:</h3>
     <details open="">
-    <summary>More on this site</summary>
+    <summary><a href="/blog.html">Blog</a> (from latest)</summary>
     <section class="menu-section site-menu">
         <ul>
-            <li><h3>Blog (latest)</h3></li>
-            <ul>
-                {% for post in site.posts %}
-                    <li>
-                    <a href="{{ post.url }}">{{ post.display-title }}</a>
-                    </li>
-                {% endfor %}
-            </ul>
+            {% for post in site.posts %}
+                <li>
+                <a href="{{ post.url }}">{{ post.display-title }}</a>
+                </li>
+            {% endfor %}
         </ul>
-        <!--
-        <ul>
-            <li><a href="about_us.html">about us</a></li>
-            <li><a href="mission.html">mission</a></li>
-            <li><a href="philosophy.html">philosophy</a></li>
-            <li><a href="pino.html">pino</a></li>
-            <li><a href="videos.html">videos</a></li>
-            <li><a href="support.html">support</a></li>
-            <li><a href="store.html">store</a></li>
-            <li><a href="press.html">press</a></li>
-        </ul>
-        -->
     </section>
     </details>
 

@@ -16,11 +16,25 @@
     margin-bottom: 10px;
     box-sizing: border-box;
     width: calc(100% - 16px);
+
+    display: flex;
+    align-items: center;
 }
 
 .nav-items {
     display: inline-block;
-    height: 2.5em;
+    flex-basis: 100%;
+    flex-shrink: 4;
+
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: row wrap;
+}
+
+.nav-item {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    white-space: nowrap;
 }
 
 .nav-current {

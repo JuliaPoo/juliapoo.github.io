@@ -8,7 +8,7 @@
     </a>
     <span class="nav-items">
     {% for item in site.data.nav %}
-    <span aria-hidden="true" class="nav-item">
+    <div aria-hidden="true" class="nav-item">
         {<a 
             href={{ item.link }} 
             {% if page.url==item.link %}
@@ -19,7 +19,7 @@
         >
             {{ item.name }}
         </a>}
-    </span>
+    </div>
     {% endfor %}
     </span>
 </nav>
