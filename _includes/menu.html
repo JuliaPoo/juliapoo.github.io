@@ -2,13 +2,6 @@
 
 <div class="menu">
 
-    {% if include.page_nav %}
-        <h3 class="glow-text">Page Contents</h3>
-        <section class="menu-section page-menu">
-            {{ include.page_nav | markdownify }}
-        </section>
-    {% endif %}
-
     <h3 class="glow-text">More on this site:</h3>
     <details open="">
     <summary><a href="/blog.html">Blog</a> (from latest)</summary>
