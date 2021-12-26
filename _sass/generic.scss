@@ -3,7 +3,7 @@
  */
 
 .generic-content {
-    overflow-x: scroll;
+    overflow-x: auto;
 }
 
 .generic-content h1:not(.generic-no-style) {
@@ -61,7 +61,7 @@
 }
 
 .generic-content .MathJax_Display {
-    overflow-x: scroll;
+    overflow-x: auto;
 }
 
 .glow-text {
