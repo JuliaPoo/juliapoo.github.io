@@ -179,7 +179,7 @@ function onWindowResize() {
     if (W < 1080) {renderer.setPixelRatio(Math.floor(1080/W)+1);}
 }
 window.addEventListener( 'resize', onWindowResize );
-document.onload = onWindowResize;
+window.onload = onWindowResize;
 
 </script>
 </div>
