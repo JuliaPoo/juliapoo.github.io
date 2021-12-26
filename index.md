@@ -60,7 +60,7 @@ const materialr = new THREE.MeshBasicMaterial(
     {
         color: 0xbb0000,
         envMap: texture,
-        opacity: 0.5,
+        opacity: 0.7,
         transparent: true, 
         refractionRatio: 0.9,
         blending: THREE.AdditiveBlending,
@@ -69,7 +69,7 @@ const materialg = new THREE.MeshBasicMaterial(
     {
         color: 0x00ff00,
         envMap: texture,
-        opacity: 0.5,
+        opacity: 0.7,
         transparent: true, 
         refractionRatio: 0.9-0.005,
         blending: THREE.AdditiveBlending,
@@ -78,7 +78,7 @@ const materialb = new THREE.MeshBasicMaterial(
     {
         color: 0x0000ee,
         envMap: texture,
-        opacity: 0.5,
+        opacity: 0.7,
         transparent: true, 
         refractionRatio: 0.9-0.01,
         blending: THREE.AdditiveBlending,
@@ -87,7 +87,7 @@ const materialb = new THREE.MeshBasicMaterial(
 const materialm = new THREE.MeshBasicMaterial(
     {
         color: 0xf70073,
-        opacity: 0.15,
+        opacity: 0.3,
         transparent: true, 
         blending: THREE.AdditiveBlending,
     });
