@@ -30,7 +30,7 @@ const params = {
     scanlinesCount: 600
 };
 
-const W = document.getElementById("hewwo...").clientWidth * 0.9;
+const W = document.getElementById("hewwo...").clientWidth;
 const R = 0.2;
 const H = Math.max(W * R, 200);
     
