@@ -7,11 +7,12 @@ layout: default
     <div class="post-meta">
 
         <span class="post-meta-left">
-        📅 {{ page.date | date_to_string }} - {{ page.author }} ^-^
+            <span>📅</span> {{ page.date | date_to_string }} - {{ page.author }} ^-^
+            <span>📚</span> Word Count: {{page.content | number_of_words }}
         </span>
         
         <span class="post-meta-right">
-            🏷️ Tags: 
+            <span>🏷️</span> Tags: 
             {% for tag in page.tags %}
             #{{ tag }} 
             {% endfor %}

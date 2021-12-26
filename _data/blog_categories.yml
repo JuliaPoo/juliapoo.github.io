@@ -1,4 +1,8 @@
+- name: Mathematics
+  desc: Math writings!
+- name: Security
+  desc: A mishmash of articles vaguely tangent to "Security"
 - name: CTF
-  desc: A collection of CTF Writeups
+  desc: A collection of CTF Writeups, heavily biased towards Crypto
 - name: Misc
   desc: Random, unorganised writings of miscellaneous topics.
