@@ -1,4 +1,5 @@
 kramdown:
+  math_engine: mathjax
   input: GFM
   syntax_highlighter: rouge
   syntax_highlighter_opts:
