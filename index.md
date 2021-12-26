@@ -30,7 +30,7 @@ const params = {
     scanlinesCount: 600
 };
 
-const W = document.getElementById("hewwo...").clientWidth;
+const W = document.getElementById("hewwo...").clientWidth * 0.9;
 const R = 0.2;
 const H = Math.max(W * R, 200);
     
@@ -179,6 +179,7 @@ function onWindowResize() {
     if (W < 1080) {renderer.setPixelRatio(Math.floor(1080/W)+1);}
 }
 window.addEventListener( 'resize', onWindowResize );
+document.onload = onWindowResize;
 
 </script>
 </div>
