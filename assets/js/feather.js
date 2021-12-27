@@ -37,7 +37,7 @@ function featherfall() {
             if (pdY > dY  && isNaN(puff_feather)) {
 
                 let v = pdY - dY;
-                v = Math.min(40, v);
+                v = Math.max(0, Math.min(40, v));
                 puff_feather = setInterval(function() {
 
                     feather.style.transform = getTransform();
@@ -55,11 +55,11 @@ function featherfall() {
 
                 }, 10);
             } 
-            else {
-                if (feather.getBoundingClientRect().bottom + 10 >= window.innerHeight) {
-                    clearInterval(move_feather);
-                    move_feather = NaN;
-                }
+            else if (
+                feather.getBoundingClientRect().bottom + 10 >= window.innerHeight && 
+                isNaN(puff_feather)) {
+                clearInterval(move_feather);
+                move_feather = NaN;
             }
         }
 

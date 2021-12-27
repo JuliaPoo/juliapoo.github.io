@@ -9,8 +9,14 @@ tags:
     - moire-patterns
 
 nav: |
-    * TODO
-
+    * [Metadata](#metadata)
+    * [What are Moiré Patterns?](#what-are-moiré-patterns)
+    * [Design](#design)
+      * [Mathematical Formulation](#mathematical-formulation)
+      * [Choice of $f$](#choice-of-f)
+      * [Extending to a grid](#extending-to-a-grid)
+    * [Measuring My Screen’s Resolution](#measuring-my-screens-resolution)
+    * [Concluding Stuff](#concluding-stuff)
 
 excerpt: Designing circular screen patterns that can be used to magnify grid-like stuff, like the pixels on your screen or threads in a cloth via Moiré Patterns. Also a mathematical formulation of Moiré Patterns.
 ---
