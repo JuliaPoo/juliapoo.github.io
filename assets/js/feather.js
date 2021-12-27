@@ -33,8 +33,9 @@ function featherfall() {
 
             let pdY = dY;
             dY = window.innerHeight + window.scrollY - init_position - 10;
-
-            if (pdY > dY  && isNaN(puff_feather)) {
+            
+            // v must be more than 10 to count
+            if (pdY > dY + 10  && isNaN(puff_feather)) {
 
                 let v = pdY - dY;
                 v = Math.max(0, Math.min(40, v));
