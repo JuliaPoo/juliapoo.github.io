@@ -46,8 +46,8 @@ body {
  */
 
 .site-bar {
-    flex-basis: 20%;
-    flex-shrink: 4;
+    flex-basis: 25%;
+    flex-shrink: 10;
     overflow-x: visible;
     min-width: 0px;
     outline: 2px solid rgb(255, 170, 0);
@@ -57,7 +57,7 @@ body {
     position: absolute;
     z-index: -100;
     width: 100px;
-    transform: translateX(calc(50% - 50px)) translateY(30px);
+    transform: translateX(calc(12vw - 50px)) translateY(30px);
 }
 
 /*

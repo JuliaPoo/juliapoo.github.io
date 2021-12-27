@@ -4,6 +4,9 @@
 
 .generic-content {
     overflow-x: auto;
+    line-height: 1.7em;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .generic-content h1:not(.generic-no-style) {
@@ -58,6 +61,41 @@
 
 .generic-content img {
     max-width: 100%;
+}
+
+.generic-content blockquote {
+    margin-left: 0;
+    margin-right: 0;
+    padding-right: 2em;
+    padding-left: 2em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    border-left: 4px solid rgba(1, 253, 199, 0.7);
+    background-color: rgb(20, 37, 88);
+}
+
+.generic-content table:not(.rouge-table) {
+    margin: 20px;
+}
+
+.generic-content table:not(.rouge-table) thead {
+
+}
+
+.generic-content table:not(.rouge-table) thead tr th {
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    outline: 2px solid rgb(250, 213, 134);
+    color: rgb(250, 213, 134);
+    font-size: large;
+}
+
+.generic-content table:not(.rouge-table) tbody tr td {
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    outline: 2px solid rgb(250, 213, 134);
 }
 
 .generic-content .MathJax_Display {

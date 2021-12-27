@@ -11,7 +11,7 @@
     overflow: "hidden";
     outline: 2px solid rgb(1, 253, 199);
     padding-top: 10px;
-    font-size: larger;
+    font-size: large;
     margin-top: 10px;
     margin-bottom: 10px;
     box-sizing: border-box;
@@ -67,5 +67,5 @@
 
 // Move site content downwards to accomodate the nav bar
 .site-container {
-    margin-top: calc(42px + 6em);
+    margin-top: calc(42px + 5.5em);
 }
