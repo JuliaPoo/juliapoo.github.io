@@ -21,7 +21,7 @@ title: Blog
         
         <span class="post-meta-left">
             <span>📅</span> {{ post.date | date_to_string }} - {{ post.author }} ^-^
-            <span>📚</span> Word Count: {{post.content | number_of_words }}
+            <span>📚</span> Word Count: {{post.content | strip_html | number_of_words }}
         </span>
         
         <span class="post-meta-right">
@@ -73,7 +73,7 @@ title: Blog
             
             <span class="post-meta-left">
                 <span>📅</span> {{ post.date | date_to_string }} - {{ post.author }} ^-^
-                <span>📚</span> Word Count: {{post.content | number_of_words }}
+                <span>📚</span> Word Count: {{post.content | strip_html | number_of_words }}
             </span>
             
             <span class="post-meta-right">

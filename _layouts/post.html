@@ -8,7 +8,7 @@ layout: default
 
         <span class="post-meta-left">
             <span>📅</span> {{ page.date | date_to_string }} - {{ page.author }} ^-^
-            <span>📚</span> Word Count: {{page.content | number_of_words }}
+            <span>📚</span> Word Count: {{page.content | strip_html | number_of_words }}
         </span>
         
         <span class="post-meta-right">

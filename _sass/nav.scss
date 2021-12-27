@@ -2,9 +2,11 @@
     background-color: rgba(0, 20, 49, 0.5);
     position: fixed;
     top: 0;
-    width: 100%;
+    width: calc(100% - 16px);
     backdrop-filter: blur(10px);
     z-index: 100;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .nav {
@@ -12,10 +14,7 @@
     outline: 2px solid rgb(1, 253, 199);
     padding-top: 10px;
     font-size: large;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-    width: calc(100% - 16px);
+    width: 100%;
 
     display: flex;
     align-items: center;

@@ -33,7 +33,6 @@ body {
     max-width: 100%;
     background-color: rgba(0, 20, 49, 0.5);
     outline: 2px solid rgb(255, 170, 0);
-    margin-left: 2px;
     backdrop-filter: blur(10px);
 }
 
@@ -93,20 +92,20 @@ a:visited {
  ::-webkit-scrollbar-track
  {
      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-     border-radius: 8px;
+     border-radius: 4px;
      background-color: rgb(7, 42, 95);
  }
  
  ::-webkit-scrollbar
  {
-     width: 10px;
-     height: 10px;
+     width: 6px;
+     height: 6px;
      background-color: rgb(7, 42, 95);
  }
  
  ::-webkit-scrollbar-thumb
  {
-     border-radius: 8px;
+     border-radius: 4px;
      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-     background-color: rgba(1, 253, 199, 0.5);
+     background-color: rgba(1, 253, 198, 0.9);
  }
