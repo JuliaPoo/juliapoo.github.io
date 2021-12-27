@@ -15,7 +15,7 @@ nav: |
     * [Why it works](#why-it-works)
     * [Detailed proof](#detailed-proof)
 
-excerpt: I found a recurrence relation that computes $\\pi$$. Here's why it works.
+excerpt: "I found a recurrence relation that computes $\\pi$. Here's why it works."
 ---
 
 ## The Recurrence Relation
