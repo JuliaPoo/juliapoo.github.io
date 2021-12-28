@@ -32,7 +32,7 @@ Here's my steps to compute $\pi$:
 
 <span class="glow-text" style="font-size:large">_Disclaimer_</span>: This is probably not actually the most inefficient way, but is imo one of the more interesting ones.
 
-Fun fact: My friend Clyde actually tried to do this with `100` coins. He threw them down the stairs, counted them _manually_, and the value is _nothing_ close to $\pi$. I might failed to mention how _inefficient_ this is.
+<span class="glow-text" style="font-size:large">_Fun Fact_</span>: My friend Clyde actually tried to do this with `100` coins. He threw them down the stairs, counted them _manually_, and the value is _nothing_ close to $\pi$. I might have failed to mention how _inefficient_ this is.
 
 ## Its efficiency
 
