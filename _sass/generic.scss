@@ -98,6 +98,11 @@
     outline: 2px solid rgb(250, 213, 134);
 }
 
+.generic-content .table-no-outline * {
+    outline: 0 !important;
+    padding: 5px !important;
+}
+
 .generic-content hr {
     border: 1px solid rgb(1, 48, 80);
 }
