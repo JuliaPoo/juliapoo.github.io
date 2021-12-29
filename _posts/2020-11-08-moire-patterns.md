@@ -156,7 +156,7 @@ I scaled the SVG such that the edge of the pattern to the center fills most of m
 | $r_2$ | 18.45 |
 {% endcapture %}
 
-<center>
+<center class="table-scrollx">
 {{ table1 | markdownify }}
 </center>
 

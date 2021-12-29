@@ -74,6 +74,11 @@
     background-color: rgb(20, 37, 88);
 }
 
+.generic-content .table-scrollx {
+    overflow-x: auto;
+    max-width: 100%;
+}
+
 .generic-content table:not(.rouge-table) {
     margin: 20px;
 }

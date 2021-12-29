@@ -3,7 +3,7 @@ layout: post
 author: JuliaPoo
 category: Mathematics
 
-display-title: "The most inefficient way to compute $\\pi$"
+display-title: "The Most Inefficient Way to Compute $\\pi$"
 tags:
     - math
     - random-walk
@@ -81,7 +81,7 @@ Results:
 | 100000 | <span class="glow-text">**3.14**</span>71 | 71.2566 |
 {% endcapture %}
 
-<center>
+<center class="table-scrollx">
 {{ table1 | markdownify }}
 </center>
 
@@ -113,7 +113,7 @@ Consider plotting the number of possible paths that lead to a position after $n$
 | 6     |1|0|6|0|15|0|20|0|15|0|6|0|1|
 {% endcapture %}
 
-<center class="table-no-outline">
+<center class="table-no-outline table-scrollx">
 {{ table1 | markdownify }}
 </center>
 
