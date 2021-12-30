@@ -9,9 +9,15 @@ title: Blog
 
 <div class="blog-listing">
 
+{% assign counter = 0 %}
 {% for post in site.posts %}
 
-    {% if forloop.index == 4 %}
+    {% if post.category == "Unlisted" %}
+        {% continue %}
+    {% endif %}
+
+    {% assign counter = counter|plus:1 %}
+    {% if counter == 4 %}
     <details>
     <summary class="generic-content glow-text">See more posts</summary>
     {% endif %}

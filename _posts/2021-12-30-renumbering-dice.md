@@ -1,7 +1,7 @@
 ---
 layout: post
 author: JuliaPoo
-category: Mathematics
+category: Unlisted #Mathematics
 
 display-title: "Renumbering Dice"
 tags:
@@ -20,15 +20,53 @@ TODO:
 1. Probability distribution of dice rolling
 2. Polynomial way of looking at dice rolling.
 3. Dice renumbering problem 1
+3. Solving problem 1
 4. Dice renumbering problem 2
-4. Number bases
+5. Generalised Number bases
+6. Solving problem 2
 -->
 
 So a typical way of rolling dice is to take one or more dice, rolling and then summing their results. For instance, a common case is taking two 6-die, rolling them and summing the results.
 
 In this example, you can get a $2$ by rolling $(1,1)$, up to a $12$ by rolling $(6,6)$.
 
+However, the probabilities of getting a $2$ through $12$ aren't the same.
 
+{% capture img %}
+![two 6-die probabilities](/assets/posts/2021-12-30-renumbering-dice/2-6die.svg)
+{% endcapture %}
+<center>
+{{ img | markdownify }}
+</center>
+
+Similarly, rolling more than two 6-die will result in a different probability distribution. For instance, here is three 6-dice:
+
+{% capture img %}
+![three 6-die probabilities](/assets/posts/2021-12-30-renumbering-dice/3-6die.svg)
+{% endcapture %}
+<center>
+{{ img | markdownify }}
+</center>
+
+There's a generic method to compute this distribution. We could simply tally all possible rolls. For the case of rolling two 6-die, we have $6^2 = 36$ possibilities, each of equal probability. For each possibility, we can find the sum of the results and construct a table as follows:
+
+{% capture tab %}
+|<!-- -->|<!-- -->|<!-- -->|<!-- -->|<!-- -->|<!-- -->|<!-- -->|
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+||<span class="glow-text">1</span>|<span class="glow-text">2</span>|<span class="glow-text">3</span>|<span class="glow-text">4</span>|<span class="glow-text">5</span>|<span class="glow-text">6</span>|
+|<span class="glow-text">1</span>|2|3|4|5|6|7|
+|<span class="glow-text">2</span>|3|4|5|6|7|8|
+|<span class="glow-text">3</span>|4|5|6|7|8|9|
+|<span class="glow-text">4</span>|5|6|7|8|9|10|
+|<span class="glow-text">5</span>|6|7|8|9|10|11|
+|<span class="glow-text">6</span>|7|8|9|10|11|12|
+{% endcapture %}
+
+<center class="table-no-outline table-scrollx">
+{{ tab | markdownify }}
+</center>
+
+This is rem
 
 
 ```python
