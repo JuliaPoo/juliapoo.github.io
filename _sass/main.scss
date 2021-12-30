@@ -45,11 +45,18 @@ body {
  */
 
 .site-bar {
-    flex-basis: 25%;
-    flex-shrink: 10;
+    //flex-basis: 25%;
+    //flex-shrink: 10;
+    width: 25%;
     overflow-x: visible;
     min-width: 0px;
     outline: 2px solid rgb(255, 170, 0);
+}
+
+@media only screen and (max-width: 1200px) {
+    .site-bar {
+        width: 0 !important;
+    }
 }
 
 #site-feather {
