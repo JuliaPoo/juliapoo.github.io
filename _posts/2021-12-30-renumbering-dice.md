@@ -3,7 +3,7 @@ layout: post
 author: JuliaPoo
 category: Mathematics
 
-display-title: "Mathematics of Rolling Dice"
+display-title: "Renumbering Dice"
 tags:
     - math
     - combinatorics
@@ -14,6 +14,22 @@ nav: |
     * TODO
 excerpt: "An exploration of multiple ways to describe rolling dice, and answering questions on re-numbering dice."
 ---
+
+<!-- 
+TODO:
+1. Probability distribution of dice rolling
+2. Polynomial way of looking at dice rolling.
+3. Dice renumbering problem 1
+4. Dice renumbering problem 2
+4. Number bases
+-->
+
+So a typical way of rolling dice is to take one or more dice, rolling and then summing their results. For instance, a common case is taking two 6-die, rolling them and summing the results.
+
+In this example, you can get a $2$ by rolling $(1,1)$, up to a $12$ by rolling $(6,6)$.
+
+
+
 
 ```python
 from sympy.utilities.iterables import multiset_partitions

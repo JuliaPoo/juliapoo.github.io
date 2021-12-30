@@ -2,10 +2,15 @@
     padding-top: 0;
 }
 
+.post-excerpt {
+    margin-top: 1em;
+    margin-bottom: 2em;
+    //border-bottom: 2px rgba(22, 236, 225, 0.2) solid;
+    color:rgb(22, 236, 226);
+}
+
 .post-title {
     margin: 0;
-    padding-bottom: 0.6em;
-    border-bottom: 2px solid rgb(185, 255, 251);
     line-height: 1.4em;
     font-style: bold;
     font-size: 3.5em;
@@ -22,6 +27,7 @@
 
 .post-meta {
     margin: 0;
+    border-top: 2px solid rgb(185, 255, 251);
     border-bottom: 2px solid rgb(185, 255, 251);
     padding: 0.7em;
     color:rgb(22, 236, 226);
