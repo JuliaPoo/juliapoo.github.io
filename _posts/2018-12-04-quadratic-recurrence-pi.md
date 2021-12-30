@@ -3,7 +3,7 @@ layout: post
 author: JuliaPoo
 category: Mathematics
 
-display-title: "A Quadratic Recurrence Relation that Pops Out $\\pi$"
+display-title: "A Quadratic Recurrence Relation that Computes $\\pi$"
 tags:
     - math
     - recurrence-relation
