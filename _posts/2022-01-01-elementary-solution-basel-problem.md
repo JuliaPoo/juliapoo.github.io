@@ -58,8 +58,8 @@ $$
 I &= \int_0^{\pi/2} \ln{\cos x} \;dx &\\
   &= \int_0^{\pi/2} \ln{\frac{e^{2i\pi}+1}{2e^{ix}}} \;dx &\\
   &= \int_0^{\pi/2} \ln{ \left( e^{2i\pi}+1 \right) } - \ln 2 - ix \;dx &\\
-  &= A - \frac{\pi}{2} \ln 2 - i \frac{\pi^2}{8}
-    &\text{,}\; A = \int_0^{\pi/2} \ln{ \left( e^{2i\pi}+1 \right) } \;dx \\
+  &= A - \frac{\pi}{2} \ln 2 - i \frac{\pi^2}{8},
+    &A = \int_0^{\pi/2} \ln{ \left( e^{2i\pi}+1 \right) } \;dx \\
 \\
 \\
 \\
