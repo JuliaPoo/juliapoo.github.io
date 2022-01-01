@@ -76,9 +76,9 @@ Results:
 | --- | ----- | ---------- |
 | 10  | 1.9531 | 0.0034 |
 | 100 | 2.7423 | 0.0042 |
-| 1000 | <span class="glow-text">**3**</span>.0966 | 0.0309 |
-| 10000 | <span class="glow-text">**3.1**</span>108 | 0.7314 |
-| 100000 | <span class="glow-text">**3.14**</span>71 | 71.2566 |
+| 1000 | **3**.0966 | 0.0309 |
+| 10000 | **3.1**108 | 0.7314 |
+| 100000 | **3.14**71 | 71.2566 |
 {% endcapture %}
 
 <center class="table-scrollx">
@@ -113,7 +113,7 @@ Consider plotting the number of possible paths that lead to a position after $n$
 | 6     |1|0|6|0|15|0|20|0|15|0|6|0|1|
 {% endcapture %}
 
-<center class="table-no-outline table-scrollx">
+<center class="table-no-outline table-tight table-scrollx">
 {{ table1 | markdownify }}
 </center>
 

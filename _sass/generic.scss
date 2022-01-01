@@ -103,9 +103,17 @@
     outline: 2px solid rgb(250, 213, 134);
 }
 
+.generic-content .table-tight * {
+    padding: 5px !important;
+}
+
 .generic-content .table-no-outline * {
     outline: 0 !important;
-    padding: 5px !important;
+    //padding: 5px !important;
+}
+
+.generic-content .table-no-header th {
+    display:none;
 }
 
 .generic-content hr {
@@ -118,6 +126,16 @@
 }
 
 .glow-text {
+    text-shadow: 
+        0 0 0.10em rgba(1, 253, 199, 1.0), 
+        0 0 0.08em rgba(1, 253, 199, 0.7), 
+        0 0 0.15em rgba(1, 253, 199, 0.5), 
+        0 0 0.20em rgba(1, 253, 199, 0.3), 
+        0 0 0.30em rgba(1, 253, 199, 0.2), 
+        0 0 0.50em rgba(1, 253, 199, 0.1); 
+}
+
+.generic-content strong {
     text-shadow: 
         0 0 0.10em rgba(1, 253, 199, 1.0), 
         0 0 0.08em rgba(1, 253, 199, 0.7), 

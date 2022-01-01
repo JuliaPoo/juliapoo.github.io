@@ -12,6 +12,7 @@ tags:
 
 nav: |
     * TODO
+    
 excerpt: "An exploration of multiple ways to describe rolling dice, and answering questions on re-numbering dice."
 ---
 
@@ -25,6 +26,8 @@ TODO:
 5. Generalised Number bases
 6. Solving problem 2
 -->
+
+## Probability distribution of rolling dice.
 
 So a typical way of rolling dice is to take one or more dice, rolling and then summing their results. For instance, a common case is taking two 6-die, rolling them and summing the results.
 
@@ -62,11 +65,42 @@ There's a generic method to compute this distribution. We could simply tally all
 |<span class="glow-text">6</span>|7|8|9|10|11|12|
 {% endcapture %}
 
-<center class="table-no-outline table-scrollx">
+<center class="table-no-outline table-no-header table-tight table-scrollx">
 {{ tab | markdownify }}
 </center>
 
-This is rem
+The probability that the result is $n$ is simply the number of times $n$ appears in the table divided by $6^2$.
+
+## Using polynomials instead of a table
+
+You might have noticed that the table is remarkably similar to polynomial multiplication. For instance, expand $(x^6+x^5+x^4+x^3+x^2+x^1)^2$. In order to keep track of the coefficients of the final expanded result, you might construct a similar table:
+
+{% capture tab %}
+|<!-- -->|<!-- -->|<!-- -->|<!-- -->|<!-- -->|<!-- -->|<!-- -->|
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+||<span class="glow-text">1</span>|<span class="glow-text">2</span>|<span class="glow-text">3</span>|<span class="glow-text">4</span>|<span class="glow-text">5</span>|<span class="glow-text">6</span>|
+|<span class="glow-text">1</span>|$x^{2}$|$x^{3}$|$x^{4}$|$x^{5}$|$x^{6}$|$x^{7}$|
+|<span class="glow-text">2</span>|$x^{3}$|$x^{4}$|$x^{5}$|$x^{6}$|$x^{7}$|$x^{8}$|
+|<span class="glow-text">3</span>|$x^{4}$|$x^{5}$|$x^{6}$|$x^{7}$|$x^{8}$|$x^{9}$|
+|<span class="glow-text">4</span>|$x^{5}$|$x^{6}$|$x^{7}$|$x^{8}$|$x^{9}$|$x^{10}$|
+|<span class="glow-text">5</span>|$x^{6}$|$x^{7}$|$x^{8}$|$x^{9}$|$x^{10}$|$x^{11}$|
+|<span class="glow-text">6</span>|$x^{7}$|$x^{8}$|$x^{9}$|$x^{10}$|$x^{11}$|$x^{12}$|
+{% endcapture %}
+
+<center class="table-no-header table-no-outline table-scrollx">
+{{ tab | markdownify }}
+</center>
+
+The coefficient of say $x^5$ is the number of times $x^5$ appears in the table.
+
+Notice how the powers in the table are identical to the previous table? That's bcuz it's exactly the same operation!
+
+### Okay so what
+
+This is great bcuz in our analysis of the probabilty distribution of rolling dice, we could and will map it into a problem about polynomials, which we can analyse with the huge collection of methods developed to analyse polynomials.
+
+### A detailed description
+
 
 
 ```python
