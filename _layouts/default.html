@@ -2,8 +2,36 @@
 <html>
 
 <head>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=0.8">
+
+  <meta 
+    property="og:title"
+    content= 
+      {% if page.display-title %}
+        "{{ page.display-title | escape}}"
+      {% else %}
+        "{{ page.title | escape}}"
+      {% endif %}
+  />
+  {% if page.excerpt %}
+  <meta
+    property="og:description"
+    content= "{{ page.excerpt | escape }}"
+  />
+  {% endif %}
+  <meta
+    property="og:image"
+    content="/assets/img/placeholder.svg"
+  />
+  <meta name="twitter:site" content="@freefooooooood" />
+  <meta
+    name="twitter:card"
+    content="summary || summary_large_image || player || app"
+  />
+  <meta name="twitter:creator" content="@freefooooooood" />
+
   <title>{{ page.title }}</title>
   <link rel="icon" href="/assets/img/placeholder.svg">
   <link rel="stylesheet" href="/assets/css/styles.css">
