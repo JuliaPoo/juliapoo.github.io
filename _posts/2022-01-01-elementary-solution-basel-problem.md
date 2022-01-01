@@ -80,6 +80,6 @@ A &= \int_0^{\pi/2} \ln{ \left( e^{2i\pi}+1 \right) } \;dx &\\
        &= 0
           &\text{Via Lemma} \\
 \\
-\implies &\frac{3}{4} \sum_{n=1}^\infty \frac{1}{n^2} = \frac{\pi^2}{6} \quad \blacksquare
+\implies &\sum_{n=1}^\infty \frac{1}{n^2} = \frac{\pi^2}{6} \quad \blacksquare
 \end{align}
 $$
