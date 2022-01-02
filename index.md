@@ -188,7 +188,7 @@ A place where I dump random things into and try my best to organise them.
 
 ## Why <span style="color:rgb(1, 253, 199)">_Alulae_</span>?
 
-The **_[Alula](https://en.wikipedia.org/wiki/Alula)_** is the "thumb" of the bird, and being a feather it kinda alludes to writing. **_Alulae_** is the plural of **_Alula_**, which alludes to a collection of writings.
+The _[Alula](https://en.wikipedia.org/wiki/Alula)_ is the "thumb" of the bird, and being a feather it kinda alludes to writing. **_Alulae_** is the plural of **_Alula_**, which alludes to a collection of writings.
 
 ## What's here then?
 

@@ -38,7 +38,7 @@ The challenge is similar to the way easier challenge [A3S (Crypto 800)]({% link 
 
 We are also given `3^9` plaintext and ciphertext pairs and we have to recover the original key used in order to get the flag.
 
-The source code for the challenge can be found in the [./chal](/assets/posts/2021-08-22-mini-a3s-writeup/chal) folder.
+The source code for the challenge can be found in the [/chal](/assets/posts/2021-08-22-mini-a3s-writeup/chal.zip) folder.
 
 ## Metadata
 
@@ -668,7 +668,7 @@ print(flag.decode())
 # > rarctf{5t0p_Pos71n9!_4b0ut_4m0NG_U5!!_17's_n0t_7uNN7_3b9cc8e124}
 ```
 
-The solve script for this challenge can be found in the [./sol](/assets/posts/2021-08-22-mini-a3s-writeup/sol) folder.
+The solve script for this challenge can be found in the [./sol](/assets/posts/2021-08-22-mini-a3s-writeup/sol.zip) folder.
 
 Out of curiousity, this is the final matrix plotted:
 
