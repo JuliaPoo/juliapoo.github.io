@@ -29,13 +29,15 @@ TODO:
 
 ## Metadata
 
-This post collates some math exploration I did in 2017. They were originally posted on the now defunct forums of [brilliant.org](https://brilliant.org) but due to a series of unfortunate events (and financial incentives) the entire forum has been effectively deleted.
+This post collates some math exploration I did in 2017. They were originally posted on the now defunct forums of [brilliant.org](https://brilliant.org). Due to a series of unfortunate events (and financial incentives) the entire forum had been effectively deleted.
 
-Here I've reorganised them and added some new stuff.
+Here I've reorganised my work and added some new stuff.
 
 ## Probability distribution of rolling dice.
 
-**_Define_** an $n$-die as a die with $n$ sides, and **_define_** a _regular_ $n$-die as a die with $n$ sides numbered $\\{1,2,3,\cdots,n\\}$
+**_Define_** an $n$-die as a die with $n$ sides.
+
+**_Define_** a _regular_ $n$-die as a die with $n$ sides numbered $\\{1,2,3,\cdots,n\\}$
 
 So a typical way of rolling dice is to take one or more dice, rolling and then summing their results. For instance, a common case is taking two regular 6-die, rolling them and summing the results.
 
@@ -131,16 +133,16 @@ Say we have an alternate numbering $D_B$ and $D_C$, $B = \\{b_1,b_2,\cdots,b_6\\
 
 We also know that $P(B)$ and $P(C)$ represent numberings on 6-sided dice, so we have the addtional conditions:
 
-1. $p_B\vert_{x=1} = p_C\vert_{x=1} = 6$, on account of being 6-sided die.
+1. $p_B\vert_{x=1} = p_C\vert_{x=1} = 6$, on account of being 6-dice.
 2. The coefficients of both $p_B$ and $p_C$ must all be positive integers.
 
-We could easily factorize $p_{6,6}$ computationally (or by noting that the factors are [Cyclotomic Polynomials](https://en.wikipedia.org/wiki/Cyclotomic_polynomial)),
+We could easily factorize $p_{6,6}$ computationally (or by noting that the factors are [Cyclotomic Polynomials](https://en.wikipedia.org/wiki/Cyclotomic_polynomial)):
 
 $$
 p_{6,6} = x^{2} \cdot (x + 1)^{2} \cdot (x^{2} - x + 1)^{2} \cdot (x^{2} + x + 1)^{2}
 $$
 
-and thereafter, try every combination of $p_B$ and $p_C$ such that the two conditions above. After trying every combination, two numberings remain:
+Thereafter, we can try every combination of $p_B$ and $p_C$ such that the two conditions above are satisfied. This yields the below numberings:
 
 {% capture tab %}
 |**$D_B$**| 1| 3| 4| 5| 6| 8|
@@ -154,15 +156,19 @@ and thereafter, try every combination of $p_B$ and $p_C$ such that the two condi
 {{ tab | markdownify }}
 </center>
 
-The second numbering corresponds to regular 6-dice. The first is hence, the only numbering possible that answers the question. 
+The second numbering corresponds to regular 6-dice. The first is hence the only numbering possible that answers the question. 
 
-In other words, renumbering the dice $\\{1,3,4,5,8\\}$ and $\\{1,2,2,3,3,4\\}$ is the only way to renumber dice with positive integers such that rolling and summing the results is equivalent to using two regular 6-dice.
+In other words, renumbering the dice $\\{1,3,4,5,6,8\\}$ and $\\{1,2,2,3,3,4\\}$ is the only way to renumber dice with positive integers such that rolling and summing the results is equivalent to using two regular 6-dice.
 
 ### General Case
 
-We could renumber dice to emulate other dice as well! For instance, what if we wanna say, emulate a regular 18-die with two 6-dice? We could do a similar analysis as above and find all possible numberings! For the sake of generalisation, we shall relax the condition for numberings to become _non-negative integers_ as opposed to the previous _positive integers_. In other words, we are allowed to number a face $0$.
+We could renumber dice to emulate other dice as well. For instance, what if we wanna say, emulate a regular 18-die with two 6-dice? We could do a similar analysis as above and find all possible numberings! For the sake of generalisation, we shall relax the condition for numberings to become _non-negative integers_ as opposed to the previous _positive integers_. In other words, we are allowed to number a face $0$.
 
-Here's code to automatically implement the logic for the general case, written in [Sage](https://www.sagemath.org/):
+The generalisation can be written as such:
+
+> How many ways are there to renumber, with non-negative integers, $k$ dice with sides $n_1, n_2, \cdots, n_k$ such that it emulates the rolling and summing of $k'$ regular dice with sides $t_1, t_2, \cdots, t_{k'}$
+
+Here's code to automatically compute the numberings for the general case, written in [Sage](https://www.sagemath.org/):
 
 ```python
 from sympy.utilities.iterables import multiset_partitions
@@ -202,7 +208,7 @@ def get_numberings(nsides: List[int], tsides: List[int]) -> List[List[int]]:
     _ns = Counter(nsides)
     for ps in multiset_partitions(tfactors, len(nsides)):
 
-        # Skip solutions where new dice don't have NSIDES sides
+        # Skip solutions where new dice don't have `nsides` sides
         ns = [reduce(lambda a,b:a*b[1], p, 1) for p in ps]
         if Counter(ns) != _ns:
             continue
@@ -237,7 +243,7 @@ def print_numberings(tsols: List[List[int]]) -> None:
             print(f"{n:3}-sides: {d}")
 ```
 
-Here's the code applied to the original problem:
+Applied to the original problem:
 
 ```python
 nsides = [6,6]
@@ -263,7 +269,7 @@ print_numberings(tsols)
 #   6-sides:  1  2  3  4  5  6
 ```
 
-Here's the possible numberings for emulating a regular 18-die via two 6-dice:
+Applied for emulating a regular 18-die via two 6-dice:
 
 ```python
 nsides = [6,6]
@@ -299,3 +305,5 @@ print_numberings(tsols)
 ```
 
 ## Which $n$-dice can we emulate with just platonic solid dice?
+
+There is a notion of fairness in dice that I first saw in [Numberphile's Video: Fair Dice](https://www.youtube.com/watch?v=G7zT9MljJ3Y), where their notion of fairness restricts the shapes of the dice to be [Platonic Solids](https://en.wikipedia.org/wiki/Platonic_solid), the '_most symmetric_' of the polyhedras.
