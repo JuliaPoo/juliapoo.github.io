@@ -12,7 +12,7 @@ tags:
 
 nav: |
     * TODO
-    
+
 excerpt: "An exploration of multiple ways to describe rolling dice, and answering questions on re-numbering dice."
 ---
 
@@ -27,9 +27,17 @@ TODO:
 6. Solving problem 2
 -->
 
+## Metadata
+
+This post collates some math exploration I did in 2017. They were originally posted on the now defunct forums of [brilliant.org](https://brilliant.org) but due to a series of unfortunate events (and financial incentives) the entire forum has been effectively deleted.
+
+Here I've reorganised them and added some new stuff.
+
 ## Probability distribution of rolling dice.
 
-So a typical way of rolling dice is to take one or more dice, rolling and then summing their results. For instance, a common case is taking two 6-die, rolling them and summing the results.
+**_Define_** an $n$-die as a die with $n$ sides, and **_define_** a _regular_ $n$-die as a die with $n$ sides numbered $\\{1,2,3,\cdots,n\\}$
+
+So a typical way of rolling dice is to take one or more dice, rolling and then summing their results. For instance, a common case is taking two regular 6-die, rolling them and summing the results.
 
 In this example, you can get a $2$ by rolling $(1,1)$, up to a $12$ by rolling $(6,6)$.
 
@@ -51,7 +59,7 @@ Similarly, rolling more than two 6-die will result in a different probability di
 {{ img | markdownify }}
 </center>
 
-There's a generic method to compute this distribution. We could simply tally all possible rolls. For the case of rolling two 6-die, we have $6^2 = 36$ possibilities, each of equal probability. For each possibility, we can find the sum of the results and construct a table as follows:
+There's a generic method to compute this distribution: we could simply tally all possible rolls. For the case of rolling two 6-die, we have $6^2 = 36$ possibilities, each of equal probability. For each possibility, we can find the sum of the results and construct a table as follows:
 
 {% capture tab %}
 |<!-- -->|<!-- -->|<!-- -->|<!-- -->|<!-- -->|<!-- -->|<!-- -->|
@@ -73,7 +81,7 @@ The probability that the result is $n$ is simply the number of times $n$ appears
 
 ## Using polynomials instead of a table
 
-You might have noticed that the table is remarkably similar to polynomial multiplication. For instance, expand $(x^6+x^5+x^4+x^3+x^2+x^1)^2$. In order to keep track of the coefficients of the final expanded result, you might construct a similar table:
+You might have noticed that the table is remarkably similar to polynomial multiplication. For instance, try expanding $(x^6+x^5+x^4+x^3+x^2+x^1)^2$. In order to keep track of the coefficients of the final expanded result, you might construct a similar table:
 
 {% capture tab %}
 |<!-- -->|<!-- -->|<!-- -->|<!-- -->|<!-- -->|<!-- -->|<!-- -->|
@@ -97,11 +105,64 @@ Notice how the powers in the table are identical to the previous table? That's b
 
 ### Okay so what
 
-This is great bcuz in our analysis of the probabilty distribution of rolling dice, we could and will map it into a problem about polynomials, which we can analyse with the huge collection of methods developed to analyse polynomials.
+This is great bcuz in our analysis of the probabilty distribution of rolling dice, we could and will map it into a problem about polynomials, which we can analyse with the numerous, powerful methods developed to analyse polynomials.
 
-### A detailed description
+### An Informal-Formal Formulation
 
+The relation between polynomials and rolling dice can be made explicit as such:
 
+**_Lemma_**:
+
+> Let $D_{A}$ be a dice numbered with numbers from the set $A = \\{a_1, a_2, \cdots, a_n\\}$. Let $P(A) = \sum_{a \in A} x^a$ be the polynomial representing the numbers of $D_{A}$.
+> 
+> Upon rolling $k$ dice $D_{A_1}, D_{A_2}, \cdots, D_{A_k}$ and summing the results, the probability of the result being $r$ is $c_r \prod_{1 \le i \le k}\|A_i\|^{-1}$, where $c_r$ is the coefficient of $x^r$ in the polynomial $\prod_{1 \le i \le k} P(A_i)$.
+
+This relation explicitly converts the probability distribution of rolling dice, into a polynomial.
+
+## Dice Renumbering Problem
+
+Now we're ready to introduce a problem on rolling dice. Many board games require rolling two or three regular 6-dice and taking the sum of the output. 
+
+> Is there a way to renumber two 6-dice with positive integers such that the sum of results for rolling the two renumbered dice has the same probability distribution as rolling two regular 6-dice?
+
+We could tackle this problem by analysing $p_{6,6} = P(\\{1,2,3,4,5,6\\})^2$, the polynomial that represents the probability distribution of the result upon rolling two regular 6-dice.
+
+Say we have an alternate numbering $D_B$ and $D_C$, $B = \\{b_1,b_2,\cdots,b_6\\}$, $C = \\{c_1,c_2,\cdots,c_6\\}$, then by the **_lemma_**, we have $p_{6,6} = P(B) P(C) = p_B p_C$. This means that both $p_B$ and $p_C$ are _factors_ of $p_{6,6}$.
+
+We also know that $P(B)$ and $P(C)$ represent numberings on 6-sided dice, so we have the addtional conditions:
+
+1. $p_B\vert_{x=1} = p_C\vert_{x=1} = 6$, on account of being 6-sided die.
+2. The coefficients of both $p_B$ and $p_C$ must all be positive integers.
+
+We could easily factorize $p_{6,6}$ computationally (or by noting that the factors are [Cyclotomic Polynomials](https://en.wikipedia.org/wiki/Cyclotomic_polynomial)),
+
+$$
+p_{6,6} = x^{2} \cdot (x + 1)^{2} \cdot (x^{2} - x + 1)^{2} \cdot (x^{2} + x + 1)^{2}
+$$
+
+and thereafter, try every combination of $p_B$ and $p_C$ such that the two conditions above. After trying every combination, two numberings remain:
+
+{% capture tab %}
+|**$D_B$**| 1| 3| 4| 5| 6| 8|
+|**$D_C$**| 1| 2| 2| 3| 3| 4|
+||||||||
+|**$D_B$**| 1| 2| 3| 4| 5| 6|
+|**$D_C$**| 1| 2| 3| 4| 5| 6|
+{% endcapture %}
+
+<center class="table-no-outline table-no-header table-scrollx">
+{{ tab | markdownify }}
+</center>
+
+The second numbering corresponds to regular 6-dice. The first is hence, the only numbering possible that answers the question. 
+
+In other words, renumbering the dice $\\{1,3,4,5,8\\}$ and $\\{1,2,2,3,3,4\\}$ is the only way to renumber dice with positive integers such that rolling and summing the results is equivalent to using two regular 6-dice.
+
+### General Case
+
+We could renumber dice to emulate other dice as well! For instance, what if we wanna say, emulate a regular 18-die with two 6-dice? We could do a similar analysis as above and find all possible numberings! For the sake of generalisation, we shall relax the condition for numberings to become _non-negative integers_ as opposed to the previous _positive integers_. In other words, we are allowed to number a face $0$.
+
+Here's code to automatically implement the logic for the general case, written in [Sage](https://www.sagemath.org/):
 
 ```python
 from sympy.utilities.iterables import multiset_partitions
@@ -111,21 +172,27 @@ from typing import List
 # Work in integer polynomials
 x = PolynomialRing(ZZ, 'x').gen()
 
-def dice(nsides:int) -> "PolynomialZZ":
+def dice(n:int) -> "PolynomialZZ":
     
-    """Returns polynomial of a nsides-ed die"""
+    """Returns polynomial of a regular n-sided die"""
     
-    return sum(x^i for i in range(nsides))
+    return x*sum(x^i for i in range(n))
 
-def get_numberings(nsides: List[int]) -> List[List[int]]:
+def get_numberings(nsides: List[int], tsides: List[int]) -> List[List[int]]:
     
     """
-    Returns possible numberings of dice that
-    give the same distribution as regular dice with sides `nsides`
+    Returns possible numberings of dice with sides `nsides`
+    that when rolled and summed, gives the same distribution as
+    regular dice of sides `tsides`
     """
+    
+    # Check if numberings is even possible
+    nx,tx = reduce(lambda a,b: a*b, nsides), reduce(lambda a,b: a*b, tsides)
+    assert nx % tx  == 0, \
+        "No numberings possible"
     
     # Target distribution
-    target = reduce(lambda a,b: a*b, map(dice, nsides))
+    target = reduce(lambda a,b: a*b, map(dice, tsides)) * (nx//tx)
 
     # Factors of target distribution
     # Stored as [(factor, sum of coefficients), ...]
@@ -149,20 +216,86 @@ def get_numberings(nsides: List[int]) -> List[List[int]]:
 
         # Convert polynomials to numberings
         tsols.append([
-            [c+1 for c,n in p.dict().items() for _ in range(n)]
+            [c for c,n in p.dict().items() for _ in range(n)]
             for p in ps
         ])
         
     return tsols
 
+def print_numberings(tsols: List[List[int]]) -> None:
 
-nsides = [20,6]
-tsols = get_numberings(nsides)
+    """Pretty-print the possible numberings"""
 
-print("Possible Numberings:")
-for t in tsols:
-    print()
-    for n,d in zip(nsides,t): 
-        d = " ".join(f"{x:3}" for x in d)
-        print(f"{n:2}-sides: {d}")
+    print(f"{len(tsols)} Possible Numberings:")
+    nsides = [len(t[0]) for t in tsols]
+    nsides.sort()
+    for t in tsols:
+        print()
+        t.sort(key=lambda x:len(x))
+        for n,d in zip(nsides,t):
+            d = " ".join(f"{x:2}" for x in d)
+            print(f"{n:3}-sides: {d}")
 ```
+
+Here's the code applied to the original problem:
+
+```python
+nsides = [6,6]
+tsides = [6,6]
+tsols = get_numberings(nsides, tsides)
+print_numberings(tsols)
+
+# 5 Possible Numberings:
+# 
+#   6-sides:  2  4  5  6  7  9
+#   6-sides:  0  1  1  2  2  3
+# 
+#   6-sides:  2  3  4  5  6  7
+#   6-sides:  0  1  2  3  4  5
+# 
+#   6-sides:  2  3  3  4  4  5
+#   6-sides:  0  2  3  4  5  7
+# 
+#   6-sides:  1  3  4  5  6  8
+#   6-sides:  1  2  2  3  3  4
+# 
+#   6-sides:  1  2  3  4  5  6
+#   6-sides:  1  2  3  4  5  6
+```
+
+Here's the possible numberings for emulating a regular 18-die via two 6-dice:
+
+```python
+nsides = [6,6]
+tsides = [18]
+tsols = get_numberings(nsides, tsides)
+print_numberings(tsols)
+
+# 8 Possible Numberings:
+# 
+#   6-sides:  1  1  3  3  5  5
+#   6-sides:  0  1  6  7 12 13
+# 
+#   6-sides:  1  1  2  2  3  3
+#   6-sides:  0  3  6  9 12 15
+# 
+#   6-sides:  1  1  7  7 13 13
+#   6-sides:  0  1  2  3  4  5
+# 
+#   6-sides:  1  1  4  4  7  7
+#   6-sides:  0  1  2  9 10 11
+# 
+#   6-sides:  0  0  2  2  4  4
+#   6-sides:  1  2  7  8 13 14
+# 
+#   6-sides:  0  0  1  1  2  2
+#   6-sides:  1  4  7 10 13 16
+# 
+#   6-sides:  0  0  6  6 12 12
+#   6-sides:  1  2  3  4  5  6
+# 
+#   6-sides:  0  0  3  3  6  6
+#   6-sides:  1  2  3 10 11 12
+```
+
+## Which $n$-dice can we emulate with just platonic solid dice?
