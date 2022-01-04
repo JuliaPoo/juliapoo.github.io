@@ -5,6 +5,7 @@ title: Alulae
 
 # Welcome to <span style="color:rgb(1, 253, 199)">_Alulae_</span>.
 
+<center>
 <div id="hewwo...">
 <script type="module">
 
@@ -30,15 +31,14 @@ const params = {
     scanlinesCount: 600
 };
 
-const W = document.getElementById("hewwo...").clientWidth;
-const R = 0.2;
-const H = Math.max(W * R, 200);
+let W = document.getElementById("hewwo...").clientWidth;
+W = Math.min(300, W);
+let H = W;
     
 const renderer = new THREE.WebGLRenderer({alpha: true});
 renderer.setClearColor( 0xffffff, 0);
 renderer.setSize( W,H );
 renderer.antialias = true;
-if (W < 1080) {renderer.setPixelRatio(Math.floor(1080/W)+1);}
 document.getElementById("hewwo...").appendChild( renderer.domElement );
 
 const camera = new THREE.PerspectiveCamera(20, W/H, 1, 1000000);
@@ -172,17 +172,18 @@ animate();
     
 function onWindowResize() {
     let W = document.getElementById("hewwo...").clientWidth;
-	let H = Math.max(W * R, 200);
+    W = Math.min(300, W);
+    let H = W;
     camera.aspect = W/H;
     camera.updateProjectionMatrix();
     renderer.setSize( W, H );
-    if (W < 1080) {renderer.setPixelRatio(Math.floor(1080/W)+1);}
 }
 window.addEventListener( 'resize', onWindowResize );
 window.onload = onWindowResize;
 
 </script>
 </div>
+</center>
 
 A place where I dump random things into and try my best to organise them.
 
