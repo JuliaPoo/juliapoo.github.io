@@ -25,7 +25,7 @@ const getCanvasSize = () => {
     const W = document.getElementById("hewwo").clientWidth;
     const H = document.getElementById("hewwo").clientHeight;
     const R = Math.min(400, W);
-    return [R,R];
+    return [W,R];
 }
 
 const LENGTH = 10;
@@ -244,7 +244,7 @@ function animate() {
         }
     }
 
-    x += 0.001;
+    x += 0.002;
 
     controls.update();
 	renderer.render( scene, camera );

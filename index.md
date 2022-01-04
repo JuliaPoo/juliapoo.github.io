@@ -3,10 +3,8 @@ layout: generic
 title: Alulae
 ---
 
-# Welcome to <span style="color:rgb(1, 253, 199)">_Alulae_</span>.
-
 <center>
-<div id="hewwo...">
+<div id="hewwo">
 <script type="module">
 
 import * as THREE from 'https://cdn.skypack.dev/three@0.135.0';
@@ -31,15 +29,20 @@ const params = {
     scanlinesCount: 600
 };
 
-let W = document.getElementById("hewwo...").clientWidth;
-W = Math.min(300, W);
-let H = W;
+const getCanvasSize = () => {
+    const W = document.getElementById("hewwo").clientWidth;
+    const H = document.getElementById("hewwo").clientHeight;
+    const R = Math.min(350, W);
+    return [W,R];
+}
+
+const [W,H] = getCanvasSize();
     
 const renderer = new THREE.WebGLRenderer({alpha: true});
 renderer.setClearColor( 0xffffff, 0);
 renderer.setSize( W,H );
 renderer.antialias = true;
-document.getElementById("hewwo...").appendChild( renderer.domElement );
+document.getElementById("hewwo").appendChild( renderer.domElement );
 
 const camera = new THREE.PerspectiveCamera(20, W/H, 1, 1000000);
 camera.position.set(0, 0, 500);
@@ -171,9 +174,7 @@ function animate() {
 animate();
     
 function onWindowResize() {
-    let W = document.getElementById("hewwo...").clientWidth;
-    W = Math.min(300, W);
-    let H = W;
+    const [W,H] = getCanvasSize();
     camera.aspect = W/H;
     camera.updateProjectionMatrix();
     renderer.setSize( W, H );
@@ -184,6 +185,8 @@ window.onload = onWindowResize;
 </script>
 </div>
 </center>
+
+# Welcome to <span style="color:rgb(1, 253, 199)">_Alulae_</span>.
 
 A place where I dump random things into and try my best to organise them.
 
