@@ -28,7 +28,7 @@ const getCanvasSize = () => {
     return [W,R];
 }
 
-const LENGTH = 10;
+const LENGTH = 12;
 
 const getRotXMat = (thetax) => {
     let c = Math.cos(thetax);
@@ -278,3 +278,4 @@ If you find anything interesting and wanna tell me, or just wanna talk to me, I'
 
 * [Twitter](https://twitter.com/FreeFooooooood)
 * [Github](https://github.com/JuliaPoo)
+* [Instagram](https://www.instagram.com/julia.poo.poo/)

@@ -307,3 +307,27 @@ print_numberings(tsols)
 ## Which $n$-dice can we emulate with just platonic solid dice?
 
 There is a notion of fairness in dice that I first saw in [Numberphile's Video: Fair Dice](https://www.youtube.com/watch?v=G7zT9MljJ3Y), where their notion of fairness restricts the shapes of the dice to be [Platonic Solids](https://en.wikipedia.org/wiki/Platonic_solid), the '_most symmetric_' of the polyhedras.
+
+If we were to restrict ourselves to _Platonic Solids_, then the $n$-dice we get to work with are:
+
+1. 4-die: Tetrahedron
+2. 6-die: Cube
+3. 8-die: Octahedron
+4. 12-die: Dodecahedron
+5. 20-die: Icosahedron
+
+**_Define_** a _Platonic Die_ to be one of the above dice.
+
+If we want other $n$-die, we would have to emulate it by renumbering one or more of the above _Platonic dice_.
+
+For instance, above, using the code I've written, we've found $8$ possible numberings to emulate an 18-die with two 6-dice. For instance, renumbering two 6-dice $\\{0,0,6,6,12,12\\}$ and $\\{1,2,3,4,5,6\\}$, rolling and summing the results, gives an equal probability of the result being $1,2,\cdots,18$, as if we have just rolled a regular 18-die.
+
+The question remains however:
+
+> For which $n$ can an $n$-dice be emulated by renumbering one or more _Platonic Die_ with non-negative integers? We have found an algorithm to output all possible numberings, but for which $n$ could we guarantee to have numberings and for which $n$ could we guarantee to have none?
+
+### A Simple Counting Argument
+
+**_Theorem 1.1_:** There are no numberings possible if $n$ has prime factors other than $2,\,3,\,5$
+
+**_Proof_:** We prove by contradiction. Say 

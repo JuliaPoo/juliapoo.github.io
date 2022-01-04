@@ -44,7 +44,7 @@ renderer.setSize( W,H );
 renderer.antialias = true;
 document.getElementById("hewwo").appendChild( renderer.domElement );
 
-const camera = new THREE.PerspectiveCamera(20, W/H, 1, 1000000);
+const camera = new THREE.PerspectiveCamera(23, W/H, 1, 1000000);
 camera.position.set(0, 0, 500);
 
 const scene = new THREE.Scene();
