@@ -113,7 +113,7 @@ This is great bcuz in our analysis of the probabilty distribution of rolling dic
 
 The relation between polynomials and rolling dice can be made explicit as such:
 
-**_Lemma_**:
+**_Lemma 1_**:
 
 > Let $D_{A}$ be a dice numbered with numbers from the set $A = \\{a_1, a_2, \cdots, a_n\\}$. Let $P(A) = \sum_{a \in A} x^a$ be the polynomial representing the numbers of $D_{A}$.
 > 
@@ -125,11 +125,12 @@ This relation explicitly converts the probability distribution of rolling dice, 
 
 Now we're ready to introduce a problem on rolling dice. Many board games require rolling two or three regular 6-dice and taking the sum of the output. 
 
+**_Question 1_**:
 > Is there a way to renumber two 6-dice with positive integers such that the sum of results for rolling the two renumbered dice has the same probability distribution as rolling two regular 6-dice?
 
 We could tackle this problem by analysing $p_{6,6} = P(\\{1,2,3,4,5,6\\})^2$, the polynomial that represents the probability distribution of the result upon rolling two regular 6-dice.
 
-Say we have an alternate numbering $D_B$ and $D_C$, $B = \\{b_1,b_2,\cdots,b_6\\}$, $C = \\{c_1,c_2,\cdots,c_6\\}$, then by the **_lemma_**, we have $p_{6,6} = P(B) P(C) = p_B p_C$. This means that both $p_B$ and $p_C$ are _factors_ of $p_{6,6}$.
+Say we have an alternate numbering $D_B$ and $D_C$, $B = \\{b_1,b_2,\cdots,b_6\\}$, $C = \\{c_1,c_2,\cdots,c_6\\}$, then by **_lemma 1_**, we have $p_{6,6} = P(B) P(C) = p_B p_C$. This means that both $p_B$ and $p_C$ are _factors_ of $p_{6,6}$.
 
 We also know that $P(B)$ and $P(C)$ represent numberings on 6-sided dice, so we have the addtional conditions:
 
@@ -324,10 +325,54 @@ For instance, above, using the code I've written, we've found $8$ possible numbe
 
 The question remains however:
 
+**_Question 2_**:
 > For which $n$ can an $n$-dice be emulated by renumbering one or more _Platonic Die_ with non-negative integers? We have found an algorithm to output all possible numberings, but for which $n$ could we guarantee to have numberings and for which $n$ could we guarantee to have none?
 
-### A Simple Counting Argument
+To answer this question, the polynomial tricks aren't sufficient, and we'd have to look at dice renumberings from another angle: [_Number Bases_](https://en.wikipedia.org/wiki/Radix).
 
-**_Theorem 1.1_:** There are no numberings possible if $n$ has prime factors other than $2,\,3,\,5$
+But first, I **_posit_** that:
 
-**_Proof_:** We prove by contradiction. Say 
+> There exists numberings _if and only if_ $n$ only has prime factors $2,\,3,\,5$.
+
+### Proof
+
+**_Lemma 2.1_**: 
+> There are no numberings possible if $n$ has prime factors other than $2,\,3,\,5$.
+
+**_Proof_**: 
+
+We prove by contradiction. Assume there exists an $n$ with a prime factor $p \ne 2,\,3,\,5$ such that there exists numberings. This means there exists dice with sides $T=\\{t_1, t_2, \cdots, t_k\\}$ such that rolling it and summing the results gives an equal probability of getting $1, \cdots, n$. The number of possibilities for rolling dice with sides $T$ is $T_n = \prod_{t \in T} t$, each possibility having an equal probability of occuring. These imply $N \mid T_n$, since it implies that there exists a way to place the $T_n$ possibilities into $n$ equally-sized bins. However, since $T$ can only contain $4,\,6,\,8,\,12,\,20$, $T_n$ can only have prime factors $2,\,3,\,5$, which imply $N \nmid T_n$: A contradiction.
+
+***
+
+**_Lemma 2.2_**:
+> For every $n$ that only has prime factors $2,\,3,\,5$, there always exists a numbering.
+
+**_Proof_**:
+
+We shall show by explicit construction that there always exists a numbering.
+
+Here is where I bring in the concept of [_Number Bases_](https://en.wikipedia.org/wiki/Radix) into dice renumberings. Suppose we work in base $6$. For an $x$ digit number, we could represent every number in $[0, 6^x)$ exactly once as $\overline{a_1a_2\cdots a_x}^6, \; a_i \in [0,6)$, where the horizontal line represents string concatenation rather than multiplication.
+
+Another way I could represent this is that, for each number in $[0, 6^x)$, it is represented exactly once for every choice of $a_i \in [0,6)$ by the following expression: $\overline{a_1a_2\cdots a_x}^6 = a_1 + 6a_2 + \cdots + 6^{x-1}a_x$.
+
+This means that if we were to number $x$ 6-dice with $\\{0, 6^i, 2 \cdot 6^i, \cdots, 5 \cdot 6^i\\}, \; i \in [0,x)$, rolling the dice and summing the results would give an equal probability of getting each number in $[0, 6^x)$.
+
+If we were to add $1$ to every number on one of the dice, we would have an equal probability of getting each number in $[1, 6^x]$, effectively emulating a $6^x$-dice!
+
+This basic idea can be generalised to all $n$ with only prime factors $2,\,3,\,5$. We start by constructing a 2-die from a 4-die by repeating the faces twice on the 4-die. Similarly, we can construct 3-die from a 6-die and a 5-die from a 20-die. The reason we do so is so that we could work in $2,3,5$-dice, which makes the argument slightly easier.
+
+Let $n = 2^x 3^y 5^z$. We can represent each number in $[0,n)$ exactly once as
+
+$$
+\begin{align}
+&\overline{a_1a_2\cdots a_x \vphantom{b}}^2 \, \overline{b_1b_2\cdots b_y}^3 \, \overline{c_1c_2\cdots c_z \vphantom{b}}^5 \\
+&= \text{whatever im so angry but so sad i cant fuckign process this shit} \\
+&= \text{i wish he would simply cease from existing} \\
+&= \text{the world would be a better place if he simply died}
+\end{align}
+$$
+
+***
+
+Combining the above two lemmas show that there exists numberings _if and only if_ $n$ only has prime factors $2,\,3,\,5$. $\blacksquare$ 
