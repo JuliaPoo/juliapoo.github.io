@@ -341,7 +341,7 @@ But first, I **_posit_** that:
 
 **_Proof_**: 
 
-We prove by contradiction. Assume there exists an $n$ with a prime factor $p \ne 2,\,3,\,5$ such that there exists numberings. This means there exists dice with sides $T=\\{t_1, t_2, \cdots, t_k\\}$ such that rolling it and summing the results gives an equal probability of getting $1, \cdots, n$. The number of possibilities for rolling dice with sides $T$ is $T_n = \prod_{t \in T} t$, each possibility having an equal probability of occuring. These imply $N \mid T_n$, since it implies that there exists a way to place the $T_n$ possibilities into $n$ equally-sized bins. However, since $T$ can only contain $4,\,6,\,8,\,12,\,20$, $T_n$ can only have prime factors $2,\,3,\,5$, which imply $N \nmid T_n$: A contradiction.
+We prove by contradiction. Assume there exists an $n$ with a prime factor $p \ne 2,\,3,\,5$ such that there exists numberings. This means there exists dice with sides $T=\\{t_1, t_2, \cdots, t_k\\}$ such that rolling it and summing the results gives an equal probability of getting $1, \cdots, n$. The number of possibilities for rolling dice with sides $T$ is $T_n = \prod_{t \in T} t$, each possibility having an equal probability of occuring. These imply $N \mid T_n$, since it implies that there exists a way to place the $T_n$ possibilities into $n$ equally-sized bins. However, since $T$ can only contain $4,\,6,\,8,\,12,\,20$, $T_n$ can only have prime factors $2,\,3,\,5$, which imply $N \nmid T_n$: A contradiction. $\blacksquare$
 
 ***
 
@@ -367,12 +367,18 @@ Let $n = 2^x 3^y 5^z$. We can represent each number in $[0,n)$ exactly once as
 $$
 \begin{align}
 &\overline{a_1a_2\cdots a_x \vphantom{b}}^2 \, \overline{b_1b_2\cdots b_y}^3 \, \overline{c_1c_2\cdots c_z \vphantom{b}}^5 \\
-&= \text{whatever im so angry but so sad i cant fuckign process this shit} \\
-&= \text{i wish he would simply cease from existing} \\
-&= \text{the world would be a better place if he simply died}
+& \quad = (a_1 + 2a_2 + \cdots + 2^{x-1}a_x) \cdot 3^y 5^z &+ \\
+& \quad\quad \; (b_1 + 3b_2 + \cdots + 3^{y-1}b_y) \cdot 5^z &+ \\
+& \quad\quad \; (c_1 + 5c_2 + \cdots + 5^{z-1}c_z) \\
+\\
+&a_i \in [0,2), \; b_i \in [0,3), \; c_i \in [0,5) \; 
 \end{align}
 $$
 
+This corresponds to numbering $x$ 2-dice with $\\{0, \, 2^i 3^y 5^z\\}, \; i \in [0, x)$, $y$ 3-dice with $\\{0, \, 3^i 5^z, \, 2 \cdot 3^i 5^z\\}, \; i \in [0, y)$ and $z$ 5-dice with $\\{0, 5^i, \, 2\cdot 5^i, \, 3\cdot 5^i, \, 4\cdot 5^i\\}, \; i \in [0,z)$. Rolling these dice and summing the results gives an equal probability of getting each number in $[0, n)$.
+
+Similar to what we did above, if we were to add $1$ to every number on one of the dice, we would have an equal probability of getting each number in $[1,n]$. We have hence constructed a numbering that emulates an $n$-dice if $n$ only has prime factors $2,\,3,\,5$. $\blacksquare$
+
 ***
 
-Combining the above two lemmas show that there exists numberings _if and only if_ $n$ only has prime factors $2,\,3,\,5$. $\blacksquare$ 
+Combining the above two lemmas shows that there exists numberings _if and only if_ $n$ only has prime factors $2,\,3,\,5$. $\blacksquare$ 
