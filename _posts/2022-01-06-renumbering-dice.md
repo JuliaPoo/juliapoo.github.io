@@ -1,7 +1,7 @@
 ---
 layout: post
 author: JuliaPoo
-category: Unlisted #Mathematics
+category: Mathematics
 
 display-title: "Renumbering Dice"
 tags:
@@ -11,25 +11,21 @@ tags:
     - dice
 
 nav: |
-    * TODO
+    * [Metadata](#metadata)
+    * [Probability distribution of rolling dice](#probability-distribution-of-rolling-dice)
+    * [Using polynomials instead of a table](#using-polynomials-instead-of-a-table)
+        * [An Informal-Formal Formulation](#an-informal-formal-formulation)
+    * [Dice Renumbering Problem](#dice-renumbering-problem)
+        * [General Case](#general-case)
+    * [Which $n$-dice can we emulate with just platonic dice?](#which-n-dice-can-we-emulate-with-just-platonic-dice)
+        * [Proof](#proof)
 
 excerpt: "An exploration of multiple ways to describe rolling dice, and answering questions on re-numbering dice."
 ---
 
-<!-- 
-TODO:
-1. Probability distribution of dice rolling
-2. Polynomial way of looking at dice rolling.
-3. Dice renumbering problem 1
-3. Solving problem 1
-4. Dice renumbering problem 2
-5. Generalised Number bases
-6. Solving problem 2
--->
-
 ## Metadata
 
-This post collates some math exploration I did in 2017. They were originally posted on the now defunct forums of [brilliant.org](https://brilliant.org). Due to a series of unfortunate events (and financial incentives) the entire forum had been effectively deleted.
+This post collates some math exploration I did in 2017. They were originally posted on the now defunct forums of [brilliant.org](https://brilliant.org). Due to a series of unfortunate events (and financial incentives) the entire forum has been effectively deleted.
 
 Here I've reorganised my work and added some new stuff.
 
@@ -61,7 +57,7 @@ Similarly, rolling more than two 6-die will result in a different probability di
 {{ img | markdownify }}
 </center>
 
-There's a generic method to compute this distribution: we could simply tally all possible rolls. For the case of rolling two 6-die, we have $6^2 = 36$ possibilities, each of equal probability. For each possibility, we can find the sum of the results and construct a table as follows:
+There's a generic method to compute this distribution: we could simply tally all possible rolls. For the case of rolling two 6-dice, we have $6^2 = 36$ possibilities, each of equal probability. For each possibility, we can find the sum of the results and construct a table as follows:
 
 {% capture tab %}
 |<!-- -->|<!-- -->|<!-- -->|<!-- -->|<!-- -->|<!-- -->|<!-- -->|
@@ -105,8 +101,6 @@ The coefficient of say $x^5$ is the number of times $x^5$ appears in the table.
 
 Notice how the powers in the table are identical to the previous table? That's bcuz it's exactly the same operation!
 
-### Okay so what
-
 This is great bcuz in our analysis of the probabilty distribution of rolling dice, we could and will map it into a problem about polynomials, which we can analyse with the numerous, powerful methods developed to analyse polynomials.
 
 ### An Informal-Formal Formulation
@@ -134,7 +128,7 @@ Say we have an alternate numbering $D_B$ and $D_C$, $B = \\{b_1,b_2,\cdots,b_6\\
 
 We also know that $P(B)$ and $P(C)$ represent numberings on 6-sided dice, so we have the addtional conditions:
 
-1. $p_B\vert_{x=1} = p_C\vert_{x=1} = 6$, on account of being 6-dice.
+1. $p_B\vert_{x=1} = p_C\vert_{x=1} = 6$, on account $D_B$ and $D_C$ having 6 sides.
 2. The coefficients of both $p_B$ and $p_C$ must all be positive integers.
 
 We could easily factorize $p_{6,6}$ computationally (or by noting that the factors are [Cyclotomic Polynomials](https://en.wikipedia.org/wiki/Cyclotomic_polynomial)):
@@ -161,9 +155,11 @@ The second numbering corresponds to regular 6-dice. The first is hence the only 
 
 In other words, renumbering the dice $\\{1,3,4,5,6,8\\}$ and $\\{1,2,2,3,3,4\\}$ is the only way to renumber dice with positive integers such that rolling and summing the results is equivalent to using two regular 6-dice.
 
+I really wanna fabricate these renumbered 6-dice in real life. My favourite person in the world suggested calling them _<span style="color:gold">Cookies and Cream</span>_, because they have to go together **❤**
+
 ### General Case
 
-We could renumber dice to emulate other dice as well. For instance, what if we wanna say, emulate a regular 18-die with two 6-dice? We could do a similar analysis as above and find all possible numberings! For the sake of generalisation, we shall relax the condition for numberings to become _non-negative integers_ as opposed to the previous _positive integers_. In other words, we are allowed to number a face $0$.
+We could renumber dice to emulate other dice as well. For instance, what if we wanna say, emulate a regular 18-die with two 6-dice? We could do a similar analysis as above and find all the possible numberings! For the sake of generalisation, we shall relax the condition for numberings to become _non-negative integers_ as opposed to the previous _positive integers_. In other words, we are allowed to number a face $0$.
 
 The generalisation can be written as such:
 
@@ -305,7 +301,7 @@ print_numberings(tsols)
 #   6-sides:  1  2  3 10 11 12
 ```
 
-## Which $n$-dice can we emulate with just platonic solid dice?
+## Which $n$-dice can we emulate with just platonic dice?
 
 There is a notion of fairness in dice that I first saw in [Numberphile's Video: Fair Dice](https://www.youtube.com/watch?v=G7zT9MljJ3Y), where their notion of fairness restricts the shapes of the dice to be [Platonic Solids](https://en.wikipedia.org/wiki/Platonic_solid), the '_most symmetric_' of the polyhedras.
 
@@ -319,18 +315,16 @@ If we were to restrict ourselves to _Platonic Solids_, then the $n$-dice we get 
 
 **_Define_** a _Platonic Die_ to be one of the above dice.
 
-If we want other $n$-die, we would have to emulate it by renumbering one or more of the above _Platonic dice_.
+If we want other $n$-dice, we would have to emulate it by renumbering one or more of the above _Platonic dice_.
 
 For instance, above, using the code I've written, we've found $8$ possible numberings to emulate an 18-die with two 6-dice. For instance, renumbering two 6-dice $\\{0,0,6,6,12,12\\}$ and $\\{1,2,3,4,5,6\\}$, rolling and summing the results, gives an equal probability of the result being $1,2,\cdots,18$, as if we have just rolled a regular 18-die.
 
 The question remains however:
 
 **_Question 2_**:
-> For which $n$ can an $n$-dice be emulated by renumbering one or more _Platonic Die_ with non-negative integers? We have found an algorithm to output all possible numberings, but for which $n$ could we guarantee to have numberings and for which $n$ could we guarantee to have none?
+> For which $n$ can an $n$-dice be emulated by renumbering one or more _Platonic Dice_ with non-negative integers? We have found an algorithm to output all possible numberings, but for which $n$ could we guarantee to have numberings and for which $n$ could we guarantee to have none?
 
-To answer this question, the polynomial tricks aren't sufficient, and we'd have to look at dice renumberings from another angle: [_Number Bases_](https://en.wikipedia.org/wiki/Radix).
-
-But first, I **_posit_** that:
+I **_posit_** that:
 
 > There exists numberings _if and only if_ $n$ only has prime factors $2,\,3,\,5$.
 
@@ -382,3 +376,7 @@ Similar to what we did above, if we were to add $1$ to every number on one of th
 ***
 
 Combining the above two lemmas shows that there exists numberings _if and only if_ $n$ only has prime factors $2,\,3,\,5$. $\blacksquare$ 
+
+<center>
+    <img style="height:1.5em; padding-top:3em" src="/assets/img/feather.svg">
+</center>
