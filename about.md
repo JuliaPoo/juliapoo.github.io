@@ -11,6 +11,7 @@ usemathjax: true
         image-rendering: -webkit-crisp-edges;
         image-rendering: pixelated;
         image-rendering: crisp-edges;
+        width: 90%;
     }
 </style>
 <center>
@@ -251,7 +252,8 @@ function animate() {
 };
     
 function onWindowResize() {
-    [W,H] = getCanvasSize();
+    console.log("laod")
+    var [W,H] = getCanvasSize();
     camera.aspect = W/H;
     camera.updateProjectionMatrix();
     renderer.setSize( W, H );

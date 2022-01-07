@@ -3,3 +3,6 @@ layout: default
 title: Art
 ---
 
+{% for art in site.art %}
+    {{art.display-title}}: {{art.url}}
+{% endfor %}
