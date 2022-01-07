@@ -1,0 +1,44 @@
+---
+layout: default
+---
+
+<div class="post-container">
+    <h1 class="post-title">{{ page.display-title }}</h1>
+    <div class="post-excerpt">
+        {{ page.description }}
+    </div>
+    <div class="post-meta">
+
+        <span class="post-meta-left">
+            <span>📅</span> {{ page.date | date_to_string }} - {{ page.author }} ^-^
+        </span>
+        
+        <span class="post-meta-right">
+            <span>🏷️</span> Tags: 
+            {% for tag in page.tags %}
+            #{{ tag }} 
+            {% endfor %}
+        </span>
+    </div>
+</div>
+
+<div class="generic-content">
+    <h1>Gallery</h1>
+</div>
+
+<div class="gallery-container">
+    {% for img in page.gallery %}
+        <div class="gallery-item">
+            <a href="{{ img.url }}" target="_blank">
+                <div class="gallery-img-container">
+                    <img class="gallery-img" src="{{ img.url }}" alt="{{ img.alt }}">
+                </div>
+            </a>
+            <div class="gallery-desc">{{ img.desc | markdownify }}</div>
+        </div>
+    {% endfor %}
+</div>
+
+<div class="generic-content">
+    {{ content }}
+</div>

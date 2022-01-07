@@ -1,28 +1,46 @@
 ---
-layout: generic # art
+layout: gallery
 author: JuliaPoo
 category: Origami
 
 display-title: Lotus Tessellation
+description: "An original design: Lotus design that can be tessellated on a paper. You can fold any number of these lotus on the same piece of paper without cuts or glue. Instructions are available."
 preview-url: /assets/art/2021-09-18-lotus-tessellation/lotus-tessellation-preview.jpg
+
+gallery:
+
+    - url: /assets/art/2021-09-18-lotus-tessellation/lotus-tessellation-preview.jpg
+      alt: A lotus tessellation folded in foolscape paper.
+      desc: |
+        Prototype lotus tessellation folded on notebook paper.
+        Kinda like this design, might document it.
+        Also the lotus itself eats up 10x10 amount of paper, and the lotus is only 2x2, meaning there's an average of 25 layers of paper stacked up on the lotus.
+
+    - url: /assets/art/2021-09-18-lotus-tessellation/final-page1.svg
+      alt: Page 1 of the folding instructions
+      desc: Page 1 of the folding instructions
+
+    - url: /assets/art/2021-09-18-lotus-tessellation/final-page2.svg
+      alt: Page 2 of the folding instructions
+      desc: Page 2 of the folding instructions
+
+tags:
+    - origami
+    - tessellation
+    - lotus
+    - original
 ---
 
-# Placeholder formatting
+## Metadata
 
-## Gallery
-
-[TODO: Fold the actual tessellation sometime]
-<center>
-<img src="/assets/art/2021-09-18-lotus-tessellation/lotus-tessellation-preview.jpg" alt="Lotus tessellation prototype">
-</center>
-
+This was something I wanted to design for a while. I didn't use any origami design techniques to design this (I really wanna learn tho), this design mostly popped out through trial and error.
 
 ## Links
 
-* [Folding Instructions PDF](https://juliapoo.github.io/assets/art/2021-09-18-lotus-tessellation/final.pdf)
+* [Folding Instructions in PDF](https://juliapoo.github.io/assets/art/2021-09-18-lotus-tessellation/final.pdf)
 
 <details>
-<summary><strong>See Instructions</strong></summary>
+<summary><strong>See Instructions PDF</strong></summary>
 
 <center>
 <!--<iframe style="filter: invert(1) hue-rotate(100deg)" src="/assets/art/2021-09-18-lotus-tessellation/final.pdf#view=fit" width="100%" height="1960"></iframe>-->
@@ -31,10 +49,10 @@ preview-url: /assets/art/2021-09-18-lotus-tessellation/lotus-tessellation-previe
 // Bypass a bug from google returning 204
 function reloadIFrame() {
 var iframe = document.getElementById("pdf-viewer");
+  if (iframe.contentDocument == null) return;
   console.log(iframe.contentDocument.URL); //work control
-  if (!iframe.contentDocument) return;
   if(iframe.contentDocument.URL == "about:blank"){
-    iframe.src =  iframe.src;
+    iframe.src = iframe.src;
   }
 }
 var timerId = setInterval("reloadIFrame();", 2000);

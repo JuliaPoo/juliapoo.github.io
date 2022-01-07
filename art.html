@@ -3,6 +3,38 @@ layout: default
 title: Art
 ---
 
-{% for art in site.art %}
-    {{art.display-title}}: {{art.url}}
-{% endfor %}
+<div class="art-listing">
+
+    {% for cat in site.data.art_categories %}
+
+        <h2 id="{{cat.name}}" class="blog-category">{{cat.name}}</h2>
+        <p class="blog-category-desc">{{cat.desc}}</p>
+        <hr>
+
+        <div class="gallery-container">
+            {% for art in site.art %}
+
+                {% if art.category != cat.name %}
+                    {% continue %}
+                {% endif %}
+
+                <div class="gallery-item">
+                    <a href="{{ art.url }}">
+                        <div class="gallery-img-container">
+                            <img class="gallery-img" src="{{ art.preview-url }}">
+                        </div>
+                    </a>
+                    <div class="gallery-desc">
+                        <div class="gallery-meta">
+                            <div>Images: {{ art.gallery | size }}</div>
+                            <div>Date: {{ art.date | date_to_string }}</div>
+                        </div>
+                        {{ art.description | markdownify }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    {% endfor %}
+
+</div>
