@@ -1,8 +1,6 @@
 ---
 layout: generic
 title: About
-
-usemathjax: true
 ---
 
 <style>

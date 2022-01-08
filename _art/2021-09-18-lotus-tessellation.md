@@ -1,10 +1,10 @@
 ---
-layout: gallery
+layout: art-writeup
 author: JuliaPoo
 category: Origami
 
 display-title: Lotus Tessellation
-description: "An original design: Lotus design that can be tessellated on a paper. You can fold any number of these lotus on the same piece of paper without cuts or glue. Instructions are available."
+excerpt: "An original design: Lotus design that can be tessellated on a paper. You can fold any number of these lotus on the same piece of paper without cuts or glue. Instructions are available."
 preview-url: /assets/art/2021-09-18-lotus-tessellation/lotus-tessellation-preview.jpg
 
 gallery:
@@ -39,8 +39,7 @@ This was something I wanted to design for a while. I didn't use any origami desi
 
 * [Folding Instructions in PDF](https://juliapoo.github.io/assets/art/2021-09-18-lotus-tessellation/final.pdf)
 
-<details>
-<summary><strong>See Instructions PDF</strong></summary>
+### Instructions PDF
 
 <center>
 <!--<iframe style="filter: invert(1) hue-rotate(100deg)" src="/assets/art/2021-09-18-lotus-tessellation/final.pdf#view=fit" width="100%" height="1960"></iframe>-->
@@ -68,5 +67,3 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
 <iframe id="pdf-viewer" src="https://docs.google.com/viewer?url=https://juliapoo.github.io/assets/art/2021-09-18-lotus-tessellation/final.pdf&embedded=true" height="800" style="width:100%;height:800;filter:sepia(0.3)" frameborder="0" scrolling="no"></iframe>
 </center>
-
-</details>

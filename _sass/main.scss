@@ -33,7 +33,7 @@ body {
     max-width: 100%;
     background-color: rgba(0, 20, 49, 0.5);
     outline: 2px solid rgb(255, 170, 0);
-    backdrop-filter: blur(10px);
+    //backdrop-filter: blur(10px);
 }
 
 .site-content {
@@ -56,6 +56,8 @@ body {
 @media only screen and (max-width: 1200px) {
     .site-bar {
         width: 0 !important;
+        outline: none;
+        visibility: hidden;
     }
 }
 

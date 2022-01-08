@@ -1,13 +1,15 @@
 ---
 layout: default
 title: Art
+
+excerpt: Random pieces of stuff tangentially related to creative creation by Jules.
 ---
 
 <div class="art-listing">
 
     {% for cat in site.data.art_categories %}
 
-        <h2 id="{{cat.name}}" class="blog-category">{{cat.name}}</h2>
+        <h2 id="{{cat.name}}" class="blog-category glow-text">{{cat.name}}</h2>
         <p class="blog-category-desc">{{cat.desc}}</p>
         <hr>
 
@@ -25,11 +27,12 @@ title: Art
                         </div>
                     </a>
                     <div class="gallery-desc">
+                        <h3 class="glow-text">{{ art.display-title }}</h3>
                         <div class="gallery-meta">
                             <div>Images: {{ art.gallery | size }}</div>
                             <div>Date: {{ art.date | date_to_string }}</div>
                         </div>
-                        {{ art.description | markdownify }}
+                        {{ art.excerpt | markdownify }}
                     </div>
                 </div>
             {% endfor %}

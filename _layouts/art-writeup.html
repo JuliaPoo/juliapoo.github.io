@@ -5,7 +5,7 @@ layout: default
 <div class="post-container">
     <h1 class="post-title">{{ page.display-title }}</h1>
     <div class="post-excerpt">
-        {{ page.description }}
+        {{ page.excerpt }}
     </div>
     <div class="post-meta">
 
@@ -29,11 +29,19 @@ layout: default
 <div class="gallery-container">
     {% for img in page.gallery %}
         <div class="gallery-item">
-            <a href="{{ img.url }}" target="_blank">
-                <div class="gallery-img-container">
-                    <img class="gallery-img" src="{{ img.url }}" alt="{{ img.alt }}">
+            <!--<a href="{{ img.url }}" target="_blank">-->
+
+                <a id="gallery-img-preview-control-{{ forloop.index }}" href="#">
+                    <div class="gallery-img-container">
+                        <img class="gallery-img" src="{{ img.url }}" alt="{{ img.alt }}">
+                    </div>
+                </a>
+                <div class="gallery-img-preview">
+                    <div class="gallery-img-preview-img-container">
+                    <img class="gallery-img-preview-img" src="{{ img.url }}" alt="{{ img.alt }}">
+                    </div>
                 </div>
-            </a>
+            <!--</a>-->
             <div class="gallery-desc">{{ img.desc | markdownify }}</div>
         </div>
     {% endfor %}
