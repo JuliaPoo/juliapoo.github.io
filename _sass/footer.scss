@@ -9,8 +9,6 @@
 }
 
 #footer-container {
-    padding-left: 1em;
-    padding-right: 1em;
     max-height: 100%;
     
     display: flex;
@@ -18,12 +16,9 @@
     justify-content: space-between;
 }
 
-#footer-credit {
+#footer-item {
     vertical-align: middle;
     font-size: small;
-}
-
-#footer-time {
-    vertical-align: middle;
-    font-size: small;
+    padding-left: 1em;
+    padding-right: 1em;
 }
