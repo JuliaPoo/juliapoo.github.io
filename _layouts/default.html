@@ -24,7 +24,7 @@
   {% if page.preview-url %}
     <meta
       property="og:image:secure_url"
-      content="https://juliapoo.github.io{{ preview-url }}"
+      content="https://juliapoo.github.io{{ page.preview-url }}"
     />
   {% else %}
     <meta
@@ -35,7 +35,7 @@
   
   <meta name="twitter:site" content="@freefooooooood" />
   {% if page.preview-url %}
-    <meta name="twitter:image" content="https://juliapoo.github.io{{ preview-url }}"/>
+    <meta name="twitter:image" content="https://juliapoo.github.io{{ page.preview-url }}"/>
   {% else %}
     <meta name="twitter:image" content="https://juliapoo.github.io/assets/img/placeholder.png"/>
   {% endif %}
