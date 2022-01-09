@@ -207,7 +207,7 @@ for i in range(n*n):
 img = Image.fromarray(fimg)
 img.save("dist/aes128-diffusion-9r-mod128.png")
 
-for i in range(n*n):
+for i in range(11):
     r1 = gen_n_rounds(i)
 
     r1 = np.array(r1, dtype=float)

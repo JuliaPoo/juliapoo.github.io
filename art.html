@@ -5,6 +5,8 @@ title: Art
 excerpt: Random pieces of stuff tangentially related to creative creation by Jules.
 ---
 
+{% assign all_art_sorted = site.art | reverse %}
+
 <div class="art-listing">
 
     {% for cat in site.data.art_categories %}
@@ -14,7 +16,7 @@ excerpt: Random pieces of stuff tangentially related to creative creation by Jul
         <hr>
 
         <div class="gallery-container">
-            {% for art in site.art %}
+            {% for art in all_art_sorted %}
 
                 {% if art.category != cat.name %}
                     {% continue %}
