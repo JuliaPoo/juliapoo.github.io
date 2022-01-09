@@ -61,6 +61,16 @@ gallery:
       desc: |
         Plot of diffusion for round 8.
 
+    - url: /assets/art/2022-01-09-aes-diffusion/aes128-diffusion-9r-mod128-9.png
+      alt: Plot of diffusion for round 9.
+      desc: |
+        Plot of diffusion for round 9.
+
+    - url: /assets/art/2022-01-09-aes-diffusion/aes128-diffusion-9r-mod128-10.png
+      alt: Plot of diffusion for round 10.
+      desc: |
+        Plot of diffusion for round 10.
+
 tags:
     - generative
     - cryptography
@@ -95,7 +105,7 @@ At subsequent rounds, the _"dependencies"_ of each output bit becomes entangled 
 
 The `Substitute` operation is dealt probabilistically, as for a given $n$-th bit, even knowing its value before `Substutite`, can result in both $0,1$ after `Substitute`, because this operation is done at the byte level. The `Substitute` operation is responsible for most of the _colour variations_ of this collection of images.
 
-I also did other stuff that's not as faithful to the original AES-128 such as switching to the field $\mathbb{Z}/128 \mathbb{Z}$ because it gives more visually interesting results. The final plots, however, are still faithful to what I'm trying to visualize.
+I also did other stuff that's not as faithful to the original AES-128 such as switching to the field $\mathbb{Z}$ in `gen_n_rounds` because it gives more visually interesting results. The final plots, however, are still faithful to what I'm trying to visualize.
 
 ## Code
 
@@ -165,7 +175,7 @@ shift = matrix(ZZ, aes.shift_rows_matrix())
 mix = get_mix_mat_GF2()
 sub = get_sub_mat_GF2()
 def gen_n_rounds(n:int):
-    r1 = identity_matrix(Zmod(128), 128)
+    r1 = identity_matrix(ZZ, 128)
     for i in range(n):
         r1 = sub*r1
         r1 = shift*r1
