@@ -4,7 +4,9 @@ author: JuliaPoo
 category: Origami
 
 display-title: Lotus Tessellation
-excerpt: "An original design: Lotus design that can be tessellated on a paper. You can fold any number of these lotus on the same piece of paper without cuts or glue. Instructions are available."
+excerpt: |
+    Lotus Tessellation, designed by me. You can fold any number of these lotus on the same piece of paper without cuts or glue. Instructions are available.
+
 preview-url: /assets/art/2021-09-18-lotus-tessellation/lotus-tessellation-preview.jpg
 
 gallery:
@@ -48,11 +50,11 @@ This was something I wanted to design for a while. I didn't use any origami desi
 // Bypass a bug from google returning 204
 function reloadIFrame() {
 var iframe = document.getElementById("pdf-viewer");
-  if (iframe.contentDocument == null) return;
-  console.log(iframe.contentDocument.URL); //work control
-  if(iframe.contentDocument.URL == "about:blank"){
-    iframe.src = iframe.src;
-  }
+    if (iframe.contentDocument == null) return;
+    console.log(iframe.contentDocument.URL); //work control
+    if(iframe.contentDocument.URL == "about:blank"){
+        iframe.src = iframe.src;
+    }
 }
 var timerId = setInterval("reloadIFrame();", 2000);
 
