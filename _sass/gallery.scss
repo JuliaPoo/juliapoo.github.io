@@ -73,7 +73,7 @@
 
 .gallery-img-preview-img-container {
     overflow: auto;
-    max-width: 80vw;
+    max-width: calc(80vw + 30px);
     max-height: 80vh;
 }
 
