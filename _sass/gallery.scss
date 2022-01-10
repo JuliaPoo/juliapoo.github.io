@@ -107,13 +107,13 @@
 
 .gallery-img-preview-img-container {
     overflow: auto;
-    max-width: calc(min(80vw, 80vh) + 30px);
+    max-width: calc(min(80vw, 100vh) + 30px);
     max-height: calc(80vh + 30px);
 }
 
 .gallery-img-preview-img {
     padding: 10px;
-    max-width: calc(min(80vw, 80vh));
+    max-width: calc(min(80vw, 100vh));
 }
 
 .gallery-meta {

@@ -2,5 +2,7 @@
   desc: These are generated via a computer. Some of them represent cool concepts.
 - name: Origami
   desc: Some of them designed by me, some designed by others but folded by me.
+- name: Shaders
+  desc: I wrote some shaders. My first programming language was GLSL.
 - name: Doodles
   desc: Am an amateur at drawing, so here's a bunch of misc doodles

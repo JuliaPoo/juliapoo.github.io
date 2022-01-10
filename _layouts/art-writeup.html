@@ -29,19 +29,28 @@ layout: default
 <div class="gallery-container">
     {% for img in page.gallery %}
         <div class="gallery-item">
-            <!--<a href="{{ img.url }}" target="_blank">-->
 
                 <a id="gallery-img-preview-control-{{ forloop.index }}" href="#">
                     <div class="gallery-img-container">
-                        <img class="gallery-img" src="{{ img.url }}" alt="{{ img.alt }}">
+                        {% if img.type %}
+                            <img class="gallery-img" src="{{ img.preview-url }}" alt="{{ img.alt }}">
+                        {% else %} <!--Default img-->
+                            <img class="gallery-img" src="{{ img.url }}" alt="{{ img.alt }}">
+                        {% endif %}
                     </div>
                 </a>
                 <div class="gallery-img-preview">
                     <div class="gallery-img-preview-img-container">
-                    <img class="gallery-img-preview-img" src="{{ img.url }}" alt="{{ img.alt }}">
+                        {% if img.type %}
+                            <video class="gallery-img-preview-img" autoplay loop>
+                                <source src="{{ img.url }}" type="{{ img.type }}">
+                            </video>
+                        {% else %} <!--Default img-->
+                            <img class="gallery-img-preview-img" src="{{ img.url }}" alt="{{ img.alt }}">
+                        {% endif %}
                     </div>
                 </div>
-            <!--</a>-->
+                
             <div class="gallery-desc">{{ img.desc | markdownify }}</div>
         </div>
     {% endfor %}
