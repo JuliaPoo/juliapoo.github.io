@@ -3,6 +3,7 @@
 <div class="menu">
 
     <h3 class="glow-text">More on this site:</h3>
+
     <details open="">
     <summary><a href="/blog.html">Blog</a> (from latest)</summary>
     <section class="menu-section site-menu blog-listing">
@@ -11,6 +12,20 @@
             {% continue %}
         {% endif %}
         <div><a href="{{ post.url }}">{{ post.display-title }}</a></div>
+        {% endfor %}
+    </section>
+    </details>
+
+    <br>
+
+    <details open="">
+    <summary><a href="/art.html">Art</a> (from latest)</summary>
+    <section class="menu-section site-menu blog-listing">
+        {% for piece in site.art %}
+        {% if piece.category == "Unlisted" %}
+            {% continue %}
+        {% endif %}
+        <div><a href="{{ piece.url }}">{{ piece.display-title }}</a></div>
         {% endfor %}
     </section>
     </details>
