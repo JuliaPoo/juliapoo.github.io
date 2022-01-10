@@ -5,6 +5,8 @@ title: Blog
 excerpt: Buncha writings by Jules
 ---
 
+{% assign LATEST_N = 3 %}
+
 <div class=generic-content>
 <h1>Latest</h1>
 </div>
@@ -18,10 +20,17 @@ excerpt: Buncha writings by Jules
         {% continue %}
     {% endif %}
 
-    {% assign counter = counter|plus:1 %}
-    {% if counter == 4 %}
-    <details>
-    <summary class="generic-content glow-text">See more posts</summary>
+    {% if counter == LATEST_N %}
+
+        <details>
+        {% assign tmp = 0|minus:LATEST_N %}
+        {% for _ in site.posts %}
+            {% if _.category != "Unlisted" %}
+                {% assign tmp = tmp|plus:1 %}
+            {% endif %}
+        {% endfor %}
+        <summary class="generic-content glow-text">See {{tmp}} more posts</summary>
+
     {% endif %}
 
     <h2 class="blog-display generic-no-style"><a href="{{ post.url }}">{{ post.display-title }}</a></h2>
@@ -42,8 +51,10 @@ excerpt: Buncha writings by Jules
 
     </div>
 
+    {% assign counter = counter|plus:1 %}
+
 {% endfor %}
-{% if forloop.index > 3 %}
+{% if counter >= LATEST_N|plus:1 %}
     </details>
 {% endif %}
 
@@ -61,7 +72,13 @@ excerpt: Buncha writings by Jules
     <p class="blog-category-desc">{{cat.desc}}</p>
 
     <details>
-    <summary>See posts</summary>
+        {% assign tmp = 0 %}
+        {% for _ in site.posts %}
+            {% if _.category == cat.name %}
+                {% assign tmp = tmp|plus:1 %}
+            {% endif %}
+        {% endfor %}
+    <summary class="glow-text">See {{tmp}} posts</summary>
     <div class="blog-listing">
     
         {% for post in site.posts %}
