@@ -42,7 +42,13 @@
   <meta name="twitter:card" content="summary"/>
   <meta name="twitter:creator" content="@freefooooooood" />
 
-  <title>{{ page.title }}</title>
+  <title>
+    {% if page.display-title %}
+      {{ page.display-title | escape}}
+    {% else %}
+      {{ page.title | escape}}
+    {% endif %}
+  </title>
   <link rel="icon" href="/assets/img/placeholder.svg">
   <link rel="stylesheet" href="/assets/css/styles.css">
   <script src="/assets/js/nav.js"></script>

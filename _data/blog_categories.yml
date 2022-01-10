@@ -3,6 +3,10 @@
 - name: Security
   desc: A mishmash of articles vaguely tangent to "Security"
 - name: CTF
-  desc: A collection of CTF Writeups, heavily biased towards Crypto
+  desc: |
+    A collection of CTF Writeups, heavily biased towards Crypto. 
+    I don't write writeups for every challenge I solved, even
+    if they were really hard. I mostly write writeups for challenges
+    I find were really creative and made me learn a lot.
 - name: Misc
   desc: Random, unorganised writings of miscellaneous topics.
