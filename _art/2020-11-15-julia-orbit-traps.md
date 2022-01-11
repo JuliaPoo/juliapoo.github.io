@@ -16,7 +16,7 @@ gallery:
 
         
 tags:
-    - generative
+    - shader
     - julia
     - orbit-traps
 ---
