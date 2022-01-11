@@ -105,8 +105,28 @@
     visibility: visible;
 }
 
+[id^="gallery-img-preview-control-"]:focus ~ .gallery-img-preview-img-container {
+    visibility: visible;
+}
+
+.gallery-img-preview-img-container:focus-within ~ .gallery-img-preview {
+    visibility: visible;
+}
+
+.gallery-img-preview-img-container:focus-within * {
+    visibility: visible;
+}
+
 .gallery-img-preview-img-container {
+    z-index: 201;
+    visibility: hidden;
+    position: fixed;
     overflow: auto;
+
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
     max-width: calc(min(80vw, 100vh) + 30px);
     max-height: calc(80vh + 30px);
 }
