@@ -1,4 +1,5 @@
 
+{% assign all_art_sorted = site.art | reverse %}
 
 <div class="menu">
 
@@ -21,7 +22,7 @@
     <details open="">
     <summary><a href="/art.html">Art</a> (from latest)</summary>
     <section class="menu-section site-menu blog-listing">
-        {% for piece in site.art %}
+        {% for piece in all_art_sorted %}
         {% if piece.category == "Unlisted" %}
             {% continue %}
         {% endif %}
