@@ -41,7 +41,7 @@ layout: default
                 </a>
                 <div class="gallery-img-preview-img-container">
                     {% if img.type %}
-                        <video class="gallery-img-preview-img" autoplay loop controls>
+                        <video class="gallery-img-preview-img" playsinline webkit-playsinline autoplay loop controls>
                             <source src="{{ img.url }}" type="{{ img.type }}">
                             Your browser does not support the video tag.
                         </video>
