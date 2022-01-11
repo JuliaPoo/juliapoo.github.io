@@ -17,7 +17,7 @@ gallery:
         Very tiny heart tessellation. Designed and folded by me using a post-it.
         It's a pretty weird grid, 29x29, and its my first time folding a grid so small.
 
-    - url: /assets/art/2021-03-24-heart-tessellation/instructions.svg
+    - url: /assets/art/2021-03-24-heart-tessellation/Instructions.svg
       alt: Instructions svg
       desc: Instructions svg
 
