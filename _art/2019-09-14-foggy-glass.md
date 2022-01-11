@@ -28,10 +28,11 @@ _**2022 note**_: Added some cool effects to the shader. Also there was a bug wit
 
 ## Shader
 
-Might take some time to compile the shader:
+The shader is intensive and might crash mobile browsers. Click to see the shader at shadertoy:
 
 <center>
-<iframe class="shader-container" frameborder="0" src="https://www.shadertoy.com/embed/fdfyWn?gui=true&t=10&paused=false&muted=false" allowfullscreen></iframe>
+<!--<iframe class="shader-container" frameborder="0" src="https://www.shadertoy.com/embed/fdfyWn?gui=true&t=10&paused=false&muted=false" allowfullscreen></iframe>-->
+<a href="https://www.shadertoy.com/view/WdcGD4"><img src="https://www.shadertoy.com/media/shaders/WdcGD4.jpg" class="shader-container"></a>
 </center>
 
 ## Code
