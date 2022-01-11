@@ -41,7 +41,7 @@ tags:
 
 ## Metadata
 
-This was old work. Luckily I have the original gifs somewhere on my computer.
+_**2022 note**_: This was old work. Luckily I have the original gifs somewhere on my computer.
 
 I distinctively remember a lot of, a lot, of messy, messy code to create these.
 

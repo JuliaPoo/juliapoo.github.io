@@ -3,8 +3,8 @@ layout: art-writeup
 author: JuliaPoo
 category: Shaders
 
-display-title: Dot Splash
-excerpt: Dots that move and move. Lots of image processing and optical flow analysis for this one.
+display-title: Julia Orbit Traps
+excerpt: Rendering the Julia Fractal but via orbit traps.
 
 preview-url: /assets/art/2020-11-15-julia-orbit-traps/preview.png
 
@@ -23,7 +23,7 @@ tags:
 
 ## Meta
 
-I've changed the colour scheme of the shader.
+_**2022 note**_: I've changed the colour scheme of the shader.
 
 ## Shader
 

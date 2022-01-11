@@ -39,7 +39,7 @@ This was something I wanted to design for a while. I didn't use any origami desi
 
 ## Links
 
-* [Folding Instructions in PDF](https://juliapoo.github.io/assets/art/2021-09-18-lotus-tessellation/final.pdf)
+* [Folding Instructions in PDF](/assets/art/2021-09-18-lotus-tessellation/final.pdf)
 
 ### Instructions PDF
 
