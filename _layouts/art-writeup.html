@@ -39,16 +39,18 @@ layout: default
                         {% endif %}
                     </div>
                 </a>
-                <div class="gallery-img-preview-img-container">
-                    {% if img.type %}
+                {% if img.type %}
+                    <div class="gallery-img-preview-img-container gallery-vid-container">
                         <video class="gallery-img-preview-img" playsinline webkit-playsinline autoplay loop controls>
                             <source src="{{ img.url }}" type="{{ img.type }}">
                             Your browser does not support the video tag.
                         </video>
-                    {% else %} <!--Default img-->
+                    </div>
+                {% else %} <!--Default img-->
+                    <div class="gallery-img-preview-img-container">
                         <img class="gallery-img-preview-img" src="{{ img.url }}" alt="{{ img.alt }}">
-                    {% endif %}
-                </div>
+                    </div>
+                {% endif %}
                 <div class="gallery-img-preview">
                 </div>
                 
