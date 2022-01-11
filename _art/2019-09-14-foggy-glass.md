@@ -32,7 +32,7 @@ The shader is intensive and might crash mobile browsers. Click to see the shader
 
 <center>
 <!--<iframe class="shader-container" frameborder="0" src="https://www.shadertoy.com/embed/fdfyWn?gui=true&t=10&paused=false&muted=false" allowfullscreen></iframe>-->
-<a href="https://www.shadertoy.com/view/WdcGD4"><img src="https://www.shadertoy.com/media/shaders/WdcGD4.jpg" class="shader-container"></a>
+<a href="https://www.shadertoy.com/view/WdcGD4"><img src="https://www.shadertoy.com/media/shaders/WdcGD4.jpg"></a>
 </center>
 
 ## Code
