@@ -6,7 +6,7 @@ category: Shaders
 display-title: Julia Orbit Traps
 excerpt: Rendering the Julia Fractal but via orbit traps.
 
-preview-url: /assets/art/2020-11-15-julia-orbit-traps/preview.png
+preview-url: /assets/art/2020-11-15-julia-orbit-traps/preview-c.jpg
 
 gallery:
 

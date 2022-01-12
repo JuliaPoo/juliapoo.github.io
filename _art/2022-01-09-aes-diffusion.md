@@ -7,7 +7,7 @@ display-title: AES-128 Diffusion
 excerpt: |
     Visualizations of the diffusion property of AES. Originally made to be displayed at the Seattle Universal Math Museum "For the Love of Math!" exhibition.
 
-preview-url: /assets/art/2022-01-09-aes-diffusion/aes128-diffusion-9r-mod128.png
+preview-url: /assets/art/2022-01-09-aes-diffusion/preview.jpg
 
 gallery:
 
