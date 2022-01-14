@@ -14,6 +14,10 @@ gallery:
       alt: Julia fractal with orbit traps
       desc: Julia fractal with orbit traps
 
+    - url: /assets/art/2020-11-15-julia-orbit-traps/2.PNG
+      alt: Julia fractal with orbit traps
+      desc: Julia fractal with orbit traps
+
         
 tags:
     - shader
