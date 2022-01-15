@@ -17,14 +17,14 @@ gallery:
       preview-url: /assets/art/2018-09-30-gold-agate/1-preview.jpg
 
     - url: /assets/art/2018-09-30-gold-agate/2.mp4
-      alt: The shader animated
-      desc: The shader animated
+      alt: The shader but thrown into cineshader to render
+      desc: The shader but thrown into cineshader to render
       type: video/mp4
       preview-url: /assets/art/2018-09-30-gold-agate/2-preview.jpg
 
     - url: /assets/art/2018-09-30-gold-agate/3.mp4
-      alt: The shader animated
-      desc: The shader animated
+      alt: The shader but thrown into cineshader to render 2
+      desc: The shader but thrown into cineshader to render 2
       type: video/mp4
       preview-url: /assets/art/2018-09-30-gold-agate/3-preview.jpg
         
