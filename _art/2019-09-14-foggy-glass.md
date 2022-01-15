@@ -6,13 +6,19 @@ category: Shaders
 display-title: Foggy Glass
 excerpt: Custom raytracer rendering some glass and fog
 
-preview-url: /assets/art/2019-09-14-foggy-glass/preview.gif
+preview-url: /assets/art/2019-09-14-foggy-glass/preview.jpg
 
 gallery:
 
+    - url: /assets/art/2019-09-14-foggy-glass/2.mp4
+      alt: Glass cube spinning in fog 2
+      desc: Glass cube spinning in fog 2
+      type: video/mp4
+      preview-url: /assets/art/2019-09-14-foggy-glass/2-preview.png
+      
     - url: /assets/art/2019-09-14-foggy-glass/1.mp4
-      alt: Glass cube spinning in fog
-      desc: Glass cube spinning in fog
+      alt: Glass cube spinning in fog 1
+      desc: Glass cube spinning in fog 1
       type: video/mp4
       preview-url: /assets/art/2019-09-14-foggy-glass/1-preview.png
 
