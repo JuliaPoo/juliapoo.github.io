@@ -23,6 +23,12 @@ gallery:
     - url: /assets/art/2020-04-21-spiral-glow-cube/2.jpg
       alt: One frame of the shader
       desc: One frame of the shader
+
+    - url: /assets/art/2020-04-21-spiral-glow-cube/3-c.mp4
+      alt: Showing off my VSCode workflow
+      desc: Showing off my VSCode workflow
+      type: video/mp4
+      preview-url: /assets/art/2020-04-21-spiral-glow-cube/3-preview.jpg
         
 tags:
     - shader
