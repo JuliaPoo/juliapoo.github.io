@@ -40,7 +40,7 @@ The shader is intensive and might crash mobile browsers. Click to see the shader
 
 <center>
 <a href="https://www.shadertoy.com/view/wlGSDK"><img src="https://www.shadertoy.com/media/shaders/wlGSDK.jpg"></a>
-</center>x
+</center>
 
 ## Code
 
