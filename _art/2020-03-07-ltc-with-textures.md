@@ -30,17 +30,17 @@ I implemented lighting from a texture, though I did modify the processing of the
 
 ## Shader
 
+<!--
 <center>
 <iframe class="shader-container" frameborder="0" src="https://www.shadertoy.com/embed/wlGSDK?gui=true&t=10&paused=false&muted=false" allowfullscreen></iframe>
 </center>
+-->
 
-<!--
 The shader is intensive and might crash mobile browsers. Click to see the shader at shadertoy:
 
 <center>
 <a href="https://www.shadertoy.com/view/wlGSDK"><img src="https://www.shadertoy.com/media/shaders/wlGSDK.jpg"></a>
-</center>
--->
+</center>x
 
 ## Code
 
