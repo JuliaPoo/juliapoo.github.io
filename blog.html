@@ -54,7 +54,8 @@ excerpt: Buncha writings by Jules
     {% assign counter = counter|plus:1 %}
 
 {% endfor %}
-{% if counter >= LATEST_N|plus:1 %}
+{% assign tmp = LATEST_N|plus:1 %}
+{% if counter >= tmp %}
     </details>
 {% endif %}
 
