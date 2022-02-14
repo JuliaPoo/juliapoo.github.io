@@ -209,7 +209,7 @@ Currently, nothing much. But I plan to use this to consolidate all the stuff I d
 #sky-with-my-beloved {
     font-family: monospace;
     white-space: pre;
-    line-height: 1.2em;
+    line-height: 1.4em;
     font-size: calc(min(9px, 1vw));
     text-shadow: 
         0 0 0.60em rgba(245, 83, 237, 1.6), 
