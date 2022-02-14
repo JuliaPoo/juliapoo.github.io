@@ -5,6 +5,30 @@ title: Blog
 excerpt: Buncha writings by Jules
 ---
 
+<style>
+
+    #orchid {
+        white-space: pre;
+        font-family: monospace;
+        line-height: 1.2em;
+        font-size: calc(min(0.5vw, 5px));
+        text-shadow: 
+            0 0 0.60em rgb(83, 245, 191), 
+            0 0 1.20em rgba(83, 245, 191, 0.7), 
+            0 0 1.80em rgba(83, 245, 191, 0.5), 
+            0 0 2.30em rgba(83, 245, 191, 0.3), 
+            0 0 2.90em rgba(83, 245, 191, 0.2), 
+            0 0 3.50em rgba(83, 245, 191, 0.1); 
+    }
+    
+</style>
+
+<center>
+<pre id="orchid">
+    {% include blog-ascii %}
+</pre>
+</center>
+
 {% assign LATEST_N = 3 %}
 
 <div class=generic-content>
