@@ -23,12 +23,14 @@ layout: default
     </div>
 </div>
 
+{% if page.nav %}
 <div class="post-navigation">
     <details open="">
     <summary>What's here:</summary>
     {{ page.nav | markdownify }}
     </details>
 </div>
+{% endif %}
 
 <div class="generic-content">
     {{ content }}

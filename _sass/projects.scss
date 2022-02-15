@@ -1,0 +1,55 @@
+.project-listing {
+    margin-top: 2em;
+    display: grid;
+}
+
+.project {
+    justify-self: center;
+    max-width: 100%;
+    width: calc(max(45%, 800px));
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+
+.project-banner:hover {
+    outline: 2px rgb(225, 140, 228) solid;
+    box-shadow: 
+        0 0 7px rgba(225, 140, 228, 1.0), 
+        0 0 15px rgba(247, 101, 252, 0.7), 
+        0 0 20px rgba(247, 101, 252, 0.5), 
+        0 0 30px rgba(247, 101, 252, 0.3);
+}
+
+.project-banner {
+    padding: 10px;
+    max-height: 500px;
+    object-fit: contain;
+    outline: 2px rgb(93, 231, 255) dashed;
+    box-sizing: border-box;
+}
+
+.project-banner {
+    width: 100%;
+}
+
+.project-meta {
+    margin: 0;
+    border-top: 2px solid rgb(185, 255, 251);
+    border-bottom: 2px solid rgb(185, 255, 251);
+    padding: 0.7em;
+    color:rgb(22, 236, 226);
+    font-size: smaller;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-flow: row wrap;
+}
+
+.project-desc {
+    margin-top: 1em;
+    max-width: 100%;
+    text-align: justify;
+    text-justify: inter-word;
+    color: rgb(235, 243, 252);
+}

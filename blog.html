@@ -5,7 +5,72 @@ title: Blog
 excerpt: Buncha writings by Jules
 ---
 
+<style>
+
+@keyframes huerot {
+    0% {
+        -webkit-filter: hue-rotate(0deg);
+    }
+
+    50% {
+        -webkit-filter: hue-rotate(180deg);
+    }
+
+    100% {
+        -webkit-filter: hue-rotate(0deg);
+    }
+}
+
+#birb {
+    font-family: monospace;
+    line-height: 1.2em;
+    font-size: calc(min(2vw, 11px));
+    text-shadow: 
+        0 0 0.60em rgb(83, 245, 215), 
+        0 0 1.20em rgba(83, 245, 215, 1), 
+        0 0 1.80em rgba(83, 245, 215, 0.8), 
+        0 0 2.30em rgba(83, 245, 215, 0.6), 
+        0 0 2.90em rgba(83, 245, 215, 0.3), 
+        0 0 3.50em rgba(83, 245, 215, 0.2); 
+    animation: 3s infinite huerot;
+}
+
+</style>
+
 {% assign LATEST_N = 3 %}
+
+{% raw %}
+<center>
+<strong>
+<pre id="birb">
+                                                        _.C\=-C`~(       
+                                                      ```o''*~C`  `,     
+                                                    '\_~_E_'O'```v, U_   
+                                                 . ' :``      ````>`[cCO-
+                                             __>'  `_ `~__         `O'`  
+                                         _U<`             ^~      ,)     
+                                     _U<'         _______,,~`~-~U/_/     
+                                __~^`  _                `~~    ```       
+                           __~*`        `C>_          ``[O               
+                       __-``__I_=-~~-^`'  `>>    _U_-_- `                
+                  __UC-**``.,U;#c'__**F'''-**`>=-````*`                  
+         ____-~,_@C``[CC[`C[`    __                           _'         
+  _U,_cF~'`'```      *__,.=='*^H__     `[`                  _/           
+'``                             \                        _>K             
+                                 `                    __/`               
+                               ^{_   [               ``                  
+                                     `<    ,                             
+                                       `4\_[                             
+                                         `{\`_                           
+                                          \4\),_                         
+                                    -*``ELU-,*UF-~o_@o,_                 
+                    ___-~-`'``````  `` `''`````````[\ ``'                
+         ___-=-*'```         ___         U,  --oIoE/    `,               
+
+</pre>
+</strong>
+</center>
+{% endraw %}
 
 <div class=generic-content>
 <h1>Latest</h1>

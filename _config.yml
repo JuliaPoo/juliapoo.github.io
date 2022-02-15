@@ -15,3 +15,6 @@ collections:
   art:
     output: true
     sort_by: date
+  projects:
+    output: true
+    sort_by: date
