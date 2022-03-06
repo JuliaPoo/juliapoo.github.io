@@ -63,6 +63,8 @@
     });
   </script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  <script type='text/javascript' src="https://unpkg.com/mermaid@8.14.0/dist/mermaid.min.js"></script>
 </head>
 
 <body>
@@ -74,7 +76,7 @@
       {% include menu.html page_nav=page.nav %}
     </div>
     <div class="site-content-container">
-      <div class="site-content">
+      <div class="site-content {% if page.narrow or layout.narrow %}site-content-narrow{% endif %}">
         {{ content }}
       </div>
     </div>
