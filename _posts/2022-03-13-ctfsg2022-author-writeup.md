@@ -41,7 +41,7 @@ excerpt: "Writeups for challenges I wrote for CTFSG 2022, and how it's made. Con
 - Date: (Sat) 12 March 1000hrs -  (Sun) 13 March 1000hrs  (SGT, 24 Hours)
 - Challenge Source: [github.com/JuliaPoo/CTFSG-2022-JuliaPoo](https://github.com/JuliaPoo/CTFSG-2022-JuliaPoo/)
 
-So I was invited to write challenges for `CTFSG 2021` and had a lot of fun designing the challenges and spectating the competition. I hope yall had fun!
+So I was invited to write challenges for `CTFSG 2022` and had a lot of fun designing the challenges and spectating the competition. I hope yall had fun!
 
 # CTF.SG CTF Trailer
 
