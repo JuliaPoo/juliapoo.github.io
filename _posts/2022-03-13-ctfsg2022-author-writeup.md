@@ -51,6 +51,14 @@ So I was invited to write challenges for `CTFSG 2022` and had a lot of fun desig
 - Points: `122`
 - Flag: `CTFSG{CFG_4n1m4t10n}`
 
+<style>
+iframe[src*=youtube]
+{
+  max-width:100%;
+  height:315;
+}
+</style>
+
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Qu7s7fr0ppY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center>
@@ -206,7 +214,7 @@ Now I'm not going to sit and _manually_ figure out what this strategy is when I 
 
 Let $s$ be the game state. This game state contains the number of feathers in both player's hands, whose turn it is and the visited states. This state fully describes the game and what states can come after it. Let $f(s)$ be the `forward` function. $f$ returns a set of all possible game states that can come after state $s$. Let $T(s)$ return whose turn it is at state $s$, $T(s) \in [0,1]$, where $0$ is the player who started first.
 
-Finally, let $P(s)$ be the probability that player $1$ wins, following the _perfect losing strategy_ $S_{\text{lose}}(s)$ when the game is at state $s$, given that player $0$ is a _random player_. Let $q(s)$ be the probability that player $0$, a _random player_, takes a move that brings the game state to $s$. Needless today, $P(s)$ and $S_lose(s)$ only make sense when $T(s) = 1$, i.e. it's player $1$'s turn.
+Finally, let $P(s)$ be the probability that player $1$ wins, following the _perfect losing strategy_ $S_{\text{lose}}(s)$ when the game is at state $s$, given that player $0$ is a _random player_. Let $q(s)$ be the probability that player $0$, a _random player_, takes a move that brings the game state to $s$. Needless today, $P(s)$ and $S_{\text{lose}}(s)$ only make sense when $T(s) = 1$, i.e. it's player $1$'s turn.
 
 The $P(s)$ and $S_{\text{lose}}(s)$ can then be computed recursively through the game tree starting with $s_0$, if $T(s) = 1$, as:
 
