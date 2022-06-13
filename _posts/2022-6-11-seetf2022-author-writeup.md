@@ -1,7 +1,7 @@
 ---
 layout: post
 author: JuliaPoo
-category: Unlisted
+category: CTF
 
 display-title: "SEETF 2022 Author Writeup"
 tags:
@@ -10,7 +10,12 @@ tags:
     - re
 
 nav: |
-    * TODO
+    * [Metadata](#metadata)
+        * [The True ECC](#the-true-ecc)
+        * [DLP](#dlp)
+        * [RC4](#rc4)
+        * [It’s Right There](#its-right-there)
+        * [To Infinity](#to-infinity)
     
 excerpt: "Writeups for challenges I wrote for SEETF 2022."
 ---
@@ -440,7 +445,9 @@ The players are given a binary `Its-Right-There.exe` as well as the DLLs `d3d9.d
 </video>
 </center>
 
-## Hints Given:
+[Challenge Files](/assets/posts/2022-6-11-seetf2022-author-writeup/rev_its_right_there.zip)
+
+### Hints Given:
 
 24th hr mark:
 > The relevant code isn't executed on the cpu
@@ -448,11 +455,9 @@ The players are given a binary `Its-Right-There.exe` as well as the DLLs `d3d9.d
 36th hr mark:
 > ![](/assets/posts/2022-6-11-seetf2022-author-writeup/rev_its_right_there_hint.jpg)
 
-[Challenge Files](/assets/posts/2022-6-11-seetf2022-author-writeup/rev_its_right_there.zip)
-
 ## Metadata
 
-So, the team [r3kapig](https://r3kapig.com/) (the team in 1st place) managed to solve this challenge in _the last 20 minutes_ of the competition, which, wow bravo. I'm happy that a team managed to solve this and also enjoyed the challenge ^-^. Also, a momment of silence for these teams who were so close:
+So, the team [r3kapig](https://r3kapig.com/) (the team in 1st place) managed to solve this challenge in _the last 20 minutes_ of the competition, which, wow bravo. I'm happy that a team managed to solve this and also enjoyed the challenge ***^-^**. Also, a moment of silence for these teams who were so close:
 
 <center>
 <img src="/assets/posts/2022-6-11-seetf2022-author-writeup/rev_its_right_there_sub.jpg">
@@ -467,7 +472,7 @@ Bypassing Crinkler is trivial. The binary unpacks in memory and can be analysed 
 - Pass through vertex shader (vertex shader that literally does nothing)
 - **A Very Big** pixel shader
 
-The pixel and vertex shaders are terminated by `0000ffff` and can be dumped out to be analysed. By inspecting the strings it can be shown that the pixel shader uses `ps_3_0` language model, which has limited reversing tooling on github.
+The pixel and vertex shaders are terminated by `0000ffff` and can be dumped out to be analysed. By inspecting the strings it can be shown that the pixel shader uses `ps_3_0` language model, which has _some_ reversing tooling on github.
 
 **Author's Note**: 
 > `ps_3_0` is chosen because:
@@ -480,7 +485,7 @@ The pixel and vertex shaders are terminated by `0000ffff` and can be dumped out 
 > 
 > It's between `ps_3_0` and `ps_6_0` and I'm more familiar with `ps_3_0`.
 
-Now, you _can_ attempt to disasemble the pixel shader, but all the shaders I've found on github are wrong.
+Now, you _can_ attempt to disasemble the pixel shader, but all the disassemblers I've found on github are wrong.
 Attempting to reassemble with `D3DXAssembleShaderFromFile` will just yield a ton of errors. I actually tried to fork the project and fix the disassembly but it really wasn't worth the effort.
 
 However, the parsing of the constants used in the shader is trivial. I just patched the disassembler to give me the byte offsets to all these constants. These constants control various attributes of the scene, such as the render distance and colour. The idea is that the player can bytepatch these constants to display the full flag.
@@ -617,6 +622,8 @@ run()
 {{ code | markdownify }}
 </details>
 
+Playing around with the constants yields the following interesting ones:
+
 ```hlsl
 def c15, 
     0.5, 
@@ -646,7 +653,7 @@ def c34,
 There is also the following constant `c17.x` that at first glance controls
 the x-position of the flag. Changing it will shift the flag into view. However,
 the compiler has reused `c17.x` to also control the distance between
-the characters, causing the flag to get fucked up when it's value changes too much.
+the characters, causing the flag to get fucked up when its value changes too much.
 
 By modifying the following constants:
 
@@ -731,4 +738,155 @@ to prevent recovering the n-th character of the flag by simply bytepatching the 
 
 > To infinity and beyond
 
-<-- Desc, picture, hints, story during comp, how its made -->
+Players are given a game where they are placed into room `n=31415...`, and can move up, down, left or right. Moving up increments the room number, down decrements the room number, and going left or right moves the player to room `1/n mod 2^255-19` (The modulus is a prime btw!). This has the nice effect that going the opposite of where you came from brings you back to the same room ***^-^**.
+
+Players are tasked to reach room $\infty$ in less than `1000` moves, where presumably they'll get the flag. This involves reaching room `0` and doing a inverse. There's also a leaderboard that ranks players on the least number of moves to reach $\infty$.
+
+<center>
+<video width="480" controls="controls">
+<source src="/assets/posts/2022-6-11-seetf2022-author-writeup/misc_to_infinity_vid_com.mp4" type="video/mp4">
+</video>
+</center>
+
+So this challenge is really more of a collaborative effort between me, [@Neobeo](https://github.com/Neobeo/SEETF2022/) and [@Zeyu2001](https://ctf.zeyu2001.com/). Neobeo came up with the original challenge idea, I speedran the implementation in about 6 hours (and it shows), and Zeyu is left to deal with setting up the infra needed to have multiple instances share the same leaderboard. We had hoped to see some friendly competition on the leaderboard but it's alright. Also since most players probably didn't actually see room $\infty$ since they would have bypassed the ui, here's what the room looks like:
+
+<center>
+<img src="/assets/posts/2022-6-11-seetf2022-author-writeup/aye.JPG" width="500">
+</center>
+
+If you've come to this post via the homepage you'll probably recognise the heart. I was too lazy to define a new geometry to use.
+
+### Hints Given:
+
+24th hr mark:
+> Continued fractions might come in handy here.
+
+## Solution
+
+In the end I think the shortest solution achieved by players was by [@4yn](https://github.com/4yn/slashbadctf/blob/master/seetf22/to_infinity.ipynb), with a score of `659`? Me and Neobeo a `367` solution, but we submitted an `888` solution to the leaderboard to encourage players to beat. Neobeo also showed that there's a lower bound of `316` so our solution was close to optimal (if not optimal) but that's for Neobeo to write about. I'll link to his writeup here if he ends up writing it, he proved several more cool results.
+
+From now I'll be representing the solutions as a string of `-`, `+` and `/`, representing increment, decrement and invert.
+
+```py
+367 Solution:
+---/--/-/-/--/--------/--/--/--/---/--/----/
+-/----/--/----/-/---/--/--/-/-/-/-/--/-/--/-
+-/--/---------/-/----/-/--/-----/------/----
+-/--/-/-/-/----/-/-/--------/----/--/--/-/-/
+------/-/-/-/---/---/-/--/-/---/-/-/--/-/--/
+----/-/-/-/----/----/-/---/-/--/--/--/------
+/--/---/----/-/----/-/-/-/-/-/---/-/-/-/-/--
+/--/-/-/---/-/--/--/--/---/-/-------/---/-/-
+/-/-/---/-----/
+```
+
+I'll briefly go through how we reached the `367` solution. Say we start at room `n` and `p` is the modulus. We need a way to measure how close we are to `0`. If you're currently in room `m`, a good measure is how large can the smallest integers `a` and `b` be such that `a/b mod p = m`. Continued fraction expansion should come to mind. One can verify that the continued fraction expansion of say `n/(p+1)` would result in a valid solution to `0`. E.g. if we started at `n=5, p=7`, we get the expansion `[0; 1, 1, 1, 2]`, corresponding to the solution `/-/-/-/--`.
+
+More generally, we can consider the expansion of `(a*p + n)/(b*p + 1)` for integers `a` and `b`. I had the insight to perform LLL on every room `m` we visit, to find small integers `x/y = m mod p` and continue expansion from there. Bruteforcing `a` and `b`, we get a solution of roughly `390+`.
+
+Neobeo then realised that you only have to perform LLL on the first room, since on subsequent rooms the LLL wouldn't change the fraction expansion (most of the time). This allowed him to bruteforce billions of possible `a` and `b`, and results in multiple `367` solutions (the above is just one of them). Neobeo also wrote an extremely succinct script that does whatever I've just described:
+
+```py
+# The one-liner that generates the `367` solution
+''.join('-'*x+'/'for x in(lambda r:r[1]/r[0])(vector([8639,166])*matrix([[1,start],[0,p]]).LLL()).continued_fraction())
+```
+
+# Playtested Challenges
+
+So I also playtested some challenges in SEETF. I won't write too much about this, but I'd like to share unique solutions that I found to challenges I attempted. Might update this section if I feel like it isn't too much of an overlap with other writeups.
+
+## Neutrality
+
+- Category: **Crypto**
+- Intended Difficulty: Hard
+- Solved: `5`
+- Points: `995`
+- Flag: `SEE{50-50_can_be_leaky_4c17bf2a20c4a8df}`
+- Author: Neobeo
+
+[Author's Writeup](https://github.com/Neobeo/SEETF2022/blob/main/crypto-neutrality.ipynb)
+
+In this challenge we are given a flag xored with a random bitstream `200` times. For each bitstream, exactly half of the bits are `1`s (hence the name `Neutrality`).
+
+```py
+from secrets import randbits
+from Crypto.Util.number import bytes_to_long
+
+# get a one-time-pad in which exactly half the bits are set
+def get_xorpad(bitlength):
+    xorpad = randbits(bitlength)
+    return xorpad if bin(xorpad).count('1') == bitlength // 2 else get_xorpad(bitlength)
+
+def leak_encrypted_flag():
+    from secret import flag
+    return bytes_to_long(flag.encode()) ^ get_xorpad(len(flag) * 8)
+
+# I managed to leak the encrypted flag a few times
+if __name__ == '__main__':
+    for _ in range(200):
+        print(leak_encrypted_flag())
+```
+
+### My Solution
+
+If you were to try using Z3 to solve, you'll find that it runs really slow. The issue is that this condition: `exactly half the bits are set` is really hard to model as a SAT problem. So the question arises: Is there another way to model this problem that's significantly more efficient?
+
+So I was thinking, [Integer Programming](https://en.wikipedia.org/wiki/Integer_programming) would model the `neutrality` condition real efficiently, but how do you model `XOR` efficiently? In other words, say `x`, `y` and `z` satisfies `x^y = z`. How do we define linear constraints on `x,y,z` such that it satisfies our `XOR` constraint?
+
+The idea is to consider the convex hull of the points `(x,y,z)` where `x^y = z`. Each face of the convex hull would yield a linear constraint, for a total of `4` linear constraints (for each of the face of the simplex). In fact, this method can model any boolean function, though it blows up as you add more variables. For the case of `XOR`, our convex hull is:
+
+```py
+x + y - z >= 0
+x - y + z >= 0
+x - y - z <= 0
+x + y + z <= 2
+```
+
+Now we model the whole problem with Integer Programming, taking into account the flag format:
+
+```py
+from Crypto.Util.number import bytes_to_long, long_to_bytes
+from mip import Model, xsum, BINARY
+import time
+t = time.time()
+
+flen = 320
+ct = [*map(int, open("distrib/output.txt").read().split("\n")[:-1])]
+ct = [[*map(int, format(c, "0320b"))] for c in ct]
+nct = len(ct)
+
+model = Model()
+
+flag = [*map(int, format(bytes_to_long(b"SEE{" + b"\x7f"*(40-5) + b"}"), "0320b"))]
+for i in range(32, 320-8):
+    if flag[i]: flag[i] = model.add_var(var_type=BINARY)
+
+keys = [
+    [model.add_var(var_type=BINARY) for i in range(flen)]
+    for j in range(nct)
+]
+
+for k in keys:
+    # Models 'neutrality'
+    model += (xsum(k) - flen//2) == 0
+    
+for c,k in zip(ct, keys):
+    for x,y,f in zip(c,k,flag):
+        # Models x^y = f
+        model += (+x+y-f) >= 0
+        model += (+x-y+f) >= 0
+        model += (-x+y+f) >= 0
+        model += (-x-y-f+2) >= 0
+        
+model.optimize()
+flag = long_to_bytes(int("".join([str(int(f if type(f)==int else f.x)) for f in flag]), 2))
+print("Flag:", flag.decode())
+print("Time:", time.time() - t)
+
+# Flag: SEE{50-50_can_be_leaky_4c17bf2a20c4a8df}
+# Time: 95.57503890991211
+```
+
+This solves in about 1.5 min ***^-^**.
+
+**Notable Creative Solution**: [@Javalim](https://blog.javalim.com/2022-SEETF/#Neutrality) actually managed to solve the problem by modelling it as a differential problem and optimizing it with Pytorch.
