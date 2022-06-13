@@ -16,6 +16,7 @@ nav: |
         * [RC4](#rc4)
         * [It’s Right There](#its-right-there)
         * [To Infinity](#to-infinity)
+    * [Playtested Challenges](#playtested-challenges)
     
 excerpt: "Writeups for challenges I wrote for SEETF 2022."
 ---
