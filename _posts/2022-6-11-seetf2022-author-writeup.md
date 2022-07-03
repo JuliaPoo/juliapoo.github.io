@@ -365,9 +365,9 @@ if __name__ == "__main__":
     
     ct = b"".join(rc4(gen_rand_key(), secret) for _ in range(0x100000))
     open("ct", "wb").write(ct)
-    print(f"Flag: SEE{{{secret.decode()}}}")
+    print("Flag: SEE[%s]"%secret.decode())
 ```
-{% endcapture %}
+{% endcapture %}    
 
 <details>
 <summary>See here for the RC4 implementation:</summary>
