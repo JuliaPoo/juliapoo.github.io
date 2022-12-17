@@ -26,8 +26,6 @@ excerpt: Visual intuitions I've accrued while studying algebra, starting with a 
 
 ## Motivation
 
-~~NA~~
-
 So I started learning abstract algebra from [Basic Algebra I by Nathan Jacobson](http://www.math.toronto.edu/~ila/Jacobson-Basic_algebra_I%20(1).pdf) earlier this year, and being a rather dense resource it lacked any form of discourse on the intuition of the concepts. Despite that I formed my own visual intuition of certain concepts, and relied upon it up till Galois Theory. And then I lost interest. 
 
 Fast forward to a few months later I got recommended **The** [Dummit and Foote](https://www.wiley.com/en-us/Abstract+Algebra%2C+3rd+Edition-p-9780471433347) which is an easier resource with plenty of intuition discussed. However, having formed my own intuition already, I realised the intuition written there had some shortcomings, but it helped in fixing certain issues in my intuition and is really an amazing and clear resource.
@@ -154,7 +152,7 @@ https://q.uiver.app/?q=WzAsMTcsWzIsMCwiRF84Il0sWzIsMSwiXFxsYW5nbGUgciBcXHJhbmdsZ
 <img style="width:calc(min(100%, 900px));" src="/assets/posts/2022-12-15-homomorphism-illustrated/D8_lattice2.JPG">
 </center>
 
-Visually we can see that the lattice for $D_8 / K$ has the exact same shape as a "subgraph" of the lattice for $D_8$. In fact, it is everything _above_ the quotient $K$. The _Lattice Isomorphism Theorem_ gives an explicit description of this visual similarity. E.g., we collapse $K = \langle r^2 \rangle$ into the identity in $G/K = D_8/K$, the bottom of the lattice of $G/K$. The _Lattice Isomorphism Theorem_ justifies the yellow lines in the image, that maps all groups in $G$ that _contain_ $K$ gets mapped to a subgroup in $G/K$. One can check that the _Lattice Isomorphism Theorem_ also shows that inclusion relations of the "subgraph" in $G$ has the same shape as that of $G/K$. In fact, the fifth statement justifies something even more that I didn't depict in the visual above: If an inclusion relation is that of "normality" ($A \triangleleft B$), in the lattice of $G$, it's corresponding inclusion relation in the lattice of $G/K$ is also that of "normality" ($A/K \triangleleft B/K$).
+Visually we can see that the lattice for $D_8 / K$ has the exact same shape as a "subgraph" of the lattice for $D_8$. In fact, it is everything _above_ the quotient $K$. The _Lattice Isomorphism Theorem_ gives an explicit description of this visual similarity. E.g., $K = \langle r^2 \rangle$ collapses into the identity in $G/K = D_8/K$ (the bottom of the lattice of $G/K$). It also justifies the yellow lines in the image: All groups in $G$ that _contain_ $K$ gets uniquely mapped to a subgroup in $G/K$. One can also check that the _Lattice Isomorphism Theorem_ shows that inclusion relations of the "subgraph" in $G$ has the "same shape" as that of $G/K$. In fact, the fifth statement describes something even more that I didn't depict in the visual above: If an inclusion relation is that of "normality" ($A \triangleleft B$) in the lattice of $G$, its corresponding inclusion relation in the lattice of $G/K$ is also that of "normality" ($A/K \triangleleft B/K$).
 
 What about the other subgroups of $G$? In particular, those that don't contain $K$? Where do they get mapped to? Well certainly if $C \le K$, $C$ gets mapped to identity in $G/K$. As for the other groups $D$ (that don't contain $K$) its image under the natural homomorphism from $G \rightarrow G/K$ is the same as the image of the subgroup $DK \le G$; and we have $K \le DK$! This means such a subgroup $D$ gets mapped _into_ one of the subgroups of $G/K$. Visually we have something like this:
 
@@ -193,9 +191,64 @@ https://q.uiver.app/?q=WzAsMTAsWzIsMCwiRF84Il0sWzIsMSwiXFxsYW5nbGUgciBcXHJhbmdsZ
 <img style="width:calc(min(100%, 600px));" src="/assets/posts/2022-12-15-homomorphism-illustrated/D8_lattice3.JPG">
 </center>
 
-This visual intuition is certainly incredibly powerful. We see lattice diagrams in proofs with a fair amount of parts such as in [Lang's proof of the Butterfly Lemma](https://math.stackexchange.com/questions/3857104/understanding-the-proof-and-meaning-of-the-butterfly-lemma-zassenhaus-langs) as a way to understand how every part interacts together. However, I have some issues with this intuition as I found its predictive power quite limiting.
+This visual intuition is certainly incredibly powerful. We see lattice diagrams in proofs with a fair amount of parts such as in [Lang's proof of the Butterfly Lemma](https://math.stackexchange.com/questions/3857104/understanding-the-proof-and-meaning-of-the-butterfly-lemma-zassenhaus-langs) as a way to understand how every part interacts together, which is a testament to its explainable power. However, I have some issues with this intuition as I found it quite limiting.
 
-## Shortfalls with this visual intuition
+## Shortfalls with the lattice visual intuition
+
+To illustrate some of the shortfalls, let's try to use lattices to visualise the other isomorphism theorems:
+
+> _Diamond Isomorphism Theorem_:
+>
+> Let $G$ be a group and let $A$ and $B$ be subgroups of $G$, and assume $A \le N_G(B)$. Then $AB$ is a subgroup of $G$ and $B \trianglelefteq AB$, $A \cap B \trianglelefteq A$ and $AB / B \cong A / A\cap B$.
+>
+> We can illustrate the _Diamond Isomorphism Theorem_ in "lattice-speak" as such, where I've annotated normality $\triangleleft$ with a tiny slash through the line. A similar diagram is also given in Dummit and Foote:
+> 
+> <center style="filter:invert(100%)">
+> <img style="width:calc(min(100%, 600px));" src="/assets/posts/2022-12-15-homomorphism-illustrated/iso-diamond1.JPG">
+> </center>
+
+I have several issues with this lattice visual for the _Diamond Isomorphism Theorem_:
+
+1. Can you immediately "see" that $A \le N_G(B)$ implies
+    1. $B \trianglelefteq AB$
+    2. $A \cap B \trianglelefteq A$?
+2. Can you immediately "see" that $AB / B \cong A / A\cap B$? They sure look like _pretty_ seperate parts of the diagram!
+
+Let's also look at the _Third Isomorphism Theorem_:
+
+>  _Third Isomorphism Theorem_:
+>
+> Let $G$ be a group and let $H$ and $K$ be normal subgroups of $G$ with $H \le K$. Then $K/H \trianglelefteq G/H$ and $(G/H) / (K/H) \cong G/K$.
+
+Uh-oh. We are taking _quotients on quotients_! Look. I've tried to illustrated this with the lattice in a way that isn't just $G -- H -- K -- 1$, which clearly doesn't give much insight into the _Third Isomorphism Theorem_. Dummit and Foote also refrained from giving any illustration of the _Third Isomorphism Theorem_.
+
+Finally let's go the deep end and attempt to illustrate the aesthetically pleasing _Butterfly Lemma_:
+
+> _Butterfly Lemma_:
+>
+> Let $G$ be a group with subgroups $A$ and $C$. Suppose $B \triangleleft A$ and $D \triangleleft C$ are normal subgroups. Then 
+>
+> $$\frac{(A\cap C)B}{(A\cap D)B} \cong \frac{(A\cap C)D}{(B\cap C)D}$$
+> 
+> And here's [wikipedia's](https://en.wikipedia.org/wiki/Zassenhaus_lemma) admittedly very pretty illustration of all the parts:
+> 
+> <center style="filter:invert(100%)">
+> <img style="width:calc(min(100%, 600px));" src="/assets/posts/2022-12-15-homomorphism-illustrated/Butterfly_lemma.svg.png">
+> </center>
+
+Again, are you able to immediately "see" that the isomorphism holds? It does feel like it popped out of nowhere does it? How about the vaidity of taking quotients in the first place? (i.e., that $(A\cap D)B \trianglelefteq (A\cap C)B$ and $(A\cap C)D \trianglelefteq (B\cap C)D$). Furthermore the lattice diagram implies a TONNE of moving parts! But in reality we only have `4` objects of concern here ($A,B,C,D$)! The _Butterfly Lemma_ with this current intuition is notoriously difficult to reason about for newbies, as a cursory search on [math.stackexchange](https://math.stackexchange.com/questions/3857104/understanding-the-proof-and-meaning-of-the-butterfly-lemma-zassenhaus-langs) will tell you.
+
+All in all, I feel the lattice visual suffers from the following core problems:
+
+1. Unable to visualise other relations between subgroups
+    - How are $A$ and $N_G(A)$ related?
+    - How are $A,B$ and $A \cap B$ related?
+    - How are $A,B$ and $AB$ related?
+    - etc.
+2. Unable to visualise normality of subgroups, and hence the validity of taking quotients.
+    - Like sure we can annotate each line in the lattice to indicate normality, but what if $A \le B \le C$ and we want to show that $A \trianglelefteq C$? (e.g., say $A$ is characteristic in $B$.)
+
+Ngl being unable to visualise these connections kept bothering me, which motivated me to concretise a better way to visualise homomorphisms. **SO LETS MAKE SOMETHING BETTER**
 
 <!--
 - Unable to visualise quotients of quotients: E.g., Dummit Foote omited visualising the Third Isomorphism Theorem.
@@ -203,15 +256,21 @@ This visual intuition is certainly incredibly powerful. We see lattice diagrams 
 - Unable to properly visualise normality of subgroups (and hence validity of taking quotients)
 -->
 
-To illustrate some of these shortfalls, lets try to use lattices to visualise the other isomorphism theorems:
-
-
+<!--
+1. Summary of all the core issues
+2. Motivation for a new intuition
+-->
 
 # Abstracting the Lattice: Slicing a Shape
 
+<!--
+- Talk about the process of constructing this
+    - E.g. MUST ILLUSTRATE AND OBEY THE ISOMORPHISM LAWS
 - Include normal pls
 - ALso highlight how this intuition, while inspired by lattice, deviates significantly.
 - Able to visualise quotients in quotients (because each slice of a rectangle is another rectangle)
+- Oh yea for AB, mention that it assumes AB=BA (which is indeed true iff AB is to be a subgroup)
+-->
 
 # Applications
 
