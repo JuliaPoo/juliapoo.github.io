@@ -26,15 +26,21 @@ excerpt: Visual intuitions I've accrued while studying algebra, starting with a 
 
 ## Motivation
 
-So I started learning abstract algebra from [Basic Algebra I by Nathan Jacobson](http://www.math.toronto.edu/~ila/Jacobson-Basic_algebra_I%20(1).pdf) earlier this year, and being a rather dense resource it lacked any form of discourse on the intuition of the concepts. Despite that I formed my own visual intuition of certain concepts, and relied upon it up till Galois Theory. And then I lost interest. 
+So I started learning abstract algebra from [Basic Algebra I by Nathan Jacobson](http://www.math.toronto.edu/~ila/Jacobson-Basic_algebra_I%20(1).pdf) earlier this year, and being a rather dense resource it lacked any form of discourse on the intuition of the concepts. For instance, here's how **I** got introduced to homomorphisms from _Nathan Jacobson_:
+
+<center style="filter:invert(1);">
+<img style="width:calc(min(100%, 800px));" src="/assets/posts/2022-12-15-homomorphism-illustrated/nathan-homo.jpg">
+</center>
+
+Despite having been given no intuition, I formed my own visual intuition of certain concepts, and relied upon it up till Galois Theory. And then I lost interest. 
 
 Fast forward to a few months later I got recommended **The** [Dummit and Foote](https://www.wiley.com/en-us/Abstract+Algebra%2C+3rd+Edition-p-9780471433347) which is an easier resource with plenty of intuition discussed. However, having formed my own intuition already, I realised the intuition written there had some shortcomings, but it helped in fixing certain issues in my intuition and is really an amazing and clear resource.
 
 AND THEN I saw this [neat little visual](/assets/posts/2022-12-15-homomorphism-illustrated/PuzzlingThroughExactSequences-23.svg) on the [Snake Lemma](https://en.wikipedia.org/wiki/Snake_lemma) from [Puzzling Through Exact Sequences](https://www.3blue1brown.com/blog/exact-sequence-picturebook) and that motivated me to "concretise" my visual intuitions. Turns out my intuition is a generalisation of the intuition presented in _Puzzling Through Exact Sequences_.
 
-Here, I'm going to describe the intuitions I've been using, starting from the most "concrete" and building up to those more "abstract", and demonstrate its predictive power in some examples, and as a treat, "specialise" this intuition for abelian groups to connect my interpretation with that from _Puzzling Through Exact Sequences_. This post is going to be very Groups focused but I'm sure there are ways to carry this to other structures like Rings. Will update this post when I get around to that.
+Here, I'm going to describe the intuitions I've been using, starting from the most "concrete" and building up to those more "abstract", and demonstrate its explainability power in some examples, and as a treat, "specialise" this intuition for abelian groups to connect my interpretation with that from _Puzzling Through Exact Sequences_. This post is going to be very Groups focused but I'm sure there are ways to carry this to other structures like Rings. Will update this post when I get around to that.
 
-This post is going to be VERY non-rigourous and assume some familiarity with the algebra behind. The intention is not to introduce the concepts but to detail certain intuitions one might miss out on.
+This post is going to be VERY non-rigourous and assume some familiarity with the algebra behind. The intention is not to introduce the concepts but to detail certain intuitions one might miss out on. I hope my writing can help out others who are just starting in Algebra ^-^**\***.
 
 # First Isomorphism Theorem
 
@@ -45,7 +51,7 @@ We start with some fairly standard visual intuition of the first isomorphism the
 The core claim here is that $G / K$ has "the same structure" as $H = \text{Im}\; f$. We build the visual intuition from the fact that $G$ is evenly partitioned by the cosets of $K$, and that $G / K$ is precisely the "structure" of these cosets.
 
 <center>
-<img style="width:calc(min(100%, 600px));" src="/assets/posts/2022-12-15-homomorphism-illustrated/iso-1.svg">
+<img style="width:calc(min(100%, 500px));" src="/assets/posts/2022-12-15-homomorphism-illustrated/iso-1.svg">
 </center>
 
 The visual here shows the additive group $\\{(0,0), (0,1), (1,0), (1,1), (2,0), (2,1)\\} = \mathbb{Z}_3 \times \mathbb{Z}_2$, with two generators $(0,1)$ and $(1,0)$. The red lines correspond to adding $(0,1)$ and the blue arrows correspond to adding $(1,0)$. We have an epimorphism $f$ to $\mathbb{Z}_2$ with kernel $\mathbb{Z}_3$.
@@ -149,7 +155,7 @@ https://q.uiver.app/?q=WzAsMTcsWzIsMCwiRF84Il0sWzIsMSwiXFxsYW5nbGUgciBcXHJhbmdsZ
 -->
 
 <center style="filter:invert(100%)">
-<img style="width:calc(min(100%, 900px));" src="/assets/posts/2022-12-15-homomorphism-illustrated/D8_lattice2.JPG">
+<img style="width:calc(min(100%, 1000px));" src="/assets/posts/2022-12-15-homomorphism-illustrated/D8_lattice2.JPG">
 </center>
 
 Visually we can see that the lattice for $D_8 / K$ has the exact same shape as a "subgraph" of the lattice for $D_8$. In fact, it is everything _above_ the quotient $K$. The _Lattice Isomorphism Theorem_ gives an explicit description of this visual similarity. E.g., $K = \langle r^2 \rangle$ collapses into the identity in $G/K = D_8/K$ (the bottom of the lattice of $G/K$). It also justifies the yellow lines in the image: All groups in $G$ that _contain_ $K$ gets uniquely mapped to a subgroup in $G/K$. One can also check that the _Lattice Isomorphism Theorem_ shows that inclusion relations of the "subgraph" in $G$ has the "same shape" as that of $G/K$. In fact, the fifth statement describes something even more that I didn't depict in the visual above: If an inclusion relation is that of "normality" ($A \triangleleft B$) in the lattice of $G$, its corresponding inclusion relation in the lattice of $G/K$ is also that of "normality" ($A/K \triangleleft B/K$).
@@ -214,15 +220,7 @@ I have several issues with this lattice visual for the _Diamond Isomorphism Theo
     2. $A \cap B \trianglelefteq A$?
 2. Can you immediately "see" that $AB / B \cong A / A\cap B$? They sure look like _pretty_ seperate parts of the diagram!
 
-Let's also look at the _Third Isomorphism Theorem_:
-
->  _Third Isomorphism Theorem_:
->
-> Let $G$ be a group and let $H$ and $K$ be normal subgroups of $G$ with $H \le K$. Then $K/H \trianglelefteq G/H$ and $(G/H) / (K/H) \cong G/K$.
-
-Uh-oh. We are taking _quotients on quotients_! Look. I've tried to illustrated this with the lattice in a way that isn't just $G -- H -- K -- 1$, which clearly doesn't give much insight into the _Third Isomorphism Theorem_. Dummit and Foote also refrained from giving any illustration of the _Third Isomorphism Theorem_.
-
-Finally let's go the deep end and attempt to illustrate the aesthetically pleasing _Butterfly Lemma_:
+Next, let's go the deep end and attempt to illustrate the aesthetically pleasing _Butterfly Lemma_:
 
 > _Butterfly Lemma_:
 >
@@ -240,15 +238,16 @@ Again, are you able to immediately "see" that the isomorphism holds? It does fee
 
 All in all, I feel the lattice visual suffers from the following core problems:
 
-1. Unable to visualise other relations between subgroups
+1. Unable to illustrate other relations between subgroups
     - How are $A$ and $N_G(A)$ related?
     - How are $A,B$ and $A \cap B$ related?
     - How are $A,B$ and $AB$ related?
     - etc.
+    - Because we can't illustrate other relations apart from inclusion, we end up with a lot of disjoint parts in our lattice (e.g., we need to illustrate $A$, $B$, $A \cap B$ and $AB$ as seperate points in the lattice for the _Diamond Isomorphism Theorem_). This not only obscures how these are related, we might end up with so many parts to keep track of like in the _Butterfly Lemma_.
 2. Unable to visualise normality of subgroups, and hence the validity of taking quotients.
-    - Like sure we can annotate each line in the lattice to indicate normality, but what if $A \le B \le C$ and we want to show that $A \trianglelefteq C$? (e.g., say $A$ is characteristic in $B$.)
+    - Like sure we can annotate each line in the lattice to indicate normality, but what if $A \le B \le C$ and we want to illustrate that $A \trianglelefteq C$? (e.g., say $A$ is characteristic in $B$.)
 
-Ngl being unable to visualise these connections kept bothering me, which motivated me to concretise a better way to visualise homomorphisms. **SO LETS MAKE SOMETHING BETTER**
+Ngl being unable to visualise these connections kept bothering me, which motivated me to concretise a better way to visualise homomorphisms. My ideal visual intuition would make the isomorphism theorems look obvious, and have enough explainability power to visualise more involved concepts. **SO LETS MAKE SOMETHING BETTER**
 
 <!--
 - Unable to visualise quotients of quotients: E.g., Dummit Foote omited visualising the Third Isomorphism Theorem.
@@ -268,15 +267,86 @@ Ngl being unable to visualise these connections kept bothering me, which motivat
     - E.g. MUST ILLUSTRATE AND OBEY THE ISOMORPHISM LAWS
 - Include normal pls
 - ALso highlight how this intuition, while inspired by lattice, deviates significantly.
-- Able to visualise quotients in quotients (because each slice of a rectangle is another rectangle)
 - Oh yea for AB, mention that it assumes AB=BA (which is indeed true iff AB is to be a subgroup)
 -->
+
+We abstract a group $G$ into a shape (I like to draw a diamond), and we'd like to express the inclusion relation $A \le B$ by having the shape of $A$ be inside the shape of $B$. Since every subgroup of $G$ contains the trivial subgroup $1$, we designate some point on the edge of $G$ to represent $1$, and we need all subgroups of $G$ to contain the point. We can hence represent a subgroup $H$ of $G$ as a slice of $G$, partitioning $G$ with a dashed line. When it is obvious which section $H$ has to be (like below since $H$ has to contain $1$), I'll just annotate the partitioning line.
+
+<center style="filter:invert(100%)">
+<img style="width:calc(min(100%, 500px));" src="/assets/posts/2022-12-15-homomorphism-illustrated/slicing1.png">
+</center>
+
+We can represent normal groups with a solid line with an arrow indicating its normaliser. This can be read as "$H$ is _normal_ up to $N_G(H)$". The arrow indicates whether it is valid to take quotients. For instance $N_G(H) / H$ is well-defined as $H$ is normal in $N_G(H)$. Similarly, $H \le K \le N_G(H)$ and so $H$ is normal in $K$ and hence $K/H$ is well-defined. Meanwhile, $G$, which the arrow doesn't extend all the way to, indicates that $H \not \trianglelefteq G$ and hence taking $G/H$ is not well-defined.
+
+<center style="filter:invert(100%)">
+<img style="width:calc(min(100%, 500px));" src="/assets/posts/2022-12-15-homomorphism-illustrated/slicing2.png">
+</center>
+
+Now, we can visually represent $A \cap B$ as the _intersection_ of both of their shapes. As an example, consider $H$ and $K$ be subgroups of $G$. $H \cap K$ is visually represented as the tiny coloured square at the bottom. Furthermore $H \cap K \trianglelefteq N_G(H) \cap N_G(K)$, which can be seen visually below as $N_G(H) \cap N_G(K)$ is _within_ the domains specified by the two arrows ($H \cap K$ is defined by both the _pink_ and _blue_ solid lines, and is hence normal in anything within the domain bounded by the _pink_ and _blue_ dashed lines). Visually we can also see that $H \cap K \trianglelefteq H\cap N_G(K)$ and $H \cap K \trianglelefteq N_G(H)\cap K$.
+
+<center style="filter:invert(100%)">
+<img style="width:calc(min(100%, 500px));" src="/assets/posts/2022-12-15-homomorphism-illustrated/slicing3.png">
+</center>
+
+Now when we take quotients, we represent say $A/B$ with the _difference_ in the shape $A/B$. So for instance, reusing the above image, say we have $H \le K \le N_G(H)$ (which implies $H \trianglelefteq K$). Then $H/K$ is well-defined and is represented visually as the coloured region below:
+
+<center style="filter:invert(100%)">
+<img style="width:calc(min(100%, 500px));" src="/assets/posts/2022-12-15-homomorphism-illustrated/slicing4.png">
+</center>
+
+Visually we are able to see that $H/K$ is well-defined simply because we can visually see that $H \trianglelefteq K$.
+
+Oh! One more! Let's visually represent $HK$ for subgroups $H$ and $K$ in $G$ such that $H \le N_G(K)$. Note that $H \le N_G(K)$ implies that $HK$ is a subgroup of $G$, so our visuals doesn't break. Now, this _is_ a stronger requirement for $HK$ to be a subgroup than the sufficient requirement that $HK = KH$ ($HK = KH$ iff $HK$ is a subgroup of $G$), but since our visual is going to rely on the Diamond Isomorphism Theorem, I'll leave the case of the weaker requirement $HK = KH$ as future work (I'm lazy). Otherwise, since $H \le N_G(K)$ implies $HK = KH$, our representation of $HK$ has to be _symmetrical_ with respect to $H$ and $K$. We will visually represent $HK$ as the _union_ of the shapes $H$ and $K$:
+
+<center style="filter:invert(100%)">
+<img style="width:calc(min(100%, 500px));" src="/assets/posts/2022-12-15-homomorphism-illustrated/slicing5.png">
+</center>
+
+Now as mentioned earlier, whatever representation we choose for $HK$ has to obey the Diamond Isomorphism Theorem so for recap here it is again:
+
+> _Diamond Isomorphism Theorem_:
+>
+> Let $G$ be a group and let $H$ and $K$ be subgroups of $G$, and assume $H \le N_G(K)$. Then $HK$ is a subgroup of $G$ and $K \trianglelefteq HK$, $H \cap K \trianglelefteq H$ and $HK / K \cong H / H\cap K$.
+
+Now we can check the visual. From the visual, one can visually verify that $H \le N_G(K)$ implies both $K \trianglelefteq HK$ and $H \cap K \trianglelefteq H$. Furthermore, we can visually verify that $HK / K \cong H / H\cap K$:
+
+<center style="filter:invert(100%)">
+<img style="width:calc(min(100%, 900px));" src="/assets/posts/2022-12-15-homomorphism-illustrated/slicing6.png">
+</center>
+
+Notice that unlike the lattice visual above, $HK / K$ and $H / H\cap K$ occupies the exact same space in the diagram and we can therefore _visually see_ that they are "equal".
+
+I'll be visualising more isomorphism theorems below but if you wanna you can check that this visual intuition obeys all the other isomorphism laws (really naturally too!).
 
 # Applications
 
 ## Isomorphism Theorems Visualised
 
-+ Butterfly Lemma
+Alright let's put this intuition to good use! We'll first start simple and visualise some Isomorphism Theorems. Here's the _Third Isomorphism Theorem_ visualised:
+
+> _Third Isomorphism Theorem_:
+> Let $G$ be a group and let $H$ and $K$ be normal subgroups of $G$ with $H \le K$. Then $K/H \trianglelefteq G/H$ and $(G/H)/(K/H) \cong G/K$.
+>
+> <center style="filter:invert(100%)">
+> <img style="width:calc(min(100%, 900px));" src="/assets/posts/2022-12-15-homomorphism-illustrated/third-iso-slice.png">
+> </center>
+
+Now recall that above, the _Butterfly Lemma_, when visualised with the lattice, looks pretty complicated. With our new visuals, the simplicity of the _Butterfly Lemma_ becomes obvious:
+
+> _Butterfly Lemma_:
+>
+> Let $G$ be a group with subgroups $A$ and $C$. Suppose $B \triangleleft A$ and $D \triangleleft C$ are normal subgroups. Then 
+>
+> $$\frac{(A\cap C)B}{(A\cap D)B} \cong \color{cyan}{\frac{A \cap C}{(A \cap D)(B \cap C)}} \cong \frac{(A\cap C)D}{(B\cap C)D}$$
+> 
+> <center style="filter:invert(100%)">
+> <img style="width:calc(min(100%, 1000px));" src="/assets/posts/2022-12-15-homomorphism-illustrated/butterfly-slice.png">
+> </center>
+> 
+> Are you able to see the _Diamond Isomorphism Theorem_ that's used to prove the _Butterfly Lemma_? If not, do go back up to see how the _Diamond Isomorphism Theorem_ looks like in our visuals. 
+> 
+
+The key benefit of using our new visuals is that we can express how different groups relate to each other _without_ drawing new things (e.g., in the Lattice visuals $A$, $B$, $AB$ and $A\cap B$ are going to be drawn seperately). This makes our visuals very economical. For instance, our visuals for the _Butterfly Lemma_ is simple enough that we can _visually_ see how one can go about proving it.
 
 ## Composition Series
 
