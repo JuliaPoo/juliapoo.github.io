@@ -3,11 +3,13 @@ layout: post
 author: JuliaPoo
 category: Unlisted # Math
 
-display-title: "Homomorphisms Illustrated"
+display-title: "Visualising Homomorphisms"
 tags:
     - math
     - algebra
-    - homomorphism
+    - homomorphisms
+    - isomorphism-theorems
+    - eyecandy
 
 nav: |
     * TODO
@@ -70,7 +72,7 @@ Unfortunately this visual intuition is very limited. It is difficult to see what
 
 # Lattice Isomorphism Theorem: Collapsing the Lattice
 
-The _Lattice Isomorphism Theorem_ often seems rather opaque:
+The Lattice Isomorphism Theorem often seems rather opaque:
 
 > **(Dummit and Foote)** Let $G$ be a group and let $N$ be a normal subgroup of $G$. Then there is a bijection from the set of subgroups $A$ of $G$ which contain $N$ onto the set of subgroups of $G / N$, given by the map $A \rightarrow A/N$. In particular, every subgroup of $G/N$ is of the form $A/N$ for some subgroup $A$ of $G$ containing $N$ (namely, its preimage in $G$ under the natural projection homomorphism from $G$ to $G/N$). This bijection has the following properties: for all $A,B \le G$ with $N \le A$ and $N \le B$,
 > 
@@ -80,7 +82,7 @@ The _Lattice Isomorphism Theorem_ often seems rather opaque:
 > 4. $A \cap B = A/N \cap B/N$
 > 5. $A \trianglelefteq G$ iff $A/N \trianglelefteq G/N$
 
-But this is because this theorem essentially formalises a way to visualise quotients by slicing the [Lattice of Subgroups](https://en.wikipedia.org/wiki/Lattice_of_subgroups). Dummit and Foote goes through in quite detail the visual implications of the _Lattice Isomorphism Theorem_ on the _Lattice of Subgroups_. However, since the visual intuition I present in the next section essentially builds on the intuition presented in Dummit and Foote, for completeness I'll touch a little on this.
+But this is because this theorem essentially formalises a way to visualise quotients by slicing the [Lattice of Subgroups](https://en.wikipedia.org/wiki/Lattice_of_subgroups). Dummit and Foote goes through in quite detail the visual implications of the Lattice Isomorphism Theorem on the _Lattice of Subgroups_. However, since the visual intuition I present in the next section essentially builds on the intuition presented in Dummit and Foote, for completeness I'll touch a little on this.
 
 First off, the _Lattice of Subgroups_ of a group $G$ can be seen to encode the structure of $G$. For illustration purposes I'll only be focusing on the [(finite) Dihedral Group](https://en.wikipedia.org/wiki/Dihedral_group) $D_8$:
 
@@ -114,7 +116,7 @@ First off, the _Lattice of Subgroups_ of a group $G$ can be seen to encode the s
 
 Each line that connects two groups indicates _inclusion_, i.e., one is a subgroup of another (e.g., $\langle r^2 \rangle < \langle r \rangle$). Do note that while _the shape_ of the lattice encodes structure of the group, a particular "shape" is by no means unique to a subgroup (e.g., take the lattice for $\mathbb{Z}_2$ and $\mathbb{Z}_3$, which consists of a single line connecting $1$ to itself).
 
-The _Lattice Isomorphism Theorem_ gives an intuition for taking quotients by collapsing the lattice diagram. Say for insance we take $K = \langle r^2 \rangle$ and consider the lattice for $D_8 / K$ (you do first need to check that $\langle r^2 \rangle \trianglelefteq D_8$):
+The Lattice Isomorphism Theorem gives an intuition for taking quotients by collapsing the lattice diagram. Say for insance we take $K = \langle r^2 \rangle$ and consider the lattice for $D_8 / K$ (you do first need to check that $\langle r^2 \rangle \trianglelefteq D_8$):
 
 <!--
 https://q.uiver.app/?q=WzAsMTcsWzIsMCwiRF84Il0sWzIsMSwiXFxsYW5nbGUgciBcXHJhbmdsZSJdLFsxLDEsIlxcbGFuZ2xlIHMsIHJeMiBcXHJhbmdsZSJdLFszLDEsIlxcbGFuZ2xlIHJzLCByXjIgXFxyYW5nbGUiXSxbMiwyLCJcXGxhbmdsZSByXjIgXFxyYW5nbGUiXSxbMSwyLCJcXGxhbmdsZSByXjJzIFxccmFuZ2xlIl0sWzAsMiwiXFxsYW5nbGUgciBcXHJhbmdsZSJdLFszLDIsIlxcbGFuZ2xlIHJzIFxccmFuZ2xlIl0sWzQsMiwiXFxsYW5nbGUgcl4zcyBcXHJhbmdsZSJdLFsyLDMsIjEiXSxbNiwwLCJEXzgvSyJdLFs1LDEsIlxcbGFuZ2xlIHNLIFxccmFuZ2xlIl0sWzYsMSwiXFxsYW5nbGUgcksgXFxyYW5nbGUiXSxbNywxLCJcXGxhbmdsZSBzcksgXFxyYW5nbGUiXSxbNiwyLCIxIl0sWzIsNCwiXFx0ZXh0e0xhdHRpY2UgZm9yfVxcXFxEXzgiXSxbNiw0LCJcXHRleHR7TGF0dGljZSBmb3J9IFxcXFxEXzgvXFxsYW5nbGUgcl4yIFxccmFuZ2xlIl0sWzAsMSwiIiwwLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMCwzLCIiLDIseyJsZXZlbCI6Miwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFswLDIsIiIsMix7ImxldmVsIjoyLCJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzIsNCwiIiwyLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMSw0LCIiLDAseyJsZXZlbCI6Miwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFszLDQsIiIsMCx7ImxldmVsIjoyLCJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzMsNywiIiwyLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFszLDgsIiIsMix7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMiw1LCIiLDIseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzIsNiwiIiwyLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFs2LDksIiIsMix7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbNSw5LCIiLDEseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzQsOSwiIiwxLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFs3LDksIiIsMSx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbOCw5LCIiLDEseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzE0LDExLCIiLDEseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzE0LDEzLCIiLDEseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzE0LDEyLCIiLDEseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzEyLDEwLCIiLDEseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzExLDEwLCIiLDEseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzEzLDEwLCIiLDEseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzQsMTQsIiIsMSx7ImN1cnZlIjozLCJjb2xvdXIiOlsyNDksNjgsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMSwxMiwiIiwxLHsiY3VydmUiOjQsImNvbG91ciI6WzI0OSw2OCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9LCJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzIsMTEsIiIsMSx7ImN1cnZlIjotMywiY29sb3VyIjpbMjQ5LDY4LDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzMsMTMsIiIsMSx7ImN1cnZlIjotMywiY29sb3VyIjpbMjQ5LDY4LDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzAsMTAsIiIsMSx7ImN1cnZlIjotMywiY29sb3VyIjpbMjQ5LDY4LDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
@@ -158,7 +160,7 @@ https://q.uiver.app/?q=WzAsMTcsWzIsMCwiRF84Il0sWzIsMSwiXFxsYW5nbGUgciBcXHJhbmdsZ
 <img style="width:calc(min(100%, 1000px));" src="/assets/posts/2022-12-15-homomorphism-illustrated/D8_lattice2.JPG">
 </center>
 
-Visually we can see that the lattice for $D_8 / K$ has the exact same shape as a "subgraph" of the lattice for $D_8$. In fact, it is everything _above_ the quotient $K$. The _Lattice Isomorphism Theorem_ gives an explicit description of this visual similarity. E.g., $K = \langle r^2 \rangle$ collapses into the identity in $G/K = D_8/K$ (the bottom of the lattice of $G/K$). It also justifies the yellow lines in the image: All groups in $G$ that _contain_ $K$ gets uniquely mapped to a subgroup in $G/K$. One can also check that the _Lattice Isomorphism Theorem_ shows that inclusion relations of the "subgraph" in $G$ has the "same shape" as that of $G/K$. In fact, the fifth statement describes something even more that I didn't depict in the visual above: If an inclusion relation is that of "normality" ($A \triangleleft B$) in the lattice of $G$, its corresponding inclusion relation in the lattice of $G/K$ is also that of "normality" ($A/K \triangleleft B/K$).
+Visually we can see that the lattice for $D_8 / K$ has the exact same shape as a "subgraph" of the lattice for $D_8$. In fact, it is everything _above_ the quotient $K$. The Lattice Isomorphism Theorem gives an explicit description of this visual similarity. E.g., $K = \langle r^2 \rangle$ collapses into the identity in $G/K = D_8/K$ (the bottom of the lattice of $G/K$). It also justifies the yellow lines in the image: All groups in $G$ that _contain_ $K$ gets uniquely mapped to a subgroup in $G/K$. One can also check that the Lattice Isomorphism Theorem shows that inclusion relations of the "subgraph" in $G$ has the "same shape" as that of $G/K$. In fact, the fifth statement describes something even more that I didn't depict in the visual above: If an inclusion relation is that of "normality" ($A \triangleleft B$) in the lattice of $G$, its corresponding inclusion relation in the lattice of $G/K$ is also that of "normality" ($A/K \triangleleft B/K$).
 
 What about the other subgroups of $G$? In particular, those that don't contain $K$? Where do they get mapped to? Well certainly if $C \le K$, $C$ gets mapped to identity in $G/K$. As for the other groups $D$ (that don't contain $K$) its image under the natural homomorphism from $G \rightarrow G/K$ is the same as the image of the subgroup $DK \le G$; and we have $K \le DK$! This means such a subgroup $D$ gets mapped _into_ one of the subgroups of $G/K$. Visually we have something like this:
 
@@ -203,26 +205,26 @@ This visual intuition is certainly incredibly powerful. We see lattice diagrams 
 
 To illustrate some of the shortfalls, let's try to use lattices to visualise the other isomorphism theorems:
 
-> _Diamond Isomorphism Theorem_:
+Diamond Isomorphism Theorem:
 >
 > Let $G$ be a group and let $A$ and $B$ be subgroups of $G$, and assume $A \le N_G(B)$. Then $AB$ is a subgroup of $G$ and $B \trianglelefteq AB$, $A \cap B \trianglelefteq A$ and $AB / B \cong A / A\cap B$.
 >
-> We can illustrate the _Diamond Isomorphism Theorem_ in "lattice-speak" as such, where I've annotated normality $\triangleleft$ with a tiny slash through the line. A similar diagram is also given in Dummit and Foote:
+> We can illustrate the Diamond Isomorphism Theorem in "lattice-speak" as such, where I've annotated normality $\triangleleft$ with a tiny slash through the line. A similar diagram is also given in Dummit and Foote:
 > 
 > <center style="filter:invert(100%)">
 > <img style="width:calc(min(100%, 600px));" src="/assets/posts/2022-12-15-homomorphism-illustrated/iso-diamond1.JPG">
 > </center>
 
-I have several issues with this lattice visual for the _Diamond Isomorphism Theorem_:
+I have several issues with this lattice visual for the Diamond Isomorphism Theorem:
 
 1. Can you immediately "see" that $A \le N_G(B)$ implies
     1. $B \trianglelefteq AB$
     2. $A \cap B \trianglelefteq A$?
 2. Can you immediately "see" that $AB / B \cong A / A\cap B$? They sure look like _pretty_ seperate parts of the diagram!
 
-Next, let's go the deep end and attempt to illustrate the aesthetically pleasing _Butterfly Lemma_:
+Next, let's go the deep end and attempt to illustrate the aesthetically pleasing Butterfly Lemma:
 
-> _Butterfly Lemma_:
+> Butterfly Lemma:
 >
 > Let $G$ be a group with subgroups $A$ and $C$. Suppose $B \triangleleft A$ and $D \triangleleft C$ are normal subgroups. Then 
 >
@@ -234,7 +236,7 @@ Next, let's go the deep end and attempt to illustrate the aesthetically pleasing
 > <img style="width:calc(min(100%, 600px));" src="/assets/posts/2022-12-15-homomorphism-illustrated/Butterfly_lemma.svg.png">
 > </center>
 
-Again, are you able to immediately "see" that the isomorphism holds? It does feel like it popped out of nowhere does it? How about the vaidity of taking quotients in the first place? (i.e., that $(A\cap D)B \trianglelefteq (A\cap C)B$ and $(A\cap C)D \trianglelefteq (B\cap C)D$). Furthermore the lattice diagram implies a TONNE of moving parts! But in reality we only have `4` objects of concern here ($A,B,C,D$)! The _Butterfly Lemma_ with this current intuition is notoriously difficult to reason about for newbies, as a cursory search on [math.stackexchange](https://math.stackexchange.com/questions/3857104/understanding-the-proof-and-meaning-of-the-butterfly-lemma-zassenhaus-langs) will tell you.
+Again, are you able to immediately "see" that the isomorphism holds? It does feel like it popped out of nowhere does it? How about the vaidity of taking quotients in the first place? (i.e., that $(A\cap D)B \trianglelefteq (A\cap C)B$ and $(A\cap C)D \trianglelefteq (B\cap C)D$). Furthermore the lattice diagram implies a TONNE of moving parts! But in reality we only have `4` objects of concern here ($A,B,C,D$)! The Butterfly Lemma with this current intuition is notoriously difficult to reason about for newbies, as a cursory search on [math.stackexchange](https://math.stackexchange.com/questions/3857104/understanding-the-proof-and-meaning-of-the-butterfly-lemma-zassenhaus-langs) will tell you.
 
 All in all, I feel the lattice visual suffers from the following core problems:
 
@@ -243,7 +245,7 @@ All in all, I feel the lattice visual suffers from the following core problems:
     - How are $A,B$ and $A \cap B$ related?
     - How are $A,B$ and $AB$ related?
     - etc.
-    - Because we can't illustrate other relations apart from inclusion, we end up with a lot of disjoint parts in our lattice (e.g., we need to illustrate $A$, $B$, $A \cap B$ and $AB$ as seperate points in the lattice for the _Diamond Isomorphism Theorem_). This not only obscures how these are related, we might end up with so many parts to keep track of like in the _Butterfly Lemma_.
+    - Because we can't illustrate other relations apart from inclusion, we end up with a lot of disjoint parts in our lattice (e.g., we need to illustrate $A$, $B$, $A \cap B$ and $AB$ as seperate points in the lattice for the Diamond Isomorphism Theorem). This not only obscures how these are related, we might end up with so many parts to keep track of like in the Butterfly Lemma.
 2. Unable to visualise normality of subgroups, and hence the validity of taking quotients.
     - Like sure we can annotate each line in the lattice to indicate normality, but what if $A \le B \le C$ and we want to illustrate that $A \trianglelefteq C$? (e.g., say $A$ is characteristic in $B$.)
 
@@ -294,7 +296,7 @@ Now when we take quotients, we represent say $A/B$ with the _difference_ in the 
 <img style="width:calc(min(100%, 500px));" src="/assets/posts/2022-12-15-homomorphism-illustrated/slicing4.png">
 </center>
 
-Visually we are able to see that $H/K$ is well-defined simply because we can visually see that $H \trianglelefteq K$.
+Visually we are able to see that $H/K$ is well-defined simply because we can visually see that $H \trianglelefteq K$. We can define the identity of $H/K$ at _any point_ along the slice as long as we ensure every subgroup of $H/K$ has to include that point.
 
 Oh! One more! Let's visually represent $HK$ for subgroups $H$ and $K$ in $G$ such that $H \le N_G(K)$. Note that $H \le N_G(K)$ implies that $HK$ is a subgroup of $G$, so our visuals doesn't break. Now, this _is_ a stronger requirement for $HK$ to be a subgroup than the sufficient requirement that $HK = KH$ ($HK = KH$ iff $HK$ is a subgroup of $G$), but since our visual is going to rely on the Diamond Isomorphism Theorem, I'll leave the case of the weaker requirement $HK = KH$ as future work (I'm lazy). Otherwise, since $H \le N_G(K)$ implies $HK = KH$, our representation of $HK$ has to be _symmetrical_ with respect to $H$ and $K$. We will visually represent $HK$ as the _union_ of the shapes $H$ and $K$:
 
@@ -304,7 +306,7 @@ Oh! One more! Let's visually represent $HK$ for subgroups $H$ and $K$ in $G$ suc
 
 Now as mentioned earlier, whatever representation we choose for $HK$ has to obey the Diamond Isomorphism Theorem so for recap here it is again:
 
-> _Diamond Isomorphism Theorem_:
+> Diamond Isomorphism Theorem:
 >
 > Let $G$ be a group and let $H$ and $K$ be subgroups of $G$, and assume $H \le N_G(K)$. Then $HK$ is a subgroup of $G$ and $K \trianglelefteq HK$, $H \cap K \trianglelefteq H$ and $HK / K \cong H / H\cap K$.
 
@@ -322,18 +324,18 @@ I'll be visualising more isomorphism theorems below but if you wanna you can che
 
 ## Isomorphism Theorems Visualised
 
-Alright let's put this intuition to good use! We'll first start simple and visualise some Isomorphism Theorems. Here's the _Third Isomorphism Theorem_ visualised:
+Alright let's put this intuition to good use! We'll first start simple and visualise some Isomorphism Theorems. Here's the Third Isomorphism Theorem visualised:
 
-> _Third Isomorphism Theorem_:
+> Third Isomorphism Theorem:
 > Let $G$ be a group and let $H$ and $K$ be normal subgroups of $G$ with $H \le K$. Then $K/H \trianglelefteq G/H$ and $(G/H)/(K/H) \cong G/K$.
 >
 > <center style="filter:invert(100%)">
 > <img style="width:calc(min(100%, 900px));" src="/assets/posts/2022-12-15-homomorphism-illustrated/third-iso-slice.png">
 > </center>
 
-Now recall that above, the _Butterfly Lemma_, when visualised with the lattice, looks pretty complicated. With our new visuals, the simplicity of the _Butterfly Lemma_ becomes obvious:
+Now recall that above, the Butterfly Lemma, when visualised with the lattice, looks pretty complicated. With our new visuals, the simplicity of the Butterfly Lemma becomes obvious:
 
-> _Butterfly Lemma_:
+> Butterfly Lemma:
 >
 > Let $G$ be a group with subgroups $A$ and $C$. Suppose $B \triangleleft A$ and $D \triangleleft C$ are normal subgroups. Then 
 >
@@ -343,19 +345,62 @@ Now recall that above, the _Butterfly Lemma_, when visualised with the lattice, 
 > <img style="width:calc(min(100%, 1000px));" src="/assets/posts/2022-12-15-homomorphism-illustrated/butterfly-slice.png">
 > </center>
 > 
-> Are you able to see the _Diamond Isomorphism Theorem_ that's used to prove the _Butterfly Lemma_? If not, do go back up to see how the _Diamond Isomorphism Theorem_ looks like in our visuals. 
+> Are you able to see the Diamond Isomorphism Theorem that's used to prove the Butterfly Lemma? If not, do go back up to see how the Diamond Isomorphism Theorem looks like in our visuals. 
 > 
 
-The key benefit of using our new visuals is that we can express how different groups relate to each other _without_ drawing new things (e.g., in the Lattice visuals $A$, $B$, $AB$ and $A\cap B$ are going to be drawn seperately). This makes our visuals very economical. For instance, our visuals for the _Butterfly Lemma_ is simple enough that we can _visually_ see how one can go about proving it.
+The key benefit of using our new visuals is that we can express how different groups relate to each other _without_ drawing new things (e.g., in the Lattice visuals $A$, $B$, $AB$ and $A\cap B$ are going to be drawn seperately). This makes our visuals very economical. For instance, our visuals for the Butterfly Lemma is simple enough that we can _visually_ see how one can go about proving it.
 
-## Composition Series
+However, do note there is the fundamental limitation that our visuals are in 2D and hence the amount of relationships we can capture is rather limited (e.g., try to visualise 3 different _composition series_ of the same group with this visual. I can't, unless I move to 3D).
 
-### Jordan–Hölder Theorem
+## Subgroup Series
 
-### Solvable Groups
+### Composition Series
 
-### Nilpotent Groups
+Recall that a _composition series_ of a group $G$ is a sequence of subgroups
 
-## Semidirect and Direct Products
+$$
+1 = N_0 \le N_1 \le \cdots \le N_{k-1} \le N_k = G
+$$
+
+such that $N_i \trianglelefteq N_{i+1}$ and $N_{i+1}/N_i$ is a simple group, for $0 \le i \le k-1$. $N_{i+1}/N_i$ are known as the _composition factors_ of $G$. 
+
+For finite groups, the _composition factors_ of $G$ is often described analagous to the _prime numbers_. We can see this analogy by visualising the Jordan-Hölder Theorem:
+
+> Jordan-Hölder Theorem (Informal):
+> Let $G$ be a finite group where $G \ne 1$. Then $G$ has a _composition series_. While said _composition series_ isn't unique in general, the _composition factors_ are unique up to permutation.
+>
+> <center style="filter:invert(100%)">
+> <img style="width:calc(min(100%, 600px));" src="/assets/posts/2022-12-15-homomorphism-illustrated/jordanholder-slice1.png">
+> </center>
+>
+> Visually, it means we can slice the shape of $G$ up into smaller regions, and no matter how we slice $G$ up, we'll always end up with the same "smaller regions". Note that since each composition factor $N_{i+1}/N_i$ is simple, we cannot take non-trivial quotients. Visually, it means we can't slice each coloured region further.
+>
+> This is analogous to the "unique factorisation" property of the natural numbers, where we can decompose a natural into irreducible _prime numbers_, and such decomposition over the naturals is unique.
+
+<!--
+TODO: Visual proof of the Jordan-Hölder Theorem?
+-->
+
+### Other Subgroup Series
+
+These visuals make certain propositions seem "obvious". For instance, when a group is _Nilpotent_, it has a [_Lower Central Series_](https://groupprops.subwiki.org/wiki/Lower_central_series). Visually, this slices the group similarly to above into sections, and each section $G_{i+1}/G_i$ is the _center_ of the quotient $G/G_i$. Now, we know that $p$-groups have non-trival centers, and every quotient of a $p$-group is also a $p$-group, so each of the "section" are non-trivial. Can you see that every $p$-group is Nilpotent? Furthermore, can you see that the number of sections (the class of the group) for a $p$-group of size $p^a$ has a maximum of $a-1$?
+
+Similarly, for a [Solvable Group](https://en.wikipedia.org/wiki/Solvable_group) $G$, where we have each factor group be $G_{i+1}/G_i$ to be abelian, one can visually see that if $H \trianglelefteq G$ and $G/H$ is solvable, then $G$ is solvable. In fact, one can visually see that if $H$ has a solvable length $< h$ and $G/H$ has a solvable length of $< q$, then $G$ has a solvable length of $< h + q$.
+
+<center style="filter:invert(100%)">
+<img style="width:calc(min(100%, 600px));" src="/assets/posts/2022-12-15-homomorphism-illustrated/solvable-slice1.png">
+</center>
+
+Conversely, we can also visually see that if $G$ is solvable, and $H \trianglelefteq G$, then $H$ and $G/H$ is solvable too!
+
+<center style="filter:invert(100%)">
+<img style="width:calc(min(100%, 600px));" src="/assets/posts/2022-12-15-homomorphism-illustrated/solvable-slice2.png">
+</center>
+
+Of course, the visuals aren't everything. E.g., One would have to verify that, for instance, that each section of $G/H$ is well-defined and abelian.
+
+<!--
+TODO: Direct products?
+-->
 
 ## Abelian Groups and Other Abelian Things
