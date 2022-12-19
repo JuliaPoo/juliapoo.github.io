@@ -12,12 +12,22 @@ tags:
     - eyecandy
 
 nav: |
-    * TODO
+    * [Motivation](#motivation)
+    * Intuition
+        * [First Isomorphism Theorem](#first-isomorphism-theorem)
+        * [Lattice Isomorphism Theorem: Collapsing the Lattice](#lattice-isomorphism-theorem-collapsing-the-lattice)
+            * [Shortfalls with the lattice visual intuition](#shortfalls-with-the-lattice-visual-intuition)
+        * [Abstracting the Lattice: Slicing a Shape](#abstracting-the-lattice-slicing-a-shape)
+    * Applications
+        * [Isomorphism Theorems Visualised](#isomorphism-theorems-visualised)
+        * Subgroup Series
+            * [Composition Series](#composition-series)
+            * [Other Subgroup Series](#other-subgroup-series)
+        * [Abelian Groups and Other Abelian Things](#abelian-groups-and-other-abelian-things)
+
     
 excerpt: Visual intuitions I've accrued while studying algebra, starting with a geometric interpretation of the isomorphism theorems and application into more "involved" concepts like composition series. Currently very Group focused, might update for more objects.
 ---
-
-# Metadata
 
 <!--
 1. Brief Timeline
@@ -26,7 +36,7 @@ excerpt: Visual intuitions I've accrued while studying algebra, starting with a 
     - Predictive power
 -->
 
-## Motivation
+# Motivation
 
 So I started learning abstract algebra from [Basic Algebra I by Nathan Jacobson](http://www.math.toronto.edu/~ila/Jacobson-Basic_algebra_I%20(1).pdf) earlier this year, and being a rather dense resource it lacked any form of discourse on the intuition of the concepts. For instance, here's how **I** got introduced to homomorphisms from _Nathan Jacobson_:
 
@@ -44,7 +54,9 @@ Here, I'm going to describe the intuitions I've been using, starting from the mo
 
 This post is going to be VERY non-rigourous and assume some familiarity with the algebra behind. The intention is not to introduce the concepts but to detail certain intuitions one might miss out on. I hope my writing can help out others who are just starting in Algebra ^-^**\***.
 
-# First Isomorphism Theorem
+# Intuitions
+
+## First Isomorphism Theorem
 
 We start with some fairly standard visual intuition of the first isomorphism theorem, which states:
 
@@ -70,7 +82,7 @@ Hence, when studying homomorphisms, we are also studying normal subgroups. This 
 
 Unfortunately this visual intuition is very limited. It is difficult to see what exactly I mean by "collapsing". What was removed and what is left? The idea of "collapsing" the structure of $G$ will be made more explicit in the **Lattice Isomorphism Theorem** where we'll see a more common (and useful) way to visualise homomorphisms. 
 
-# Lattice Isomorphism Theorem: Collapsing the Lattice
+## Lattice Isomorphism Theorem: Collapsing the Lattice
 
 The Lattice Isomorphism Theorem often seems rather opaque:
 
@@ -201,7 +213,7 @@ https://q.uiver.app/?q=WzAsMTAsWzIsMCwiRF84Il0sWzIsMSwiXFxsYW5nbGUgciBcXHJhbmdsZ
 
 This visual intuition is certainly incredibly powerful. We see lattice diagrams in proofs with a fair amount of parts such as in [Lang's proof of the Butterfly Lemma](https://math.stackexchange.com/questions/3857104/understanding-the-proof-and-meaning-of-the-butterfly-lemma-zassenhaus-langs) as a way to understand how every part interacts together, which is a testament to its explainable power. However, I have some issues with this intuition as I found it quite limiting.
 
-## Shortfalls with the lattice visual intuition
+### Shortfalls with the lattice visual intuition
 
 To illustrate some of the shortfalls, let's try to use lattices to visualise the other isomorphism theorems:
 
@@ -262,7 +274,7 @@ Ngl being unable to visualise these connections kept bothering me, which motivat
 2. Motivation for a new intuition
 -->
 
-# Abstracting the Lattice: Slicing a Shape
+## Abstracting the Lattice: Slicing a Shape
 
 <!--
 - Talk about the process of constructing this
@@ -397,10 +409,26 @@ Conversely, we can also visually see that if $G$ is solvable, and $H \trianglele
 <img style="width:calc(min(100%, 600px));" src="/assets/posts/2022-12-15-homomorphism-illustrated/solvable-slice2.png">
 </center>
 
-Of course, the visuals aren't everything. E.g., One would have to verify that, for instance, that each section of $G/H$ is well-defined and abelian.
+Of course, the visuals aren't everything. E.g., One would have to verify, for instance, that each section of $G/H$ is well-defined and abelian.
 
 <!--
 TODO: Direct products?
 -->
 
 ## Abelian Groups and Other Abelian Things
+
+For abelian groups, every subgroup is going to be normal, so there's no more need to draw the arrows ever! However, we still do need to indicate a direction somehow (a flow from the subgroup to the quotients, we don't ever want to confuse those two!). Why not draw our "slice" with a tiny wedge to indicate direction?
+
+<center style="filter:invert(100%)">
+<img style="width:calc(min(100%, 300px));" src="/assets/posts/2022-12-15-homomorphism-illustrated/abelian-slice.png">
+</center>
+
+Well I'm not the first to come up with this! [Puzzling Through Exact Sequence](https://www.3blue1brown.com/blog/exact-sequence-picturebook) starts with this specialisation of our visuals that we build here _specifically_ for abelian things and took the intuition really far.
+
+Turns out whatever we've been building in this post is a slight generalisation of _Puzzling Through Exact Sequence_'s intuition!
+
+<center>
+    <a href="#">
+    <img style="height:1.5em; padding-top:3em" src="/assets/img/feather.svg">
+    </a>
+</center>
