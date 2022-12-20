@@ -1,7 +1,7 @@
 ---
 layout: post
 author: JuliaPoo
-category: Math
+category: Mathematics
 
 display-title: "Visualising Homomorphisms"
 tags:
