@@ -1,7 +1,7 @@
 ---
 layout: post
 author: JuliaPoo
-category: Math
+category: Mathematics
 
 display-title: "Visualising Homomorphisms"
 tags:
@@ -68,7 +68,7 @@ The core claim here is that $G / K$ has "the same structure" as $H = \text{Im}
 <img style="width:calc(min(100%, 500px));" src="/assets/posts/2022-12-15-homomorphism-illustrated/iso-1.svg">
 </center>
 
-The visual here shows the additive group $\\{(0,0), (0,1), (1,0), (1,1), (2,0), (2,1)\\} = \mathbb{Z}_3 \times \mathbb{Z}_2$, with two generators $(0,1)$ and $(1,0)$. The red lines correspond to adding $(0,1)$ and the blue arrows correspond to adding $(1,0)$. We have an epimorphism $f$ to $\mathbb{Z}_2$ with kernel $\mathbb{Z}_3$.
+The visual here shows the additive group $\\{(0,0), (0,1), (1,0), (1,1), (2,0), (2,1)\\}$$=\mathbb{Z}_3 \times \mathbb{Z}_2$, with two generators $(0,1)$ and $(1,0)$. The red lines correspond to adding $(0,1)$ and the blue arrows correspond to adding $(1,0)$. We have an epimorphism $f$ to $\mathbb{Z}_2$ with kernel $\mathbb{Z}_3$.
 
 From the visual, we can see that an epimorphism collapses the kernel $K$ into a single point in the image $G / K$. All the other cosets of $K$ in $G$ are similarly collapsed into a unique point in $G/K$. Some properties become immediately apparent, such as [_Lagrange's Theorem_](https://en.wikipedia.org/wiki/Lagrange%27s_theorem_(group_theory)) ($\|G / K\| = \|G\|\,/\,\|K\|$ for finite $G$), as each point in $G / K$ is "made up" of $\|K\|$ elements in $G$. Furthermore, the collapsing of the cosets into single points reveals some structure of $G$: The red line on the right side of the visual, indicative of the structure of $G/K$, corresponds to the three red lines on the left side. More generally, the group operation on $G$ is well-defined over the cosets of $K$.
 
