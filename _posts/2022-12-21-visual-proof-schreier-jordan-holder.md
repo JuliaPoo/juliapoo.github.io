@@ -12,7 +12,9 @@ tags:
     - eyecandy
 
 nav: |
-    * TODO
+    * [Metadata](#metadata)
+    * [(Informal) Visual Proof](#informal-visual-proof)
+    * [Justifications](#justifications)
 
     
 excerpt: A follow-up from my post [Visualising Homomorphisms](/mathematics/2022/12/15/homomorphism-illustrated.html), applied to giving a visual proof of the Schreier Refinement Theorem and Jordan-Hölder Theorem.
