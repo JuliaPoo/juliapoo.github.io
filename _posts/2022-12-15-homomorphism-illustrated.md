@@ -354,7 +354,7 @@ Now recall that above, the Butterfly Lemma, when visualised with the lattice, lo
 > $$\frac{(A\cap C)B}{(A\cap D)B} \cong \color{cyan}{\frac{A \cap C}{(A \cap D)(B \cap C)}} \cong \frac{(A\cap C)D}{(B\cap C)D}$$
 > 
 > <center style="filter:invert(100%)">
-> <img style="width:calc(min(100%, 1000px));" src="/assets/posts/2022-12-15-homomorphism-illustrated/butterfly-slice.png">
+> <img id="butterfly-slice" style="width:calc(min(100%, 1000px));" src="/assets/posts/2022-12-15-homomorphism-illustrated/butterfly-slice.png">
 > </center>
 > 
 > Are you able to see the Diamond Isomorphism Theorem that's used to prove the Butterfly Lemma? If not, do go back up to see how the Diamond Isomorphism Theorem looks like in our visuals. 
