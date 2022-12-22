@@ -310,7 +310,7 @@ Now when we take quotients, we represent say $A/B$ with the _difference_ in the 
 
 Visually we are able to see that $H/K$ is well-defined simply because we can visually see that $H \trianglelefteq K$.
 
-Oh! One more! Let's visually represent $HK$ for subgroups $H$ and $K$ in $G$ such that $H \le N_G(K)$. Note that $H \le N_G(K)$ implies that $HK$ is a subgroup of $G$, so that we can still represent $HK$ in our visuals. Now, this _is_ a stronger requirement for $HK$ to be a subgroup than the sufficient requirement that $HK = KH$ ($HK = KH$ iff $HK$ is a subgroup of $G$), but since our visual is going to rely on the Diamond Isomorphism Theorem, I'll leave the case of the weaker requirement $HK = KH$ as future work (I'm lazy). Otherwise, since $H \le N_G(K)$ implies $HK = KH$, our representation of $HK$ has to be _symmetrical_ with respect to $H$ and $K$. We will visually represent $HK$ as the _union_ of the shapes $H$ and $K$:
+Oh! One more! Let's visually represent $HK$ for subgroups $H$ and $K$ in $G$ such that $H \le N_G(K)$. Note that $H \le N_G(K)$ implies that $HK$ is a subgroup of $G$, so that we can still represent $HK$ in our visuals. Now, this _is_ a stronger requirement for $HK$ to be a subgroup than the sufficient requirement that $HK = KH$ ($HK = KH$ iff $HK$ is a subgroup of $G$), but since our visual is going to rely on the Diamond Isomorphism Theorem, I'll leave the case of the weaker requirement $HK = KH$ as future work (I'm lazy). Otherwise, since $H \le N_G(K)$ implies $HK = KH$, our representation of $HK$ has to be _symmetrical_ with respect to $H$ and $K$. We will visually represent $HK$ as the _union_ of the shapes $H$ and $K$, which makes sense as $HK$ is the smallest subgroup that contains both $H$ and $K$:
 
 <center style="filter:invert(100%)">
 <img style="width:calc(min(100%, 500px));" src="/assets/posts/2022-12-15-homomorphism-illustrated/slicing5.png">
@@ -393,7 +393,7 @@ For finite groups, the _composition factors_ of $G$ are often described as anala
 TODO: Visual proof of the Jordan-Hölder Theorem?
 -->
 
-Is there a visual way to see _why_ the Jordan-Hölder Theorem holds? Turns out there is! I plan to write a follow-up post on a visual proof of the Jordan-Hölder Theorem and possibly some related concepts as well.
+Is there a visual way to see _why_ the Jordan-Hölder Theorem holds? Turns out there is! I've written a [follow-up post](/mathematics/2022/12/21/visual-proof-schreier-jordan-holder.html) using the visual intuition built here to provide a visual proof of the Jordan-Hölder and related theorems.
 
 ### Other Subgroup Series
 
