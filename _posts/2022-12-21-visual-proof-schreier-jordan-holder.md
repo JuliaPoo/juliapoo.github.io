@@ -69,7 +69,7 @@ Well visually, we can see two ways to describe the factor group $X_{i,j}$:
 2. $H_{j-1} (H_j \cap G_i) \;/\; H_{j-1} (H_j \cap G_{i-1})$
 
 <center style="filter:invert(100%)">
-<img style="width:calc(min(100%, 800px));" src="/assets/posts/2022-12-21-visual-proof-schreier-jordan-holder/visual-3.png" lazy>
+<img id="visual-3" style="width:calc(min(100%, 800px));" src="/assets/posts/2022-12-21-visual-proof-schreier-jordan-holder/visual-3.png" lazy>
 </center>
 
 We can hence define two sequences which involves starting from $1$ and iteratively appending more $X_{i,j}$ factor groups both column-wise and row-wise respectively until we reach $G$. Appending column-wise we get $\Sigma_G'$ which _contains_ $\Sigma_G$, and appending row-wise we get $\Sigma_H'$ which _contains_ $\Sigma_H$.
@@ -107,7 +107,7 @@ Visually it is obvious that both $\Sigma_G'$ and $\Sigma_H'$ _contains_ $\Sigma_
 
 ### Jordan-Hölder Theorem
 
-Now suppose instead of just subnormal series $\Sigma_G$ and $\Sigma_H$ of $G$, we have $\Sigma_G$ and $\Sigma_H$ be _composition series_. Informally, this means each factor group of $\Sigma_G$ and $\Sigma_H$ is simple and hence cannot be "sliced further". This means our $X_{i,j}$ factor groups must be equal, up to permutation, to the factor groups of $\Sigma_G$ (and of $\Sigma_H$), after removing trivial factor groups ($X_{i,j} = 1$). Hence the constructed series $\Sigma_G'$ and $\Sigma_H'$ will have duplicates, and after removing those duplicates we must have $\Sigma_G' = \Sigma_G$ and $\Sigma_H' = \Sigma_H$. Since $\Sigma_G'$ and $\Sigma_H'$ have the same factor groups up till permutation, we've proven the Jordan-Hölder Theorem.
+Now suppose instead of just subnormal series $\Sigma_G$ and $\Sigma_H$ of $G$, we have $\Sigma_G$ and $\Sigma_H$ be _composition series_. Informally, this means each factor group of $\Sigma_G$ and $\Sigma_H$ is simple and hence cannot be "sliced further". This means our $X_{i,j}$ factor groups must be equal, up to permutation, to the factor groups of $\Sigma_G$ (and of $\Sigma_H$), after removing trivial factor groups ($X_{i,j} = 1$). Hence the constructed series $\Sigma_G'$ and $\Sigma_H'$ will have duplicates, and after removing those duplicates we must have $\Sigma_G' = \Sigma_G$ and $\Sigma_H' = \Sigma_H$. Since $\Sigma_G'$ and $\Sigma_H'$ have the same factor groups up till permutation, we can say the same thing for $\Sigma_G$ and $\Sigma_H$. **Done.**
 
 Visually, suppose we have the factor group $G_3/G_2$ be simple and hence cannot be sliced further. Then we must have $X_{3,1}$, $X_{3,2}$, $X_{3,3}$, $X_{3,4}$ be isomorphic to either $1$ or $G_3/G_2$, which can be represented visually as such:
 
@@ -115,12 +115,18 @@ Visually, suppose we have the factor group $G_3/G_2$ be simple and hence cannot 
 <img style="width:calc(min(100%, 600px));" src="/assets/posts/2022-12-21-visual-proof-schreier-jordan-holder/visual-4.png" lazy>
 </center>
 
-This visually explains why some $X_{i,j}$ will be trivial factor groups. 
+This visually explains why some $X_{i,j}$ will be trivial. 
 
 ## Justifications
 
-### Factor groups of $\Sigma_G'$ and $\Sigma_H'$ are well-defined
+We have shown visually that the factor group $X_{i,j}$ can be given as:
 
+1. $G_{i-1} (G_i \cap H_j) \;/\; G_{i-1} (G_i \cap H_{j-1})$
+2. $H_{j-1} (H_j \cap G_i) \;/\; H_{j-1} (H_j \cap G_{i-1})$
 
+but we still need to justify that they _are_ isomorphic.
 
-### Equivalence of the factor groups from $\Sigma_G'$ and $\Sigma_H'$
+I refer to the [above image](#visual-3) and to [the butterfly lemma visual in my previous post](/mathematics/2022/12/15/homomorphism-illustrated.html#butterfly-slice). Both images do look really similar doesn't it? That's because we can apply the Butterfly Lemma to the tuple $(A,B,C,D) = (G_i, G_{i-1}, H_j, H_{j-1})$, which is justified as $G_{i-1} \trianglelefteq G_i$ and $H_{j-1} \trianglelefteq H_j$.
+
+The butterfly lemma also shows that the factor groups $X_{i,j}$ are well-defined, as we've also shown that $G_{i-1} (G_i \cap H_{j-1}) \trianglelefteq G_{i-1} (G_i \cap H_j)$ and $H_{j-1} (H_j \cap G_{i-1}) \trianglelefteq H_{j-1} (H_j \cap G_i)$
+
