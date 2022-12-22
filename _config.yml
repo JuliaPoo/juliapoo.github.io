@@ -18,3 +18,7 @@ collections:
   projects:
     output: true
     sort_by: date
+
+url: "https://juliapoo.github.io/"
+plugins:
+  - jekyll-sitemap
