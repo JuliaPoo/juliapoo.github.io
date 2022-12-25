@@ -70,12 +70,12 @@ function featherfall() {
 window.load = featherfall
 window.addEventListener('load', (event) => {
     featherfall();
-});
+}, {passive: true});
 
 window.addEventListener('scroll', (event) => {
     featherfall();
-});
+}, {passive: true});
 
 window.addEventListener('resize', (event) => {
     featherfall();
-});
+}, {passive: true});
