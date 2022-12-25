@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head prefix="og: https://juliapoo.github.io/#">
@@ -20,6 +20,7 @@
     property="og:description"
     content= "{{ page.excerpt | escape }}"
   />
+  <meta name="description" content= "{{ page.excerpt | escape }}">
   {% endif %}
   {% if page.preview-url %}
     <meta
@@ -51,6 +52,10 @@
   </title>
   <link rel="icon" href="/assets/img/placeholder.svg">
   <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="preload" href="/assets/fonts/VictorMono-Bold.ttf" as="font" type="font/ttf" crossorigin="">
+  <link rel="preload" href="/assets/fonts/VictorMono-BoldItalic.ttf" as="font" type="font/ttf" crossorigin="">
+  <link rel="preload" href="/assets/fonts/VictorMono-Italic.ttf" as="font" type="font/ttf" crossorigin="">
+  <link rel="preload" href="/assets/fonts/VictorMono-Regular.ttf" as="font" type="font/ttf" crossorigin="">
   <script src="/assets/js/nav.js" async></script>
   <script src="/assets/js/feather.js" async></script>
 
@@ -59,12 +64,14 @@
       tex2jax: {
         inlineMath: [['$','$'], ['\\(','\\)']],
         processEscapes: true
-      }
+      },
+      jax: ["input/TeX", "output/SVG"]
     });
   </script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
-
-  <script type='text/javascript' src="https://unpkg.com/mermaid@8.14.0/dist/mermaid.min.js" async></script>
+  {% if page.uses-mermaid %}
+    <script type='text/javascript' src="https://unpkg.com/mermaid@8.14.0/dist/mermaid.min.js" async></script>
+  {% endif %}
 </head>
 
 <body>

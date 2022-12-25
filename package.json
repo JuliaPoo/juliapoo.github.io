@@ -1,0 +1,24 @@
+{
+  "name": "jules-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JuliaPoo/Alulae-private.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JuliaPoo/Alulae-private/issues"
+  },
+  "homepage": "https://github.com/JuliaPoo/Alulae-private#readme",
+  "dependencies": {
+    "mathjax-full": "^3.2.2",
+    "yargs": "^17.6.2"
+  }
+}
