@@ -224,6 +224,7 @@ Currently, nothing much. But I plan to use this to consolidate all the stuff I d
 </style>
 <center>
 <div id="sky-with-my-beloved">
+<!--googleoff: index-->
 <pre>
 {% raw %}
                                               V                 _L                          |       |               |  | __                                               )      )                           L                                      
@@ -274,5 +275,6 @@ _     `  L__ \\     K\        yn(`:~L                    [_         _(y         
                                                                             `````                __,eev==~v==.v~~-^^^,----L,,                                                                                                                       
 {% endraw %}
 </pre>
+<!--googleon: index-->
 </div>
 </center>
