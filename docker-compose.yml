@@ -1,0 +1,8 @@
+services:
+  juliapoo-website:
+    image: gh-pages
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./:/src/site
+    command: jekyll serve --watch --force_polling -H 0.0.0.0 -P 4000
