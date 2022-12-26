@@ -1,7 +1,7 @@
 ---
 layout: post
 author: JuliaPoo
-category: Mathematics
+category: Bites
 
 display-title: "The Most Inefficient Way to Compute $\\pi$"
 tags:

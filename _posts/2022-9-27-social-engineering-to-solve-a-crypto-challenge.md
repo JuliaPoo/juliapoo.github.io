@@ -1,7 +1,7 @@
 ---
 layout: post
 author: JuliaPoo
-category: Misc
+category: Security
 
 display-title: "Social Engineering to Solve A Crypto Challenge"
 tags:
