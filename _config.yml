@@ -22,9 +22,13 @@ collections:
 url: "https://juliapoo.github.io/"
 plugins:
   - jekyll-sitemap
-  - jekyll-mathjax-csp
 
 exclude:
-  - node_modules
-  - package.json
-  - package-lock.json
+  - pages-gem
+  - .gitignore
+  - .gitattributes
+  - .gitmodules
+  - README.md
+  - docker-compose.yml
+  - Gemfile
+  - Gemfile.lock
