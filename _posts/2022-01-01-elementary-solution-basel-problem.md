@@ -1,7 +1,7 @@
 ---
 layout: post
 author: JuliaPoo
-category: Mathematics
+category: Bites
 
 display-title: "An Elementary Solution to the Basel Problem"
 tags:

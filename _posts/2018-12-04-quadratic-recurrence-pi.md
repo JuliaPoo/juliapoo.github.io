@@ -1,7 +1,7 @@
 ---
 layout: post
 author: JuliaPoo
-category: Mathematics
+category: Bites
 
 display-title: "A Quadratic Recurrence Relation that Computes $\\pi$"
 tags:

@@ -1,7 +1,7 @@
 ---
 layout: post
 author: JuliaPoo
-category: Mathematics
+category: Bites
 
 display-title: "A Surprising Place $e$ Appears In"
 tags:

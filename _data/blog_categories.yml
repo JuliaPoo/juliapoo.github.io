@@ -5,6 +5,8 @@
 - name: CTF
   desc: |
     A collection of CTF Writeups of challenges I liked, 
-    heavily biased towards Crypto. 
+    heavily biased towards Crypto.
+- name: Bites
+  desc: Fun Facts!™
 - name: Misc
   desc: Random, unorganised writings of miscellaneous topics.
