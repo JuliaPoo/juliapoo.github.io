@@ -20,6 +20,7 @@ collections:
     sort_by: date
 
 url: "https://juliapoo.github.io/"
+baseurl: null
 plugins:
   - jekyll-sitemap
 
