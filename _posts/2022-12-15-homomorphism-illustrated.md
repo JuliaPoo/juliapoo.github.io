@@ -64,15 +64,15 @@ We start with some fairly standard visual intuition of the first isomorphism the
 
 The core claim here is that $G / K$ has "the same structure" as $H = \text{Im}\; f$. We build the visual intuition from the fact that $G$ is evenly partitioned by the cosets of $K$, and that $G / K$ is precisely the "structure" of these cosets.
 
-<center>
-<img style="width:calc(min(100%, 500px));" src="/assets/posts/2022-12-15-homomorphism-illustrated/iso-1.svg">
+<center style="filter:invert(100%)">
+<img style="width:calc(min(100%, 800px));" src="/assets/posts/2022-12-15-homomorphism-illustrated/iso-1.png">
 </center>
 
-The visual here shows the additive group $\\{(0,0), (0,1), (1,0), (1,1), (2,0), (2,1)\\}$$=\mathbb{Z}_3 \times \mathbb{Z}_2$, with two generators $(0,1)$ and $(1,0)$. The red lines correspond to adding $(0,1)$ and the blue arrows correspond to adding $(1,0)$. We have an epimorphism $f$ to $\mathbb{Z}_2$ with kernel $\mathbb{Z}_3$.
+The visual here shows the group $G = \mathbb{Z}_2 \times \mathbb{Z}_3$, with two generators $(0,1)$ and $(1,0)$. The orange arrows correspond to adding $(0,1)$ and the pink arrows correspond to adding $(1,0)$. We have an epimorphism $f$ to $\mathbb{Z}_2$ with kernel $K = \mathbb{Z}_3$.
 
-From the visual, we can see that an epimorphism collapses the kernel $K$ into a single point in the image $G / K$. All the other cosets of $K$ in $G$ are similarly collapsed into a unique point in $G/K$. Some properties become immediately apparent, such as [_Lagrange's Theorem_](https://en.wikipedia.org/wiki/Lagrange%27s_theorem_(group_theory)) ($\|G / K\| = \|G\|\,/\,\|K\|$ for finite $G$), as each point in $G / K$ is "made up" of $\|K\|$ elements in $G$. Furthermore, the collapsing of the cosets into single points reveals some structure of $G$: The red line on the right side of the visual, indicative of the structure of $G/K$, corresponds to the three red lines on the left side. More generally, the group operation on $G$ is well-defined over the cosets of $K$.
+From the visual, we can see that an epimorphism collapses the kernel $K$ into a single point in the image $G / K$. All the other cosets of $K$ in $G$ are similarly collapsed into a unique point in $G/K$. Some properties become immediately apparent, such as [_Lagrange's Theorem_](https://en.wikipedia.org/wiki/Lagrange%27s_theorem_(group_theory)) ($\|G / K\| = \|G\|\,/\,\|K\|$ for finite $G$), as each point in $G / K$ is "made up" of $\|K\|$ elements in $G$. Furthermore, the collapsing of the cosets into single points reveals some structure of $G$: The pink arrows on the right side of the visual, indicative of the structure of $G/K$, corresponds to the three pink arrows on the left side. More generally, the group operation on $G$ is well-defined over the cosets of $K$.
 
-Collapsing some structure (that of $\text{ker}\;f = K$) into a single point begets the intuition that some structural information is lost upon a homomorphism $G \rightarrow G /K$ (in particular, a non-injective homomorphism) while retaining some information about the original structure (The red line on the right side of the visual): We are "collapsing" off some part of the structure to obtain the image of a homomorphism. This, I presume, is the origin of the term "quotient" and why its syntax bares resemblence to "dividing".
+Collapsing some structure (that of $\text{ker}\;f = K$) into a single point begets the intuition that some structural information is lost upon a homomorphism $G \rightarrow G /K$ (in particular, a non-injective homomorphism) while retaining some information about the original structure (The pink arrows on the right side of the visual): We are "collapsing" off some part of the structure to obtain the image of a homomorphism. This, I presume, is the origin of the term "quotient" and why its syntax bares resemblence to "dividing".
 
 The First Isomorphism Theorem is also often stated with the following:
 
