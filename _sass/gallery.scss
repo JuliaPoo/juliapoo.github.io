@@ -32,6 +32,8 @@
     align-items: center;
 
     filter: saturate(100%);
+
+    position: relative;
 }
 
 .gallery-img-container:hover {
@@ -165,3 +167,43 @@
     height: 360px;
     max-width: 100%;
 }
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    width: 30%;
+    height: 30%;
+    
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.5);
+    outline: 2px solid white;
+    border: 0px;
+  }
+  
+  .play-button-symbol {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-37%, -50%);
+    
+    width: 50%;
+    height: 50%;
+  }
+  
+  @keyframes play-button-hover {
+    0%   {padding: 0px;}
+    100% {padding: 10px; background-color: rgb(6, 32, 71); outline: 2px solid white;}
+  }
+  
+  .gallery-img-container:hover .play-button {
+    animation: play-button-hover 0.3s forwards;
+  }
+  
+  .gallery-img-container:hover .play-button-symbol {
+    /* https://codepen.io/sosuke/pen/Pjoqqp */
+    filter: brightness(0) invert(90%) sepia(53%) saturate(1712%) hue-rotate(85deg) brightness(99%) contrast(100%);
+    
+  }
