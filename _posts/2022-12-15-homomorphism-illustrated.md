@@ -89,9 +89,9 @@ The Lattice Isomorphism Theorem as stated by itself is rather opaque:
 > **(Dummit and Foote)** Let $G$ be a group and let $N$ be a normal subgroup of $G$. Then there is a bijection from the set of subgroups $A$ of $G$ which contain $N$ onto the set of subgroups of $G / N$, given by the map $A \rightarrow A/N$. In particular, every subgroup of $G/N$ is of the form $A/N$ for some subgroup $A$ of $G$ containing $N$ (namely, its preimage in $G$ under the natural projection homomorphism from $G$ to $G/N$). This bijection has the following properties: for all $A,B \le G$ with $N \le A$ and $N \le B$,
 > 
 > 1. $A \le B$ iff $A/N \le B/N$
-> 2. If $A \le B$, then $\|B:A\| = \|B/N : A/N\|$
-> 3. $\langle A,B \rangle / N = \langle A/N, B/N \rangle$
-> 4. $A \cap B = A/N \cap B/N$
+> 2. If $A \le B$, then $[B:A] = [B/N : A/N]$
+> 3. $\langle A,B \rangle / N \cong \langle A/N, B/N \rangle$
+> 4. $(A \cap B)/N \cong A/N \cap B/N$
 > 5. $A \trianglelefteq G$ iff $A/N \trianglelefteq G/N$
 
 The "involved-ness" of this theorem is largely because it essentially formalises a way to visualise quotients by slicing the [Lattice of Subgroups](https://en.wikipedia.org/wiki/Lattice_of_subgroups). Dummit and Foote goes through in detail the visual implications of the Lattice Isomorphism Theorem on the _Lattice of Subgroups_. Since the visual intuition I'll present in the next section essentially builds on the intuition presented in Dummit and Foote, for completeness I'll touch a little on this.
