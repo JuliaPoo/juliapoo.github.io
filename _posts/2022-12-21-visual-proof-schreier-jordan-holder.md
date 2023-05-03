@@ -77,7 +77,7 @@ Well visually, we can see two ways to describe the factor group $X_{i,j}$:
 We can hence define two sequences which involves starting from $1$ and iteratively appending more $X_{i,j}$ factor groups both column-wise and row-wise respectively until we reach $G$. Appending column-wise we get $\Sigma_G'$ which _contains_ $\Sigma_G$, and appending row-wise we get $\Sigma_H'$ which _contains_ $\Sigma_H$.
 
 $$
-\begin{align*}
+\begin{aligned}
 &\Sigma_G' = \{\\
 &   &1 = G_0 = &\;G_0 (G_1 \cap H_0)\trianglelefteq\\
 &   &&\;G_0 (G_1 \cap H_1)\trianglelefteq G_0 (G_1 \cap H_2)\trianglelefteq \cdots\trianglelefteq \\
@@ -96,7 +96,7 @@ $$
 &   &&\cdots\trianglelefteq \\
 &   &G = H_m = &\;H_{m-1} (H_m \cap G_n)\\
 &\} \\
-\end{align*}
+\end{aligned}
 $$
 
 Here is $\Sigma_G'$ and $\Sigma_H'$ as an animation:

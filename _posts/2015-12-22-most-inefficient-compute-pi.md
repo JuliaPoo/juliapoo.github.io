@@ -126,18 +126,18 @@ Does the values look familiar? It is the values of the [Pascal's Triangle](https
 $E_n$ can be computed by taking the average of the distance travelled from all the paths. For instance, looking at the `6-th` row on the table, 
 
 $$
-\begin{align}
+\begin{aligned}
 E_6 &= \frac{1}{2^6}(1 \times 6 + 6 \times 4 + 15 \times 2 + 20 \times 0 + 15 \times 2 + 6 \times 4 + 1 \times 6)
-\end{align}
+\end{aligned}
 $$
 
 For simplicity, let's consider even $n$. In general, for even $n$, 
 
 $$
-\begin{align}
+\begin{aligned}
 E_n &= \frac{1}{2^{n-2}} \sum_{j=1}^{n/2} j \binom{n}{n/2 + j} \\
 &= \frac{n}{2^{n}} \binom{n}{n/2} 
-\end{align}
+\end{aligned}
 $$
 
 Since we are gonna take the limit $n \rightarrow \infty$, we don't actually need to care about odd $n$ since the limit is the same. 
@@ -145,8 +145,8 @@ Since we are gonna take the limit $n \rightarrow \infty$, we don't actually need
 Taking the limit, we can use [Stirling's Approximation](https://en.wikipedia.org/wiki/Stirling%27s_approximation) to approximate the asymptopic behaviour of $E_n$
 
 $$
-\begin{align}
+\begin{aligned}
 \lim_{n \rightarrow \infty} E_n &= \sqrt{\frac{2n}{\pi}} \\
 \pi &= \lim_{n \rightarrow \infty} \frac{2n}{E_n^2} \quad \blacksquare
-\end{align}
+\end{aligned}
 $$

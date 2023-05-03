@@ -219,10 +219,10 @@ Finally, let $P(s)$ be the probability that player $1$ wins, following the _perf
 The $P(s)$ and $S_{\text{lose}}(s)$ can then be computed recursively through the game tree starting with $s_0$, if $T(s) = 1$, as:
 
 $$
-\begin{align}
+\begin{aligned}
 S_{\text{lose}}(s), \; P(s) &= \operatorname*{argmax, \; max}_{x \in f(s)} \sum_{x' \in f(x)} q(x') P(x') \\
 &= \operatorname*{argmax, \; max}_{x \in f(s)} \frac{1}{|f(x)|} \sum_{x' \in f(x)} P(x')
-\end{align}
+\end{aligned}
 $$
 
 This basically formalises the statement <span style="color:cyan">"$S_{\text{lose}}(s)$ is about picking the move that maximises player $1$'s chances of winning"</span>.
@@ -1406,14 +1406,14 @@ Once I've got the challenge code, I then made an image of a bird flying out of a
 If you look at the wikipedia page for [Combinatory Logic](https://en.wikipedia.org/wiki/Combinatory_logic#Completeness_of_the_S-K_basis), you'd see a compiler $T$ described in 6 lines:
 
 $$
-\begin{align}
+\begin{aligned}
 T[x] &= x \\
 T[AB] &= T[A] \: T[B] \\
 T[\lambda x. E] &= K \:T[E]  & \text{if x does not occur free in E} \\
 T[\lambda x.x] &= I \\
 T[\lambda x. \lambda y. E] &= T[\lambda x. T[\lambda y.E]] & \text{if x occurs free in E} \\
 T[\lambda x. AB] &= S \: T[\lambda x.A] \: T[\lambda x.B] & \text{if x occurs free in A and B}
-\end{align}
+\end{aligned}
 $$
 
 This is what it looks like compiling the numbers `0` to `3` from church encoding to SKI:
@@ -2244,21 +2244,21 @@ If you were to send the server $c' = c x^e \text{ mod } n_2$, the server will de
 Now say for a given $x_l \le x < x_h$, the server doesn't throw `Error decrypting` but will for $x_h$. Then we can infer that:
 
 $$
-\begin{align}
+\begin{aligned}
 x_h d_1 &\ge n_1 \quad \text{ mod } n_2 \\
 x_h d_1 - n_2 k &\ge n_1 \quad \text{ for one of integer } 0 \le k \le \frac{x_h d_1 - n_1}{n_2} < x_h - \frac{n_1}{n_2} \\
 d_1 &\ge \frac{n_1 + n_2k}{x_h}
-\end{align}
+\end{aligned}
 $$
 
 Similarly,
 
 $$
-\begin{align}
+\begin{aligned}
 x_l d_1 &\le n_1 \quad \text{ mod } n_2 \\
 x_l d_1 - n_2 k &\le n_1 \quad \text{ for one of integer } 0 \le k \le \frac{x_l d_1 - n_1}{n_2} < x_l - \frac{n_1}{n_2} \\
 d_1 &\le \frac{n_1 + n_2k}{x_l}
-\end{align}
+\end{aligned}
 $$
 
 Since for all $x_l \le x < x_h$ the server doesn't throw `Error decrypting`, the $k$ value would be the same for both the upper and lower bound. For simplicity of implementation, we shall say that
