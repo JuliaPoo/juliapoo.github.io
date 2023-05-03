@@ -1,5 +1,13 @@
 .post-container {
     padding-top: 0;
+    overflow-wrap: anywhere;
+}
+
+.post-container-narrow {
+    padding-top: 0;
+    overflow-wrap: anywhere;
+    width: calc(max(60%, min(600px, 100%)));
+    margin: 0 auto;
 }
 
 .post-banner {
