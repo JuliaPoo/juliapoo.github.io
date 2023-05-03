@@ -78,12 +78,12 @@ $$
 Proof:
 
 $$
-\begin{align}
+\begin{aligned}
 \cfrac{xp_{n-1}+\left(2n-3\right)^{2}p_{n-2}}{xq_{n-1}+\left(2n-3\right)^{2}q_{n-2}}
 &= \cfrac{x\left[6p_{n-2}+\left(2n-5\right)^{2}p_{n-3}\right]+\left(2n-3\right)^{2}p_{n-2}}{x\left[6q_{n-2}+\left(2n-5\right)^{2}q_{n-3}\right]+\left(2n-3\right)^{2}q_{n-2}}& \\
 &= \cfrac{\left[6x+\left(2n-3\right)^{2}\right]p_{n-2}+x\left(2n-5\right)^{2}p_{n-3}}{\left[6x+\left(2n-3\right)^{2}\right]q_{n-2}+x\left(2n-5\right)^{2}q_{n-3}}& \\
 &= \cfrac{\left[6+\cfrac{(2n-3)^{2}}{x}\right]p_{n-2}+(2n-5)^{2}p_{n-3}}{\left[6+\cfrac{(2n-3)^{2}}{x}\right]q_{n-2}+\left(2n-5\right)^{2}q_{n-3}} &\quad \blacksquare
-\end{align}
+\end{aligned}
 $$
 
 ***
@@ -91,13 +91,13 @@ $$
 Using the lemma:
 
 $$
-\begin{align}
+\begin{aligned}
 \cfrac{p_n}{q_n} &= \cfrac{6p_{n-1}+\left(2n-3\right)^{2}p_{n-2}}{6q_{n-1}+\left(2n-3\right)^{2}q_{n-2}} \\
 &=\cfrac{\left[6+\cfrac{(2n-3)^{2}}{6}\right]p_{n-2}+\left(2n-5\right)^{2}p_{n-3}}{\left[6+\cfrac{(2n-3)^{2}}{6}\right]q_{n-2}+\left(2n-5\right)^{2}q_{n-3}} \\
 &= \cfrac{\left[6+\cfrac{(2n-5)^{2}}{6+\cfrac{(2n-3)^{2}}{6}}\right]p_{n-3}+\left(2n-7\right)^{2}p_{n-4}}{\left[6+\cfrac{(2n-5)^{2}}{6+\cfrac{(2n-3)^{2}}{6}}\right]q_{n-3}+\left(2n-7\right)^{2}q_{n-4}}\\
 & ... \\
 &=\cfrac{F_{n}p_{1}+1^{2}p_{0}}{F_{n}q_{1}+1^{2}q_{0}}=\cfrac{3F_{n}+1}{F_{n}}=3+\cfrac{1}{F_{n}}
-\end{align}
+\end{aligned}
 $$
 
 Where I've applied the lemma repeatedly and 

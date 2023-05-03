@@ -359,14 +359,14 @@ This basic idea can be generalised to all $n$ with only prime factors $2,\,3,\,5
 Let $n = 2^x 3^y 5^z$. We can represent each number in $[0,n)$ exactly once as
 
 $$
-\begin{align}
+\begin{aligned}
 &\overline{a_1a_2\cdots a_x \vphantom{b}}^2 \, \overline{b_1b_2\cdots b_y}^3 \, \overline{c_1c_2\cdots c_z \vphantom{b}}^5 \\
 & \quad = (a_1 + 2a_2 + \cdots + 2^{x-1}a_x) \cdot 3^y 5^z &+ \\
 & \quad\quad \; (b_1 + 3b_2 + \cdots + 3^{y-1}b_y) \cdot 5^z &+ \\
 & \quad\quad \; (c_1 + 5c_2 + \cdots + 5^{z-1}c_z) \\
 \\
 &a_i \in [0,2), \; b_i \in [0,3), \; c_i \in [0,5) \; 
-\end{align}
+\end{aligned}
 $$
 
 This corresponds to numbering $x$ 2-dice with $\\{0, \, 2^i 3^y 5^z\\}, \; i \in [0, x)$, $y$ 3-dice with $\\{0, \, 3^i 5^z, \, 2 \cdot 3^i 5^z\\}, \; i \in [0, y)$ and $z$ 5-dice with $\\{0, 5^i, \, 2\cdot 5^i, \, 3\cdot 5^i, \, 4\cdot 5^i\\}, \; i \in [0,z)$. Rolling these dice and summing the results gives an equal probability of getting each number in $[0, n)$.

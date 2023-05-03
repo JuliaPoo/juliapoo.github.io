@@ -54,7 +54,7 @@ $$
 ***
 
 $$
-\begin{align}
+\begin{aligned}
 I &= \int_0^{\pi/2} \ln{\cos x} \;dx &\\
   &= \int_0^{\pi/2} \ln{\frac{e^{2i\pi}+1}{2e^{ix}}} \;dx &\\
   &= \int_0^{\pi/2} \ln{ \left( e^{2i\pi}+1 \right) } - \ln 2 - ix \;dx &\\
@@ -81,5 +81,5 @@ A &= \int_0^{\pi/2} \ln{ \left( e^{2i\pi}+1 \right) } \;dx &\\
           &\text{Via Lemma} \\
 \\
 \implies &\sum_{n=1}^\infty \frac{1}{n^2} = \frac{\pi^2}{6} \quad \blacksquare
-\end{align}
+\end{aligned}
 $$

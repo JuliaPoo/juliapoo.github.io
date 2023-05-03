@@ -41,10 +41,10 @@ Let $s_n$ be the probability distribution of the sum of $n$ numbers in $[0,1]$. 
 Now,
 
 $$
-\begin{align}
+\begin{aligned}
 P(s_n < 1) &= P(N > n) = \frac{1}{n!} \\
 P(N = n) &= P(N > n-1) - P(N > n) = \frac{1}{(n-1)!} - \frac{1}{n!}
-\end{align}
+\end{aligned}
 $$
 
 You can see how $1 = \sum_{n=2}^{\infty} P(N = n)$ because it telescopes into 1.
@@ -52,11 +52,11 @@ You can see how $1 = \sum_{n=2}^{\infty} P(N = n)$ because it telescopes into 1.
 Therefore, the expected value of $N$ can be found as such:
 
 $$
-\begin{align}
+\begin{aligned}
 E(n) &= \sum_{n=2}^{\infty} P(N = n) \times n \\
      &= \sum_{n=2}^{\infty} \left[ \frac{1}{(n-1)!} - \frac{1}{n!} \right] \times n \\
      &= \sum_{n=2}^{\infty} \frac{1}{(n-2)!} \\
      &= \sum_{n=0}^{\infty} \frac{1}{n!} \\
      &= e    &\blacksquare
-\end{align}
+\end{aligned}
 $$

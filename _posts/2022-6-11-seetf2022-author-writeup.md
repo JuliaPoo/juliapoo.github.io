@@ -187,7 +187,7 @@ As with this kind of problem, the idea is to map the given group to a group wher
 The order of $E$ is equal to the order of $g_\phi$ in $F_p[u] / (u^2+a)$. We hence show that $g_\phi^{p+1} = 1$:
 
 $$
-\begin{align*}
+\begin{aligned}
 
 g_\phi^{p+1} &= (g_x + u g_y)^{p+1} \\
 &= g_x^{p+1} + g_x^p g_y u + g_xg_y^p u^p + g_y^{p+1} u^{p+1} & \text{Freshman's dream uwu}\\
@@ -195,7 +195,7 @@ g_\phi^{p+1} &= (g_x + u g_y)^{p+1} \\
 &=  g_x^2 + a g_y^2 & a \text{ is a quadratic residue} \\
 &= 1 & g \text{ is on the curve}
 
-\end{align*}
+\end{aligned}
 $$
 
 Since the order of $E$ is $p+1 = 2^{521}$, the order is _extremely smooth_. I specifically chose the value of $p$ and $a$ for this to be the case. DLP can hence be solved in $E$ via [Pohlig Hellman](https://en.wikipedia.org/wiki/Pohlig%E2%80%93Hellman_algorithm). Recovering the flag is as follows:
@@ -251,11 +251,11 @@ Consider a simpler problem $A$: Given $g \equiv g'^{p-1} \mod n$ and $g_m \equiv
 Given $g = g'^{\phi(p^k)} = g'^{(p-1)p^{k-1}}$ and $g_m = g^m$, where $k < w$ and $g'$ a generator of $\mathbb{Z}/p^w\mathbb{Z}^\times$. Then,
 
 $$
-\begin{align*}
+\begin{aligned}
 a &= (g - 1)/{p^k} \\
 b &= (g_m - 1)/{p^k} \\
 m &= b a^{-1} \mod \; p^k
-\end{align*}
+\end{aligned}
 $$
 
 We shall refer to this operation as $m = \text{DLPGP}(g, g_m, p, k)$.

@@ -209,10 +209,10 @@ I considered mapping the problem to $R' = \mathbb{F_p}[x]/(m')$. Since $m'$ is i
 I then considered decomposing $g$ into $a m' + b$ (quotient-remainder upon dividing by $m'$). My reason for doing so was to consider the interaction between both components:
 
 $$
-\begin{align*}
+\begin{aligned}
 g &= a m' + b \\
 g^n &= n a b^{n-1} m' + b^n \mod m'^2\\
-\end{align*}
+\end{aligned}
 $$
 
 I then thought for a long time how I can possibly recover $n$ given $g^n$. Clearly simply considering the modulo $m'$ component isn't enough since that just means solving DLP in $\mathbb{F_{p^7}}$.
@@ -226,10 +226,10 @@ At 4.14 AM, having attempted to sleep in the cold comfort of the meeting room ta
 Remember how the multiplicative order of $R' = \mathbb{F}_p[x]/(m')$ is $p^7-1$? Taking an element in $R$ to that power absolutely obliterates the modulo $m'$ component. We'll have essentially:
 
 $$
-\begin{align*}
+\begin{aligned}
 g^{p^7-1} &= a m' + \textbf{1} \\
 {g^{p^7-1}}^n &= n a m' + \textbf{1} \mod m'^2 \\
-\end{align*}
+\end{aligned}
 $$
 
 By taking the quotient of $g^{p^7-1} = q_0 m' + r_0$ and ${g^{p^7-1}}^n = q_1 m' + r_1$ when divided by $m'$, we can compute $n$ simply by taking $q_1 q_0^{-1}$. Since $q_0$ and $q_1$ are associates, we can simply consider $q_1(0) q_0(0)^{-1} \mod p$! We've mapped the problem into computing DLP in the additive group modulo $p$!
@@ -244,10 +244,10 @@ We are to solve a diophantine equation modulo $N$, where $N$ is the product of t
 Our flag is split into two parts $(p_1, p_2)$ and taken to the power of $d = e^{-1} \mod \phi(N)$ for some known $e$ (just like RSA). Let the result of this exponentiation be $(p_1^d, p_2^d) = (m_1, m_2)$. We are then given the values of $(f,g)$ defined as:
 
 $$
-\begin{align*}
+\begin{aligned}
 f &= 13 m_2 ^ 3 + m_1 m_2 + 5 m_1\\
 g &= 7 m_2 + 31 m_1 ^ 2 \mod N
-\end{align*}
+\end{aligned}
 $$
 
 {% capture code %}
@@ -306,10 +306,10 @@ I didn't solve this during the CTF but was frustratingly close. I got the main i
 Let $(F,G)$ be two polynomials in $(m_1, m_2)$ defined as
 
 $$
-\begin{align*}
+\begin{aligned}
 F &= 13 m_2 ^ 3 + m_1 m_2 + 5 m_1 - f \\
 G &= 7 m_2 + 31 m_1 ^ 2 - g
-\end{align*}
+\end{aligned}
 $$
 
 Clearly we are to recover $(p_1, p_2)$, and the main difficulty of this challenge is not knowing the factorisation of $N$. What we are meant to assume (which I was cautious to) is that $p_1$ and $p_2$ are relatively small compared to $N$, which I guess kinda makes sense as $N$ is $2048$ bits.
