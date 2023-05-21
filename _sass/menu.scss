@@ -1,4 +1,5 @@
 .menu, .menu * {
+    overflow-x: clip;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
@@ -9,7 +10,7 @@
 
 .menu {
     // Let the glow leak through
-    overflow-x: auto;
+    // overflow-x: auto;
     padding: 1.5em;
     padding-right: 0;
     margin-right: 2px;
