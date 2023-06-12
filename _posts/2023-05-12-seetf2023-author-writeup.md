@@ -19,6 +19,7 @@ nav: |
     * [Another Pyjail](#another-pyjail)
     * [No Subbox](#no-subbox)
     * [Hard to Write](#hard-to-write)
+    * [Cubeland](#cubeland)
     * [Linear Programming](#linear-programming)
     * [Playtested Challenges](#playtested-challenges)
     
