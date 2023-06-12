@@ -123,7 +123,8 @@
     border: 1px solid rgb(1, 48, 80);
 }
 
-.generic-content .MathJax_Display {
+.generic-content .MathJax_Display, 
+.generic-content .katex-display {
     overflow-x: auto;
     overflow-y: hidden;
 }
