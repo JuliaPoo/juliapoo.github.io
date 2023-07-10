@@ -12,10 +12,22 @@ excerpt: Buncha projects by Jules
 {% for project in all_project_sorted %}
 
 <div class="project">
+    {% if project.project-uses-external-url %}
+    <a href="{{ project.external-url }}">
+    {% else %}
     <a href="{{ project.url }}">
+    {% endif %}
         <img class="project-banner" src="{{project.display-image}}">
     </a>
-    <h2 class="glow-text project-title">{{ project.display-title }}</h2>
+    <h2 class="project-title">
+        {% if project.project-uses-external-url %}
+        <a href="{{ project.external-url }}">
+        {% else %}
+        <a href="{{ project.url }}">
+        {% endif %}
+            {{ project.display-title }}
+        </a>
+    </h2>
     <span class="project-meta">
         <span>📅 {{ project.date | date_to_string }}</span>
         <span>
