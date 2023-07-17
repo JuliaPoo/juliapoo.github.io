@@ -112,17 +112,48 @@ window.addEventListener("load", () =>
 
         const [group_listing, matrep] = vs;
         const plot = (dom, gid) => {
-            const [gmat, fp] = matrep[gid];
-            const ginfo = group_listing.filter((g) => g[5] == gid)[0]
-            const [_1, _2, name, desc, _3, _4] = ginfo;
-            const [plt, scene] = init_plot(dom);
-            const G = create_group(gmat, fp);
-            plot_group(plt, G);
+          const [gmat, fp] = matrep[gid];
+          const ginfo = group_listing.filter((g) => g[5] == gid)[0]
+          const [_1, _2, name, desc, _3, _4] = ginfo;
+          const [plt, scene] = init_plot(dom);
+          const G = create_group(gmat, fp);
+          plot_group(plt, G);
 
-            dom.querySelector('.graph-info-msg').innerHTML = "Graph of " + name;
+          dom.querySelector('.graph-info-msg').innerHTML = "Graph of " + name;
+          return plt;
         };
+        const plot2 = (dom, G, gid) => {
+          const [gmat, fp] = matrep[gid];
+          const ginfo = group_listing.filter((g) => g[5] == gid)[0]
+          const [_1, _2, name, desc, _3, _4] = ginfo;
+          const [plt, scene] = init_plot(dom);
+          plot_group(plt, G);
+
+          dom.querySelector('.graph-info-msg').innerHTML = "Graph of " + name;
+          return plt;
+        }
 
         plot(document.getElementById("plot1"), "60_5")
+        plot(document.getElementById("plot2"), "5_1")
+
+        let plt, linkforcectx;
+
+        let [_gmat, _fp] = matrep["60_5"];
+        let _G = create_group(_gmat, _fp);
+        let _Ggens = _G.gens;
+        _Ggens[0] = _Ggens[0].mul(_Ggens[0]);
+        const G1 = new Group(_Ggens.map((g) => g.mat));
+        plot2(document.getElementById("plot-rot-1"), G1, "60_5");
+
+        [_gmat, _fp] = matrep["24_12"];
+        _G = create_group(_gmat, _fp);
+        _Ggens = _G.gens;
+        _Ggens[2] = _Ggens[3].mul(_Ggens[2]);
+        _Ggens[1] = _Ggens[3].mul(_Ggens[1]);
+        const G2 = new Group(_Ggens.map((g) => g.mat));
+        plt = plot2(document.getElementById("plot-rot-2"), G2, "24_12");
+        linkforcectx = plt.d3Force('link');
+        linkforcectx.distance(d => [300,60,0,60][d.group]);
       })
     )
 );
@@ -136,7 +167,7 @@ I recently made a little [web-widget](https://juliapoo.github.io/Cayley-Graph-Pl
 <div id="plot1" class="cayley-uwu" style="width:calc(100% - 2em); height: 500px;"></div>
 </div>
 
-And they are right? Above is the plot of the cayley graph of a very well-known group $A_5$. For all diagrams in this post, feel free to zoom, pan and rotate the plots.
+And they are right? Above is the plot of the cayley graph of a very well-known group $A_5$. For all such diagrams in this post, feel free to zoom, pan and rotate the plots.
 
 ## Wait what are Cayley Graphs?
 
@@ -153,8 +184,8 @@ This post will cover the bare minimum about Groups to appreciate cayley graphs, 
 Here's a description of a group:
 > A group $G$ is a set of elements (cannot be empty) and a _binary operation_ $\cdot$ such that for any $a,b,c \in G$ the following holds
 > 1. Associativity: $(a \cdot b) \cdot c = a \cdot (b \cdot c)$
-> 2. Identity: There exists an element $e \in G$ such that $a \cdot e = e \cdot a = a$. I.e., $e$ doesn't change anything
-> 3. Inverse: There exists an element which I'll denote $a^{-1}$ such that $a \cdot a^{-1} = a^{-1} \cdot a = e$. I.e., $a^{-1}$ _reverses_ what $a$ does, since $a^{-1} \cdot a \cdot b = e \cdot b = b$.
+> 2. Identity: There exists an element $e \in G$ such that $a \cdot e = e \cdot a = a$. In other words, $e$ doesn't change anything
+> 3. Inverse: There exists an element which I'll denote $a^{-1}$ such that $a \cdot a^{-1} = a^{-1} \cdot a = e$. In other words, $a^{-1}$ _reverses_ what $a$ does, since $a^{-1} \cdot a \cdot b = e \cdot b = b$.
 > 
 > Where a binary operation is simply some operation that takes in two elements of $G$ and spits out another element of $G$.
 > Note that we do not require $a \cdot b = b \cdot a$. This property of being able to "switch" the order of arguments is called _Abelian_.
@@ -183,6 +214,8 @@ $$
 $$
 
 Do check out the thread above btw, it has a few interesting tibits.
+
+Notice that the four operations here omit the brackets. For instance, the brackets in this expression $((→ \; ↓) \; ←) \; ↑$ are extraneous since it doesn't matter how I draw the brackets. This stems from the _associativity_ of 3D rotations.
 
 The set of all rotations accessible by 45 degrees horizontal and vertical rotations form a group $G$ (try it yourself!). However, it is not abelian as otherwise, chessapig's rotation trick wouldn't work. This is because we can view $←$ as reversing whatever $→$ does, and similarly for $↓$ for $↑$. In other words, we can rewrite the above relations to be:
 
@@ -213,9 +246,42 @@ In this case, every element of $G$ is some combination of $→$ and $↓$ and th
 
 In general, we can always find a subset of any group $G$ that generates $G$. It's clear that finite groups have finite sets of generators. However, some infinite groups have finite sets of generators too, for instance, $\mathbb{Z}$ is generated by $1$.
 
-## But how are groups _symmetrical_?
+## What's a group's Cayley Graph?
+
+Let's suppose a group $G$ is generated by three elements $a,b,c \in G$. Every element of $g$ can be written as a combination of $a,b,c$, for instance, $g = abbc$. Note that because of associativity I can omit the brackets. We can think of "reaching" $g$ from $e$ via successive applications of left multiplication by $a,b,c$:
+
+$$
+e \xrightarrow{c} c \xrightarrow{b} bc \xrightarrow{b} bbc \xrightarrow{a} abbc
+$$
+
+Every element of $G$ can be thought of as a "path" from $e$, where each step involves taking one of the paths, $a,b$ or $c$. Of course, this path would be dependent on the choice of the set of generators $a,b,c$. Note that this "path" description of elements in a group $G$ only makes sense because of the associativity of the binary operation.
+
+In finite groups, a path will eventually lead back to an element that has already been encountered. For instance, in a group $C_5$, there exists a single generator $g \in C_5$ such that $C_5 = \{e, g^1, g^2, g^3, g^4\}$. In this case, every path has to loop back to the identity $e$:
+
+$$
+e \xrightarrow{g} g^1 \xrightarrow{g} g^2 \xrightarrow{g} g^3 \xrightarrow{g} g^4 \xrightarrow{g} e
+$$
+
+<div class="cayley-container">
+<div id="plot2" class="cayley-uwu" style="width:calc(100% - 2em); height: 500px;"></div>
+</div>
+
+This "looping" behaviour is why $C_5$ is called a _cyclic group_.
+
+Now suppose we have multiple 
 
 
+## Why are Cayley Graphs so _symmetrical_?
+
+## Rotation Groups
+
+<div class="cayley-container">
+<div id="plot-rot-1" class="cayley-uwu" style="width:calc(100% - 2em); height: 500px;"></div>
+</div>
+
+<div class="cayley-container">
+<div id="plot-rot-2" class="cayley-uwu" style="width:calc(100% - 2em); height: 500px;"></div>
+</div>
 
 <!-- 
 1. Intro
