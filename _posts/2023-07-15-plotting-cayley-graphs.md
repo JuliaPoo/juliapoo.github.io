@@ -148,7 +148,72 @@ While a group's cayley graph encodes the entire structure of a group, it does so
 
 This post will cover the bare minimum about Groups to appreciate cayley graphs, and you can also try plotting other groups in my [web-widget](https://juliapoo.github.io/Cayley-Graph-Plotting/). If you're interested in more useful ways to visualise groups, do take a look at my post on [Visualising Homomorphisms](/mathematics/2022/12/15/homomorphism-illustrated.html) which gives an intuition for the isomorphism theorems.
 
-## So why can Groups be considered "symmetrical"
+## What are groups?
+
+Here's a description of a group:
+> A group $G$ is a set of elements (cannot be empty) and a _binary operation_ $\cdot$ such that for any $a,b,c \in G$ the following holds
+> 1. Associativity: $(a \cdot b) \cdot c = a \cdot (b \cdot c)$
+> 2. Identity: There exists an element $e \in G$ such that $a \cdot e = e \cdot a = a$. I.e., $e$ doesn't change anything
+> 3. Inverse: There exists an element which I'll denote $a^{-1}$ such that $a \cdot a^{-1} = a^{-1} \cdot a = e$. I.e., $a^{-1}$ _reverses_ what $a$ does, since $a^{-1} \cdot a \cdot b = e \cdot b = b$.
+> 
+> Where a binary operation is simply some operation that takes in two elements of $G$ and spits out another element of $G$.
+> Note that we do not require $a \cdot b = b \cdot a$. This property of being able to "switch" the order of arguments is called _Abelian_.
+>
+> If a group $G$ has a finite number of elements, I'll call it a _finite group_. Otherwise, it's an _infinite group_.
+>
+> For brevity I would sometimes omit the $\cdot$, so $a \cdot b$ might be written as simply $ab$.
+
+This description can apply to a whole bunch of things. A classic example is the integers $\mathbb{Z}$ and the operations $+$. For any integers $a,b,c$, we have:
+
+1. $(a + b) + c = a + (b + c)$
+2. $0 + a = a + 0 = a$
+3. $a + (-a) = (-a) + a = 0$
+
+Of course, in this example, $\mathbb{Z}$ is abelian as $a + b = b + a$. There are however groups where this doesn't hold. If you've played Zelda Tears of the Kingdom, you'd have encountered such a group when rotating an object. 
+
+<div style="display: flex; align-items:center; justify-content: center;">
+<iframe style="border:none;" width="550" height="400" data-tweet-url="https://twitter.com/chessapigbay/status/1658711763960086529" src="data:text/html;charset=utf-8,%3Cblockquote%20class%3D%22twitter-tweet%22%3E%3Cp%20lang%3D%22en%22%20dir%3D%22ltr%22%3EIn%20Zelda%20Tears%20of%20the%20kingdom%2C%20you%20can%20only%20rotate%20vertically%20and%20horizontally%20by%2045%B0.%20Here%26%2339%3Bs%20a%20tip%20for%20rotating%20around%20the%20third%20axis%3A%20Rotate%20all%20four%20directions%2C%20in%20order%2C%20for%20a%2045%B0%20rotation%3Cbr%3E%3Cbr%3E%u2192%u2193%u2190%u2191%20%3D%20%u21BA%3Cbr%3E%u2192%u2191%u2190%u2193%20%3D%20%u21BB%3Cbr%3E%3Cbr%3EThis%20happens%20because%20of%20some%20pretty%20neat%20math%20%3Cbr%3E%3Cbr%3E1/%uD83E%uDDF5%20%3Ca%20href%3D%22https%3A//t.co/H64RnTcCnf%22%3Epic.twitter.com/H64RnTcCnf%3C/a%3E%3C/p%3E%26mdash%3B%20chessapig%20%28@chessapigbay%29%20%3Ca%20href%3D%22https%3A//twitter.com/chessapigbay/status/1658711763960086529%3Fref_src%3Dtwsrc%255Etfw%22%3EMay%2017%2C%202023%3C/a%3E%3C/blockquote%3E%0A%3Cscript%20async%20src%3D%22https%3A//platform.twitter.com/widgets.js%22%20charset%3D%22utf-8%22%3E%3C/script%3E%0A"></iframe>
+</div>
+
+You're pretty much only able to rotate 45 degrees horizontally and vertically. However, denoting $↓,→,↑,←$ to be a 45 degree rotation towards the direction of the arrow, we can also rotate around the third axis as performed by [@chessapig](https://twitter.com/chessapigbay) above:
+
+$$
+→ \; ↓ \; ← \; ↑ \; = \; ↺ \\
+→ \; ↑ \; ← \; ↓ \; = \; ↻
+$$
+
+Do check out the thread above btw, it has a few interesting tibits.
+
+The set of all rotations accessible by 45 degrees horizontal and vertical rotations form a group $G$ (try it yourself!). However, it is not abelian as otherwise, chessapig's rotation trick wouldn't work. This is because we can view $←$ as reversing whatever $→$ does, and similarly for $↓$ for $↑$. In other words, we can rewrite the above relations to be:
+
+$$
+→ \; ↓ \; →^{-1} \; ↓^{-1} \; = \; ↺ \\
+→ \; ↑ \; →^{-1} \; ↑^{-1} \; = \; ↻
+$$
+
+Now, if this group $G$ is indeed abelian, then we would have for instance,
+
+$$
+\begin{aligned}
+→ \; ↓ \; →^{-1} \; ↓^{-1} \; &= \; → \; (↓ \; →^{-1}) \; ↓^{-1} \\
+&= \; → \; (→^{-1} \; ↓) \; ↓^{-1}  \\
+&= \; (→ \; →^{-1}) \; (↓ \; ↓^{-1}) \\
+&= \; e  \;  e = e \\
+&\ne \; ↺
+\end{aligned}
+$$
+
+Well clearly doing nothing ($e$) isn't the same as $↺$, so the group isn't abelian!
+
+There's a caveat though; if you were to study the group $G$ accessible by 45 degree horizontal and vertical rotations, you'd realise that this group is infinite (If you know some linear algebra, you can try to prove this). However, if you have played the game, which I haven't, you'd notice the game only allows you to rotate an object a finite number of ways. This is because the game _cheats_, snapping the rotation of the object to the closest of a finite number of possibilities. Hence, the rotations as implemented in the game do not actually form a group.
+
+This group $G$ is a _subgroup_ (i.e., a subset that also forms a group) of an infinite group known as $SO(3)$, the set of all possible 3D rotations. We'll be encountering finite subgroups of $SO(3)$ later in this post because they have particularly interesting Cayley graphs.
+
+In this case, every element of $G$ is some combination of $→$ and $↓$ and their inverses. We say that $G$ is _generated_ by the elements $→$ and $↓$.
+
+In general, we can always find a subset of any group $G$ that generates $G$. It's clear that finite groups have finite sets of generators. However, some infinite groups have finite sets of generators too, for instance, $\mathbb{Z}$ is generated by $1$.
+
+## But how are groups _symmetrical_?
 
 
 
