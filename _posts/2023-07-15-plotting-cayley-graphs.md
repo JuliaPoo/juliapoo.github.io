@@ -13,7 +13,7 @@ tags:
 # nav: |
 #     * TODO
     
-excerpt: "A fun little approachable introduction to Cayley Graphs (and a little bit of group theory), and a writeup to [this little web widget I made](https://juliapoo.github.io/Cayley-Graph-Plotting/)"
+excerpt: "A fun approachable introduction to Cayley Graphs (and a little bit of group theory), and a writeup to [this little web widget I made](https://juliapoo.github.io/Cayley-Graph-Plotting/)"
 ---
 
 <script type="importmap" async>
@@ -105,6 +105,36 @@ function plot_group(plt, G) {
     .graphData(graph_data);
 }
 
+function isElementInViewport(el) {
+  const rect = el.getBoundingClientRect();
+  return (
+    rect.bottom >= 0 &&
+    rect.right >= 0 &&
+    rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.left <= (window.innerWidth || document.documentElement.clientWidth)
+  );
+}
+
+function onVisibilityChange(el, callback) {
+  let uwu = false;
+  return () => {
+    if (isElementInViewport(el)) {
+      if (!uwu) {
+        callback();
+      }
+      uwu = true;
+    }
+  }
+}
+
+function attach(handler) {
+  window.addEventListener('DOMContentLoaded', () => handler(), false);
+  window.addEventListener('load', () => handler(), false);
+  window.addEventListener('scroll', () => {handler()}, false);
+  window.addEventListener('resize', () => handler(), false);
+  handler();
+}
+
 window.addEventListener("load", () =>
   Promise.all(DATAURL)
     .then((vs) =>
@@ -133,27 +163,52 @@ window.addEventListener("load", () =>
           return plt;
         }
 
-        plot(document.getElementById("plot1"), "60_5")
-        plot(document.getElementById("plot2"), "5_1")
+        let plt, linkforcectx, _gmat, _fp, _G, _Ggens, handler;
+        
+        const dom1 = document.getElementById("plot1")
+        attach(onVisibilityChange(dom1, function() {
+          plot(dom1, "60_5")
+        }));
 
-        let plt, linkforcectx;
+        const dom2 = document.getElementById("plot2")
+        attach(onVisibilityChange(dom2, function() {
+          plot(dom2, "5_1")
+        }));
 
-        let [_gmat, _fp] = matrep["60_5"];
-        let _G = create_group(_gmat, _fp);
-        let _Ggens = _G.gens;
-        _Ggens[0] = _Ggens[0].mul(_Ggens[0]);
-        const G1 = new Group(_Ggens.map((g) => g.mat));
-        plot2(document.getElementById("plot-rot-1"), G1, "60_5");
+        const dom3 = document.getElementById("plot3")
+        attach(onVisibilityChange(dom3, function() {
+          plot(dom3, "12_4")
+        }));
 
-        [_gmat, _fp] = matrep["24_12"];
-        _G = create_group(_gmat, _fp);
-        _Ggens = _G.gens;
-        _Ggens[2] = _Ggens[3].mul(_Ggens[2]);
-        _Ggens[1] = _Ggens[3].mul(_Ggens[1]);
-        const G2 = new Group(_Ggens.map((g) => g.mat));
-        plt = plot2(document.getElementById("plot-rot-2"), G2, "24_12");
-        linkforcectx = plt.d3Force('link');
-        linkforcectx.distance(d => [300,60,0,60][d.group]);
+        const dom4 = document.getElementById("plot4")
+        attach(onVisibilityChange(dom4, function() {
+          plt = plot(dom4, "12_1")
+          linkforcectx = plt.d3Force('link');
+          linkforcectx.distance(d => [50, 150][d.group]);
+        }))
+
+        const dom5 = document.getElementById("plot-rot-1")
+        attach(onVisibilityChange(dom5, function() {
+          [_gmat, _fp] = matrep["60_5"];
+          _G = create_group(_gmat, _fp);
+          _Ggens = _G.gens;
+          _Ggens[0] = _Ggens[0].mul(_Ggens[0]);
+          const G1 = new Group(_Ggens.map((g) => g.mat));
+          plot2(dom5, G1, "60_5");
+        }))
+
+        const dom6 = document.getElementById("plot-rot-2")
+        attach(onVisibilityChange(dom6, function() {
+          [_gmat, _fp] = matrep["24_12"];
+          _G = create_group(_gmat, _fp);
+          _Ggens = _G.gens;
+          _Ggens[2] = _Ggens[3].mul(_Ggens[2]);
+          _Ggens[1] = _Ggens[3].mul(_Ggens[1]);
+          const G2 = new Group(_Ggens.map((g) => g.mat));
+          plt = plot2(dom6, G2, "24_12");
+          linkforcectx = plt.d3Force('link');
+          linkforcectx.distance(d => [300,60,0,60][d.group]);
+        }))
       })
     )
 );
@@ -171,7 +226,7 @@ And they are right? Above is the plot of the cayley graph of a very well-known g
 
 ## Wait what are Cayley Graphs?
 
-In short, Cayley Graphs are [graphs](https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)) (and by that I mean a bunch of nodes connected by lines) that encode, rather inefficiently, the abstract structure of a [_Group_](https://en.wikipedia.org/wiki/Group_(mathematics)).
+In short, Cayley Graphs are [graphs](https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)) (and by that I mean a bunch of vertices connected by lines) that encode, rather inefficiently, the abstract structure of a [_Group_](https://en.wikipedia.org/wiki/Group_(mathematics)).
 
 A Group on the other hand is, informally, a non-empty set whose elements are '_symmetrically related_' to each other. Groups are very fundamental objects in Mathematics and appear everywhere in Mathematics. The symmetries of a particular group are somewhat reflected in the symmetries of its cayley graph.
 
@@ -188,7 +243,7 @@ Here's a description of a group:
 > 3. Inverse: There exists an element which I'll denote $a^{-1}$ such that $a \cdot a^{-1} = a^{-1} \cdot a = e$. In other words, $a^{-1}$ _reverses_ what $a$ does, since $a^{-1} \cdot a \cdot b = e \cdot b = b$.
 > 
 > Where a binary operation is simply some operation that takes in two elements of $G$ and spits out another element of $G$.
-> Note that we do not require $a \cdot b = b \cdot a$. This property of being able to "switch" the order of arguments is called _Abelian_.
+> Note that we do not require $a \cdot b = b \cdot a$. This property of being able to "flip" the order of arguments is called _Abelian_.
 >
 > If a group $G$ has a finite number of elements, I'll call it a _finite group_. Otherwise, it's an _infinite group_.
 >
@@ -256,7 +311,7 @@ $$
 
 Every element of $G$ can be thought of as a "path" from $e$, where each step involves taking one of the paths, $a,b$ or $c$. Of course, this path would be dependent on the choice of the set of generators $a,b,c$. Note that this "path" description of elements in a group $G$ only makes sense because of the associativity of the binary operation.
 
-In finite groups, a path will eventually lead back to an element that has already been encountered. For instance, in a group $C_5$, there exists a single generator $g \in C_5$ such that $C_5 = \{e, g^1, g^2, g^3, g^4\}$. In this case, every path has to loop back to the identity $e$:
+In finite groups, a path will eventually lead back to an element that has already been encountered. For instance, in a group $C_5$, there exists a single generator $g \in C_5$ such that $C_5 = \\{e, g^1, g^2, g^3, g^4\\}$. In this case, every path has to loop back to the identity $e$:
 
 $$
 e \xrightarrow{g} g^1 \xrightarrow{g} g^2 \xrightarrow{g} g^3 \xrightarrow{g} g^4 \xrightarrow{g} e
@@ -268,12 +323,38 @@ $$
 
 This "looping" behaviour is why $C_5$ is called a _cyclic group_.
 
-Now suppose we have multiple 
+Now suppose we have multiple generators. We can represent left multiplication by each generator as a path with a unique colour. An arrow marks the direction of the path.
 
+<div class="cayley-container">
+<div id="plot3" class="cayley-uwu" style="width:calc(100% - 2em); height: 500px;"></div>
+</div>
 
-## Why are Cayley Graphs so _symmetrical_?
+When we have two arrows pointing end-to-end, such as when we have
+$e \xrightarrow{g} g \xrightarrow{g} e$, we can omit the arrow's direction.
+
+The resulting graph is what is known as a Cayley Graph of a group. Each vertex on the graph is a unique element of the group, and each edge extending from a vertex represents a "path" from one vertex to another via left multiplication of a generator.
+
+<div class="cayley-container">
+<div id="plot4" class="cayley-uwu" style="width:calc(100% - 2em); height: 500px;"></div>
+</div>
+
+You might immediately notice that Cayley graphs tend to be rather symmetrical, which stems from the properties of groups. Firstly, every vertex has exactly one path per colour going away from the vertex, and one path per colour going into the vertex.
+
+The reason why the paths have to be "balanced" in such a way is because of the existence of _inverses_ of every element in a group.
+
+Suppose we have the path $a \xrightarrow{g} b$. Another way to write this is that $ga = b$. At the same time, since $g^{-1}$ exists, there's an element that can be written as $b' = g^{-1} a$. Then since $gb' = g g^{-1} a = a$, we have the following:
+
+$$b' \xrightarrow{g} a \xrightarrow{g} b$$
+
+Hence a path away from a vertex is always accompanied by a path toward the vertex. You can similarly convince yourself that the converse is true, that a path towards a vertex is always accompanied by a path away from the vertex.
+
+These constraints on the paths that can be drawn between the vertices of a Cayley Graph are pretty restrictive and forces the graph to look symmetrical. Try it yourself: Start with 5 vertices, and try to draw paths that conform to these rules. (Challenge: Proof that any path you draw will always end up in a loop of 5 vertices).
+
+Do note that the Cayley graph for a group might not look unique, and is highly dependent on the choice of generators.
 
 ## Rotation Groups
+
+
 
 <div class="cayley-container">
 <div id="plot-rot-1" class="cayley-uwu" style="width:calc(100% - 2em); height: 500px;"></div>
