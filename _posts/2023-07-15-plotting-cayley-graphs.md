@@ -68,6 +68,8 @@ function init_plot(dom) {
     .backgroundColor('rgba(0,0,0,0)');
 
   const scene = plt.scene();
+  const controls = plt.controls();
+  controls.noPan = false;
 
   new ResizeObserver(() => {
     plt.width(dom.clientWidth)
@@ -187,27 +189,44 @@ window.addEventListener("load", () =>
           linkforcectx.distance(d => [50, 150][d.group]);
         }))
 
-        const dom5 = document.getElementById("plot-rot-1")
-        attach(onVisibilityChange(dom5, function() {
+        const dom7 = document.getElementById("plot5")
+        attach(onVisibilityChange(dom7, function() {
+          plot(dom7, "4_1")
+        }));
+
+        const rot1 = document.getElementById("plot-rot-3")
+        attach(onVisibilityChange(rot1, function() {
           [_gmat, _fp] = matrep["60_5"];
           _G = create_group(_gmat, _fp);
           _Ggens = _G.gens;
           _Ggens[0] = _Ggens[0].mul(_Ggens[0]);
           const G1 = new Group(_Ggens.map((g) => g.mat));
-          plot2(dom5, G1, "60_5");
+          plot2(rot1, G1, "60_5");
         }))
 
-        const dom6 = document.getElementById("plot-rot-2")
-        attach(onVisibilityChange(dom6, function() {
+        const rot2 = document.getElementById("plot-rot-2")
+        attach(onVisibilityChange(rot2, function() {
           [_gmat, _fp] = matrep["24_12"];
           _G = create_group(_gmat, _fp);
           _Ggens = _G.gens;
           _Ggens[2] = _Ggens[3].mul(_Ggens[2]);
           _Ggens[1] = _Ggens[3].mul(_Ggens[1]);
           const G2 = new Group(_Ggens.map((g) => g.mat));
-          plt = plot2(dom6, G2, "24_12");
+          plt = plot2(rot2, G2, "24_12");
           linkforcectx = plt.d3Force('link');
           linkforcectx.distance(d => [300,60,0,60][d.group]);
+        }))
+
+        const rot3 = document.getElementById("plot-rot-1")
+        attach(onVisibilityChange(rot3, function() {
+          [_gmat, _fp] = matrep["12_3"];
+          _G = create_group(_gmat, _fp);
+          _Ggens = _G.gens;
+          _Ggens[0] = _Ggens[2].mul(_Ggens[0]);
+          const G2 = new Group(_Ggens.map((g) => g.mat));
+          plt = plot2(rot3, G2, "12_3");
+          linkforcectx = plt.d3Force('link');
+          linkforcectx.distance(d => [200,60,60][d.group]);
         }))
       })
     )
@@ -257,9 +276,13 @@ This description can apply to a whole bunch of things. A classic example is the 
 
 Of course, in this example, $\mathbb{Z}$ is abelian as $a + b = b + a$. There are however groups where this doesn't hold. If you've played Zelda Tears of the Kingdom, you'd have encountered such a group when rotating an object. 
 
+{% capture code %}
 <div style="display: flex; align-items:center; justify-content: center;">
-<iframe style="border:none;" width="550" height="400" data-tweet-url="https://twitter.com/chessapigbay/status/1658711763960086529" src="data:text/html;charset=utf-8,%3Cblockquote%20class%3D%22twitter-tweet%22%3E%3Cp%20lang%3D%22en%22%20dir%3D%22ltr%22%3EIn%20Zelda%20Tears%20of%20the%20kingdom%2C%20you%20can%20only%20rotate%20vertically%20and%20horizontally%20by%2045%B0.%20Here%26%2339%3Bs%20a%20tip%20for%20rotating%20around%20the%20third%20axis%3A%20Rotate%20all%20four%20directions%2C%20in%20order%2C%20for%20a%2045%B0%20rotation%3Cbr%3E%3Cbr%3E%u2192%u2193%u2190%u2191%20%3D%20%u21BA%3Cbr%3E%u2192%u2191%u2190%u2193%20%3D%20%u21BB%3Cbr%3E%3Cbr%3EThis%20happens%20because%20of%20some%20pretty%20neat%20math%20%3Cbr%3E%3Cbr%3E1/%uD83E%uDDF5%20%3Ca%20href%3D%22https%3A//t.co/H64RnTcCnf%22%3Epic.twitter.com/H64RnTcCnf%3C/a%3E%3C/p%3E%26mdash%3B%20chessapig%20%28@chessapigbay%29%20%3Ca%20href%3D%22https%3A//twitter.com/chessapigbay/status/1658711763960086529%3Fref_src%3Dtwsrc%255Etfw%22%3EMay%2017%2C%202023%3C/a%3E%3C/blockquote%3E%0A%3Cscript%20async%20src%3D%22https%3A//platform.twitter.com/widgets.js%22%20charset%3D%22utf-8%22%3E%3C/script%3E%0A"></iframe>
+<blockquote class="twitter-tweet" data-theme="dark" data-dnt="true" align="center"><p lang="en" dir="ltr">In Zelda Tears of the kingdom, you can only rotate vertically and horizontally by 45°. Here&#39;s a tip for rotating around the third axis: Rotate all four directions, in order, for a 45° rotation<br><br>→↓←↑ = ↺<br>→↑←↓ = ↻<br><br>This happens because of some pretty neat math <br><br>1/🧵 <a href="https://t.co/H64RnTcCnf">pic.twitter.com/H64RnTcCnf</a></p>&mdash; chessapig (@chessapigbay) <a href="https://twitter.com/chessapigbay/status/1658711763960086529?ref_src=twsrc%5Etfw">May 17, 2023</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
+{% endcapture %}
+{{ code }}
 
 You're pretty much only able to rotate 45 degrees horizontally and vertically. However, denoting $↓,→,↑,←$ to be a 45 degree rotation towards the direction of the arrow, we can also rotate around the third axis as performed by [@chessapig](https://twitter.com/chessapigbay) above:
 
@@ -295,7 +318,7 @@ Well clearly doing nothing ($e$) isn't the same as $↺$, so the group isn't abe
 
 There's a caveat though; if you were to study the group $G$ accessible by 45 degree horizontal and vertical rotations, you'd realise that this group is infinite (If you know some linear algebra, you can try to prove this). However, if you have played the game, which I haven't, you'd notice the game only allows you to rotate an object a finite number of ways. This is because the game _cheats_, snapping the rotation of the object to the closest of a finite number of possibilities. Hence, the rotations as implemented in the game do not actually form a group.
 
-This group $G$ is a _subgroup_ (i.e., a subset that also forms a group) of an infinite group known as $SO(3)$, the set of all possible 3D rotations. We'll be encountering finite subgroups of $SO(3)$ later in this post because they have particularly interesting Cayley graphs.
+This group $G$ is a _subgroup_ (i.e., a subset that also forms a group) of an infinite group known as $\mathrm{SO}(3)$, the set of all possible 3D rotations. We'll be encountering finite subgroups of $\mathrm{SO}(3)$ later in this post because they have particularly interesting Cayley graphs.
 
 In this case, every element of $G$ is some combination of $→$ and $↓$ and their inverses. We say that $G$ is _generated_ by the elements $→$ and $↓$.
 
@@ -354,15 +377,72 @@ Do note that the Cayley graph for a group might not look unique, and is highly d
 
 ## Rotation Groups
 
+Say you start with a square and consider the set of rotations that fixes the position of the vertices.
 
+<!--TODO: Hand drawn image-->
+
+The rotations consist of rotating 0, 90, 180, 270 and 360 degrees. These rotations form a group, the cyclic group $C_4$, generated by 90 degree rotations. This is known as the _rotation group_ of a square. The Cayley Graph of this rotation group looks exactly like a square:
 
 <div class="cayley-container">
-<div id="plot-rot-1" class="cayley-uwu" style="width:calc(100% - 2em); height: 500px;"></div>
+<div id="plot5" class="cayley-uwu" style="width:calc(100% - 2em); height: 500px;"></div>
 </div>
 
+We can similarly talk about the rotation group of other shapes, like hexagons, which is the set of rotations that fixes the position of the vertices of the shape. These rotation groups are subgroups of the set of all 2D rotations $\mathrm{SO}(2)$, so a natural question is to ask "What are the finite subgroups of $\mathrm{SO}(2)$?".
+
+It turns out that the finite subgroups of $\mathrm{SO}(2)$ describe the rotation groups of a regular $n$-gon, whose rotation group has the same structure as the cyclic group $C_n$, which shouldn't come as too surprising.
+
+Similarly to the square example, the Cayley Graph of the rotation group of a regular $n$-gon does look like said $n$-gon.
+
+Does this observation extend to 3D? To put it precisely, are the finite subgroups of $\mathrm{SO}(3)$ rotation groups of some 3D shape, and do the Cayley Graphs of these rotation groups resemble the underlying 3D shape? 
+
+$\mathrm{SO}(2)$ is contained in $\mathrm{SO}(3)$, i.e., the set of 2D rotations can be found in the set of 3D rotations. So the finite subgroups of $\mathrm{SO}(3)$ would contain the cyclic groups $C_n$. In addition, $\mathrm{SO}(3)$ contains the _dihedral groups_ $D_n$, the set of rotations and reflections of a regular $2n$-gon. This is because we can perform a "flip" (or reflection) of a 2D shape by flipping it through the third dimension:
+
+<!--TODO: Handdrawn diagram-->
+
+However, these subgroups are kinda boring. They mostly take place in a single plane of existence (a 2D plane), and don't really 'fully utilise' 3D space.
+
+It turns out there are **exactly** $3$ more finite subgroups of $\mathrm{SO}(3)$ that don't fit into any of the above categories. These are 
+
+- $A_4$: the group of tetrahedral rotations
+- $S_4$: the group of cube and octohedron rotations
+- $A_5$: the group of icosahedral and dodecahedral rotations
+
 <div class="cayley-container">
-<div id="plot-rot-2" class="cayley-uwu" style="width:calc(100% - 2em); height: 500px;"></div>
+<div id="plot-rot-1" class="cayley-uwu" style="width:calc((100% - 0.5em)/3); height: 300px; border-right:0;"></div>
+<div id="plot-rot-2" class="cayley-uwu" style="width:calc((100% - 0.5em)/3); height: 300px;"></div>
+<div id="plot-rot-3" class="cayley-uwu" style="width:calc((100% - 0.5em)/3); height: 300px; border-left:0;"></div>
 </div>
+
+
+Note: The plots of the groups above look different from what you'll see on my [other site](https://juliapoo.github.io/Cayley-Graph-Plotting/). This is because I'm using a different set of generators. In particular:
+
+- $A_4$: If the site used $(a,b,c)$, I used $(ca, b, c)$ here.
+- $S_4$: If the site used $(a,b,c,d)$, I used $(a,db, dc, d)$ here.
+- $A_5$: If the site used $(a,b)$, I used $(a^2, b)$ here.
+
+These polyhedra for which the rotation groups describe the rotations of are precisely every convex regular polyhedra in 3D. 
+
+<!--TODO: Image of regular convex polyhedra-->
+
+In addition, [_duals_](https://en.wikipedia.org/wiki/Dual_polyhedron) (one replaces a polyhedra's vertices with faces to get its dual) share the same rotation group:
+
+- The regular tetrahedron is its own dual
+- The cube and octahedron are duals.
+- The icosahedron and dodecahedron are duals.
+
+Here's an animation by [@Toby Schachman](https://twitter.com/mandy3284) showing how an octahedron transforms into its dual (the cube):
+
+{% capture code %}
+<div style="display: flex; align-items:center; justify-content: center;">
+<blockquote class="twitter-tweet" data-theme="dark" data-dnt="true" align="center" data-conversation="none"><p lang="en" dir="ltr">Here&#39;s an animation showing a cube transforming into an octahedron and back again. <a href="https://t.co/FuNWOQF61m">pic.twitter.com/FuNWOQF61m</a></p>&mdash; Toby Schachman (@mandy3284) <a href="https://twitter.com/mandy3284/status/1188842844879896577?ref_src=twsrc%5Etfw">October 28, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+{% endcapture %}
+{{ code }}
+
+
+
+
 
 <!-- 
 1. Intro
