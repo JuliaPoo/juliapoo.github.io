@@ -228,6 +228,33 @@ window.addEventListener("load", () =>
           linkforcectx = plt.d3Force('link');
           linkforcectx.distance(d => [200,60,60][d.group]);
         }))
+
+        const rot4 = document.getElementById("plot-rot-6")
+        attach(onVisibilityChange(rot4, function() {
+          [_gmat, _fp] = matrep["60_5"];
+          _G = create_group(_gmat, _fp);
+          _Ggens = _G.gens;
+          _Ggens[0] = _Ggens[0].mul(_Ggens[0]);
+          const G1 = new Group(_Ggens.map((g) => g.mat));
+          const pltt = plot2(rot4, G1, "60_5");
+          const linkforcectxx = pltt.d3Force('link');
+          const a = window.setInterval(() => {
+            linkforcectxx.distance(d => [0, 200][d.group]);
+            pltt.d3ReheatSimulation()
+          }, 6000);
+          const woof = window.setInterval(() => {
+            const b = window.setInterval(() => {
+              linkforcectxx.distance(d => [200, 0][d.group]);
+              pltt.d3ReheatSimulation()
+            }, 6000)
+            clearInterval(woof)
+          }, 3000)
+        }))
+
+        const d1 = document.getElementById("plot-direct-1")
+        attach(onVisibilityChange(d1, function() {
+          plot(d1, "200_37")
+        }));
       })
     )
 );
@@ -420,9 +447,11 @@ Note: The plots of the groups above look different from what you'll see on my [o
 - $S_4$: If the site used $(a,b,c,d)$, I used $(a,db, dc, d)$ here.
 - $A_5$: If the site used $(a,b)$, I used $(a^2, b)$ here.
 
-These polyhedra for which the rotation groups describe the rotations of are precisely every convex regular polyhedra in 3D. 
+These polyhedra for which the rotation groups describe the rotations of are precisely every convex regular polyhedra in 3D, or the [Platonic Solids](https://en.wikipedia.org/wiki/Platonic_solid) (thanks wikipedia). 
 
-<!--TODO: Image of regular convex polyhedra-->
+<center>
+<img src="/assets/posts/2023-07-15-plotting-cayley-graphs/platonics.JPG">
+</center>
 
 In addition, [_duals_](https://en.wikipedia.org/wiki/Dual_polyhedron) (one replaces a polyhedra's vertices with faces to get its dual) share the same rotation group:
 
@@ -440,7 +469,33 @@ Here's an animation by [@Toby Schachman](https://twitter.com/mandy3284) showing 
 {% endcapture %}
 {{ code }}
 
+The shape that happens in between the octahedron and the cube, is a _truncated octahedron_, which looks precisely like the Cayley Graph of $S_4$! Furthermore, the Cayley Graph of $A_4$ looks like a _truncated tetrahedron_. $A_5$ in particular exhibits both an icosahedron and dodecahedron simply by changing the lengths of the edges:
 
+<div class="cayley-container">
+<div id="plot-rot-6" class="cayley-uwu" style="width:calc(100% - 2em); height: 500px;"></div>
+</div>
+
+## Direct Products
+
+Direct products are a method of constructing a larger group from two smaller groups, written as $A \times B$. You've likely came across direct products in some form: If $\mathbb{R}$ is the number line (say an $x$-axis), then $\mathbb{R}^2$ is the $xy$-plane. In this case, $\mathbb{R}^2$ is the direct product $\mathbb{R} \times \mathbb{R}$.
+
+Direct products $A \times B$ can be thought of as creating a copy of $A$ for each element in $B$, and vice-versa ($A \times B$ = $B \times A$). In the axis-plane example above, we are duplicating the $x$-axis for each element of the $y$-axis, forming a plane. We represent an element in $A \times B$ as a tuple $(a,b) \in A \times B$ where $a \in A$ and $b \in B$.
+
+Elements in $A \times B$ interact _component-wise_. For the case of groups, $A$ and $B$ are groups and $(a,b) \cdot (a', b') = (a \cdot a', b \cdot b')$, where the $\cdot$ in the right-hand side is the binary operator in the groups $A$ and $B$. You can try to convince yourself that $A \times B$ also forms a group.
+
+The Cayley Graphs of direct products exhibit this intuition. For instance, the direct product of two cyclic groups $C_{10} \times C_{20}$
+
+<div class="cayley-container">
+<div id="plot-direct-1" class="cayley-uwu" style="width:calc(100% - 2em); height: 500px;"></div>
+</div>
+
+You get this glorious donut shape. Each $C_{10}$ (the smaller ring) is duplicated for each element of $C_{20}$ (the larger ring forming the donut). 
+
+In a group $A \times B$, we have $(a', e) \cdot (a, b) = (a'a, b)$ where $e$ is the identity of $B$, we can think of multiplying by $(a', e)$ as traveling from the element $(a,b)$ to $(a'a, b)$. This can be seen as moving into a different element within the copy of $A$ associated with the element $b \in B$. However, we can also think of this from $B$'s perspective: We are traveling from the element $b$ within the copy of $B$ associated with the element $a \in A$, to the element $b$ within a _different_ copy of $B$ associated with the element $a'a \in A$. I.e., we've just changed "universe".
+
+<!-- Handdrawn image of this teleportation of universes -->
+
+## Semi-direct Products
 
 
 
