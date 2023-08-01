@@ -165,7 +165,7 @@ window.addEventListener("load", () =>
           return plt;
         }
 
-        let plt, linkforcectx, _gmat, _fp, _G, _Ggens, handler;
+        // let plt, linkforcectx, _gmat, _fp, _G, _Ggens, handler;
         
         const dom1 = document.getElementById("plot1")
         attach(onVisibilityChange(dom1, function() {
@@ -184,8 +184,8 @@ window.addEventListener("load", () =>
 
         const dom4 = document.getElementById("plot4")
         attach(onVisibilityChange(dom4, function() {
-          plt = plot(dom4, "12_1")
-          linkforcectx = plt.d3Force('link');
+          const plt = plot(dom4, "12_1")
+          const linkforcectx = plt.d3Force('link');
           linkforcectx.distance(d => [50, 150][d.group]);
         }))
 
@@ -196,9 +196,9 @@ window.addEventListener("load", () =>
 
         const rot1 = document.getElementById("plot-rot-3")
         attach(onVisibilityChange(rot1, function() {
-          [_gmat, _fp] = matrep["60_5"];
-          _G = create_group(_gmat, _fp);
-          _Ggens = _G.gens;
+          const [_gmat, _fp] = matrep["60_5"];
+          const _G = create_group(_gmat, _fp);
+          const _Ggens = _G.gens;
           _Ggens[0] = _Ggens[0].mul(_Ggens[0]);
           const G1 = new Group(_Ggens.map((g) => g.mat));
           plot2(rot1, G1, "60_5");
@@ -206,34 +206,34 @@ window.addEventListener("load", () =>
 
         const rot2 = document.getElementById("plot-rot-2")
         attach(onVisibilityChange(rot2, function() {
-          [_gmat, _fp] = matrep["24_12"];
-          _G = create_group(_gmat, _fp);
-          _Ggens = _G.gens;
+          const [_gmat, _fp] = matrep["24_12"];
+          const _G = create_group(_gmat, _fp);
+          const _Ggens = _G.gens;
           _Ggens[2] = _Ggens[3].mul(_Ggens[2]);
           _Ggens[1] = _Ggens[3].mul(_Ggens[1]);
           const G2 = new Group(_Ggens.map((g) => g.mat));
-          plt = plot2(rot2, G2, "24_12");
-          linkforcectx = plt.d3Force('link');
+          const plt = plot2(rot2, G2, "24_12");
+          const linkforcectx = plt.d3Force('link');
           linkforcectx.distance(d => [300,60,0,60][d.group]);
         }))
 
         const rot3 = document.getElementById("plot-rot-1")
         attach(onVisibilityChange(rot3, function() {
-          [_gmat, _fp] = matrep["12_3"];
-          _G = create_group(_gmat, _fp);
-          _Ggens = _G.gens;
+          const [_gmat, _fp] = matrep["12_3"];
+          const _G = create_group(_gmat, _fp);
+          const _Ggens = _G.gens;
           _Ggens[0] = _Ggens[2].mul(_Ggens[0]);
           const G2 = new Group(_Ggens.map((g) => g.mat));
-          plt = plot2(rot3, G2, "12_3");
-          linkforcectx = plt.d3Force('link');
+          const plt = plot2(rot3, G2, "12_3");
+          const linkforcectx = plt.d3Force('link');
           linkforcectx.distance(d => [200,60,60][d.group]);
         }))
 
         const rot4 = document.getElementById("plot-rot-6")
         attach(onVisibilityChange(rot4, function() {
-          [_gmat, _fp] = matrep["60_5"];
-          _G = create_group(_gmat, _fp);
-          _Ggens = _G.gens;
+          const [_gmat, _fp] = matrep["60_5"];
+          const _G = create_group(_gmat, _fp);
+          const _Ggens = _G.gens;
           _Ggens[0] = _Ggens[0].mul(_Ggens[0]);
           const G1 = new Group(_Ggens.map((g) => g.mat));
           const pltt = plot2(rot4, G1, "60_5");
@@ -241,19 +241,19 @@ window.addEventListener("load", () =>
           const a = window.setInterval(() => {
             linkforcectxx.distance(d => [0, 280][d.group]);
             pltt.d3ReheatSimulation()
-          }, 10000);
+          }, 6000);
           const woof = window.setInterval(() => {
             const b = window.setInterval(() => {
               linkforcectxx.distance(d => [200, 0][d.group]);
               pltt.d3ReheatSimulation()
-            }, 10000)
+            }, 6000)
             clearInterval(woof)
-          }, 5000)
+          }, 3000)
         }))
 
         const d1 = document.getElementById("plot-direct-1")
         attach(onVisibilityChange(d1, function() {
-          plot(d1, "200_37")
+          plot(d1, "32_3")
         }));
 
         const d2 = document.getElementById("plot-semi-2")
@@ -263,9 +263,9 @@ window.addEventListener("load", () =>
 
         const d3 = document.getElementById("plot-semi-1")
         attach(onVisibilityChange(d3, function() {
-          [_gmat, _fp] = matrep["12_5"];
-          _G = create_group(_gmat, _fp);
-          _Ggens = _G.gens;
+          const [_gmat, _fp] = matrep["12_5"];
+          const _G = create_group(_gmat, _fp);
+          let _Ggens = _G.gens;
           _Ggens = [_Ggens[1], _Ggens[0]];
           const G1 = new Group(_Ggens.map((g) => g.mat));
           const plt = plot2(d3, G1, "12_5");
@@ -273,7 +273,7 @@ window.addEventListener("load", () =>
 
         const d4 = document.getElementById("plot-semi-3")
         attach(onVisibilityChange(d4, function() {
-          const plt = plot(d4, "208_3")
+          const plt = plot(d4, "40_3")
         }));
       })
     )
@@ -499,13 +499,13 @@ Direct products $A \times B$ can be thought of as creating a copy of $A$ for eac
 
 Elements in $A \times B$ interact _component-wise_. For the case of groups, $A$ and $B$ are groups and $(a,b) \cdot (a', b') = (a \cdot a', b \cdot b')$, where the $\cdot$ in the right-hand side is the binary operator in the groups $A$ and $B$. You can try to convince yourself that $A \times B$ also forms a group.
 
-The Cayley Graphs of direct products exhibit this intuition. For instance, consider the direct product of two cyclic groups $C_{10} \times C_{20}$
+The Cayley Graphs of direct products exhibit this intuition. For instance, consider the direct product of two cyclic groups $C_{4} \times C_{8}$
 
 <div class="cayley-container">
 <div id="plot-direct-1" class="cayley-uwu" style="width:calc(100% - 2em); height: 500px;"></div>
 </div>
 
-You get this glorious donut shape. Each $C_{10}$ (the smaller ring) is duplicated for each element of $C_{20}$ (the larger ring forming the donut). 
+You get this glorious donut shape. Each $C_{4}$ (the smaller ring) is duplicated for each element of $C_{8}$ (the larger ring forming the donut). 
 
 In a group $A \times B$, we have $(a', e) \cdot (a, b) = (a'a, b)$ where $e$ is the identity of $B$. We can think of multiplying by $(a', e)$ as traveling from the element $(a,b)$ to $(a'a, b)$. This can be seen as moving into a different element within the copy of $A$ associated with the element $b \in B$. However, we can also think of this from $B$'s perspective: We are traveling from the element $b$ within the copy of $B$ associated with the element $a \in A$, to the element $b$ within a _different_ copy of $B$ associated with the element $a'a \in A$. I.e., we're still in the same spot $b$ but we've just changed "universe" ($a \rightarrow a'a$).
 
@@ -513,9 +513,9 @@ In a group $A \times B$, we have $(a', e) \cdot (a, b) = (a'a, b)$ where $e$ is 
 <img style="max-width:calc(min(600px, 100%));" src="/assets/posts/2023-07-15-plotting-cayley-graphs/universe.png">
 </center>
 
-In the case of the Cayley graph of $C_{10} \times C_{20}$, we have a generator for $A = C_{10}$ which we denote as $(a', e)$, and similarly a generator for $B = C_{20}$, denoted as $(e, b')$. These generators correspond to the two edges of different colours. 
+In the case of the Cayley graph of $C_{4} \times C_{8}$, we have a generator for $A = C_{4}$ which we denote as $(a', e)$, and similarly a generator for $B = C_{8}$, denoted as $(e, b')$. These generators correspond to the two edges of different colours. 
 
-In the Cayley Graph of $A \times B$, all copies of a fixed element $a \in A$ are strung together by generators in $B$, and similarly for all elements of $b \in B$. For $C_{10} \times C_{20}$, this forms the donut shape.
+In the Cayley Graph of $A \times B$, all copies of a fixed element $a \in A$ are strung together by generators in $B$, and similarly for all elements of $b \in B$. For $C_{4} \times C_{8}$, this forms the donut shape.
 
 Try [plotting other direct products](https://juliapoo.github.io/Cayley-Graph-Plotting/) and play with the edge lengths and see if you can spot this pattern.
 
@@ -666,7 +666,7 @@ $$
 
 And our semi-direct product reduces into a direct product. Hence direct products are simply a special case of semi-direct products.
 
-Unfortunately, not all twists are that easily visualisable. Take for instance $C_{13} \rtimes_{\psi} C_{16}$ where the twist causes the donut to look really weird:
+Unfortunately, not all twists are that easily visualisable. Take for instance $C_{5} \rtimes_{\psi} C_{8}$ where the twist causes the donut to look really weird:
 
 <div class="cayley-container">
 <div id="plot-semi-3" class="cayley-uwu" style="width:calc(100% - 2em); height: 500px;"></div>
