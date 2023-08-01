@@ -3,7 +3,7 @@ layout: post
 author: JuliaPoo
 category: Mathematics
 
-display-title: "Cayley Graphs and Why They Are Pretty"
+display-title: "Cayley Graphs and Pretty Things"
 tags:
     - group-theory
     - rotation-groups
@@ -120,11 +120,11 @@ function isElementInViewport(el) {
 function onVisibilityChange(el, callback) {
   let uwu = false;
   return () => {
-    if (isElementInViewport(el)) {
-      if (!uwu) {
+    if (!uwu) {
+      if (isElementInViewport(el)) {
         callback();
+        uwu = true;
       }
-      uwu = true;
     }
   }
 }
@@ -241,14 +241,14 @@ window.addEventListener("load", () =>
           const a = window.setInterval(() => {
             linkforcectxx.distance(d => [0, 280][d.group]);
             pltt.d3ReheatSimulation()
-          }, 6000);
+          }, 10000);
           const woof = window.setInterval(() => {
             const b = window.setInterval(() => {
               linkforcectxx.distance(d => [200, 0][d.group]);
               pltt.d3ReheatSimulation()
-            }, 6000)
+            }, 10000)
             clearInterval(woof)
-          }, 3000)
+          }, 5000)
         }))
 
         const d1 = document.getElementById("plot-direct-1")
@@ -282,17 +282,17 @@ window.addEventListener("load", () =>
 </script>
 
 
-I recently made a little [web-widget](https://juliapoo.github.io/Cayley-Graph-Plotting/) to plot Cayley Graphs of over 6000 finite groups because I had a feeling they would look pretty.
+I recently made a little [web-widget](https://juliapoo.github.io/Cayley-Graph-Plotting/) to plot Cayley Graphs of over 6000 finite groups because they look pretty.
 
 <div class="cayley-container">
 <div id="plot1" class="cayley-uwu" style="width:calc(100% - 2em); height: 500px;"></div>
 </div>
 
-And they are right? Above is the plot of the cayley graph of a very well-known group $A_5$. For all such diagrams in this post, feel free to zoom, pan and rotate the plots.
+And they _are_ pretty, right? Above is the plot of the cayley graph of a very well-known group $A_5$. For all such diagrams in this post, feel free to zoom, pan and rotate the plots.
 
 ## Wait what are Cayley Graphs?
 
-In short, Cayley Graphs are [graphs](https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)) (and by that I mean a bunch of vertices connected by lines) that encode, rather inefficiently, the abstract structure of a [_Group_](https://en.wikipedia.org/wiki/Group_(mathematics)).
+In short, Cayley Graphs are [graphs](https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)), and by that I mean a bunch of vertices connected by lines, that encode, rather inefficiently, the abstract structure of a [_Group_](https://en.wikipedia.org/wiki/Group_(mathematics)).
 
 A Group on the other hand is, informally, a non-empty set whose elements are '_symmetrically related_' to each other. Groups are very fundamental objects in Mathematics and appear everywhere in Mathematics. The symmetries of a particular group are somewhat reflected in the symmetries of its cayley graph.
 
@@ -300,15 +300,13 @@ While a group's cayley graph encodes the entire structure of a group, it does so
 
 This post will cover some intuition about Groups, and discuss informally some classes of groups to appreciate cayley graphs, and you can also try plotting other groups in my [web-widget](https://juliapoo.github.io/Cayley-Graph-Plotting/). In particular, this post will cover Rotation Groups, Direct and Semi-direct products. I'm particularly proud of the discussion on semi-direct products as it's, to my knowledge, a new way to introduce the subject. 
 
-If you're interested in more useful ways to visualise groups, do take a look at my post on [Visualising Homomorphisms](/mathematics/2022/12/15/homomorphism-illustrated.html) which gives an intuition for the isomorphism theorems.
-
 ## What are groups?
 
 Here's a description of a group:
-> A group $G$ is a set of elements (cannot be empty) and a _binary operation_ $\cdot$ such that for any $a,b,c \in G$ the following holds
+> A group $G$ is a non-empty set of elements and a _binary operation_ $\cdot$ such that for any $a,b,c \in G$ the following holds
 > 1. Associativity: $(a \cdot b) \cdot c = a \cdot (b \cdot c)$
-> 2. Identity: There exists an element $e \in G$ such that $a \cdot e = e \cdot a = a$. In other words, $e$ doesn't change anything
-> 3. Inverse: There exists an element which I'll denote $a^{-1}$ such that $a \cdot a^{-1} = a^{-1} \cdot a = e$. In other words, $a^{-1}$ _reverses_ what $a$ does, since $a^{-1} \cdot a \cdot b = e \cdot b = b$.
+> 2. Identity: There exists an element $e \in G$ such that $a \cdot e = e \cdot a = a$. In other words, $e$ doesn't do anything when multiplied with another element.
+> 3. Inverse: There exists an element denoted as $a^{-1}$ such that $a \cdot a^{-1} = a^{-1} \cdot a = e$. In other words, $a^{-1}$ _reverses_ what $a$ does, since $a^{-1} \cdot a \cdot b = e \cdot b = b$.
 > 
 > Where a binary operation is simply some operation that takes in two elements of $G$ and spits out another element of $G$.
 > Note that we do not require $a \cdot b = b \cdot a$. This property of being able to "flip" the order of arguments is called _Abelian_.
@@ -317,7 +315,7 @@ Here's a description of a group:
 >
 > For brevity I would sometimes omit the $\cdot$, so $a \cdot b$ might be written as simply $ab$.
 
-This description can apply to a whole bunch of things. A classic example is the integers $\mathbb{Z}$ and the operations $+$. For any integers $a,b,c$, we have:
+This description can apply to a whole bunch of things. A classic example is the integers $\mathbb{Z}$ with the binary operation $+$. For any integers $a,b,c$, we have:
 
 1. $(a + b) + c = a + (b + c)$
 2. $0 + a = a + 0 = a$
@@ -333,18 +331,18 @@ Of course, in this example, $\mathbb{Z}$ is abelian as $a + b = b + a$. There ar
 {% endcapture %}
 {{ code }}
 
-You're pretty much only able to rotate 45 degrees horizontally and vertically. However, denoting $↓,→,↑,←$ to be a 45 degree rotation towards the direction of the arrow, we can also rotate around the third axis as performed by [@chessapig](https://twitter.com/chessapigbay) above:
+You're pretty much only able to rotate 45 degrees horizontally and vertically. Denoting $↓,→,↑,←$ to be a 45 degrees rotation towards the direction of the arrow, we can also rotate around the third axis as performed by [@chessapig](https://twitter.com/chessapigbay) above:
 
 $$
 → \; ↓ \; ← \; ↑ \; = \; ↺ \\
 → \; ↑ \; ← \; ↓ \; = \; ↻
 $$
 
-Do check out the thread above btw, it has a few interesting tibits.
+Do check out the thread above btw as it discusses this in greater detail.
 
-Notice that the four operations here omit the brackets. For instance, the brackets in this expression $((→ \; ↓) \; ←) \; ↑$ are extraneous since it doesn't matter how I draw the brackets. This stems from the _associativity_ of 3D rotations.
+Notice that the four operations written above omit the brackets. For instance, the brackets in this expression $((→ \; ↓) \; ←) \; ↑$ are extraneous since it doesn't matter how I draw the brackets. This stems from the _associativity_ of 3D rotations.
 
-The set of all rotations accessible by 45 degrees horizontal and vertical rotations form a group $G$ (try it yourself!). However, it is not abelian as otherwise, chessapig's rotation trick wouldn't work. This is because we can view $←$ as reversing whatever $→$ does, and similarly for $↓$ for $↑$. In other words, we can rewrite the above relations to be:
+The set of all rotations accessible by 45 degrees horizontal and vertical rotations form a group $G$ (try to convince yourself that this is true). However, it is not abelian as otherwise, chessapig's rotation trick wouldn't work. This is because we can view $←$ as reversing whatever $→$ does, and similarly for $↓$ for $↑$. In other words, $← = →^{-1}$ and $↑ = ↓^{-1}$, so, we can rewrite the above relations to be:
 
 $$
 → \; ↓ \; →^{-1} \; ↓^{-1} \; = \; ↺ \\
@@ -363,15 +361,15 @@ $$
 \end{aligned}
 $$
 
-Well clearly doing nothing ($e$) isn't the same as $↺$, so the group isn't abelian!
+Since doing nothing ($e$) isn't the same as $↺$, the group isn't abelian!
 
-There's a caveat though; if you were to study the group $G$ accessible by 45 degree horizontal and vertical rotations, you'd realise that this group is infinite (If you know some linear algebra, you can try to prove this). However, if you have played the game, which I haven't, you'd notice the game only allows you to rotate an object a finite number of ways. This is because the game _cheats_, snapping the rotation of the object to the closest of a finite number of possibilities. Hence, the rotations as implemented in the game do not actually form a group.
+There's a caveat though; if you were to study the group $G$ accessible by 45 degree horizontal and vertical rotations, you'd soon realise that this group is infinite (if you know some linear algebra, you can try to prove this). However, if you have played the game, which I haven't btw, you'd notice the game only allows you to rotate an object a finite number of ways. This is because the game _cheats_, snapping the rotation of the object to the closest of a finite number of possibilities. Hence, the rotations as implemented in the game do not actually form a group.
 
-This group $G$ is a _subgroup_ (i.e., a subset that also forms a group) of an infinite group known as $\mathrm{SO}(3)$, the set of all possible 3D rotations. We'll be encountering finite subgroups of $\mathrm{SO}(3)$ later in this post because they have particularly interesting Cayley graphs.
+This group $G$ is a _subgroup_ (i.e., a subset that also forms a group with the same binary operation of $G$) of an infinite group known as $\mathrm{SO}(3)$, the set of all possible 3D rotations. We'll be encountering finite subgroups of $\mathrm{SO}(3)$ later in this post because they have particularly interesting Cayley graphs.
 
 In this case, every element of $G$ is some combination of $→$ and $↓$ and their inverses. We say that $G$ is _generated_ by the elements $→$ and $↓$.
 
-In general, we can always find a subset of any group $G$ that generates $G$. It's clear that finite groups have finite sets of generators. However, some infinite groups have finite sets of generators too, for instance, $\mathbb{Z}$ is generated by $1$.
+In general, we can always find a subset of any group $G$ that generates $G$. In particular, finite groups have finite sets of generators. However, some infinite groups have finite sets of generators too. For instance, $\mathbb{Z}$ is generated by $1$.
 
 ## What's a group's Cayley Graph?
 
@@ -393,16 +391,16 @@ $$
 <div id="plot2" class="cayley-uwu" style="width:calc(100% - 2em); height: 500px;"></div>
 </div>
 
-This "looping" behaviour is why $C_5$ is called a _cyclic group_.
+This "looping" behaviour is why $C_5$ is called a _cyclic group_. There are in general, cyclic groups of $n \in \mathbb{Z}$ elements denoted as $C_n$ consisting of the elements $\\{g^i \mid i \in \mathbb{Z}, \; 0 \le i < n\\}$, where $g \in C_n$ is a generator of $C_n$. There is also an infinite cyclic group, which is basically the group of integers $\mathbb{Z}$ described above (and generated by $1$).
 
-Now suppose we have multiple generators. We can represent left multiplication by each generator as a path with a unique colour. An arrow marks the direction of the path.
+Suppose we have multiple generators. We can represent left multiplication by each generator as a path with a unique colour. An arrow marks the direction of the path.
+
+When we have two arrows pointing end-to-end, such as when we have
+$e \xrightarrow{g} g \xrightarrow{g} e$, we can omit the arrow's direction.
 
 <div class="cayley-container">
 <div id="plot3" class="cayley-uwu" style="width:calc(100% - 2em); height: 500px;"></div>
 </div>
-
-When we have two arrows pointing end-to-end, such as when we have
-$e \xrightarrow{g} g \xrightarrow{g} e$, we can omit the arrow's direction.
 
 The resulting graph is what is known as a Cayley Graph of a group. Each vertex on the graph is a unique element of the group, and each edge extending from a vertex represents a "path" from one vertex to another via left multiplication of a generator.
 
@@ -410,17 +408,17 @@ The resulting graph is what is known as a Cayley Graph of a group. Each vertex o
 <div id="plot4" class="cayley-uwu" style="width:calc(100% - 2em); height: 500px;"></div>
 </div>
 
-You might immediately notice that Cayley graphs tend to be rather symmetrical, which stems from the properties of groups. Firstly, every vertex has exactly one path per colour going away from the vertex, and one path per colour going into the vertex.
+You might immediately notice that Cayley graphs tend to be rather symmetrical. This stems from the structure of groups. Firstly, every vertex has exactly one path per colour going away from the vertex, and one path per colour going into the vertex.
 
 The reason why the paths have to be "balanced" in such a way is because of the existence of _inverses_ of every element in a group.
 
-Suppose we have the path $a \xrightarrow{g} b$. Another way to write this is that $ga = b$. At the same time, since $g^{-1}$ exists, there's an element that can be written as $b' = g^{-1} a$. Then since $gb' = g g^{-1} a = a$, we have the following:
+Suppose we have the path $a \xrightarrow{g} b$. Another way to write this is that $ga = b$. At the same time, since $g^{-1}$ exists, there's an element that can be written as $b' = g^{-1} a$. Since $gb' = g g^{-1} a = a$, we have the following:
 
 $$b' \xrightarrow{g} a \xrightarrow{g} b$$
 
-Hence a path away from a vertex is always accompanied by a path toward the vertex. You can similarly convince yourself that the converse is true, that a path towards a vertex is always accompanied by a path away from the vertex.
+Hence, a path away from a vertex is always accompanied by a path toward the vertex. You can similarly convince yourself that the converse is true, that a path towards a vertex is always accompanied by a path away from the vertex.
 
-These constraints on the paths that can be drawn between the vertices of a Cayley Graph are pretty restrictive and forces the graph to look symmetrical. Try it yourself: Start with 5 vertices, and try to draw paths that conform to these rules. (Challenge: Proof that any path you draw will always end up in a loop of 5 vertices).
+These constraints on the paths that can be drawn between the vertices of a Cayley Graph are pretty restrictive and forces the graph to look symmetrical. Try it yourself: Start with 5 vertices, and try to draw paths that conform to these rules. (Challenge: Proof that any path you draw will always end up in a loop of 5 vertices. This is another way of saying that a group with 5 elements must be cyclic).
 
 Do note that the Cayley graph for a group might not look unique, and is highly dependent on the choice of generators.
 
@@ -428,7 +426,7 @@ Do note that the Cayley graph for a group might not look unique, and is highly d
 
 Say you start with a square and consider the set of rotations that fixes the position of the vertices.
 
-The rotations consist of rotating 0, 90, 180, and 270 degrees. These rotations form a group, the cyclic group $C_4$, generated by 90 degree rotations. This is known as the _rotation group_ of a square. The Cayley Graph of this rotation group looks exactly like a square:
+The rotations consist of rotating 0, 90, 180, and 270 degrees. These rotations form a group, the cyclic group $C_4$, generated by 90 degree rotations. This is known as the _rotation group_ of a square, and the Cayley Graph of this rotation group looks exactly like a square:
 
 <div class="cayley-container">
 <div id="plot5" class="cayley-uwu" style="width:calc(100% - 2em); height: 500px;"></div>
@@ -436,13 +434,13 @@ The rotations consist of rotating 0, 90, 180, and 270 degrees. These rotations f
 
 We can similarly talk about the rotation group of other shapes, like hexagons, which is the set of rotations that fixes the position of the vertices of the shape. These rotation groups are subgroups of the set of all 2D rotations $\mathrm{SO}(2)$, so a natural question is to ask "What are the finite subgroups of $\mathrm{SO}(2)$?".
 
-It turns out that the finite subgroups of $\mathrm{SO}(2)$ describe the rotation groups of a regular $n$-gon, whose rotation group has the same structure as the cyclic group $C_n$, which shouldn't come as too surprising.
+It turns out that the finite subgroups of $\mathrm{SO}(2)$ describe the rotation groups of a regular $n$-gon, whose rotation group has the same structure as the cyclic group $C_n$.
 
 Similarly to the square example, the Cayley Graph of the rotation group of a regular $n$-gon does look like said $n$-gon.
 
 Does this observation extend to 3D? To put it precisely, are the finite subgroups of $\mathrm{SO}(3)$ rotation groups of some 3D shape, and do the Cayley Graphs of these rotation groups resemble the underlying 3D shape? 
 
-$\mathrm{SO}(2)$ is contained in $\mathrm{SO}(3)$, i.e., the set of 2D rotations can be found in the set of 3D rotations. So the finite subgroups of $\mathrm{SO}(3)$ would contain the cyclic groups $C_n$. In addition, $\mathrm{SO}(3)$ contains the _dihedral groups_ $D_n$, the set of rotations and reflections of a regular $2n$-gon. This is because we can perform a "flip" (or reflection) of a 2D shape by flipping it through the third dimension.
+Firstly, $\mathrm{SO}(2)$ is contained in $\mathrm{SO}(3)$, i.e., the set of 2D rotations can be found in the set of 3D rotations. So the finite subgroups of $\mathrm{SO}(3)$ would contain the cyclic groups $C_n$. In addition, $\mathrm{SO}(3)$ contains the _dihedral groups_ $D_n$, the set of rotations and reflections of a regular $n$-gon. This is because we can perform a "flip" (effectively perform a reflection by an axis) of a 2D shape by flipping it through the third dimension.
 
 However, these subgroups are kinda boring. They mostly take place in a single plane of existence (a 2D plane), and don't really 'fully utilise' 3D space.
 
@@ -461,14 +459,14 @@ It turns out there are **exactly** $3$ more finite subgroups of $\mathrm{SO}(3)$
 
 Note: The plots of the groups above look different from what you'll see on my [other site](https://juliapoo.github.io/Cayley-Graph-Plotting/). This is because I'm using a different set of generators. In particular:
 
-- $A_4$: If the site used $(a,b,c)$, I used $(ca, b, c)$ here.
-- $S_4$: If the site used $(a,b,c,d)$, I used $(a,db, dc, d)$ here.
-- $A_5$: If the site used $(a,b)$, I used $(a^2, b)$ here.
+- $A_4$: If the other site used $(a,b,c)$, I used $(ca, b, c)$ here.
+- $S_4$: If the other site used $(a,b,c,d)$, I used $(a,db, dc, d)$ here.
+- $A_5$: If the other site used $(a,b)$, I used $(a^2, b)$ here.
 
-These polyhedra for which the rotation groups describe the rotations of are precisely every convex regular polyhedra in 3D, or the [Platonic Solids](https://en.wikipedia.org/wiki/Platonic_solid) (thanks wikipedia). 
+The polyhedra for which these rotation groups describe the rotations that fix their vertices are precisely every convex regular polyhedra in 3D, or the [Platonic Solids](https://en.wikipedia.org/wiki/Platonic_solid) (thanks wikipedia). 
 
 <center>
-<img src="/assets/posts/2023-07-15-plotting-cayley-graphs/platonics.JPG">
+<img style="filter:invert(1)" src="/assets/posts/2023-07-15-plotting-cayley-graphs/platonics.JPG">
 </center>
 
 In addition, [_duals_](https://en.wikipedia.org/wiki/Dual_polyhedron) (one replaces a polyhedra's vertices with faces to get its dual) share the same rotation group:
@@ -495,13 +493,13 @@ The shape that happens in between the octahedron and the cube, is a _truncated o
 
 ## Direct Products
 
-Direct products are a method of constructing a larger group from two smaller groups, written as $A \times B$. You've likely come across direct products in some form: If $\mathbb{R}$ is the number line (say an $x$-axis), then $\mathbb{R}^2$ is the $xy$-plane. In this case, $\mathbb{R}^2$ is the direct product $\mathbb{R} \times \mathbb{R}$.
+Direct products are a method of constructing a larger group from two smaller groups, denoted as $A \times B$. You've likely come across direct products in some form: If $\mathbb{R}$ is the number line (say an $x$-axis), then $\mathbb{R}^2$ is the $xy$-plane. In this case, $\mathbb{R}^2$ is the direct product $\mathbb{R} \times \mathbb{R}$.
 
 Direct products $A \times B$ can be thought of as creating a copy of $A$ for each element in $B$, and vice-versa ($A \times B$ = $B \times A$). In the axis-plane example above, we are duplicating the $x$-axis for each element of the $y$-axis, forming a plane. We represent an element in $A \times B$ as a tuple $(a,b) \in A \times B$ where $a \in A$ and $b \in B$.
 
 Elements in $A \times B$ interact _component-wise_. For the case of groups, $A$ and $B$ are groups and $(a,b) \cdot (a', b') = (a \cdot a', b \cdot b')$, where the $\cdot$ in the right-hand side is the binary operator in the groups $A$ and $B$. You can try to convince yourself that $A \times B$ also forms a group.
 
-The Cayley Graphs of direct products exhibit this intuition. For instance, the direct product of two cyclic groups $C_{10} \times C_{20}$
+The Cayley Graphs of direct products exhibit this intuition. For instance, consider the direct product of two cyclic groups $C_{10} \times C_{20}$
 
 <div class="cayley-container">
 <div id="plot-direct-1" class="cayley-uwu" style="width:calc(100% - 2em); height: 500px;"></div>
@@ -509,7 +507,7 @@ The Cayley Graphs of direct products exhibit this intuition. For instance, the d
 
 You get this glorious donut shape. Each $C_{10}$ (the smaller ring) is duplicated for each element of $C_{20}$ (the larger ring forming the donut). 
 
-In a group $A \times B$, we have $(a', e) \cdot (a, b) = (a'a, b)$ where $e$ is the identity of $B$, we can think of multiplying by $(a', e)$ as traveling from the element $(a,b)$ to $(a'a, b)$. This can be seen as moving into a different element within the copy of $A$ associated with the element $b \in B$. However, we can also think of this from $B$'s perspective: We are traveling from the element $b$ within the copy of $B$ associated with the element $a \in A$, to the element $b$ within a _different_ copy of $B$ associated with the element $a'a \in A$. I.e., we're still in the same spot $b$ but we've just changed "universe" ($a \rightarrow a'a$).
+In a group $A \times B$, we have $(a', e) \cdot (a, b) = (a'a, b)$ where $e$ is the identity of $B$. We can think of multiplying by $(a', e)$ as traveling from the element $(a,b)$ to $(a'a, b)$. This can be seen as moving into a different element within the copy of $A$ associated with the element $b \in B$. However, we can also think of this from $B$'s perspective: We are traveling from the element $b$ within the copy of $B$ associated with the element $a \in A$, to the element $b$ within a _different_ copy of $B$ associated with the element $a'a \in A$. I.e., we're still in the same spot $b$ but we've just changed "universe" ($a \rightarrow a'a$).
 
 <center>
 <img style="max-width:600px;" src="/assets/posts/2023-07-15-plotting-cayley-graphs/universe.png">
@@ -525,7 +523,7 @@ Try [plotting other direct products](https://juliapoo.github.io/Cayley-Graph-Plo
 
 Direct products are a special case of a more general way of constructing larger groups from smaller ones: Semi-direct products.
 
-Semi-direct products introduce an additional construct to direct products, which we'll call a _twist_ and denote with the symbol $\psi$. We'll denote a semi-direct product of groups $A$ and $B$ with the twist $\psi$ as the group $G = A \rtimes_\psi B$. What $\psi$ is precisely will be described later. The structure of $G$ is now dependent on $A$, $B$, and the choice of the twist $\psi$. We'll eventually show that a 'trivial' choice of $\psi$ results in a direct product. First, I'll illustrate the concept of a _twist_ via Cayley Graphs.
+Semi-direct products introduce an additional construct to direct products, which we'll call a _twist_ and denote with the symbol $\psi$. We'll denote the semi-direct product of groups $A$ and $B$ with the twist $\psi$ as the group $G = A \rtimes_\psi B$. What $\psi$ is precisely will be described later. The structure of $G$ is now dependent on $A$, $B$, and the choice of the twist $\psi$. We'll eventually show that a 'trivial' choice of $\psi$ results in a direct product. First, I'll illustrate the concept of a _twist_ via Cayley Graphs.
 
 It's best to see the twist by example. Consider the Cayley Graph of two groups, $C_6 \times C_2$ and $C_6 \rtimes_\phi C_2$ (another name for this is $D_6$):
 
@@ -544,9 +542,9 @@ One way to understand what's going on here is to view the twist $\psi$ as changi
 
 Notice that in the second image, one can move the edges and nodes around to form the Cayley plot of $D_6$.
 
-We'd see later, the group structure of $A \rtimes_\psi B$ constraints what $\psi$ can look like, to the point where the two illustrated twists are the only two possible for $C_6$ and $C_2$.
+We'd see later that the group structure of $A \rtimes_\psi B$ constraints what $\psi$ can look like, to the point where the two illustrated twists are the only two possible choices of $\psi$ for $C_6 \rtimes_{\psi} C_2$.
 
-Now we try to derive semi-direct products as a generalisation of direct products from scratch. I represent an element of $G = A \rtimes_\psi B$ similarly to direct products: as a tuple $(a,b)$ where $a \in A$ and $b \in B$. I'll refer to $a$ as the $A$-component of $(a,b)$ (and similarly for the $B$-component). As we attempt to generalise direct products into semi-direct products, we will attempt to generalise the group operation of $G$.
+Let's try to derive semi-direct products as a generalisation of direct products from scratch. I represent an element of $G = A \rtimes_\psi B$ similarly to direct products: as a tuple $(a,b)$ where $a \in A$ and $b \in B$. I'll refer to $a$ as the $A$-component of $(a,b)$ (and similarly for the $B$-component). As we attempt to generalise direct products into semi-direct products, we will attempt to generalise the group operation of $G$.
 
 Let's embed the group operation of $A$ into $G$. We require that $(a', e) \cdot (a,b) = (a'a,b)$, i.e., the left multiplication with elements with no $A$-component is equivalent to the group operation of $A$. Left multiplication with $(a',e)$ can be interpreted as traveling within the same copy of $A$. When doing so, we respect the group operations of $A$ (similar to direct products).
 
@@ -606,7 +604,7 @@ $$
 
 This property of $f_{b'}$ can be seen as preserving the group operation of $A$, i.e., the order in which we perform the mapping $f_{b'}$ and the group multiplication in $A$ does not matter.
 
-Mappings that satisfy such a constraint are called _homomorphisms_. In particular, $f_{b'}$ is both a bijection from $A$ into itself and a homomorphism. Such maps are called _automorphisms_ of $A$, and you can think of such maps as simply renaming the elements of $A$. The set of automorphisms of $A$ forms a group $\mathrm{Aut}(A)$, where the identity of $\mathrm{Aut}(A)$ is the "do-nothing" function $\mathrm{id}(x) = x$, and the group operation $\circ$ is function composition: For $f,g \in \mathrm{Aut}(A)$, $(f \circ g)(x) = f(g(x))$. (Try verifying this for yourself).
+Mappings that satisfy such a constraint are called _homomorphisms_. In particular, $f_{b'}$ is both a bijection from $A$ into itself and a homomorphism. Such maps are called _automorphisms_ of $A$, and you can think of such maps as simply renaming the elements of $A$. The set of automorphisms of $A$ forms a group $\mathrm{Aut}(A)$, where the identity of $\mathrm{Aut}(A)$ is the "do-nothing" function $\mathrm{id}(x) = x$, and the group operation $\circ$ is function composition, i.e., for $f,g \in \mathrm{Aut}(A)$, $(f \circ g)(x) = f(g(x)) \in \mathrm{Aut}(A)$. (Try verifying this for yourself).
 
 We should also determine how $f_b$ of different $b \in B$ should interact:
 
@@ -621,7 +619,7 @@ $$
 \end{aligned}
 $$
 
-In particular, we must have for all $b,b' \in B$, $f_{b'b} = f_{b'} \circ f_b$. Does this look familiar? Let $\psi: B \rightarrow \mathrm{Aut}(A)$ defined by $\psi(b) = f_b$, and I rewrite the above constraint to:
+In particular, we must have for all $b,b' \in B$, $f_{b'b} = f_{b'} \circ f_b$. Does this look familiar? Let $\psi: B \rightarrow \mathrm{Aut}(A)$ defined by $\psi(b) = f_b$. I can rewrite the above constraint to:
 
 $$
 \begin{aligned}
@@ -631,7 +629,7 @@ $$
 
 $\psi$ is a homomorphism from $B$ to $\mathrm{Aut}(A)$! This is in fact, the twist $\psi$ I alluded to above.
 
-Lastly, we should define the group operation of $G$ in terms of $\psi$:
+Lastly, we should derive the group operation of $G$ in terms of $\psi$:
 
 $$
 \begin{aligned}
@@ -674,7 +672,10 @@ Unfortunately, not all twists are that easily visualisable. Take for instance $C
 <div id="plot-semi-3" class="cayley-uwu" style="width:calc(100% - 2em); height: 500px;"></div>
 </div>
 
-<!--TODO-->
+
+## End
+
+If you're interested in more useful ways to visualise groups, I have another post on [Visualising Homomorphisms](/mathematics/2022/12/15/homomorphism-illustrated.html) which gives an intuition for the isomorphism theorems.
 
 <!-- 
 1. Intro
