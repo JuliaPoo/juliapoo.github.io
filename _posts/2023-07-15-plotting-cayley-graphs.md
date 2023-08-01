@@ -510,7 +510,7 @@ You get this glorious donut shape. Each $C_{10}$ (the smaller ring) is duplicate
 In a group $A \times B$, we have $(a', e) \cdot (a, b) = (a'a, b)$ where $e$ is the identity of $B$. We can think of multiplying by $(a', e)$ as traveling from the element $(a,b)$ to $(a'a, b)$. This can be seen as moving into a different element within the copy of $A$ associated with the element $b \in B$. However, we can also think of this from $B$'s perspective: We are traveling from the element $b$ within the copy of $B$ associated with the element $a \in A$, to the element $b$ within a _different_ copy of $B$ associated with the element $a'a \in A$. I.e., we're still in the same spot $b$ but we've just changed "universe" ($a \rightarrow a'a$).
 
 <center>
-<img style="max-width:600px;" src="/assets/posts/2023-07-15-plotting-cayley-graphs/universe.png">
+<img style="max-width:calc(min(600px, 100%));" src="/assets/posts/2023-07-15-plotting-cayley-graphs/universe.png">
 </center>
 
 In the case of the Cayley graph of $C_{10} \times C_{20}$, we have a generator for $A = C_{10}$ which we denote as $(a', e)$, and similarly a generator for $B = C_{20}$, denoted as $(e, b')$. These generators correspond to the two edges of different colours. 
