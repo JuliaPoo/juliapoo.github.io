@@ -137,6 +137,7 @@ function onVisibilityChange(el, callback) {
         if (isElementInViewport(el)) {
           owo = true;
           plt.resumeAnimation()
+          plt.d3ReheatSimulation()
         }
       }
     }
