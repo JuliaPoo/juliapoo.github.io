@@ -119,11 +119,25 @@ function isElementInViewport(el) {
 
 function onVisibilityChange(el, callback) {
   let uwu = false;
+  let owo = true;
+  let plt = undefined;
   return () => {
     if (!uwu) {
       if (isElementInViewport(el)) {
-        callback();
+        plt = callback();
         uwu = true;
+      }
+    } else {
+      if (owo) {
+        if (!isElementInViewport(el)) {
+          owo = false;
+          plt.pauseAnimation()
+        }
+      } else {
+        if (isElementInViewport(el)) {
+          owo = true;
+          plt.resumeAnimation()
+        }
       }
     }
   }
@@ -169,17 +183,17 @@ window.addEventListener("load", () =>
         
         const dom1 = document.getElementById("plot1")
         attach(onVisibilityChange(dom1, function() {
-          plot(dom1, "60_5")
+          return plot(dom1, "60_5")
         }));
 
         const dom2 = document.getElementById("plot2")
         attach(onVisibilityChange(dom2, function() {
-          plot(dom2, "5_1")
+          return plot(dom2, "5_1")
         }));
 
         const dom3 = document.getElementById("plot3")
         attach(onVisibilityChange(dom3, function() {
-          plot(dom3, "12_4")
+          return plot(dom3, "12_4")
         }));
 
         const dom4 = document.getElementById("plot4")
@@ -187,11 +201,12 @@ window.addEventListener("load", () =>
           const plt = plot(dom4, "12_1")
           const linkforcectx = plt.d3Force('link');
           linkforcectx.distance(d => [50, 150][d.group]);
+          return plt
         }))
 
         const dom7 = document.getElementById("plot5")
         attach(onVisibilityChange(dom7, function() {
-          plot(dom7, "4_1")
+          return plot(dom7, "4_1")
         }));
 
         const rot1 = document.getElementById("plot-rot-3")
@@ -201,7 +216,7 @@ window.addEventListener("load", () =>
           const _Ggens = _G.gens;
           _Ggens[0] = _Ggens[0].mul(_Ggens[0]);
           const G1 = new Group(_Ggens.map((g) => g.mat));
-          plot2(rot1, G1, "60_5");
+          return plot2(rot1, G1, "60_5");
         }))
 
         const rot2 = document.getElementById("plot-rot-2")
@@ -215,6 +230,7 @@ window.addEventListener("load", () =>
           const plt = plot2(rot2, G2, "24_12");
           const linkforcectx = plt.d3Force('link');
           linkforcectx.distance(d => [300,60,0,60][d.group]);
+          return plt
         }))
 
         const rot3 = document.getElementById("plot-rot-1")
@@ -227,6 +243,7 @@ window.addEventListener("load", () =>
           const plt = plot2(rot3, G2, "12_3");
           const linkforcectx = plt.d3Force('link');
           linkforcectx.distance(d => [200,60,60][d.group]);
+          return plt
         }))
 
         const rot4 = document.getElementById("plot-rot-6")
@@ -249,16 +266,18 @@ window.addEventListener("load", () =>
             }, 6000)
             clearInterval(woof)
           }, 3000)
+          return pltt
         }))
 
         const d1 = document.getElementById("plot-direct-1")
         attach(onVisibilityChange(d1, function() {
-          plot(d1, "32_3")
+          return plot(d1, "32_3")
         }));
 
         const d2 = document.getElementById("plot-semi-2")
         attach(onVisibilityChange(d2, function() {
           const plt = plot(d2, "12_4")
+          return plt
         }));
 
         const d3 = document.getElementById("plot-semi-1")
@@ -269,11 +288,13 @@ window.addEventListener("load", () =>
           _Ggens = [_Ggens[1], _Ggens[0]];
           const G1 = new Group(_Ggens.map((g) => g.mat));
           const plt = plot2(d3, G1, "12_5");
+          return plt
         }));
 
         const d4 = document.getElementById("plot-semi-3")
         attach(onVisibilityChange(d4, function() {
           const plt = plot(d4, "40_3")
+          return plt
         }));
       })
     )
