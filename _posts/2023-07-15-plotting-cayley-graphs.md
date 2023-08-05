@@ -635,9 +635,10 @@ $$
 &(f_{b'b}(a), b'b) \\
 &= (e, b'b)\cdot (a,e) &\text{rule 2} \\
 &= [\;(e, b')\cdot(e, b)\;]\cdot(a, e) &\text{rule 1.2} \\
+&= (e, b')\cdot[\;(e, b)\cdot(a, e)\;] &\text{associativity} \\
 &= (e, b') \cdot (f_b(a), b) &\text{rule 2} \\
-&= (f_{b'}(f_b(a)), b) &\text{rule 2} \\
-&= ((f_{b'} \circ f_b)(a), b) &\text{operation in }\mathrm{Aut}(A)
+&= (f_{b'}(f_b(a)), b'b) &\text{rule 2} \\
+&= ((f_{b'} \circ f_b)(a), b'b) &\text{operation in }\mathrm{Aut}(A)
 \end{aligned}
 $$
 
