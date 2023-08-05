@@ -346,9 +346,8 @@ This description can apply to a whole bunch of things. A classic example is the 
 Of course, in this example, $\mathbb{Z}$ is abelian as $a + b = b + a$. There are however groups where this doesn't hold. If you've played Zelda Tears of the Kingdom, you'd have encountered such a group when rotating an object. 
 
 {% capture code %}
-<div style="display: flex; align-items:center; justify-content: center;">
-<blockquote class="twitter-tweet" data-theme="dark" data-dnt="true" align="center"><p lang="en" dir="ltr">In Zelda Tears of the kingdom, you can only rotate vertically and horizontally by 45°. Here&#39;s a tip for rotating around the third axis: Rotate all four directions, in order, for a 45° rotation<br><br>→↓←↑ = ↺<br>→↑←↓ = ↻<br><br>This happens because of some pretty neat math <br><br>1/🧵 <a href="https://t.co/H64RnTcCnf">pic.twitter.com/H64RnTcCnf</a></p>&mdash; chessapig (@chessapigbay) <a href="https://twitter.com/chessapigbay/status/1658711763960086529?ref_src=twsrc%5Etfw">May 17, 2023</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<div style="display: flex; align-items:center; justify-content: center; min-width: 100%;">
+<blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">In Zelda Tears of the kingdom, you can only rotate vertically and horizontally by 45°. Here&#39;s a tip for rotating around the third axis: Rotate all four directions, in order, for a 45° rotation<br><br>→↓←↑ = ↺<br>→↑←↓ = ↻<br><br>This happens because of some pretty neat math <br><br>1/🧵 <a href="https://t.co/H64RnTcCnf">pic.twitter.com/H64RnTcCnf</a></p>&mdash; chessapig (@chessapigbay) <a href="https://twitter.com/chessapigbay/status/1658711763960086529?ref_src=twsrc%5Etfw">May 17, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
 {% endcapture %}
 {{ code }}
@@ -500,8 +499,8 @@ In addition, [_duals_](https://en.wikipedia.org/wiki/Dual_polyhedron) (one repla
 Here's an animation by [@Toby Schachman](https://twitter.com/mandy3284) showing how an octahedron transforms into its dual (the cube):
 
 {% capture code %}
-<div style="display: flex; align-items:center; justify-content: center;">
-<blockquote class="twitter-tweet" data-theme="dark" data-dnt="true" align="center" data-conversation="none"><p lang="en" dir="ltr">Here&#39;s an animation showing a cube transforming into an octahedron and back again. <a href="https://t.co/FuNWOQF61m">pic.twitter.com/FuNWOQF61m</a></p>&mdash; Toby Schachman (@mandy3284) <a href="https://twitter.com/mandy3284/status/1188842844879896577?ref_src=twsrc%5Etfw">October 28, 2019</a></blockquote>
+<div style="display: flex; align-items:center; justify-content: center; min-width: 100%;">
+<blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">Here&#39;s an animation showing a cube transforming into an octahedron and back again. <a href="https://t.co/FuNWOQF61m">pic.twitter.com/FuNWOQF61m</a></p>&mdash; Toby Schachman (@mandy3284) <a href="https://twitter.com/mandy3284/status/1188842844879896577?ref_src=twsrc%5Etfw">October 28, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
 {% endcapture %}
