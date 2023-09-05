@@ -567,9 +567,9 @@ We'd see later that the group structure of $A \rtimes_\psi B$ constraints what $
 
 Let's try to derive semi-direct products as a generalisation of direct products from scratch. I represent an element of $G = A \rtimes_\psi B$ similarly to direct products: as a tuple $(a,b)$ where $a \in A$ and $b \in B$. I'll refer to $a$ as the $A$-component of $(a,b)$ (and similarly for the $B$-component). As we attempt to generalise direct products into semi-direct products, we will attempt to generalise the group operation of $G$.
 
-Let's embed the group operation of $A$ into $G$. We require that $(a', e) \cdot (a,b) = (a'a,b)$, i.e., the left multiplication with elements with no $A$-component is equivalent to the group operation of $A$. Left multiplication with $(a',e)$ can be interpreted as traveling within the same copy of $A$. When doing so, we respect the group operations of $A$ (similar to direct products).
+Let's embed the group operation of $A$ into $G$. We require that $(a', e) \cdot (a,b) = (a'a,b)$, i.e., the left multiplication with elements with no $B$-component is equivalent to the group operation of $A$. Left multiplication with $(a',e)$ can be interpreted as traveling within the same copy of $A$. When doing so, we respect the group operations of $A$ (similar to direct products).
 
-Similarly, let's also embed the group operation of $B$ into $G$ by requiring that $(a,b) \cdot (e,b') = (a, bb')$, i.e., the right multiplication with elements with no $B$-component is equivalent to the group operation of $B$. This is my interpretation of the prefix "semi" in "semi-direct product":
+Similarly, let's also embed the group operation of $B$ into $G$ by requiring that $(a,b) \cdot (e,b') = (a, bb')$, i.e., the right multiplication with elements with no $A$-component is equivalent to the group operation of $B$. This is my interpretation of the prefix "semi" in "semi-direct product":
 
 $$
 \begin{aligned}
