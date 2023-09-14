@@ -316,7 +316,7 @@ class Cipher:
 
 We can see that `Cipher` generates a stream by bytes according to the `key` and XORs it with the message. An interesting thing to note is that the `.next` method, and hence the `.next_byte` method, computes their output by taking a linear combination of the bits of `key`. This is easily seen by noting that the only operations used to update `self.state` and return the next byte only involve XOR and bitshifts. 
 
-This is extremely similar to how MT19937 works, in that for a given message of $l$ bytes, we have an associated XOR stream $x \in F_2^{8 l}$ such that $c = m + x$ where $c$ is the ciphertext and $m$ is the message. We also have a 128-bit key $k \in F_2^{8 \times 128}$, and we can derive a fixed transform $V: F_2^{8 \times 128}\rightarrow F_2^{8 l}$ mapping $V k = x$.
+This is extremely similar to how MT19937 works, in that for a given message of $l$ bytes, we have an associated XOR stream $x \in F_2^{8 l}$ such that $c = m + x$ where $c$ is the ciphertext and $m$ is the message. We also have a 128-bit key $k \in F_2^{128}$, and we can derive a fixed transform $V: F_2^{128}\rightarrow F_2^{8 l}$ mapping $V k = x$.
 
 For our use-case, we want to keep $c = m + x$ constant and compute a new key $k'$ such that $V k = x'$ and $c = m' + x'$, where $x'$ is the new byte stream and $m'$ is our target ciphertext. Note that
 
