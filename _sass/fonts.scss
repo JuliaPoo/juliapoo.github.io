@@ -27,3 +27,40 @@
     src: url(/assets/fonts/VictorMono-BoldItalic.ttf) format("truetype");
     font-display: swap;
 }
+
+// @font-face {
+//     font-family: 'Monaco';
+//     font-style: normal;
+//     font-weight: normal;
+//     src: local('Monaco'), url('/assets/fonts/Monaco.woff') format('woff');
+// }
+
+@font-face {
+    font-family: 'Segoe UI';
+    font-style: normal;
+    src: url("/assets/fonts/Segoe UI.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: bold;
+    src: url("/assets/fonts/Segoe UI Bold.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    font-style: italic;
+    src: url("/assets/fonts/Segoe UI Italic.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    font-style: italic;
+    font-weight: bold;
+    src: url("/assets/fonts/Segoe UI Bold Italic.ttf") format("truetype");
+    font-display: swap;
+}

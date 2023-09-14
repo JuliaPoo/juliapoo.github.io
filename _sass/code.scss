@@ -15,6 +15,10 @@ code {
     background: rgba(1, 42, 70, 0.5);
 }
 
+.rouge-table * {
+    font-size: 0.97em;
+}
+
 // Line numbers styling
 .rouge-gutter .lineno {
     color: rgb(1, 110, 143);
