@@ -16,7 +16,7 @@ nav: |
         * [Objective](#objective)
     * [Attack](#attack)
         * [Logging into admin](#logging-into-admin)
-            * [b isn't random enough](#isnt-random-enough)
+            * [b isn't random enough](#b-isnt-random-enough)
         * [Sending flag_haver a message from the admin account](#sending-flag_haver-a-message-from-the-admin-account)
             * [Attacking the Cipher](#attacking-the-cipher)
         * [Summary of Attack](#summary-of-attack)
@@ -54,7 +54,7 @@ When you register, the server asks for your username and your public key $y$ tha
 
 During Login, the server prompts you with a series of _challenges_, which should require that you know the secret private key $x$ for that account to answer the challenges correctly. This is the "zero-knowledge" part of this mail server.
 
-Once you log in, you can send messages and view your inbox. To send s message, you would need to input the recipient's username. The server then replies with the recipient's public key. You are then required to encrypt your message with the recipient's public key, sign the message with your private key and tell the server the resulting encrypted message and signature.
+Once you log in, you can send messages and view your inbox. To send a message, you would need to input the recipient's username. The server then replies with the recipient's public key. You are then required to encrypt your message with the recipient's public key, sign the message with your private key and tell the server the resulting encrypted message and signature.
 
 When you view your inbox, the server replies with all the messages you have. However, the server replies with the encrypted messages (encrypted with your public key) and the signatures (for you to verify the sender with the sender's public key).
 
@@ -66,7 +66,7 @@ The `admin` bot checks for any new accounts and sends them an (encrypted) sweet 
 
 `flag_haver` is the only account that has access to the flag, so we must get `admin` to send them `Send flag to {username}`. However, there's nothing that prompts `admin` to do such a thing, so we probably have to log into `admin`.
 
-Once we log into `admin`, it appears that we still need the `admin`'s private key in order to sign the message, so that `flag_haver` will happily read the message.
+Once we log into `admin`, it appears that we still need the `admin`'s private key to sign the message, so that `flag_haver` will happily read the message.
 
 ## Attack
 
@@ -253,9 +253,9 @@ def receive(self, sender_public_key, ciphertext, sig):
     return message
 ```
 
-In order to send a message, we randomly generate a `key` that gets encrypted with the recipient's public key (we have this) into `key_enc`. The `message` gets encrypted with `ct` and the `ct` is signed with the sender's private key (we don't have this) to get `sig`. `key_enc`, `ct` and `sig` get sent.
+To send a message, we randomly generate a `key` that gets encrypted with the recipient's public key (we have this) into `key_enc`. The `message` gets encrypted with `ct` and the `ct` is signed with the sender's private key (we don't have this) to get `sig`. `key_enc`, `ct` and `sig` get sent.
 
-Note that the recipient will require their private key to decrypt `key_enc` in order to decrypt `ct` into the message, and they will also verify that `ct` is signed with the recipient's private key. This should ensure that
+Note that the recipient will require their private key to decrypt `key_enc` to decrypt `ct` into the message, and they will also verify that `ct` is signed with the recipient's private key. This should ensure that
 1. Only the recipient can read the message
 2. The recipient can verify that the message is indeed from the sender.
 
