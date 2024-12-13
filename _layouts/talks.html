@@ -1,0 +1,28 @@
+---
+layout: default
+---
+
+<div class="post-container">
+    <h1 class="post-title">{{ page.display-title }}</h1>
+    <div class="post-excerpt">
+        {{ page.excerpt | markdownify }}
+    </div>
+    <div class="post-meta">
+
+        <span class="post-meta-left">
+            <span>📅 {{ page.date | date_to_string }} - {{ page.author }} ^-^</span>
+            <span>📌 {{ page.event }}</span>
+        </span>
+        
+        <span class="post-meta-right">
+            <span>🏷️</span> Tags: 
+            {% for tag in page.tags %}
+            #{{ tag }} 
+            {% endfor %}
+        </span>
+    </div>
+</div>
+
+<div class="generic-content">
+    {{ content }}
+</div>
