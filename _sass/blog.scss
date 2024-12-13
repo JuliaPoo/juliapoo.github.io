@@ -22,7 +22,12 @@
 
 .blog-excerpt {
     margin-top: 0.5em;
-}   
+}
+
+.blog-excerpt ~ p {
+    text-align: justify;
+    max-width: 50em;
+}
 
 .blog-post-meta {
     margin: 0;
