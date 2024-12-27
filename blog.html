@@ -129,8 +129,8 @@ excerpt: Buncha writings by Jules
 
 
 <script type="module">
-import * as THREE from 'https://cdn.skypack.dev/three@0.135.0';
-//import { OrbitControls } from 'https://cdn.skypack.dev/three@0.135.0/examples/jsm/controls/OrbitControls.js';
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.167.1/build/three.module.js';
+//import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.167.1/examples/jsm/controls/OrbitControls.js';
 
 const getCanvasSize = () => {
     const W = document.getElementById("hewwo").clientWidth;
@@ -151,7 +151,7 @@ document.getElementById("hewwo").appendChild(renderer.domElement);
 const scene = new THREE.Scene();
 scene.background = new THREE.Color().setHex(0xfa0000);
 
-const camera = new THREE.PerspectiveCamera(20, W/H, 1, 1000);
+const camera = new THREE.PerspectiveCamera(20, W/H, 1, 10);
 camera.position.set(0,0,3);
 camera.lookAt(0,0,0);
 scene.add(camera);
@@ -209,7 +209,7 @@ const get_box = () => {
 const get_test_obj = () => {
     const obj = new THREE.Mesh(
         new THREE.TorusGeometry(.07, .035, 20, 100),
-        new THREE.MeshStandardMaterial({color: 0x222222, metalness: 1., roughness: 0.})
+        new THREE.MeshStandardMaterial({color: 0x222222, metalness: 1., roughness: 0.15})
     );
     obj.translateZ(1.5);
     obj.castShadow = true;
@@ -223,10 +223,10 @@ const test_obj = get_test_obj();
 scene.add(box);
 scene.add(test_obj);
 
-const amlight = new THREE.AmbientLight(0x555555);
+const amlight = new THREE.AmbientLight(0xaaaaaa);
 scene.add(amlight);
 
-const dlight1 = new THREE.DirectionalLight(0x001931, 4.);
+const dlight1 = new THREE.DirectionalLight(0x001931, 100.);
 dlight1.position.set(0,0,5);
 dlight1.castShadow = true;
 scene.add(dlight1);
@@ -234,16 +234,16 @@ scene.add(dlight1);
 const dlight_pos = [
     new THREE.Vector3( 1.7, 1.7, 5),
     new THREE.Vector3(-1.7, 1.7, 5),
-    new THREE.Vector3( 1.7,-1.7,-5),
-    new THREE.Vector3(-1.7,-1.7,-5),
-    new THREE.Vector3(-1.7, 1.7,-5),
-    new THREE.Vector3( 1.7, 1.7,-5),
+    // new THREE.Vector3( 1.7,-1.7,-5),
+    // new THREE.Vector3(-1.7,-1.7,-5),
+    // new THREE.Vector3(-1.7, 1.7,-5),
+    // new THREE.Vector3( 1.7, 1.7,-5),
 ];
 
 dlight_pos.forEach((p,i) => {
     const l = new THREE.DirectionalLight(
         i < 2 ? 0x001931 : 0xfa0000,
-        i < 2 ? 4. : 7.);
+        i < 2 ? 100. : 7.);
     l.position.set(p.x, p.y, p.z);
     l.castShadow = true;
     l.shadow.radius = 0;
@@ -288,8 +288,7 @@ function onWindowResize() {
     renderer.setSize(W, H);
     set_box_scale();
 }
-window.addEventListener('resize', onWindowResize);
-window.onload = onWindowResize;
+//window.addEventListener('resize', onWindowResize);
 
 function onScroll(event) {
     const e = renderer.domElement;
@@ -304,8 +303,10 @@ function onScroll(event) {
 }
 
 addEventListener("scroll", onScroll);
-
-onScroll();
+window.onload = () => {
+    onWindowResize()
+    onScroll()
+};
 
 </script>
 
@@ -313,7 +314,7 @@ onScroll();
 #hewwo {
     width: 70%;
     height: 30em;
-    overflow-y: hidden;
+    overflow: hidden;
 }
 
 #hewwo > canvas {
