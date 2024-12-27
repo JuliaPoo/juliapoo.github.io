@@ -1,0 +1,9 @@
+{
+    "grammarly.selectors": [
+        {
+            "language": "markdown",
+            "scheme": "file",
+            "pattern": "_posts/2023-09-05-encrypted-mail-writeup.md"
+        }
+    ]
+}
