@@ -128,9 +128,23 @@ excerpt: Buncha writings by Jules
 </div>
 
 
+<script type="importmap">
+{
+    "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.167.1/build/three.module.js",
+    "three/examples/": "https://cdn.jsdelivr.net/npm/three@0.167.1/examples/", 
+    "three/addons/loaders/": "https://cdn.jsdelivr.net/npm/three@0.167.1/examples/jsm/loaders/",
+    "three/addons/geometries/": "https://cdn.jsdelivr.net/npm/three@0.167.1/examples/jsm/geometries/"
+    }
+}
+</script>
 <script type="module">
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.167.1/build/three.module.js';
-//import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.167.1/examples/jsm/controls/OrbitControls.js';
+import * as THREE from 'three';
+// import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+// import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
+// import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
+// import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
+
 
 const getCanvasSize = () => {
     const W = document.getElementById("hewwo").clientWidth;
@@ -149,7 +163,10 @@ renderer.antialias = true;
 document.getElementById("hewwo").appendChild(renderer.domElement);
 
 const scene = new THREE.Scene();
-scene.background = new THREE.Color().setHex(0xfa0000);
+scene.background = new THREE.Color().setHex(
+    // 0x01fdc7
+    0xff66dd
+);
 
 const camera = new THREE.PerspectiveCamera(20, W/H, 1, 10);
 camera.position.set(0,0,3);
@@ -165,7 +182,7 @@ const get_box = () => {
         roughness: 0,
     });
     //material.side = THREE.DoubleSide;
-    const s = .99;
+    const s = .98;
     const d = (s - 1)/2;
     const face1 = new THREE.Mesh(new THREE.PlaneGeometry(s, s), material1);
     const face2 = new THREE.Mesh(new THREE.PlaneGeometry(s, s), material);
@@ -207,14 +224,43 @@ const get_box = () => {
 }
 
 const get_test_obj = () => {
+    const heartShape = new THREE.Shape();
+    heartShape.moveTo( 25, 25 );
+    heartShape.bezierCurveTo( 25, 25, 20, 0, 0, 0);
+    heartShape.bezierCurveTo( - 30, 0, - 30, 35, - 30, 35 );
+    heartShape.bezierCurveTo( - 30, 55, - 10, 77, 25, 95 );
+    heartShape.bezierCurveTo( 60, 77, 80, 55, 80, 35 );
+    heartShape.bezierCurveTo( 80, 35, 80, 0, 50, 0 );
+    heartShape.bezierCurveTo( 35, 0, 25, 25, 25, 25 );
+    const shape = new THREE.ExtrudeGeometry(heartShape, 
+    {   
+        depth: 0, 
+        bevelEnabled: true, 
+        bevelSegments: 3, 
+        bevelOffset: -5,
+        bevelSize: 20, 
+        bevelThickness: 20,
+        curveSegments: 3,
+    });
     const obj = new THREE.Mesh(
-        new THREE.TorusGeometry(.07, .035, 20, 100),
-        new THREE.MeshStandardMaterial({color: 0x222222, metalness: 1., roughness: 0.15})
+        //new THREE.TorusGeometry(.07, .035, 20, 100),
+        shape,
+        new THREE.MeshStandardMaterial({
+            color: 0xff4444,//0x444444, 
+            metalness: 1., 
+            roughness: 0.15})
     );
+    obj.scale.set(.001,.001,.001);
+    obj.translateX(-0.025); obj.translateY(.05);
     obj.translateZ(1.5);
     obj.castShadow = true;
     obj.receiveShadow = true;
-    return obj;
+
+    //obj.material.emissive = new THREE.Color().setHex(0xff4444);
+
+    const c = new THREE.Group();
+    c.add(obj);
+    return c;
 }
 
 const box = get_box();
@@ -226,7 +272,7 @@ scene.add(test_obj);
 const amlight = new THREE.AmbientLight(0xaaaaaa);
 scene.add(amlight);
 
-const dlight1 = new THREE.DirectionalLight(0x001931, 100.);
+const dlight1 = new THREE.DirectionalLight(0x333262, 100.);
 dlight1.position.set(0,0,5);
 dlight1.castShadow = true;
 scene.add(dlight1);
@@ -240,10 +286,11 @@ const dlight_pos = [
     // new THREE.Vector3( 1.7, 1.7,-5),
 ];
 
+const dlights = [];
 dlight_pos.forEach((p,i) => {
     const l = new THREE.DirectionalLight(
-        i < 2 ? 0x001931 : 0xfa0000,
-        i < 2 ? 100. : 7.);
+        i < 2 ? 0x003262 : 0x88f9fa,
+        i < 2 ? 200. : 7.);
     l.position.set(p.x, p.y, p.z);
     l.castShadow = true;
     l.shadow.radius = 0;
@@ -253,6 +300,7 @@ dlight_pos.forEach((p,i) => {
     l.shadow.camera.bottom = -3;
     l.shadow.camera.far = 10;
     scene.add(l);
+    dlights.push(l);
 })
 
 //scene.add(new THREE.CameraHelper(dlight2.shadow.camera));
@@ -277,7 +325,7 @@ const set_box_scale = () => {
     box.scale.set(scale_x, scale_y, scale_z);
     box.position.z = -scale_z/2;
 
-    const t = scale_y * 2.2;
+    const t = scale_y * 1.8;
     test_obj.scale.set(t,t,t);
 }
 
@@ -298,8 +346,14 @@ function onScroll(event) {
     camera.position.y = 1.3*dist_from_center;
     camera.lookAt(0,0,0);
     dlight1.position.x = 10*dist_from_center;
+    dlights[0].position.y = 10*dist_from_center + 1.7;
+    dlights[1].position.y = 10*dist_from_center + 1.7;
     e.style.top = `${-Math.round(dist_from_center * h * 0.6)}px`
-    test_obj.lookAt(camera.position.x, 20*camera.position.y, camera.position.z);
+    const heart = test_obj.children[0];
+    heart.lookAt(camera.position.x, 20*camera.position.y, camera.position.z);
+    heart.rotateX(Math.PI);
+    heart.rotateY(.09);
+    //heart.material.emissiveIntensity = Math.abs(dist_from_center) < 0.001 ? 1 : 0;
 }
 
 addEventListener("scroll", onScroll);
@@ -312,7 +366,7 @@ window.onload = () => {
 
 <style>
 #hewwo {
-    width: 70%;
+    width: min(100%, 30em);
     height: 30em;
     overflow: hidden;
 }
@@ -328,7 +382,7 @@ window.onload = () => {
 
 
 <div class=generic-content>
-<h1>All Posts</h1>
+<h1 style="margin-top: 0em">All Posts</h1>
 </div>
 
 <div class="blog-listing">
