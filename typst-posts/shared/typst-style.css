@@ -1,0 +1,36 @@
+.typst-eqn-inline svg {
+    height: 0.8em !important;
+    width: auto !important;
+    vertical-align: baseline;
+}
+
+.typst-eqn-block {
+    display: flex;
+    justify-content: safe center;
+    align-items: center;
+    overflow-x: auto;
+}
+
+.typst-eqn-block > svg {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+li > p { margin: 0; }
+
+.typst-codeblock {
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+    background: rgba(1, 42, 70, 0.5);
+}
+
+.typst-codeblock code, .typst-codeblock code * {
+    font-size: 1em;
+    color: white;
+}
+
+.typst-codeblock pre {
+    line-height: 1.5; 
+}

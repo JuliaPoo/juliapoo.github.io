@@ -36,3 +36,6 @@ exclude:
   - docker-compose.yml
   - Gemfile
   - Gemfile.lock
+  - typst-posts
+  - typst-postprocess.py
+  - .vscode

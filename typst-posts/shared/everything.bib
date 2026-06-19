@@ -1,0 +1,394 @@
+@book{Crole_1994, place={Cambridge}, title={Categories for Types}, publisher={Cambridge University Press}, author={Crole, Roy L.}, year={1994}}
+
+@article{Mazza2007,
+author = {Mazza, Damiano},
+title = {A denotational semantics for the symmetric interaction combinators},
+year = {2007},
+issue_date = {June 2007},
+publisher = {Cambridge University Press},
+address = {USA},
+volume = {17},
+number = {3},
+issn = {0960-1295},
+url = {https://doi.org/10.1017/S0960129507006135},
+doi = {10.1017/S0960129507006135},
+abstract = {The symmetric interaction combinators are a variant of Lafont's interaction combinators. They enjoy a weaker universality property with respect to interaction nets, but are equally expressive. They are a model of deterministic distributed computation and share the good properties of Turing machines (elementary reductions) and of the λ-calculus (higher-order functions and parallel execution). We introduce a denotational semantics for this system, which is inspired by the relational semantics for linear logic, and prove an injectivity and full completeness result for it. We also consider the algebraic semantics defined by Lafont, and prove that the two are strongly related.},
+journal = {Mathematical. Structures in Comp. Sci.},
+month = jun,
+pages = {527–562},
+numpages = {36}
+}
+
+@article{MarvinBorner2025,
+author = {Borner},
+title = {Optimal Interaction with the Real World},
+year = {2025},
+issue_date = {August 2025},
+url = {https://raw.githubusercontent.com/marvinborner/optimal-effects/refs/heads/bachelor/thesis.pdf},
+month = aug
+}
+
+@article{davoren1992lazy,
+  title={A Lazy Logician's Guide to Linear Logic},
+  author={Davoren, Jennifer},
+  journal={Papers 76a--76e in the series Monash University (Department of Mathematics) Logic Papers},
+  pages={5},
+  year={1992}
+}
+
+@article{CBN-dual-CBV,
+  author = {Wadler, Philip},
+  title = {Call-by-value is dual to call-by-name},
+  year = {2003},
+  issue_date = {September 2003},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  volume = {38},
+  number = {9},
+  issn = {0362-1340},
+  url = {https://doi.org/10.1145/944746.944723},
+  doi = {10.1145/944746.944723},
+  abstract = {The rules of classical logic may be formulated in pairs corresponding to De Morgan duals: rules about \& are dual to rules about V. A line of work, including that of Filinski (1989), Griffin (1990), Parigot (1992), Danos, Joinet, and Schellinx (1995), Selinger (1998,2001), and Curien and Herbelin (2000), has led to the startling conclusion that call-by-value is the de Morgan dual of call-by-name.This paper presents a dual calculus that corresponds to the classical sequent calculus of Gentzen (1935) in the same way that the lambda calculus of Church (1932,1940) corresponds to the intuitionistic natural deduction of Gentzen (1935). The paper includes crisp formulations of call-by-value and call-by-name that are obviously dual; no similar formulations appear in the literature. The paper gives a CPS translation and its inverse, and shows that the translation is both sound and complete, strengthening a result in Curien and Herbelin (2000).},
+  journal = {SIGPLAN Not.},
+  month = aug,
+  pages = {189–201},
+  numpages = {13},
+  keywords = {Curry-Howard correspondence, De Morgan dual, lambda calculus, lambda mu calculus, logic, natural deduction, sequent calculus}
+}
+
+@InCollection{sep-logic-linear,
+	author       =	{Di Cosmo, Roberto and Miller, Dale},
+	title        =	{{Linear Logic}},
+	booktitle    =	{The {Stanford} Encyclopedia of Philosophy},
+	editor       =	{Edward N. Zalta and Uri Nodelman},
+	howpublished =	{\url{https://plato.stanford.edu/archives/fall2023/entries/logic-linear/}},
+	year         =	{2023},
+	edition      =	{{F}all 2023},
+	publisher    =	{Metaphysics Research Lab, Stanford University}
+}
+
+@article{10.1145-357766.351262,
+  author = {Curien, Pierre-Louis and Herbelin, Hugo},
+  title = {The duality of computation},
+  year = {2000},
+  issue_date = {Sept. 2000},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  volume = {35},
+  number = {9},
+  issn = {0362-1340},
+  url = {https://doi.org/10.1145/357766.351262},
+  doi = {10.1145/357766.351262},
+  abstract = {We present the μ -calculus, a syntax for λ-calculus + control operators exhibiting symmetries such as program/context and call-by-name/call-by-value. This calculus is derived from implicational Gentzen's sequent calculus LK, a key classical logical system in proof theory. Under the Curry-Howard correspondence between proofs and programs, we can see LK, or more precisely a formulation called LKμ , as a syntax-directed system of simple types for μ -calculus. For μ -calculus, choosing a call-by-name or call-by-value discipline for reduction amounts to choosing one of the two possible symmetric orientations of a critical pair. Our analysis leads us to revisit the question of what is a natural syntax for call-by-value functional computation. We define a translation of λμ-calculus into μ -calculus and two dual translations back to λ-calculus, and we recover known CPS translations by composing these translations.},
+  journal = {SIGPLAN Not.},
+  month = sep,
+  pages = {233–243},
+  numpages = {11}
+}
+
+@InProceedings{DualityFocus,
+  author="Curien, Pierre-Louis
+  and Munch-Maccagnoni, Guillaume",
+  editor="Calude, Cristian S.
+  and Sassone, Vladimiro",
+  title="The Duality of Computation under Focus",
+  booktitle="Theoretical Computer Science",
+  year="2010",
+  publisher="Springer Berlin Heidelberg",
+  address="Berlin, Heidelberg",
+  pages="165--181",
+  abstract="We review the relationship between abstract machines for (call-by-name or call-by-value) $\lambda$-calculi (extended with Felleisen's {\$}{\backslash}mathcal C{\$}) and sequent calculus, reintroducing on the way Curien-Herbelin's syntactic kit of the duality of computation. We provide a term language for a presentation of LK (with conjunction, disjunction, and negation), and we transcribe cut elimination as (non confluent) rewriting. A key slogan, which may appear here in print for the first time, is that commutative cut elimination rules are explicit substitution propagation rules. We then describe the focalised proof search discipline (in the classical setting), and narrow down the language and the rewriting rules to a confluent calculus (a variant of the second author's focalising system L). We then define a game of patterns and counterpatterns, leading us to a fully focalised finitary syntax for a synthetic presentation of classical logic, that provides a quotient on (focalised) proofs, abstracting out the order of decomposition of negative connectives.",
+  isbn="978-3-642-15240-5"
+}
+
+@article{10.1145-3547637,
+  author = {Ostermann, Klaus and Binder, David and Skupin, Ingo and S\"{u}berkr\"{u}b, Tim and Downen, Paul},
+  title = {Introduction and elimination, left and right},
+  year = {2022},
+  issue_date = {August 2022},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  volume = {6},
+  number = {ICFP},
+  url = {https://doi.org/10.1145/3547637},
+  doi = {10.1145/3547637},
+  abstract = {Functional programming language design has been shaped by the framework of natural deduction, in which language constructs are divided into introduction and elimination rules for producers of values. In sequent calculus-based languages, left introduction rules replace (right) elimination rules and provide a dedicated sublanguage for consumers of values. In this paper, we present and analyze a wider design space of programming languages which encompasses four kinds of rules: Introduction and elimination, both left and right. We analyze the influence of rule choice on program structure and argue that having all kinds of rules enriches a programmer’s modularity arsenal. In particular, we identify four ways of adhering to the principle that ”the structure of the program follows the structure of the data“ and show that they correspond to the four possible choices of rules. We also propose the principle of bi-expressibility to guide and validate the design of rules for a connective. Finally, we deepen the well-known dualities between different connectives by means of the proof/refutation duality.},
+  journal = {Proc. ACM Program. Lang.},
+  month = aug,
+  articleno = {106},
+  numpages = {28},
+  keywords = {Sequent Calculus, Natural Deduction, Duality}
+}
+
+@article{DOWNEN_ARIOLA_2018,
+  title={A tutorial on computational classical logic and the sequent calculus},
+  volume={28},
+  DOI={10.1017/S0956796818000023},
+  journal={Journal of Functional Programming},
+  author={DOWNEN, PAUL and ARIOLA, ZENA M.},
+  year={2018},
+  pages={e3}
+}
+
+@article{ZEILBERGER200866,
+  title = {On the unity of duality},
+  journal = {Annals of Pure and Applied Logic},
+  volume = {153},
+  number = {1},
+  pages = {66-96},
+  year = {2008},
+  issn = {0168-0072},
+  doi = {https://doi.org/10.1016/j.apal.2008.01.001},
+  url = {https://www.sciencedirect.com/science/article/pii/S0168007208000080},
+  author = {Noam Zeilberger},
+  keywords = {Polarity, Focusing, Evaluation order, Michael Dummett, Curry–Howard isomorphism},
+  abstract = {Most type systems are agnostic regarding the evaluation strategy for the underlying languages, with the value restriction for ML which is absent in Haskell as a notable exception. As type systems become more precise, however, detailed properties of the operational semantics may become visible because properties captured by the types may be sound under one strategy but not the other. For example, intersection types distinguish between call-by-name and call-by-value functions, because the subtyping law (A→B)∩(A→C)≤A→(B∩C) is unsound for the latter in the presence of effects. In this paper we develop a proof-theoretic framework for analyzing the interaction of types with evaluation order, based on the notion of polarity. Polarity was discovered through linear logic, but we propose a fresh origin in Dummett’s program of justifying the logical laws through alternative verificationist or pragmatist “meaning-theories”, which include a bias towards either introduction or elimination rules. We revisit Dummett’s analysis using the tools of Martin-Löf’s judgmental method, and then show how to extend it to a unified polarized logic, with Girard’s “shift” connectives acting as intermediaries. This logic safely combines intuitionistic and dual intuitionistic reasoning principles, while simultaneously admitting a focusing interpretation for the classical sequent calculus. Then, by applying the Curry–Howard isomorphism to polarized logic, we obtain a single programming language in which evaluation order is reflected at the level of types. Different logical notions correspond directly to natural programming constructs, such as pattern-matching, explicit substitutions, values and call-by-value continuations. We give examples demonstrating the expressiveness of the language and type system, and prove a basic but modular type safety result. We conclude with a brief discussion of extensions to the language with additional effects and types, and sketch the sort of explanation this can provide for operationally sensitive typing phenomena.}
+}
+
+@InProceedings{downen_et_al:LIPIcs.FSCD.2021.1,
+  author =	{Downen, Paul and Ariola, Zena M.},
+  title =	{{Duality in Action}},
+  booktitle =	{6th International Conference on Formal Structures for Computation and Deduction (FSCD 2021)},
+  pages =	{1:1--1:32},
+  series =	{Leibniz International Proceedings in Informatics (LIPIcs)},
+  ISBN =	{978-3-95977-191-7},
+  ISSN =	{1868-8969},
+  year =	{2021},
+  volume =	{195},
+  editor =	{Kobayashi, Naoki},
+  publisher =	{Schloss Dagstuhl -- Leibniz-Zentrum f{\"u}r Informatik},
+  address =	{Dagstuhl, Germany},
+  URL =		{https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.FSCD.2021.1},
+  URN =		{urn:nbn:de:0030-drops-142390},
+  doi =		{10.4230/LIPIcs.FSCD.2021.1},
+  annote =	{Keywords: Duality, Logic, Curry-Howard, Sequent Calculus, Rewriting, Compilation}
+}
+
+@article{Barr_1991, title={*-Autonomous categories and linear logic}, volume={1}, DOI={10.1017/S0960129500001274}, number={2}, journal={Mathematical Structures in Computer Science}, author={Barr, Michael}, year={1991}, pages={159–178}}
+
+@article{SELINGER_2001, title={Control categories and duality: on the categorical semantics of the lambda-mu calculus}, volume={11}, DOI={10.1017/S096012950000311X}, number={2}, journal={Mathematical Structures in Computer Science}, author={SELINGER, PETER}, year={2001}, pages={207–260}}
+
+@inproceedings{BentonLNL,
+author = {Benton, P. N.},
+title = {A Mixed Linear and Non-Linear Logic: Proofs, Terms and Models (Extended Abstract)},
+year = {1994},
+isbn = {3540600175},
+publisher = {Springer-Verlag},
+address = {Berlin, Heidelberg},
+booktitle = {Selected Papers from the 8th International Workshop on Computer Science Logic},
+pages = {121–135},
+numpages = {15},
+series = {CSL '94}
+}
+
+@phdthesis{exegesis-trans,
+  TITLE = {{An exegesis of transcendental syntax}},
+  AUTHOR = {Eng, Boris},
+  URL = {https://hal.science/tel-04179276},
+  SCHOOL = {{Universit{\'e} Sorbonne Paris Nord}},
+  YEAR = {2023},
+  MONTH = Jun,
+  KEYWORDS = {transcendental syntax ; logic programming ; term unification ; proof theory ; proof nets ; geometry of interaction ; semantics ; logic ; model of computation ; linear logic ; realizability ; programmation logique ; unification de termes ; th{\'e}orie de la d{\'e}monstration ; r{\'e}seaux de preuve ; g{\'e}om{\'e}trie de l'interaction ; r{\'e}alisabilit{\'e} ; s{\'e}mantique ; logique ; mod{\`e}le de calcul ; syntaxe transcendantale ; logique lin{\'e}aire},
+  TYPE = {Theses},
+  PDF = {https://hal.science/tel-04179276v1/file/main.pdf},
+  HAL_ID = {tel-04179276},
+  HAL_VERSION = {v1},
+}
+
+
+@inbook{Abramsky_2009, place={Cambridge}, title={No-Cloning in Categorical Quantum Mechanics}, booktitle={Semantic Techniques in Quantum Computation}, publisher={Cambridge University Press}, author={Abramsky, Samson}, editor={Gay, Simon and Mackie, IanEditors}, year={2009}, pages={1–28}}
+
+@article{BELLIN2006146,
+title = {Categorical proof theory of classical propositional calculus},
+journal = {Theoretical Computer Science},
+volume = {364},
+number = {2},
+pages = {146-165},
+year = {2006},
+note = {Logic, Language, Information and Computation},
+issn = {0304-3975},
+doi = {https://doi.org/10.1016/j.tcs.2006.08.002},
+url = {https://www.sciencedirect.com/science/article/pii/S0304397506005287},
+author = {Gianluigi Bellin and Martin Hyland and Edmund Robinson and Christian Urban},
+keywords = {Classical logic, Proof theory, Category theory},
+abstract = {We investigate semantics for classical proof based on the sequent calculus. We show that the propositional connectives are not quite well-behaved from a traditional categorical perspective, and give a more refined, but necessarily complex, analysis of how connectives may be characterised abstractly. Finally we explain the consequences of insisting on more familiar categorical behaviour.}
+}
+
+@article{PAYKIN_ZDANCEWIC_2018, title={A linear/producer/consumer model of classical linear logic}, volume={28}, DOI={10.1017/S0960129516000347}, number={5}, journal={Mathematical Structures in Computer Science}, author={PAYKIN, JENNIFER and ZDANCEWIC, STEVE}, year={2018}, pages={710–735}}
+
+@inproceedings{Lambek1986IntroductionTH-joyal,
+  title={Introduction to higher order categorical logic},
+  author={Joachim Lambek and Philip J. Scott},
+  year={1986},
+  url={https://api.semanticscholar.org/CorpusID:122048588},
+  pages=67
+}
+
+
+@techreport{atri-trucking,
+  author      = {{American Transport Research Institute}},
+  title       = {An Analysis of the Operational Costs of Trucking: 2025 Update},
+  institution = {American Transport Research Institute},
+  year        = "2025",
+  type        = "",
+  number      = "",
+  address     = "",
+  month       = "",
+  note        = "",
+  annote      = ""
+}
+
+@MISC{driverlessthing,
+   author =       "Sergio Mendoza Reyes",
+   title =        "Driverless cars are multiplying on Texas roads. Here's what you should know",
+   month =        {Oct},
+   year =         {2023},
+   url = {https://www.texastribune.org/2023/10/05/texas-driverless-cars-autonomous-vehicles-cruise/},
+   note =         {[Online; posted 05-October-2023]},
+ }
+
+ @MISC{aurora,
+   author =       {Aurora Instutite},
+   title =        "Aurora: Self-Driving freight is here.",
+   url = {https://aurora.tech/}
+ }
+
+ @article{MOGGI199155,
+title = {Notions of computation and monads},
+journal = {Information and Computation},
+volume = {93},
+number = {1},
+pages = {55-92},
+year = {1991},
+note = {Selections from 1989 IEEE Symposium on Logic in Computer Science},
+issn = {0890-5401},
+doi = {https://doi.org/10.1016/0890-5401(91)90052-4},
+url = {https://www.sciencedirect.com/science/article/pii/0890540191900524},
+author = {Eugenio Moggi},
+abstract = {The λ-calculus is considered a useful mathematical tool in the study of programming languages, since programs can be identified with λ-terms. However, if one goes further and uses βη-conversion to prove equivalence of programs, then a gross simplification is introduced (programs are identified with total functions from values to values) that may jeopardise the applicability of theoretical results. In this paper we introduce calculi, based on a categorical semantics for computations, that provide a correct basis for proving equivalence of programs for a wide range of notions of computation.}
+}
+
+@article{COCKETT1999155,
+title = {Linearly distributive functors},
+journal = {Journal of Pure and Applied Algebra},
+volume = {143},
+number = {1},
+pages = {155-203},
+year = {1999},
+issn = {0022-4049},
+doi = {https://doi.org/10.1016/S0022-4049(98)00110-8},
+url = {https://www.sciencedirect.com/science/article/pii/S0022404998001108},
+author = {J.R.B. Cockett and R.A.G. Seely},
+abstract = {This paper introduces a notion of “linear functor” between linearly distributive categories that is general enough to account for common structure in linear logic, such as the exponentials (!, ?), and the additives (product, coproduct), and yet when interpreted in the doctrine of ∗-autonomous categories, gives the familiar notion of monoidal functor. We show that there is a bi-adjunction between the 2-categories of linearly distributive categories and linear functors, and of ∗-autonomous categories and monoidal functors, given by the construction of the “nucleus” of a linearly distributive category. We develop a calculus of proof nets for linear functors, and show how linearity accounts for the essential coherence structure of the exponentials and the additives.}
+}
+
+@inproceedings{about-cl-to-pcll,
+author = {Laurent, Olivier and Regnier, Laurent},
+title = {About Translations of Classical Logic into Polarized Linear Logic},
+year = {2003},
+isbn = {0769518842},
+publisher = {IEEE Computer Society},
+address = {USA},
+abstract = {We show that the decomposition of Intuitionistic Logicinto Linear Logic along the equation A rightarrow B = !A multimap Bmay be adapted into a decomposition of classical logic intoLLP, the polarized version of Linear Logic. Firstly we builda categorical model of classical logic (a Control Category)from a categorical model of Linear Logic by a constructionsimilar to the co-Kleisli category. Secondly we analysetwo standard Continuation-Passing Style (CPS) translations,the Plotkin and the Krivine's translations, which areshown to correspond to two embeddings of LLP into LL.},
+booktitle = {Proceedings of the 18th Annual IEEE Symposium on Logic in Computer Science},
+pages = {11},
+series = {LICS '03}
+}
+
+@phdthesis{downen2017sequent,
+  author       = {Paul Downen},
+  title        = {Sequent Calculus: A Logic and a Language for Computation and Duality},
+  school       = {University of Oregon},
+  year         = {2017},
+  url          = {https://pauldownen.com/publications/downen_phd.pdf},
+  note         = {PhD thesis}
+}
+
+@article{Girard_1991, title={A new constructive logic: classic logic}, volume={1}, DOI={10.1017/S0960129500001328}, number={3}, journal={Mathematical Structures in Computer Science}, author={Girard, Jean-Yves}, year={1991}, pages={255–296}}
+
+
+@article{Du2010ModelingAV,
+  title={Modeling and Verifying Concurrent Programs with Finite Chu Spaces},
+  author={Xutao Du and Chunxiao Xing and Lizhu Zhou},
+  journal={Journal of Computer Science and Technology},
+  year={2010},
+  volume={25},
+  pages={1168-1183},
+  url={https://api.semanticscholar.org/CorpusID:6946773}
+}
+
+@article{Barr1996TheCC,
+  title={The Chu construction},
+  author={Michael Barr},
+  journal={Theory and Applications of Categories},
+  year={1996},
+  url={https://api.semanticscholar.org/CorpusID:14959433}
+}
+
+@article{Howard_1991, title={Jean-Yves Girard, Paul Taylor, and Yves LaFont. Proofs and types. Cambridge tracts in theoretical computer science, no. 7. Cambridge University Press, Cambridge etc. 1989, xi + 176 pp.}, volume={56}, DOI={10.2307/2274726}, number={2}, journal={Journal of Symbolic Logic}, author={Howard, W. A.}, year={1991}, pages={760–761}} 
+
+@unpublished{Selinger03remarks,
+  author = {Selinger, Peter},
+  title = {Some remarks on control categories},
+  year = {2003},
+  note = {Preprint}
+}
+
+@article{intuitionistic-nets,
+author = {Laurent, Olivier},
+title = {Intuitionistic Dual-intuitionistic Nets},
+year = {2011},
+issue_date = {August 2011},
+publisher = {Oxford University Press, Inc.},
+address = {USA},
+volume = {21},
+number = {4},
+issn = {0955-792X},
+url = {https://doi.org/10.1093/logcom/exp044},
+doi = {10.1093/logcom/exp044},
+abstract = {The intuitionistic sequent calculus (at most one formula on the right-hand side of sequents) comes with a natural dual system: the dual-intuitionistic sequent calculus (at most one formula on the left-hand side). We explain how the duality between these two systems exactly corresponds to the intensively studied duality between call-by-value systems and call-by-name systems for classical logic. Relying on the uniqueness of the computational behaviour underlying these four logics (intuitionistic, dual-intuitionistic, call-by-value classical and call-by-name classical), we define a generic syntax of nets which can be used for any of these logics.},
+journal = {J. Log. and Comput.},
+month = aug,
+pages = {561–587},
+numpages = {27}
+}
+
+@unpublished{GrahamLengrandCurryHowardClassical,
+  author = {St{\'e}phane Graham-Lengrand},
+  title = {The {C}urry-{H}oward view of classical logic: a short introduction},
+  note = {Lecture Notes, {MPRI}},
+  year = {2016},
+  month = {March},
+  url = {https://www.csl.sri.com/users/sgl/Work/Teaching/MPRI/Notes.pdf}
+}
+
+@incollection{girard1996proof,
+  title={Proof-nets: The parallel syntax for proof-theory},
+  author={Girard, Jean-Yves},
+  booktitle={Logic and Algebra},
+  pages={97--124},
+  year={1996},
+  publisher={Marcel Dekker},
+  editor={A. Ursini and P. Agliano}
+}
+
+@article{10.1145-3022670.2951931,
+author = {Downen, Paul and Maurer, Luke and Ariola, Zena M. and Peyton Jones, Simon},
+title = {Sequent calculus as a compiler intermediate language},
+year = {2016},
+issue_date = {September 2016},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {51},
+number = {9},
+issn = {0362-1340},
+url = {https://doi.org/10.1145/3022670.2951931},
+doi = {10.1145/3022670.2951931},
+abstract = {The λ-calculus is popular as an intermediate language for practical compilers. But in the world of logic it has a lesser-known twin, born at the same time, called the sequent calculus. Perhaps that would make for a good intermediate language, too? To explore this question we designed Sequent Core, a practically-oriented core calculus based on the sequent calculus, and used it to re-implement a substantial chunk of the Glasgow Haskell Compiler.},
+journal = {SIGPLAN Not.},
+month = sep,
+pages = {74–88},
+numpages = {15},
+keywords = {Compiler optimizations, Continuations, Haskell, Intermediate representations, Natural deduction, Sequent calculus}
+}
+
