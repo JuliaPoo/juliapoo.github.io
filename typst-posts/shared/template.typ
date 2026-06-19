@@ -51,8 +51,10 @@
     } else { it }
   }
 
-  context if target() == "html" {
-    set raw(theme: "dracula.tmTheme")
+  show raw.where(block: true): it => {
+    if target() == "html" {
+      raw(theme: "dracula.tmTheme", it)
+    } else { it }
   }
 
   context if target() != "html" {
