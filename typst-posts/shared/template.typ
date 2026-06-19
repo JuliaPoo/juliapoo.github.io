@@ -51,12 +51,6 @@
     } else { it }
   }
 
-  show raw.where(block: true): it => {
-    if target() == "html" {
-      raw(theme: "dracula.tmTheme", it)
-    } else { it }
-  }
-
   context if target() != "html" {
     align(center)[
       #text(size: 2.3em, weight: "bold", display-title)
@@ -67,7 +61,7 @@
           excerpt
         }
         #grid(
-          columns: (50%, 50%),
+          columns: (auto, auto),
           align: (right + top, left + top),
           column-gutter: 1em,
           row-gutter: 0.7em,
@@ -79,5 +73,14 @@
     ]
   }
 
-  doc
+  context {
+    if target() == "html" {
+      // Styles applied ONLY for web output
+      set raw(theme: "dracula.tmTheme")
+      doc
+    } else {
+      // Styles applied ONLY for PDF output
+      doc
+    }
+  }
 }

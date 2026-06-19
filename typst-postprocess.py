@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 import yaml
 import re
 import shutil
+import os
 
 JEKYLL_BUILD_PATH = Path("../_posts")
 HTML_BUILD_PATH = Path("build")
@@ -41,7 +42,7 @@ if __name__ == "__main__":
     rsrc_loc = path / RESOURCE_PATH / fn
     debug_build_rsrc_loc = path / HTML_BUILD_PATH / RESOURCE_PATH / fn
     jekyll_build_rsrc_loc = path / JEKYLL_RESOURCE_PATH / fn
-    
+
     typst_cnt = open(typst_loc).read()
     html_cnt = open(html_loc).read()
 
