@@ -76,7 +76,15 @@ if __name__ == "__main__":
         str(html_body)
     )
 
-    open(final_build_loc, "w").write(jekyll_final)
-    shutil.copytree(rsrc_loc, debug_build_rsrc_loc, dirs_exist_ok=True)
+    # Write into jekyll location
     shutil.copytree(rsrc_loc, jekyll_build_rsrc_loc, dirs_exist_ok=True)
     shutil.copy(pdf_loc, jekyll_build_rsrc_loc)
+
+    # Set up debug website
+    head_tag = soup.head
+    new_link = soup.new_tag("link", rel="stylesheet", href="assets/debug.css", type="text/css")
+    head_tag.append(new_link)
+    open(html_loc, "w").write(str(soup))
+    open(final_build_loc, "w").write(jekyll_final)
+    shutil.copy(path / "assets" / "debug.css", path / HTML_BUILD_PATH / "assets")
+    shutil.copytree(rsrc_loc, debug_build_rsrc_loc, dirs_exist_ok=True)

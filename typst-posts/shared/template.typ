@@ -1,5 +1,4 @@
 #let col = white
-#let debug = true
 
 
 #let html-equation(size: 1em, it) = html.frame()[
@@ -16,17 +15,9 @@
   excerpt: none,
   doc
 ) = context {
+
   if target() == "html" {
       html.elem("style", read("typst-style.css"))
-  }
-
-  if (debug and target() == "html") {
-    html.elem("style")[
-      body {
-        background-color: \#001431;
-        color: white;
-      }
-    ]
   }
 
   show math.equation.where(block: false): it => {
