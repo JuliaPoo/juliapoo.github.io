@@ -6,7 +6,7 @@
   category: "Mathematics",
   display-title: "You Could've Discovered the Yoneda Lemma",
   tags: ("math", "category-theory", "yoneda-lemma",),
-  excerpt: "An exposition on the Yoneda Lemma that's accessible to those without a math background. The Yoneda Lemma is a very useful statement in Category Theory which is usually communicated as ''you can completely understand something by observing how everything else relate to it''. It has been the subject of intense hype amongst pseudo-intellectual circles surrounding tech and AI, despite how, as we'll see in this post, the statement of the Yoneda Lemma is surprisingly dull.",
+  excerpt: "An exposition on the Yoneda Lemma that's accessible to those without a math background. The Yoneda Lemma is a very useful statement in Category Theory which is usually communicated as ''you can completely understand something by observing how everything else relate to it''. It has been the subject of intense hype among pseudo-intellectual circles surrounding tech and AI, despite, as we'll see in this post, the statement of the Yoneda Lemma is surprisingly dull.",
   doc
 )
 // END METADATA //
@@ -53,7 +53,7 @@ Perhaps this isn't too surprising. Mathematics itself is often mythologised as t
 
 And obvious it is, as I'll posit in this post. With the right pictures in your head, the Yoneda Lemma will seem more akin to a tautology (like _it is what it is_). And this is what I'll be trying to achieve in this article: To put the right pictures in your head so that the Yoneda Lemma seems almost boring. This is, in my opinion, the first step to understanding the applicability and genius of the Yoneda Lemma, as the magic lies not in the statement itself, but in the _language_ that makes the statement even possible to state.
 
-This article is written to be understandable even to people who do not have much of a background in mathematics (headingowever, some familiarity with concepts like "sets" and "functions" are required). Hence, I'll be expositing informally, but in great detail, the basic language of Category Theory, but will not elaborate on its vast applicability to mathematics. This is, perhaps, a shame, as the language of category theory cannot be properly appreciated without sufficient mathematical maturity. For the unlikely few who have read this far and are interested in such an exposition, I highly recommend Emily Riehl's Category Theory in Context. Otherwise, this article will not help in a greater appreciation of the Yoneda Lemma for mathematics itself.
+This article is written to be understandable even to people who do not have much of a background in mathematics (headingowever, some familiarity with concepts like "sets" and "functions" are required). Hence, I'll be expositing informally, but in great detail, the basic language of Category Theory, but will not elaborate on its vast applicability to mathematics. This is, perhaps, a shame, as the language of category theory cannot be properly appreciated without sufficient mathematical maturity. For the unlikely few who have read this far and are interested in such an exposition, I highly recommend Emily Riehl's Category Theory in Context @riehl2017category. Otherwise, this article will not help in a greater appreciation of the Yoneda Lemma for mathematics itself.
 
 = Basic Definitions
 
@@ -69,7 +69,7 @@ The precise statement of the Yoneda Lemma requires constructions from Category T
 
 At a high level, the Yoneda Lemma asserts the existence of a certain _bijection_ between two sets $Nat(Hom(A, -), F)$ and $F A$, which I'd be describing shortly. This _bijection_ is _structure preserving_ in some sense, and a consequence of this allows one to capture the "properties" of $A$ as the "set of functions" going out of $A$, written $Hom(A, -)$. As Tom Leinster puts it in @leinster2014basic, $Hom(A, -)$ can be thought of as "how $A$ sees the world".
 
-Regretfully, for illustration purposes, I'd only be expositing on a weaker version of the lemma. In particular, I'll simply be illustrating the _bijection_, and disregarding the _structure preservation_. I've also replaced _locally small_ with _small_ so I can avoid certain technical issues in the later discussions.
+Regretfully, for illustration purposes, I'd only be expositing on a weaker version of the lemma. In particular, I'll simply be illustrating the _bijection_, disregarding the _structure preservation_. This is arguably controversial, as it severly diminishes the utility of the lemma. However, since this article only aims to paint a rough 'picture' of the lemma, I've opted to exclude it. A proper exposition of the lemma can be found in @leinster2014basic and @riehl2017category. I've also replaced _locally small_ with _small_ so I can avoid certain technical issues in the later discussions.
 
 #lemma([Yoneda Modified], label: "yoneda-mod")[
   Let $cal(C)$ be a small category. For any functor $F: cal(C) -> Set$, there is a bijection:
@@ -78,8 +78,12 @@ Regretfully, for illustration purposes, I'd only be expositing on a weaker versi
   $
 ]
 
+With that out of the way, lets proceed with the definitions of the objects we'll be working with.
 
 == Categories
+
+
+
 
 == Functors
 
