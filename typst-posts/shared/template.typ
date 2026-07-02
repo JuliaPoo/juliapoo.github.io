@@ -1,3 +1,5 @@
+
+
 #let col = white
 
 
@@ -71,6 +73,8 @@
       doc
     } else {
       // Styles applied ONLY for PDF output
+      show link: it => text(fill: rgb("#016539"), underline(it))
+      set par(justify: true)
       doc
     }
   }

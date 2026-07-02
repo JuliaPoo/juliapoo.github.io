@@ -688,6 +688,7 @@ body {
   text-justify: inter-word;
   font-family: 'Segoe UI';
   width: 50em;
+  padding: 3em;
 }
 
 h1:not(.generic-no-style) {
