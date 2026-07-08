@@ -1,7 +1,7 @@
 
 
-#let col = white
-
+#let mode = sys.inputs.at("mode", default: "print")
+#let primary-col = if mode == "print" {black} else {white}
 
 #let html-equation(size: 1em, it) = html.frame()[
   #set text(size: size, fill: col)

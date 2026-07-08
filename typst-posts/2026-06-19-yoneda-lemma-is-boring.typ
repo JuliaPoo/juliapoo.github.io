@@ -17,6 +17,7 @@
 #import "@preview/theoretic:0.3.1"
 #import theoretic.presets.corners: *
 #show ref: theoretic.show-ref
+#import "@preview/fletcher:0.5.8" as fletcher: diagram, node, edge
 
 #let theorem = theoretic.theorem.with(
   show-theorem: it => {
@@ -45,7 +46,8 @@
 #let Nat = "Nat"
 #let Set = "Set"
 #let Hom = "Hom"
-#let ChickenAndEgg = [*ChickenAndEgg*]
+#let bb = it => text(weight: "bold", it)
+#let ChickenAndEgg = bb("ChickenAndEgg")
 
 
 = Introduction
@@ -111,6 +113,41 @@ To start this discussion, I'll first provide the formal definition of a category
 ]
 
 To concretise above, I'll go through an example toy category I'll call $ChickenAndEgg$.
+
+#let Chicken = bb("Chicken")
+#let Egg = bb("Egg")
+#let FriedEgg = bb("FriedEgg")
+#let BoiledEgg = bb("BoiledEgg")
+#let Trash = bb("Trash")
+#let hatch = "hatch"
+#let lay = "lay"
+#let fry = "fry"
+#let boil = "boil"
+#let rot = "rot"
+#let toss = "toss"
+
+#example()[
+  $ChickenAndEgg$ is a category that contains objects $ {Chicken, Egg, FriedEgg, BoiledEgg, Trash} $ and the following morphisms and its compositions:
+  $
+    #diagram(
+      spacing: 1em,
+      edge-stroke: primary-col,
+      node((0, 0), Chicken),
+      node((1, 0), Egg),
+      node((1, 3), FriedEgg),
+      node((2, 3), BoiledEgg),
+      node((1.5, 5), Trash),
+      edge((0,0), (1,0), "->", label: lay, bend:30deg),
+      edge((0,0), (1,0), "<-", label: hatch, bend:-30deg),
+      edge((1,0), (1,3), "->", label: fry, label-side: left),
+      edge((1,0), (2,3), "->", label: boil, label-side: left),
+      edge((1,3), (1.5,5), "->", label: toss, label-side: right, label-pos:0.1),
+      edge((2,3), (1.5,5), "->", label: rot, label-side: left, label-pos: 0.1),
+    )
+  $
+  Where we (arbituary) assert that $boil;rot = fry;toss$ since here we've arbituary decided not to distinguish $Trash$ originating from a $FriedEgg$ or $BoiledEgg$.
+  
+]
 
 
 == Functors

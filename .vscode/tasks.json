@@ -3,19 +3,30 @@
   "tasks": [
     {
       "label": "compile-to-html",
-      "type": "typst",
-      "command": "export",
-      "export": {
-        "format": "html"
-      }
+      "type": "process",
+      "command": "/home/tessa/.local/bin/typst",
+      "args": [
+        "compile",
+        "${file}",
+        "${fileDirname}/${fileBasenameNoExtension}.html",
+        "--features", "html",
+        "--input", "mode=web"
+        // "--pretty" // uncomment if your postprocess prefers unminified HTML (minified by default since Typst 0.15)
+      ],
+      "problemMatcher": []
     },
     {
       "label": "compile-to-pdf",
-      "type": "typst",
-      "command": "export",
-      "export": {
-        "format": "pdf"
-      }
+      "type": "process",
+      "command": "/home/tessa/.local/bin/typst",
+      "args": [
+        "compile",
+        "${file}",
+        "${fileDirname}/${fileBasenameNoExtension}.pdf",
+        "--features", "html",
+        "--input", "mode=print"
+      ],
+      "problemMatcher": []
     },
     {
       "label": "Export as Jekyll Template",
