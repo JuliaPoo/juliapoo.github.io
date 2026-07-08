@@ -30,7 +30,7 @@
   show math.equation.where(block: true): it => {
     if target() == "html" {
       html.elem("div", attrs: (class: "typst-eqn-block"), html-equation(it, size: 1.2em))
-    } else { it }
+    } else { set block(above: 1em, below: 1em); it }
   }
   show raw.where(block: true): it => {
     if target() == "html" {

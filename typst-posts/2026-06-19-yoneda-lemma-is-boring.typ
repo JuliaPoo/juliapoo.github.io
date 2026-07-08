@@ -33,9 +33,19 @@
   }
 )
 
+#let definition = theoretic.theorem.with(
+  supplement: "Definition", kind: "definition",
+  show-theorem: it => {
+    show quote: set pad(0em) // Trick to get it to work in pdf
+    quote(block: true, show-theorem(it))
+  }
+)
+
+
 #let Nat = "Nat"
 #let Set = "Set"
 #let Hom = "Hom"
+#let ChickenAndEgg = [*ChickenAndEgg*]
 
 
 = Introduction
@@ -69,7 +79,7 @@ The precise statement of the Yoneda Lemma requires constructions from Category T
 
 At a high level, the Yoneda Lemma asserts the existence of a certain _bijection_ between two sets $Nat(Hom(A, -), F)$ and $F A$, which I'd be describing shortly. This _bijection_ is _structure preserving_ in some sense, and a consequence of this allows one to capture the "properties" of $A$ as the "set of functions" going out of $A$, written $Hom(A, -)$. As Tom Leinster puts it in @leinster2014basic, $Hom(A, -)$ can be thought of as "how $A$ sees the world".
 
-Regretfully, for illustration purposes, I'd only be expositing on a weaker version of the lemma. In particular, I'll simply be illustrating the _bijection_, disregarding the _structure preservation_. This is arguably controversial, as it severly diminishes the utility of the lemma. However, since this article only aims to paint a rough 'picture' of the lemma, I've opted to exclude it. A proper exposition of the lemma can be found in @leinster2014basic and @riehl2017category. I've also replaced _locally small_ with _small_ so I can avoid certain technical issues in the later discussions.
+Regretfully, for illustration purposes, I'd only be expositing on a weaker version of the lemma. In particular, I'll simply be illustrating the _bijection_, disregarding the _structure preservation_ (naturality), and only briefly discuss the latter and some of its consequences in Mathematics. This is arguably controversial, as it severly diminishes the utility of the lemma. However, since this article only aims to paint a rough 'picture' of the lemma, I've opted to exclude it, and hopefully this 'picture' can make it 'obvious enough' that the two objects are _the same thing_ to believe the lemma's _naturality_ clause. A proper exposition of the lemma can be found in @leinster2014basic and @riehl2017category. I've also replaced _locally small_ with _small_ so I can avoid certain technical issues in the later discussions.
 
 #lemma([Yoneda Modified], label: "yoneda-mod")[
   Let $cal(C)$ be a small category. For any functor $F: cal(C) -> Set$, there is a bijection:
@@ -82,7 +92,25 @@ With that out of the way, lets proceed with the definitions of the objects we'll
 
 == Categories
 
+Categories are the central objects of, well, _Category Theory_. Categories can be thought of as mathematical universes which contain objects, of which Category Theory provides an incredibly rich language to specify the relationships between said objects. This rich language is one of the reasons Emily Rielh has called Category Theory a cross-disciplinary language that formalizes mathematical analogies, providing a unified framework to describe the same phenomena in many different areas of Mathematics.
 
+To start this discussion, I'll first provide the formal definition of a category, and breakdown the definition with some examples.
+
+#definition([Categories])[
+  A _category_ consists of:
+  - A collection of _objects_ (which we often denote with uppercase letters $X, Y, Z, ...$)
+  - A collection of _morphisms_ (which we often denote with lowercase letters $f, g, h, ...$)
+  so that:
+  - Each morphism has a specified _source_ and _destination_. $f: X -> Y$ denotes a morphism with source $X$ and destination $Y$.
+  - Each object $X$ has an _identity morphism_ denoted $id_X: X -> X$.
+  - For any pair of _composable_ morphisms $f: X -> Y$ and $g: Y -> Z$, defined so when $f$'s destination is $g$'s source, there exists a composite morphism $f ; g: X -> Z$. This composition is also denoted $ X -->_(f;g) Z = X -->_f Y -->_g Z $
+
+  This data is subjected to the following constraints:
+  - For any $f: X -> Y$, the composites $id_X ; f$ and $f ; id_Y$ are equal to $f$. Hence $id_X$ can be thought of as the 'do-nothing' morphism of $X$.
+  - For any composable triple of morphisms $f, g, h$, the composites $(f;g);h$ and $f;(g;h)$ are equal, and, since the ambiguity is addressed, will simply be denoted $f;g;h$. 
+]
+
+To concretise above, I'll go through an example toy category I'll call $ChickenAndEgg$.
 
 
 == Functors
@@ -92,8 +120,6 @@ With that out of the way, lets proceed with the definitions of the objects we'll
 == Hom-Functors
 
 = The Yoneda Lemma
-
-== The Yoneda Slogan
 
 == The Yoneda Slogan
 
