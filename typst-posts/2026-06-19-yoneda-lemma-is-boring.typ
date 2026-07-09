@@ -19,29 +19,31 @@
 #show ref: theoretic.show-ref
 #import "@preview/fletcher:0.5.8" as fletcher: diagram, node, edge
 
-#let theorem = theoretic.theorem.with(
-  show-theorem: it => {
-    show quote: set pad(0em) // Trick to get it to work in pdf
+#if mode != "print" {
+  let show-theorem = it => {
+    it.supplement = html.elem("strong", it.supplement)
+    it.number = html.elem("strong", it.number)
     quote(block: true, show-theorem(it))
   }
-)
+  let options = ()
+  
+  theorem = theoretic.theorem.with(
+    options: options,
+    show-theorem: show-theorem
+  )
 
-#let lemma = theoretic.theorem.with(
-  supplement: "Lemma", kind: "lemma",
-  show-theorem: it => {
-    show quote: set pad(0em) // Trick to get it to work in pdf
-    quote(block: true, show-theorem(it))
-  }
-)
+  lemma = theoretic.theorem.with(
+    supplement: "Lemma", kind: "lemma",
+    options: options,
+    show-theorem: show-theorem
+  )
 
-#let definition = theoretic.theorem.with(
-  supplement: "Definition", kind: "definition",
-  show-theorem: it => {
-    show quote: set pad(0em) // Trick to get it to work in pdf
-    quote(block: true, show-theorem(it))
-  }
-)
-
+  definition = theoretic.theorem.with(
+    supplement: "Definition", kind: "definition",
+    options: options,
+    show-theorem: show-theorem
+  )
+}
 
 #let Nat = "Nat"
 #let Set = "Set"
@@ -149,8 +151,8 @@ To concretise above, I'll go through an example toy category I'll call $ChickenA
   
 ]
 
-
 == Functors
+
 
 == Natural Transforms
 

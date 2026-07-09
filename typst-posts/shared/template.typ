@@ -1,12 +1,5 @@
-
-
 #let mode = sys.inputs.at("mode", default: "print")
 #let primary-col = if mode == "print" {black} else {white}
-
-#let html-equation(size: 1em, it) = html.frame()[
-  #set text(size: size, fill: col)
-  #it
-]
 
 #let template(
   layout: none,
@@ -16,35 +9,11 @@
   tags: (),
   excerpt: none,
   doc
-) = context {
+) = {
 
-  if target() == "html" {
-      html.elem("style", read("typst-style.css"))
-  }
+  if mode == "print" {
+    show math.equation.where(block: true): set block(above: 1em, below: 1em)
 
-  show math.equation.where(block: false): it => {
-    if target() == "html" {
-      html.elem("span", attrs: (class: "typst-eqn-inline"), html-equation(it))
-    } else { it }
-  }
-  show math.equation.where(block: true): it => {
-    if target() == "html" {
-      html.elem("div", attrs: (class: "typst-eqn-block"), html-equation(it, size: 1.2em))
-    } else { set block(above: 1em, below: 1em); it }
-  }
-  show raw.where(block: true): it => {
-    if target() == "html" {
-      html.elem("div", attrs: (class: "typst-codeblock"), it)
-    } else { it }
-  }
-
-  show image: it => {
-    if target() == "html" {
-      html.elem("img", attrs: (class: "typst-image", src: "/" + it.source))
-    } else { it }
-  }
-
-  context if target() != "html" {
     align(center)[
       #text(size: 2.3em, weight: "bold", display-title)
       #block(width: 80%)[
@@ -64,18 +33,35 @@
         )
       ]
     ]
+
+    show link: it => text(fill: rgb("#016539"), underline(it))
+    set par(justify: true)
+    
+    doc 
+
+  } else {
+
+    let html-equation(size: 1em, it) = html.frame()[#{
+      set text(size: size, fill: primary-col)
+      it
+    }]
+    html.elem("style", read("typst-style.css"))
+    show math.equation.where(block: false): it => {
+      html.elem("span", attrs: (class: "typst-eqn-inline"), html-equation(it))
+    }
+    show math.equation.where(block: true): it => {
+      html.elem("div", attrs: (class: "typst-eqn-block"), html-equation(it, size: 1.2em))
+    }
+    show raw.where(block: true): it => {
+      html.elem("div", attrs: (class: "typst-codeblock"), it)
+    }
+    show image: it => {
+      html.elem("img", attrs: (class: "typst-image", src: "/" + it.source))
+    }
+
+    set raw(theme: "dracula.tmTheme")
+
+    doc
   }
 
-  context {
-    if target() == "html" {
-      // Styles applied ONLY for web output
-      set raw(theme: "dracula.tmTheme")
-      doc
-    } else {
-      // Styles applied ONLY for PDF output
-      show link: it => text(fill: rgb("#016539"), underline(it))
-      set par(justify: true)
-      doc
-    }
-  }
 }

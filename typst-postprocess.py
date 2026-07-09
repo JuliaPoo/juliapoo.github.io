@@ -42,6 +42,7 @@ if __name__ == "__main__":
     rsrc_loc = path / RESOURCE_PATH / fn
     debug_build_rsrc_loc = path / HTML_BUILD_PATH / RESOURCE_PATH / fn
     jekyll_build_rsrc_loc = path / JEKYLL_RESOURCE_PATH / fn
+    debug_html_asset_path = path / HTML_BUILD_PATH / "assets"
 
     typst_cnt = open(typst_loc).read()
     html_cnt = open(html_loc).read()
@@ -86,5 +87,7 @@ if __name__ == "__main__":
     head_tag.append(new_link)
     open(html_loc, "w").write(str(soup))
     open(final_build_loc, "w").write(jekyll_final)
-    shutil.copy(path / "assets" / "debug.css", path / HTML_BUILD_PATH / "assets")
+    
+    debug_html_asset_path.mkdir(parents=True, exist_ok=True)
+    shutil.copy(path / "assets" / "debug.css", debug_html_asset_path)
     shutil.copytree(rsrc_loc, debug_build_rsrc_loc, dirs_exist_ok=True)

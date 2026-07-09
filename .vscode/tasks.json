@@ -8,7 +8,7 @@
       "args": [
         "compile",
         "${file}",
-        "${fileDirname}/${fileBasenameNoExtension}.html",
+        "${fileDirname}/build/${fileBasenameNoExtension}.html",
         "--features", "html",
         "--input", "mode=web"
         // "--pretty" // uncomment if your postprocess prefers unminified HTML (minified by default since Typst 0.15)
@@ -22,7 +22,7 @@
       "args": [
         "compile",
         "${file}",
-        "${fileDirname}/${fileBasenameNoExtension}.pdf",
+        "${fileDirname}/build/${fileBasenameNoExtension}.pdf",
         "--features", "html",
         "--input", "mode=print"
       ],
