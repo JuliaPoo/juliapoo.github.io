@@ -25,22 +25,18 @@
     it.number = html.elem("strong", it.number)
     quote(block: true, show-theorem(it))
   }
-  let options = ()
   
   theorem = theoretic.theorem.with(
-    options: options,
     show-theorem: show-theorem
   )
 
   lemma = theoretic.theorem.with(
     supplement: "Lemma", kind: "lemma",
-    options: options,
     show-theorem: show-theorem
   )
 
   definition = theoretic.theorem.with(
     supplement: "Definition", kind: "definition",
-    options: options,
     show-theorem: show-theorem
   )
 }
@@ -100,7 +96,7 @@ Categories are the central objects of, well, _Category Theory_. Categories can b
 
 To start this discussion, I'll first provide the formal definition of a category, and breakdown the definition with some examples.
 
-#definition([Categories])[
+#definition([Categories], label:"definition-category")[
   A _category_ consists of:
   - A collection of _objects_ (which we often denote with uppercase letters $X, Y, Z, ...$)
   - A collection of _morphisms_ (which we often denote with lowercase letters $f, g, h, ...$)
@@ -128,8 +124,8 @@ To concretise above, I'll go through an example toy category I'll call $ChickenA
 #let rot = "rot"
 #let toss = "toss"
 
-#example()[
-  $ChickenAndEgg$ is a category that contains objects $ {Chicken, Egg, FriedEgg, BoiledEgg, Trash} $ and the following morphisms and its compositions:
+#example(label:"example-chickenandegg")[
+  $ChickenAndEgg$ is a category that contains objects $ "Obj" = {Chicken, Egg, FriedEgg, BoiledEgg, Trash} $ and the following morphisms and its compositions:
   $
     #diagram(
       spacing: 1em,
@@ -147,9 +143,15 @@ To concretise above, I'll go through an example toy category I'll call $ChickenA
       edge((2,3), (1.5,5), "->", label: rot, label-side: left, label-pos: 0.1),
     )
   $
-  Where we (arbituary) assert that $boil;rot = fry;toss$ since here we've arbituary decided not to distinguish $Trash$ originating from a $FriedEgg$ or $BoiledEgg$.
-  
+  Where we (arbituary) assert that $boil;rot = fry;toss$. This is representative of how we've arbituary decided not to distinguish $Trash$ originating from a $FriedEgg$ or $BoiledEgg$.
 ]
+
+Note that the diagram in the above @example-chickenandegg does not show all morphisms in $ChickenAndEgg$. In particular, I do not draw any of the 'do-nothing' morphisms ($id_X$ for $X in "Obj"$). Further, I do not include any of the 'compositions'. For instance, $lay;boil$ is a morphism in $ChickenAndEgg$ via @definition-category but is not drawn.
+
+Also, note that even though two morphisms can have the same source and destination, they might not be equal. For instance, $lay;hatch$ and $id_Chicken$ both have their source and destination as $Chicken$ but are not considered equal in this category, representative of how we would want to distinguish between chickens originating from different eggs.
+
+
+
 
 == Functors
 
